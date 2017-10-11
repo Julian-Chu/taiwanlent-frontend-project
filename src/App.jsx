@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SidePanel from './components/SidePanelComponent';
 import Header from './components/HeaderComponent';
+import Slides from './components/SlidesComponent'
 
 class App extends Component {
     render() {
@@ -10,6 +11,7 @@ class App extends Component {
                 <SidePanel />
                 <div className="clear-fix">
                     <Header/>
+                    <Slides/>
                 </div>
             </div>
         );

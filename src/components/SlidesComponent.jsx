@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SlidesCss from '../sliders.css';
+import styles from '../styles/sliders.css';
 
 export default class Slides extends Component{
     constructor(props){
@@ -16,11 +16,11 @@ export default class Slides extends Component{
 
   render(){
     return(
-        <section  className="slider-parallax full-screen force-full-screen">
+        <section id="slider" className="slider-parallax full-screen force-full-screen" style={{height: this.state.picHeight, top:'-70px', marginBottom:'-70px'}}>
            <div className="slider-parallax-inner">
                     <div className="full-screen force-full-screen dark section nopadding nomargin noborder ohidden" style={{backgroundImage: "url('images/page/Taiwanlent-Berlin.jpg')", backgroundSize: 'cover', backgroundPosition: 'center center', height: this.state.picHeight}}>
                         <div className="container center">
-                            <div className="vertical-middle">
+                            <div className="vertical-middle" style={{position:'absolute', top:'50%', width:'100%', paddingTop:'0px', paddingBottom:'0px', marginTop:'-63.5px', opacity:'1.5'}}>
                                 <div className="emphasis-title">
                                     <h1>
                                         <span className="text-rotater nocolor" data-separator="|" data-rotate="fadeIn" data-speed="6000">
@@ -29,11 +29,12 @@ export default class Slides extends Component{
                                     </h1>
                                 </div>
                                 <a href="#" className="button button-border button-light button-circle" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">成為人才</a>
-                                <a href="#" className="button button-border button-light button-circle" data-scrollto="#section-find" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">尋找人才</a></div>
+                                <button className="button button-border button-light button-circle" data-scrollto="#section-find" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">尋找人才</button>
+                                </div>
                         </div>
 
                         <div className="video-wrap">
-                            <div className="video-overlay" style={{backgroundColor: 'rgba(0,0,0,0.55)'}}></div>
+                            <div className="video-overlay" style={{backgroundColor: 'rgba(0,0,0,0)'}}></div>
                         </div>
 
                         <a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250" data-offset="65" className="one-page-arrow dark"><i className="icon-angle-down infinite animated fadeInDown"></i></a>

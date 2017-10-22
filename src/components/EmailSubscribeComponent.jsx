@@ -38,7 +38,7 @@ export default class EmailSubscribe extends Component {
 
   render() {
     return (
-      <div className="container clearfix">
+      <div id="section-subscribe"className="container clearfix">
           <div className="divcenter center" style={{maxWidth: '900px'}}>
               <h2 className="nobottommargin t300 ls1">訂閱電子報</h2>
               <div className="widget-subscribe-form-result"></div>

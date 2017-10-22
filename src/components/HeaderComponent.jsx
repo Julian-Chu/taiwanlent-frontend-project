@@ -14,17 +14,17 @@ export default class Header extends Component {
             <nav id="primary-menu">
               <ul className="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
                 <li>
-                  <a href="#" data-href="#section-about">
+                  <a href="#section-about" data-href="#section-about">
                     <div>如何成為人才</div>
                   </a>
                 </li>
                 <li>
-                  <a href="#" data-href="#section-find">
+                  <a href="#section-find" data-href="#section-find">
                     <div>尋找人才</div>
                   </a>
                 </li>
                 <li>
-                  <a href="#" data-href="#section-subscribe">
+                  <a href="#section-subscribe" data-href="#section-subscribe">
                     <div>訂閱電子報</div>
                   </a>
                 </li>

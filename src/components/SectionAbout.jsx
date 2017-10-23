@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class SectionAbout extends Component {
   render() {
     return (
-      <div id="section-about" className="center page-section" style={{ height: '100vh', backgroundColor: 'white' }}>
+      <div id="section-about" className="center page-section" style={{ height: '100vh'}}>
         <div className="section nomargin">
           <div className="container clearfix">
             <h2 className="divcenter bottommargin font-body" style={{ maxWidth: '700px', fontSize: '40px' }}>如何加入Taiwanlent？</h2>

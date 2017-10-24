@@ -5,6 +5,8 @@ import Slides from './components/SlidesComponent';
 import SectionAbout from './components/SectionAbout';
 import SectionFind from './components/SectionFind';
 
+import SectionSubscribe from './components/SectionSubscribe';
+
 class App extends Component {
     render() {
         return (
@@ -15,9 +17,11 @@ class App extends Component {
                     <Header></Header>
                     <Slides></Slides>
                     <section >
-                        <div className="content-wrap nopadding" style={{backgroundColor:'white'}}>
+                        <div className="content-wrap nopadding" style={{ backgroundColor: 'white' }}>
                             <SectionAbout></SectionAbout>
                             <SectionFind></SectionFind>
+                            <SectionSubscribe></SectionSubscribe>
+
                         </div>
                     </section>
                 </div>

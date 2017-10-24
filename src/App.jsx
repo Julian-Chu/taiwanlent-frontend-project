@@ -6,6 +6,7 @@ import SectionAbout from './components/SectionAbout';
 import SectionFind from './components/SectionFind';
 
 import SectionSubscribe from './components/SectionSubscribe';
+import SectionContact from './components/SectionContact';
 
 class App extends Component {
     render() {
@@ -21,7 +22,7 @@ class App extends Component {
                             <SectionAbout></SectionAbout>
                             <SectionFind></SectionFind>
                             <SectionSubscribe></SectionSubscribe>
-
+                            <SectionContact></SectionContact>  
                         </div>
                     </section>
                 </div>

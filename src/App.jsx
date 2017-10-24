@@ -17,7 +17,7 @@ class App extends Component {
                 <div className="clear-fix">
                     <Header></Header>
                     <Slides></Slides>
-                    <section >
+                    <section id="content">
                         <div className="content-wrap nopadding" style={{ backgroundColor: 'white' }}>
                             <SectionAbout></SectionAbout>
                             <SectionFind></SectionFind>

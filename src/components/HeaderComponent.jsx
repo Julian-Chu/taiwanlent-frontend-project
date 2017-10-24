@@ -29,7 +29,7 @@ export default class Header extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="#" data-href="#section-contact">
+                  <a href="#section-contact" data-href="#section-contact">
                     <div>聯絡我們</div>
                   </a>
                 </li>

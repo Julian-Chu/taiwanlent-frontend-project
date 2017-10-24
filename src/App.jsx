@@ -7,6 +7,7 @@ import SectionFind from './components/SectionFind';
 
 import SectionSubscribe from './components/SectionSubscribe';
 import SectionContact from './components/SectionContact';
+import Footer from './components/Footer';
 
 class App extends Component {
     render() {
@@ -22,10 +23,11 @@ class App extends Component {
                             <SectionAbout></SectionAbout>
                             <SectionFind></SectionFind>
                             <SectionSubscribe></SectionSubscribe>
-                            <SectionContact></SectionContact>  
+                            <SectionContact></SectionContact>
                         </div>
                     </section>
                 </div>
+                <Footer></Footer>
             </div>
         );
     }

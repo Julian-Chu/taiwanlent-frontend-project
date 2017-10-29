@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 // import Slides from './components/SlidesComponent'
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 // ReactDOM.render(<EmailSubscribe />, document.getElementById('email-subscribe'));
 // ReactDOM.render(<Slides/>, document.getElementById('slider'));
 registerServiceWorker();

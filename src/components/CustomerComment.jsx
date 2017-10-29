@@ -1,11 +1,58 @@
 import React, { Component } from 'react';
+import '../styles/CustomerComment.css';
 
 export default class CustomerComment extends Component {
-  constructor(){
+  constructor() {
     super();
+
+    let contents = [
+      {
+        comment: "InterPack展時, 雇用了Taiwanlent推薦的展場翻譯, \n非常認真負責, 合作很愉快 !",
+        customer: "陳小姐",
+        city: "台北"
+      },
+      {
+        comment: "紐倫堡寵物展時, 請了一名專業翻譯, \n使本司與客戶的會議非常成功, 非常推薦!",
+        customer: "陳先生",
+        city: "台中"
+      },
+      {
+        comment: "杜賽包裝展時請了一名翻譯來幫忙監工場佈,\n 廠商都很滿意 !",
+        customer: "李先生",
+        city: "高雄"
+      }]
     this.state = {
-      Comment:1
+      contents,
+      content: contents[0],
+      index: 0
     }
+  }
+
+  componentDidMount() {
+    this.setSliderRunning();
+  }
+
+  setSliderRunning() {
+    this.Timer = setInterval(() => {
+      let contents = this.state.contents;
+      const newIndex = this.state.index + 1 >= contents.length ? 0 : this.state.index +1 ;
+      this.setState(
+        {
+          content: contents[newIndex],
+          index: newIndex
+        }
+      )
+    }, 5000);
+  }
+
+  setSpecificContent(index){    
+    this.setState({
+      index,
+      content: this.state.contents[index]
+    })
+    clearInterval(this.Timer);
+    this.setSliderRunning();
+    
   }
 
   render() {
@@ -14,55 +61,30 @@ export default class CustomerComment extends Component {
         <div className="container clearfix">
           <div className="col_two_fifth nobottommargin">&nbsp;</div>
           <div className="col_three_fifth nobottommargin col_last">
-            <div className="fslider testimonial testimonial-full nobgcolor noborder noshadow nopadding" data-arrows="false">
-              <div className="flexslider">
-                <div className="flex-viewpoint" style={{ overflow: 'hidden', position: 'relative', height: '139px' }}>
-                  <div className="slider-wrap">
-                    <div className={ this.state.Comment === 1? "slide flex-active-slider":"slide"}>
-                      <div className="testi-content" >
-                        <p>InterPack展時, 雇用了Taiwanlent推薦的展場翻譯, 非常認真負責, 合作很愉快 ! </p>
-                        <div className="testi-meta">
-                          陳小姐
-                                  <span>台北</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={ this.state.Comment === 2? "slide flex-active-slider":"slide"}>
-                      <div className="testi-content">
-                        <p>紐倫堡寵物展時, 請了一名專業翻譯, 使本司與客戶的會議非常成功, 非常推薦! </p>
-                        <div className="testi-meta">
-                          王先生
-                                  <span>台中</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slide">
-                      <div className="testi-content">
-                        <p>杜賽包裝展時請了一名翻譯來幫忙監工場佈, 廠商都很滿意 !</p>
-                        <div className="testi-meta">
-                          李先生
-                                  <span>高雄</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <div className="slide">
+              <div className="content" >
+                <p className="comment display-linebreak">{this.state.content.comment}</p>
+                <div className="customer">
+                  - {this.state.content.customer}
+                  <span className="city">{this.state.content.city}</span>
                 </div>
-                <ol className="flex-control-nav flex-control-paging">
-                  <li>
-                    <a href="" className="flex-active">1</a>
-                  </li>
-                  <li>
-                    <a href="">2</a>
-                  </li>
-                  <li>
-                    <a href="">3</a>
-                  </li>
-                </ol>
               </div>
             </div>
+            <ol className="nav">
+              <li>
+                <button onClick={()=>this.setSpecificContent(0)} className={this.state.index === 0 ? 'active' : ''} >1</button>
+              </li>
+              <li>
+                <button onClick={()=>this.setSpecificContent(1)} className={this.state.index === 1 ? 'active' : ''} >2</button>
+              </li>
+              <li>
+                <button onClick={()=>this.setSpecificContent(2)} className={this.state.index === 2 ? 'active' : ''} >3</button>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
     )
   }
 }
+

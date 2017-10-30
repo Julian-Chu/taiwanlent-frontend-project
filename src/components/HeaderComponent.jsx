@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 export default class Header extends Component {
+  constructor(props){
+    super(props);    
+  }
+
   render() {
     return (
       <header id="header" className="full-header transparent-header border-full-header dark static-sticky" data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
@@ -39,7 +43,7 @@ export default class Header extends Component {
                   </a>
                 </li>
               </ul>
-              <div id="side-panel-trigger" className="side-panel-trigger"><a href="#"><i className="icon-reorder"></i></a></div>
+              <div id="side-panel-trigger" className="side-panel-trigger" onClick={this.props.toggleSidePanelOpen}><a href="#"><i className="icon-reorder"></i></a></div>
             </nav>
           </div>
         </div>

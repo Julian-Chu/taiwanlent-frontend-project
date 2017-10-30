@@ -5,21 +5,21 @@
 
 .slide-enter.slide-enter-active{
   opacity: 1;
-  animation: slide-in 1000ms ease-out forwards;
+  animation: slide-in 500ms ease-in-out forwards;
 }
 
-.slide-leave{
+/* .slide-leave{
    transform: translateX(0%);
 }
 
 .slide-leave.slide-leave-active{
  
-  animation: slide-out 500ms ease-in forwards;
-}
+  animation: slide-out 1000ms ease-in-out forwards;
+} */
 
 @keyframes slide-in{
   from{
-    transform: translateX(-50%);
+    transform: translateX(-30%);
   }
 
   to{

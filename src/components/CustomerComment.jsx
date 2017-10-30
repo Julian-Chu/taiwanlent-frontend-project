@@ -43,7 +43,7 @@ export default class CustomerComment extends Component {
           index: newIndex
         }
       )
-    }, 5000);
+    }, 6000);
   }
 
   setSpecificContent(index) {

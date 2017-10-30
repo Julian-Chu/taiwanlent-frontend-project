@@ -43,7 +43,7 @@ export default class Header extends Component {
                   </a>
                 </li>
               </ul>
-              <div id="side-panel-trigger" className="side-panel-trigger" onClick={this.props.toggleSidePanelOpen}><a href="#"><i className="icon-reorder"></i></a></div>
+              <div id="side-panel-trigger" className="side-panel-trigger" onClick={this.props.toggleSidePanelOpen}><i className="icon-reorder"></i></div>
             </nav>
           </div>
         </div>

@@ -18,8 +18,8 @@ export default class EmailSubscribe extends Component {
   }
 
   onInputChange(event){
-      console.log(event.target.value);
-      console.log(this.validateEmail(event.target.value));
+      // console.log(event.target.value);
+      // console.log(this.validateEmail(event.target.value));
 
       this.setState({term:event.target.value});
       this.styles.borderColor= this.validateEmail(event.target.value)? '':'red';

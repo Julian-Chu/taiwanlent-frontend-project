@@ -10,8 +10,8 @@ export default class Slides extends Component{
 
     componentWillMount(){
         this.setState({picHeight: window.innerHeight+'px'});
-        console.log(window.innerHeight);
-        console.log(this.state.picHeight);
+        // console.log(window.innerHeight);
+        // console.log(this.state.picHeight);
     }
 
 

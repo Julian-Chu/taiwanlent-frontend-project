@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 export default class Header extends Component {
   constructor(props){
@@ -7,7 +8,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header id="header" className="full-header transparent-header border-full-header dark static-sticky" data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
+      <header id="header"   className={`full-header transparent-header border-full-header static-sticky ${ this.props.headerIsTransparent ?'dark':'sticky-header'}`} data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
         <div id="header-wrap">
           <div className="container clearfix">
             <div id="primary-menu-trigger"><i className="icon-reorder"></i></div>

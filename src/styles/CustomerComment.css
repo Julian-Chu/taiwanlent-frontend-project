@@ -1,8 +1,39 @@
-.slide {
-    width: 666px;
-    margin-right: 0px;
-    float: left;
-    display: block;
+.slide-enter {
+  opacity: 0;
+  /* transform: translateX(-50%); */
+}
+
+.slide-enter.slide-enter-active{
+  opacity: 1;
+  animation: slide-in 1000ms ease-out forwards;
+}
+
+.slide-leave{
+   transform: translateX(0%);
+}
+
+.slide-leave.slide-leave-active{
+ 
+  animation: slide-out 500ms ease-in forwards;
+}
+
+@keyframes slide-in{
+  from{
+    transform: translateX(-50%);
+  }
+
+  to{
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out{
+  from{
+    transform: translateX(0%);
+  }
+  to{
+    transform: translateX(100%);
+  }
 }
 
 .content {
@@ -10,6 +41,10 @@
     font-size: 18px;
     position: relative;
     overflow: hidden;
+    width: 666px;
+    margin-right: 0px;
+    float: left;
+    display:block;
 }
 
 .comment {

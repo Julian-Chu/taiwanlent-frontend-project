@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/CustomerComment.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class CustomerComment extends Component {
   constructor() {
@@ -35,7 +36,7 @@ export default class CustomerComment extends Component {
   setSliderRunning() {
     this.Timer = setInterval(() => {
       let contents = this.state.contents;
-      const newIndex = this.state.index + 1 >= contents.length ? 0 : this.state.index +1 ;
+      const newIndex = this.state.index + 1 >= contents.length ? 0 : this.state.index + 1;
       this.setState(
         {
           content: contents[newIndex],
@@ -45,14 +46,14 @@ export default class CustomerComment extends Component {
     }, 5000);
   }
 
-  setSpecificContent(index){    
+  setSpecificContent(index) {
     this.setState({
       index,
       content: this.state.contents[index]
     })
     clearInterval(this.Timer);
     this.setSliderRunning();
-    
+
   }
 
   render() {
@@ -61,24 +62,28 @@ export default class CustomerComment extends Component {
         <div className="container clearfix">
           <div className="col_two_fifth nobottommargin">&nbsp;</div>
           <div className="col_three_fifth nobottommargin col_last">
-            <div className="slide">
-              <div className="content" >
-                <p className="comment display-linebreak">{this.state.content.comment}</p>
-                <div className="customer">
-                  - {this.state.content.customer}
-                  <span className="city">{this.state.content.city}</span>
+            <ReactCSSTransitionGroup
+              transitionName="slide"
+              transitionEnterTimeout={500}
+              transitionLeave={false}
+            >
+                <div className="content" key={this.state.index} >
+                  <p className="comment display-linebreak">{this.state.content.comment}</p>
+                  <div className="customer" >
+                    - {this.state.content.customer}
+                    <span className="city">{this.state.content.city}</span>
+                  </div>
                 </div>
-              </div>
-            </div>
+            </ReactCSSTransitionGroup>
             <ol className="nav">
               <li>
-                <button onClick={()=>this.setSpecificContent(0)} className={this.state.index === 0 ? 'active' : ''} >1</button>
+                <button onClick={() => this.setSpecificContent(0)} className={this.state.index === 0 ? 'active' : ''} >1</button>
               </li>
               <li>
-                <button onClick={()=>this.setSpecificContent(1)} className={this.state.index === 1 ? 'active' : ''} >2</button>
+                <button onClick={() => this.setSpecificContent(1)} className={this.state.index === 1 ? 'active' : ''} >2</button>
               </li>
               <li>
-                <button onClick={()=>this.setSpecificContent(2)} className={this.state.index === 2 ? 'active' : ''} >3</button>
+                <button onClick={() => this.setSpecificContent(2)} className={this.state.index === 2 ? 'active' : ''} >3</button>
               </li>
             </ol>
           </div>

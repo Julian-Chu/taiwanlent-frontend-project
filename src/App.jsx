@@ -8,15 +8,30 @@ import SectionFind from './components/SectionFind';
 import SectionSubscribe from './components/SectionSubscribe';
 import SectionContact from './components/SectionContact';
 import Footer from './components/Footer';
+import './styles/App.css'
 
 class App extends Component {
+    constructor(){
+        super();
+
+        this.state={
+            sidePanelIsOpened:false,
+        }
+    }
+
+    toggleSidePanelOpen() {
+        this.setState({
+            sidePanelIsOpened: !this.state.sidePanelIsOpened
+        })
+    }
+
     render() {
         return (
-            <div>
-                <div className="body-overlay"></div>
-                <SidePanel></SidePanel>
-                <div className="clear-fix">
-                    <Header></Header>
+            <div className={this.state.sidePanelIsOpened ? 'side-panel-open':'' }>
+                <div className="body-overlay" onClick={()=>this.toggleSidePanelOpen()}></div>
+                <SidePanel ></SidePanel>
+                <div id="container" className="clear-fix">
+                    <Header toggleSidePanelOpen={()=>this.toggleSidePanelOpen()}></Header>
                     <Slides></Slides>
                     <section id="content">
                         <div className="content-wrap nopadding" style={{ backgroundColor: 'white' }}>

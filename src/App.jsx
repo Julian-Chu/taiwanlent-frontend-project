@@ -5,7 +5,7 @@ import Home from './components/home/Home';
 import Talents from './components/talents/talents';
 import Footer from './components/Footer';
 import './styles/App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 
 class App extends Component {
@@ -72,13 +72,19 @@ class App extends Component {
             <div className={this.state.sidePanelIsOpened ? 'side-panel-open' : ''}>
                 <div className="body-overlay" onClick={() => this.toggleSidePanelOpen()}></div>
                 <SidePanel ></SidePanel>
-                <BrowserRouter>
-                    <div id="container" className="clear-fix">
-                        <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
-                        <Route path="/talents" component={Talents} />
-                        <Route path="/home" component={Home} />
-                    </div>
-                </BrowserRouter>
+                <div id="container" className="clear-fix">
+                    <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
+                    <BrowserRouter>
+                        <div>
+                            <Switch>
+                                <Route path="/" exact component={Home} />
+                                <Route path="/talents" extact component={Talents} />
+                                <Redirect to="/"/>
+                            </Switch>
+
+                        </div>
+                    </BrowserRouter>
+                </div>
                 <Footer></Footer>
             </div>
         );

@@ -3,7 +3,9 @@ import SidePanel from './components/SidePanelComponent';
 import Header from './components/HeaderComponent';
 import Home from './components/home/Home';
 import Footer from './components/Footer';
-import './styles/App.css'
+import './styles/App.css';
+import { BrowserRouter, Route} from 'react-router-dom';
+
 
 class App extends Component {
     constructor(){
@@ -63,15 +65,17 @@ class App extends Component {
 
     render() {
         return (
+            <BrowserRouter>
             <div className={this.state.sidePanelIsOpened ? 'side-panel-open':'' }>
                 <div className="body-overlay" onClick={()=>this.toggleSidePanelOpen()}></div>
                 <SidePanel ></SidePanel>
                 <div id="container" className="clear-fix">
                     <Header toggleSidePanelOpen={()=>this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
-                    <Home></Home>
+                    <Route path="" component={Home}/>
                 </div>
                 <Footer></Footer>
             </div>
+            </BrowserRouter>
         );
     }
 }

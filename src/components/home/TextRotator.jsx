@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../styles/TextRotatorStyle.css';
+import styles from '../../styles/TextRotatorStyle.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class TextRotator extends Component {

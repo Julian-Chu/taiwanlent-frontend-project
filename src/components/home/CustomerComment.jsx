@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/CustomerComment.css';
+import '../../styles/CustomerComment.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class CustomerComment extends Component {

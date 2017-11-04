@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import SidePanel from './components/SidePanelComponent';
 import Header from './components/HeaderComponent';
-import Slides from './components/SlidesComponent';
-import SectionAbout from './components/SectionAbout';
-import SectionFind from './components/SectionFind';
-
-import SectionSubscribe from './components/SectionSubscribe';
-import SectionContact from './components/SectionContact';
+import Home from './components/home/Home';
 import Footer from './components/Footer';
 import './styles/App.css'
 
@@ -29,7 +24,7 @@ class App extends Component {
     }
 
     componentDidMount(){
-        this.handleScrollTemp = this.debounce( this.handleScroll, 250)
+        this.handleScrollTemp = this.debounce( this.handleScroll, 100)
         window.addEventListener('scroll', this.handleScrollTemp);
     }
 
@@ -41,7 +36,7 @@ class App extends Component {
         let rectHeader = document.querySelector('#header').getBoundingClientRect();
         let rectContent = document.querySelector('#content').getBoundingClientRect();
         
-        if((rectHeader.top + rectContent.top + 60 )< 0)
+        if((rectHeader.top + rectContent.top )< 0)
         {            
             this.setState({headerIsTransparent: false});
         }else
@@ -73,15 +68,7 @@ class App extends Component {
                 <SidePanel ></SidePanel>
                 <div id="container" className="clear-fix">
                     <Header toggleSidePanelOpen={()=>this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
-                    <Slides ></Slides>
-                    <section id="content"  >
-                        <div  className="content-wrap nopadding" style={{ backgroundColor: 'white' }}>
-                            <SectionAbout></SectionAbout>
-                            <SectionFind></SectionFind>
-                            <SectionSubscribe></SectionSubscribe>
-                            <SectionContact></SectionContact>
-                        </div>
-                    </section>
+                    <Home></Home>
                 </div>
                 <Footer></Footer>
             </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from '../styles/sliders.css';
+import styles from '../../styles/SlidersComponent.css';
 import TextRotator from './TextRotator';
 
 export default class Slides extends Component{

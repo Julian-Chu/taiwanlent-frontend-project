@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import SidePanel from './components/SidePanelComponent';
 import Header from './components/HeaderComponent';
 import Home from './components/home/Home';
+import Talents from './components/talents/talents';
 import Footer from './components/Footer';
 import './styles/App.css';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
 class App extends Component {
-    constructor(){
+    constructor() {
         super();
 
-        this.state={
-            sidePanelIsOpened:false,
+        this.state = {
+            sidePanelIsOpened: false,
             headerIsTransparent: true,
         }
 
@@ -25,57 +26,61 @@ class App extends Component {
         })
     }
 
-    componentDidMount(){
-        this.handleScrollTemp = this.debounce( this.handleScroll, 100)
-        window.addEventListener('scroll', this.handleScrollTemp);
+    componentDidMount() {
+        if (document.querySelector('#content') === null) {
+            this.setState({ headerIsTransparent: false });
+        } else {
+            this.handleScrollTemp = this.debounce(this.handleScroll, 100)
+            window.addEventListener('scroll', this.handleScrollTemp);
+        }
     }
 
-    componentWillUnmount(){        
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScrollTemp);
     }
 
-    handleScroll(){
+    handleScroll() {
         let rectHeader = document.querySelector('#header').getBoundingClientRect();
         let rectContent = document.querySelector('#content').getBoundingClientRect();
-        
-        if((rectHeader.top + rectContent.top )< 0)
-        {            
-            this.setState({headerIsTransparent: false});
-        }else
-        {
-            this.setState({headerIsTransparent:true});
+
+        if ((rectHeader.top + rectContent.top) < 0) {
+            this.setState({ headerIsTransparent: false });
+        } else {
+            this.setState({ headerIsTransparent: true });
         }
-        
+
     }
 
-    debounce(func, wait, immediate){
+    debounce(func, wait, immediate) {
         var timeout;
-        return function(){
+        return function () {
             var context = this, args = arguments;
-            var later = function(){
+            var later = function () {
                 timeout = null;
-                if(!immediate) func.apply(context, args);
+                if (!immediate) func.apply(context, args);
             };
             var callNow = immediate && !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
-            if(callNow) func.apply(context, args);
+            if (callNow) func.apply(context, args);
         };
     }
 
     render() {
         return (
-            <BrowserRouter>
-            <div className={this.state.sidePanelIsOpened ? 'side-panel-open':'' }>
-                <div className="body-overlay" onClick={()=>this.toggleSidePanelOpen()}></div>
+
+            <div className={this.state.sidePanelIsOpened ? 'side-panel-open' : ''}>
+                <div className="body-overlay" onClick={() => this.toggleSidePanelOpen()}></div>
                 <SidePanel ></SidePanel>
-                <div id="container" className="clear-fix">
-                    <Header toggleSidePanelOpen={()=>this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
-                    <Route path="" component={Home}/>
-                </div>
+                <BrowserRouter>
+                    <div id="container" className="clear-fix">
+                        <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
+                        <Route path="/talents" component={Talents} />
+                        <Route path="/home" component={Home} />
+                    </div>
+                </BrowserRouter>
                 <Footer></Footer>
             </div>
-            </BrowserRouter>
         );
     }
 }

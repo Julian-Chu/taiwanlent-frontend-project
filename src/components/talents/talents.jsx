@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../../styles/talents/talents.css';
+import Filter from '../talents/Filter';
 
 class Talents extends Component {
   componentDidMount(){
@@ -8,7 +10,7 @@ class Talents extends Component {
   render() {
     return (
       <div>
-        {/* <div className="filter-body-overlay">
+        <div className="filter-body-overlay">
           <div className="product clearfix pf-dress detailView">
             <div className="closeDetailView"><button className="button button-mini button-circle button-red"><i className="icon-off"></i>Close</button></div>
             <div className="detailView-image ">
@@ -28,69 +30,16 @@ class Talents extends Component {
                   <i className="icon-bookmark2"></i>
                   加入詢問清單</button>
               </div>
-
             </div>
           </div>
-
-        </div> */}
+        </div>
 
         <section id="content">
 
                 <div className="content-wrap">
                     <div className="container clearfix">
-
-                        <ul id="portfolio-filter" className="portfolio-filter clearfix">
-
-                            <li>
-                                <div>
-                                    <select id="selectLang" multiple="multiple" holder="test">
-                                        <option value="all">all</option>
-                                        <option value="de">德文</option>
-                                        <option value="en">英文</option>
-                                        <option value="ch">中文</option>
-                                    </select>
-                                </div>
-                            </li>
-                            <li><span>&nbsp</span></li>
-                            <li>
-                                <select name="multicheckbox[]" id="selectRegion" multiple="multiple" style={{display:'inline-block',width:'90%'}}>
-                                    <option value="all">all</option>
-                                    <option value="BW">Baden-Württemberg<br/> 巴登-符騰堡</option>
-                                    <option value="BE">Berlin柏林</option>
-                                    <option value="BY">Bavaria (lozengy)巴伐利亞 </option>
-                                    <option value="HB">Bremen布萊梅</option>
-                                    <option value="BB">Brandenburg布蘭登堡 </option>
-                                    <option value="HH">Hamburg 漢堡</option>
-                                    <option value="HE">Hessen 黑森 </option>
-                                    <option value="NI">Lower Saxony 下薩克森 </option>
-                                    <option value="SL">Saarland 薩爾蘭</option>
-                                    <option value="SN">Saxony 薩克森</option>
-                                    <option value="ST">Saxony-Anhalt 薩克森-安哈特</option>
-                                    <option value="TH">Thuringia 圖林根</option>
-                                    <option value="RP">Rhineland-Palatinate 萊茵蘭-普法茲</option>
-                                    <option value="SH">Schleswig-Holstein 史列斯威-霍爾斯坦</option>
-                                    <option value="NW">North Rhine-Westphalia 北萊茵-西法冷</option>
-                                    <option value="MV">Mecklenburg-Western Pomerania 梅克倫堡-西波美恩</option>
-                                </select>
-                            </li>
-                            <li><span>&nbsp</span></li>
-
-                            <li>
-                                <div>
-                                    <select name="" id="selectSubject" multiple="multiple">
-                                            <option value="all">all</option>
-                                            <option value="etit">電子資訊</option>
-                                            <option value="ch">化學化工</option>
-                                            <option value="mame">材料機械</option>
-                                            <option value="soci">社會學科</option>
-                                            <option value="lang">語言專業</option>
-                                            <option value="art">藝術</option>
-                                            <option value="biomed">生物醫學</option>
-                                        </select>
-                                </div>
-                            </li>
-
-                        </ul>
+                        <Filter/>
+           
                         <div className="fixedWin">
                             <p>0/10</p>
                             <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>

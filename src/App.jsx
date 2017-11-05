@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SidePanel from './components/SidePanelComponent';
 import Header from './components/HeaderComponent';
 import Home from './components/home/Home';
-import Talents from './components/talents/talents';
+import Talents from './components/talents/Talents';
 import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';

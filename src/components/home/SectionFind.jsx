@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 export default class SectionFind extends Component {
   render() {
@@ -56,7 +57,7 @@ export default class SectionFind extends Component {
               </div>
             </div>
           </div>
-          <div className="topmargin center"><a href="./shop-filter.html" className="button button-border button-circle t600">進入人才資料庫</a></div>
+          <div className="topmargin center"><Link to="/talents" className="button button-border button-circle t600">進入人才資料庫</Link></div>
         </div>
       </div>
     )

@@ -30,7 +30,10 @@ export default class TextRotator extends Component {
       
       
     }, 3000);
+  }
 
+  componentWillUnmount(){
+    clearInterval(this.timer);
   }
 
   render() {

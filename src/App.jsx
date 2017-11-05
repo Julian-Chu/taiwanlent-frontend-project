@@ -27,7 +27,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        if (document.querySelector('#content') === null) {
+        if (document.querySelector('#slider') === null) {
             this.setState({ headerIsTransparent: false });
         } else {
             this.handleScrollTemp = this.debounce(this.handleScroll, 100)
@@ -74,7 +74,7 @@ class App extends Component {
                 <SidePanel ></SidePanel>
                 <div id="container" className="clear-fix">
                     <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
-                    <BrowserRouter>
+                    <BrowserRouter onUpdate={()=>window.scrollTo(0,0)}>
                         <div>
                             <Switch>
                                 <Route path="/" exact component={Home} />

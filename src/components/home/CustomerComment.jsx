@@ -33,6 +33,10 @@ export default class CustomerComment extends Component {
     this.setSliderRunning();
   }
 
+  componentWillUnmount(){
+    clearInterval(this.Timer);
+  }
+
   setSliderRunning() {
     this.Timer = setInterval(() => {
       let contents = this.state.contents;

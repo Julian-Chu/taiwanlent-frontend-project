@@ -31,6 +31,16 @@ export default class Filter extends Component {
       { value: 'SH', label: 'Schleswig-Holstein 史列斯威-霍爾斯' },
       { value: 'NW', label: 'North Rhine-Westphalia 北萊茵-西法冷' },
       { value: 'MV', label: 'Mecklenburg-Western Pomerania 梅克倫堡-西波美恩' },
+    ];
+
+    this.subjectOptions =[
+      { value: 'etit', label: '電子資訊' },
+      { value: 'ch', label: '化學化工' },
+      { value: 'mame', label: '材料機械' },
+      { value: 'soci', label: '社會學科' },
+      { value: 'lang', label: '語言專業' },
+      { value: 'art', label: '藝術' },
+      { value: 'biomed', label: '生物醫學' },
     ]
 
 
@@ -39,6 +49,8 @@ export default class Filter extends Component {
       selectAllLangsIsChecked: false,
       selectedRegions: [],
       selectAllRegionsIsChecked: false,
+      selectedSubjects: [],
+      selectAllSubjectsIsChecked:false,
     }
   }
 
@@ -82,6 +94,26 @@ export default class Filter extends Component {
     }
   }
 
+  subjectsChange(val){
+    this.setState({
+      selectedSubjects: val,
+    })
+  }
+
+  selectAllSubjects(){
+    if(this.state.selectAllSubjectsIsChecked){
+      this.setState({
+        selectedSubjects:[],
+        selectAllSubjectsIsChecked:false
+      })
+    }else{
+      this.setState({
+        selectedSubjects:this.subjectOptions,
+        selectAllSubjectsIsChecked:true
+      })
+    }
+  }
+
   render() {
     return (
       <div>
@@ -113,6 +145,22 @@ export default class Filter extends Component {
         />
         <label htmlFor="" className="checkbox">
           <input type="checkbox" name="selectAllLangs" checked={this.state.selectAllLangsIsChecked} onChange={() => this.selectAllLangs()} />
+          <span className="checkbox-label">全選</span>
+        </label>
+        </div>
+
+        <div style={{ display: 'inline-block', maxWidth: '400px' }}>
+        <Select
+          multi
+          options={this.subjectOptions}
+          style={{ maxWidth: '250px' }}
+          onChange={(val) => this.subjectsChange(val)}
+          placeholder="Select items"
+          closeOnSelect={false}
+          value={this.state.selectedSubjects}
+        />
+        <label htmlFor="" className="checkbox">
+          <input type="checkbox" name="selectAllsubjects" checked={this.state.selectAllSubjectsIsChecked} onChange={() => this.selectAllSubjects()} />
           <span className="checkbox-label">全選</span>
         </label>
         </div>

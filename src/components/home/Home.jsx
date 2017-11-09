@@ -7,6 +7,16 @@ import SectionSubscribe from './SectionSubscribe';
 import SectionContact from './SectionContact';
 
 export default class Home extends Component {
+  constructor(props){
+    super(props); 
+    this.props.subscribeTransparentEvent();
+    console.log(props);   
+ }
+
+ componentWillUnmount(){
+   this.props.unsubscribeTransparentEvent();
+ }
+
   render() {
     return (
       <div>

@@ -9,9 +9,9 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 
 class App extends Component {
-    constructor() {
-        super();
-
+    constructor(props) {
+        super(props);
+        console.log(this.props);
         this.state = {
             sidePanelIsOpened: false,
             headerIsTransparent: true,
@@ -26,27 +26,26 @@ class App extends Component {
         })
     }
 
-    componentDidMount() {
-        if (document.querySelector('#slider') === null) {
-            this.setState({ headerIsTransparent: false });
-        } else {
-            this.handleScrollTemp = this.debounce(this.handleScroll, 100)
-            window.addEventListener('scroll', this.handleScrollTemp);
-        }
+    subscribeHeaderTransparentEvent(){
+        this.handleScrollTemp = this.debounce(this.handleScroll, 100)
+        window.addEventListener('scroll', this.handleScrollTemp);
     }
 
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScrollTemp);
+    unsubscribeHeaderTransparentEvent(){
+        if(this.handleScrollTemp !== null)
+            window.removeEventListener('scroll',this.handleScrollTemp);
     }
 
     handleScroll() {
         let rectHeader = document.querySelector('#header').getBoundingClientRect();
         let rectContent = document.querySelector('#content').getBoundingClientRect();
 
-        if ((rectHeader.top + rectContent.top) < 0) {
-            this.setState({ headerIsTransparent: false });
+        if ((rectHeader.top + rectContent.top ) < 0) {
+            if(this.state.headerIsTransparent === true)
+                this.setState({ headerIsTransparent: false });
         } else {
-            this.setState({ headerIsTransparent: true });
+            if(this.state.headerIsTransparent === false)
+                this.setState({ headerIsTransparent: true });
         }
 
     }
@@ -73,15 +72,22 @@ class App extends Component {
                 <div className="body-overlay" onClick={() => this.toggleSidePanelOpen()}></div>
                 <SidePanel ></SidePanel>
                 <div id="container" className="clear-fix">
-                    <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} headerIsTransparent={this.state.headerIsTransparent}></Header>
-                    <BrowserRouter onUpdate={()=>window.scrollTo(0,0)}>
+                    <BrowserRouter>
                         <div>
+                            <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} 
+                                    headerIsTransparent={this.state.headerIsTransparent}                                    
+                                    ></Header>
                             <Switch>
-                                <Route path="/" exact component={Home} />
+                                <Route path="/home"                                       
+                                      exact component={
+                                          ()=><Home 
+                                                 subscribeTransparentEvent = {()=>this.subscribeHeaderTransparentEvent()} 
+                                                 unsubscribeTransparentEvent = {()=> this.unsubscribeHeaderTransparentEvent()}
+                                                />} />                               
+                                {/* <Route path="/home" exact component={Home} />                */}
                                 <Route path="/talents" extact component={Talents} />
-                                <Redirect to="/"/>
+                                <Redirect to="/home" />
                             </Switch>
-
                         </div>
                     </BrowserRouter>
                 </div>

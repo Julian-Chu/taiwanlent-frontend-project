@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 export default class Header extends Component {
-  constructor(props){
-    super(props);    
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+
+  scrollToSection(sectionId){
+    let section = document.getElementById(sectionId);
+    if(section !== null) section.scrollIntoView();
   }
 
   render() {
     return (
-      <header id="header"   className={`full-header transparent-header border-full-header static-sticky ${ this.props.headerIsTransparent ?'dark':'sticky-header'}`} data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
+      <header id="header" className={`full-header transparent-header border-full-header static-sticky ${this.props.headerIsTransparent ? 'dark' : 'sticky-header'}`} data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
         <div id="header-wrap">
           <div className="container clearfix">
             <div id="primary-menu-trigger"><i className="icon-reorder"></i></div>
@@ -19,24 +26,16 @@ export default class Header extends Component {
             <nav id="primary-menu">
               <ul className="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
                 <li>
-                  <a href="#section-about" data-href="#section-about">
-                    <div>如何成為人才</div>
-                  </a>
+                  <Link to="/home" onClick={()=>this.scrollToSection("section-about")}>如何成為人才</Link>
                 </li>
                 <li>
-                  <a href="#section-find" data-href="#section-find">
-                    <div>尋找人才</div>
-                  </a>
+                    <Link to="/home" onClick={()=>this.scrollToSection("section-find")}>找人才</Link>
                 </li>
                 <li>
-                  <a href="#section-subscribe" data-href="#section-subscribe">
-                    <div>訂閱電子報</div>
-                  </a>
+                    <Link to="/home" onClick={()=>this.scrollToSection("section-subscribe")}>訂閱電子報</Link>
                 </li>
                 <li>
-                  <a href="#section-contact" data-href="#section-contact">
-                    <div>聯絡我們</div>
-                  </a>
+                    <Link to="/home" onClick={()=>this.scrollToSection("section-contact")}>聯絡我們</Link>
                 </li>
                 <li>
                   <a href="./coming-soon-3.html">

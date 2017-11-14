@@ -28,9 +28,7 @@ export default class SectionContact extends Component {
 
         this.validateTelephone = this.validateTelephone.bind(this);
         this.validateEmail = this.validateEmail.bind(this);
-
     }
-
 
     validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

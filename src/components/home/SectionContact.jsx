@@ -1,6 +1,58 @@
 import React, { Component } from 'react';
 
 export default class SectionContact extends Component{
+    constructor(){
+        super();
+        this.state = {
+            email:"",
+            phone:""
+        };
+
+        this.styles = {
+            email:{
+                borderColor: '',
+                warning: {
+                    display:'none'
+                }
+            },
+            phone:{
+                borderColor: '',
+                warning: {
+                    display:'none'
+                }
+            },
+        }
+
+        this.validateTelephone = this.validateTelephone.bind(this);
+
+    }
+
+
+    validateEmail(email){
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+    
+      validateTelephone(phone){12
+          var re = /([0-9]{14})/;
+          return re.test
+      }
+
+      onEmailChangeEvent(e){
+          console.log(e.target.value);
+          this.setState({email:e.target.value});
+          this.s
+      }
+
+      onPhoneChangeEvent(e){
+          console.log(e.target.value);
+          this.setState({phone:e.target.value});
+          this.styles.phone.borderColor = this.validateTelephone(e.target.value)? '':'red';
+          
+      }
+
+
+
     render(){
         return(
             <div id="section-contact" className="page-section">
@@ -15,13 +67,13 @@ export default class SectionContact extends Component{
                                 <input type="text" id="template-contactform-name" name="template-contactform-name" value="" className="sm-form-control border-form-control required" placeholder="Name" />
                             </div>
                             <div className="col_half col_last">
-                                <input type="email" id="template-contactform-email" name="template-contactform-email" value="" className="required email sm-form-control border-form-control" placeholder="Email Address" />
+                                <input type="email" id="template-contactform-email" name="template-contactform-email" value={this.state.email} onChange={(e)=>this.onEmailChangeEvent(e)} className="required email sm-form-control border-form-control" placeholder="Email Address" />
                             </div>
 
                             <div className="clear"></div>
 
-                            <div className="col_one_third">
-                                <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" className="sm-form-control border-form-control" placeholder="Phone" />
+                            <div className="col_one_third" >
+                                <input type="text" id="template-contactform-phone" style={this.styles.phone} name="template-contactform-phone" value={this.state.phone} onChange={(e)=>this.onPhoneChangeEvent(e)} className="sm-form-control border-form-control" placeholder="Phone" />
                             </div>
 
                             <div className="col_two_third col_last">

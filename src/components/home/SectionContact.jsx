@@ -28,6 +28,13 @@ export default class SectionContact extends Component {
 
         this.validateTelephone = this.validateTelephone.bind(this);
         this.validateEmail = this.validateEmail.bind(this);
+
+        console.log(_.debounce);
+        this.onEmailChangeEvent = this.onEmailChangeEvent.bind(this);
+        this.onPhoneChangeEvent = this.onPhoneChangeEvent.bind(this);
+
+        this.doValidateEmail = _.debounce(this.doValidateEmail, 300);
+        this.doValidatePhone = _.debounce(this.doValidatePhone, 300);
     }
 
     validateEmail(email) {
@@ -43,42 +50,47 @@ export default class SectionContact extends Component {
     onEmailChangeEvent(e) {
         let email = e.target.value;
         this.setState({ email: email });
+        this.doValidateEmail(email);
+    }
 
-        this.checkEmail = _.debounce(()=>{
-            console.log(email);
-            if (email != '')
-                this.setState({
-                    emailStyle: this.validateEmail(email) ?
-                        {
-                            borderColor: '',
-                            warning: {
-                                display: 'none'
-                            }
-                        } :
-                        {
-                            borderColor: 'red',
-                            warning: {
-                                display: 'none'
-                            }
-                        },
-                })
-            else this.setState({
+    doValidateEmail(email) {
+        if (email != '') {
+            this.setState({
+                emailStyle: this.validateEmail(email) ?
+                    {
+                        borderColor: '',
+                        warning: {
+                            display: 'none'
+                        }
+                    } :
+                    {
+                        borderColor: 'red',
+                        warning: {
+                            display: 'none'
+                        }
+                    },
+            })
+        }
+        else {
+            this.setState({
                 emailStyle: {
                     borderColor: '',
                     warning: {
                         display: 'none'
                     }
                 }
-            })
-        }, 500);
-        this.checkEmail();
+            });
+        }
     }
 
     onPhoneChangeEvent(e) {
         let phone = e.target.value;
         this.setState({ phone: phone });
-        let checkPhone = _.debounce(() => {
-            console.log(phone);
+        this.doValidatePhone(phone);
+  
+    }
+
+    doValidatePhone(phone){        
             if (phone != '')
                 this.setState({
                     phoneStyle: this.validateTelephone(phone) ?
@@ -103,8 +115,7 @@ export default class SectionContact extends Component {
                     }
                 }
             })
-        }, 500);
-        checkPhone();
+        
     }
 
 
@@ -123,13 +134,13 @@ export default class SectionContact extends Component {
                                     <input type="text" id="template-contactform-name" name="template-contactform-name" value="" className="sm-form-control border-form-control required" placeholder="Name" />
                                 </div>
                                 <div className="col_half col_last">
-                                    <input type="email" id="template-contactform-email" style={this.state.emailStyle} name="template-contactform-email" value={this.state.email} onChange={(e) => this.onEmailChangeEvent(e)} className="required email sm-form-control border-form-control" placeholder="Email Address" />
+                                    <input type="email" id="template-contactform-email" style={this.state.emailStyle} name="template-contactform-email" value={this.state.email} onChange={this.onEmailChangeEvent} className="required email sm-form-control border-form-control" placeholder="Email Address" />
                                 </div>
 
                                 <div className="clear"></div>
 
                                 <div className="col_one_third" >
-                                    <input type="text" id="template-contactform-phone" style={this.state.phoneStyle} name="template-contactform-phone" maxLength="16" value={this.state.phone} onChange={(e) => this.onPhoneChangeEvent(e)} className="sm-form-control border-form-control" placeholder="Phone" />
+                                    <input type="text" id="template-contactform-phone" style={this.state.phoneStyle} name="template-contactform-phone" maxLength="16" value={this.state.phone} onChange={this.onPhoneChangeEvent} className="sm-form-control border-form-control" placeholder="Phone" />
                                 </div>
 
                                 <div className="col_two_third col_last">

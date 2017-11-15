@@ -1,3 +1,23 @@
 {
-    "extends": "google"
+    "extends": "google",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "semi": 2,
+        "require-jsdoc": [1, {
+            "require": {
+                "FunctionDeclaration": true,
+                "MethodDefinition": true,
+                "ClassDeclaration": true
+            }
+        }],
+        "valid-jsdoc": [1, {
+            "requireReturn": false
+        }],
+    }
 }

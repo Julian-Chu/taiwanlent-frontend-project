@@ -36,7 +36,6 @@ export default class SectionContact extends Component {
     }
 
     validateTelephone(phone) {
-        12
         var re = /^\+\d{1,3}-\d{8,13}/;
         return re.test(phone)
     }

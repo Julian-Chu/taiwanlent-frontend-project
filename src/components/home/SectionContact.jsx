@@ -5,6 +5,7 @@ export default class SectionContact extends Component {
     constructor() {
         super();
         this.state = {
+            username:"",
             email: "",
             phone: ""
         };
@@ -30,6 +31,7 @@ export default class SectionContact extends Component {
         this.validateEmail = this.validateEmail.bind(this);
 
         console.log(_.debounce);
+        this.onUsernameChangeEvent = this.onUsernameChangeEvent.bind(this);
         this.onEmailChangeEvent = this.onEmailChangeEvent.bind(this);
         this.onPhoneChangeEvent = this.onPhoneChangeEvent.bind(this);
 
@@ -45,6 +47,12 @@ export default class SectionContact extends Component {
     validateTelephone(phone) {
         var re = /^\+\d{1,3}-\d{8,13}/;
         return re.test(phone)
+    }
+
+    onUsernameChangeEvent(e){
+        let name = e.target.value;
+        console.log(name);
+        this.setState({username:name});
     }
 
     onEmailChangeEvent(e) {
@@ -128,10 +136,10 @@ export default class SectionContact extends Component {
                     <div className="divcenter topmargin" style={{ maxWidth: '850px' }}>
                         <div className="contact-widget">
                             <div className="contact-form-result"></div>
-                            <form className="nobottommargin" id="template-contactform" name="template-contactform" maxLength="18" action="include/sendemail.php" method="post">
+                            <form className="nobottommargin" id="template-contactform" name="template-contactform"  action="include/sendemail.php" method="post">
                                 <div className="form-process"></div>
                                 <div className="col_half">
-                                    <input type="text" id="template-contactform-name" name="template-contactform-name" value="" className="sm-form-control border-form-control required" placeholder="Name" />
+                                    <input type="text" id="template-contactform-name" name="template-contactform-name"  className="sm-form-control border-form-control required" placeholder="Name"   value={this.state.username} onChange={this.onUsernameChangeEvent} maxLength="14"/>
                                 </div>
                                 <div className="col_half col_last">
                                     <input type="email" id="template-contactform-email" style={this.state.emailStyle} name="template-contactform-email" value={this.state.email} onChange={this.onEmailChangeEvent} className="required email sm-form-control border-form-control" placeholder="Email Address" />

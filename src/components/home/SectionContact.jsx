@@ -7,7 +7,9 @@ export default class SectionContact extends Component {
         this.state = {
             username:"",
             email: "",
-            phone: ""
+            phone: "",
+            subject:"",
+            message:""
         };
 
         this.state = {
@@ -57,7 +59,7 @@ export default class SectionContact extends Component {
 
     onEmailChangeEvent(e) {
         let email = e.target.value;
-        this.setState({ email: email });
+        this.setState({ email });
         this.doValidateEmail(email);
     }
 
@@ -126,7 +128,15 @@ export default class SectionContact extends Component {
         
     }
 
+    onSubjectChangeEvent(e){
+        let subject = e.target.value;
+        this.setState({ subject});
+    }
 
+    onMessageChangeEvent(e){
+        let message = e.target.value;
+        this.setState({message});
+    }
 
     render() {
         return (
@@ -152,13 +162,13 @@ export default class SectionContact extends Component {
                                 </div>
 
                                 <div className="col_two_third col_last">
-                                    <input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" className="required sm-form-control border-form-control" placeholder="Subject" />
+                                    <input type="text" id="template-contactform-subject" name="template-contactform-subject" value={this.state.subject} className="required sm-form-control border-form-control" placeholder="Subject" />
                                 </div>
 
                                 <div className="clear"></div>
 
                                 <div className="col_full">
-                                    <textarea className="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
+                                    <textarea className="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message" value={this.state.message}></textarea>
                                 </div>
 
                                 <div className="col_full center">

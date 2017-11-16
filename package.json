@@ -24,7 +24,7 @@
     "eslint": "^4.10.0",
     "eslint-config-google": "^0.9.1"
   },
-  "jshintConfig":{
-    "esversion":6
+  "jshintConfig": {
+    "esversion": 6
   }
 }

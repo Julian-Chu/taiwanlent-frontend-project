@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/talents/talents.css';
 import Filter from '../talents/Filter';
 import Talent from './Talent';
+import mockTalents from '../../mockdata/mockTalents.js';
 
 class Talents extends Component {
   componentDidMount(){
@@ -9,6 +10,8 @@ class Talents extends Component {
   }
 
   render() {
+    console.log('mock:', mockTalents);
+    const  TalentList = mockTalents.map(d => <Talent key={d.name} name={d.name} lang={d.lang} subject={d.subject} qualified={d.qualified} experienced={d.experienced}/> );
     return (
       <div>
         <div className="filter-body-overlay">
@@ -50,6 +53,7 @@ class Talents extends Component {
                         <div className="clear "></div>
 
                         <div id="shop " className="shop grid-container clearfix ">
+                            {TalentList}
                             <Talent name="Test" lang="test" subject="test"  qualified={true} experienced={false}></Talent>
 
                             {/* <div className="product clearfix pf-dress ">

@@ -7,7 +7,7 @@ const Talent = (props) => {
     <div className="product clearfix pf-dress ">
       <div className="product-image ">
         <a href="# "><img src="images/shop/dress/1.jpg " alt="Checked Short Dress "></img></a>
-        <div className="sale-flash">{props.qualified?'Qualified':''}<br />{props.experienced? 'Experienced':'' }</div>
+        <div className={ props.qualified || props.experienced? "sale-flash":""  }>{props.qualified?'Qualified':''}<br />{props.experienced? 'Experienced':'' }</div>
         <div className="product-overlay ">
           <a href="# " className="add-to-cart "><i className="icon-bookmark2 "></i><span> 加入詢問清單</span></a>
           <button className="item-quick-view "><i className="icon-zoom-in2 "></i><span> 查看資料</span></button>

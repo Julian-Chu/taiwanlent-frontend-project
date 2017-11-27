@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/talents/talents.css';
 import Filter from '../talents/Filter';
+import Talent from './Talent';
 
 class Talents extends Component {
   componentDidMount(){
@@ -49,8 +50,9 @@ class Talents extends Component {
                         <div className="clear "></div>
 
                         <div id="shop " className="shop grid-container clearfix ">
+                            <Talent name="Test" lang="test" subject="test"  qualified={true} experienced={false}></Talent>
 
-                            <div className="product clearfix pf-dress ">
+                            {/* <div className="product clearfix pf-dress ">
                                 <div className="product-image ">
                                     <a href="# "><img src="images/shop/dress/1.jpg " alt="Checked Short Dress "></img></a>
                                     <div className="sale-flash">Qualified<br/>Experienced</div>
@@ -74,7 +76,7 @@ class Talents extends Component {
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="product clearfix pf-dress ">
                                 <div className="product-image ">

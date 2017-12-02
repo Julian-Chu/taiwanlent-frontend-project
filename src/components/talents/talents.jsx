@@ -54,33 +54,7 @@ class Talents extends Component {
 
                         <div id="shop " className="shop grid-container clearfix ">
                             {TalentList}
-                            <Talent name="Test" lang="test" subject="test"  qualified={true} experienced={false}></Talent>
 
-                            {/* <div className="product clearfix pf-dress ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/dress/1.jpg " alt="Checked Short Dress "></img></a>
-                                    <div className="sale-flash">Qualified<br/>Experienced</div>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-bookmark2 "></i><span> 加入詢問清單</span></a>
-                                        <button className="item-quick-view "><i className="icon-zoom-in2 "></i><span> 查看資料</span></button>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">CLAIRE CHANG</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>專業背景:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="button button-3d button-rounded" style={{backgroundColor:'#7CBAB7'}}>
-                                            <i className="icon-bookmark2"></i>
-                                            加入詢問清單</button>
-                                    </div>
-
-                                </div>
-                            </div> */}
 
                             <div className="product clearfix pf-dress ">
                                 <div className="product-image ">

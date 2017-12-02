@@ -1,12 +1,10 @@
 import React from 'react';
 
-const Talent = (props) => {
-  console.log(props);
-  console.log(props.qualified);
+const Talent = (props) => {  
   return (
     <div className="product clearfix pf-dress ">
       <div className="product-image ">
-        <a href="# "><img src="images/shop/dress/1.jpg " alt="Checked Short Dress "></img></a>
+        <a href="# "><img src={props.photo} alt={props.name}></img></a>
         <div className={ props.qualified || props.experienced? "sale-flash":""  }>{props.qualified?'Qualified':''}<br />{props.experienced? 'Experienced':'' }</div>
         <div className="product-overlay ">
           <a href="# " className="add-to-cart "><i className="icon-bookmark2 "></i><span> 加入詢問清單</span></a>
@@ -36,7 +34,9 @@ Talent.propTypes = {
   lang: React.PropTypes.string.isRequired,
   subject: React.PropTypes.string.isRequired,
   qualified: React.PropTypes.bool.isRequired,
-  experienced: React.PropTypes.bool.isRequired
+  experienced: React.PropTypes.bool.isRequired,
+  photo: React.PropTypes.string,
+  id: React.PropTypes.number.isRequired
 };
 
 export default Talent;

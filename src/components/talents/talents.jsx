@@ -5,13 +5,21 @@ import Talent from './Talent';
 import mockTalents from '../../mockdata/mockTalents.js';
 
 class Talents extends Component {
+    constructor(){
+        super();        
+        this.state = {
+            TalentList : mockTalents
+        }       
+    }
+
   componentDidMount(){
     window.scrollTo(0,0);
   }
+  renderTalentList(){
+      return this.state.TalentList.map(t => <Talent key={t.id} {...t}/>);
+  }
 
-  render() {
-    console.log('mock:', mockTalents);
-    const  TalentList = mockTalents.map(d => <Talent key={d.name} name={d.name} lang={d.lang} subject={d.subject} qualified={d.qualified} experienced={d.experienced}/> );
+  render() {  
     return (
       <div>
         <div className="filter-body-overlay">
@@ -52,176 +60,8 @@ class Talents extends Component {
 
                         <div className="clear "></div>
 
-                        <div id="shop " className="shop grid-container clearfix ">
-                            {TalentList}
-
-
-                            <div className="product clearfix pf-dress ">
-                                <div className="product-image ">
-                                    <a href="# "> <img src="images/team/Taiwanlent-Liu.jpg" alt="Taiwanlent-Liu"></img></a>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-bookmark2"></i><span> 加入詢問清單</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> 查看資料</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">LIU LI-TSE</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="button button-3d button-rounded" style={{backgroundColor:'#7CBAB7'}}>
-                                                <i className="icon-bookmark2"></i>
-                                                加入詢問清單</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="product clearfix pf-Shoes ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/shoes/1.jpg " alt="Dark Brown Boots "></img></a>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-shopping-cart "></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">Slim Fit Chinos</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="button button-3d button-rounded" style={{backgroundColor:'#7CBAB7'}}>
-                                                <i className="icon-bookmark2"></i>
-                                                加入詢問清單</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div className="product clearfix pf-dress ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/dress/2.jpg " alt="Light Blue Denim Dress "></img></a>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-shopping-cart "></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">Light Blue Denim Dress</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="button button-3d button-rounded" style={{backgroundColor:'#7CBAB7'}}>
-                                                <i className="icon-bookmark2"></i>
-                                                加入詢問清單</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="product clearfix pf-sunglass ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/sunglasses/1.jpg " alt="Unisex Sunglasses "></img></a>
-                                    <a href="# "><img src="images/shop/sunglasses/1-1.jpg " alt="Unisex Sunglasses "></img></a>
-                                    <div className="sale-flash ">Sale!</div>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-shopping-cart "></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">Unisex Sunglasses</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="btn btn-success">Add to List</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="product clearfix pf-dress ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/tshirts/1.jpg " alt="Blue Round-Neck Tshirt "></img></a>
-                                    <a href="# "><img src="images/shop/tshirts/1-1.jpg " alt="Blue Round-Neck Tshirt "></img></a>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-shopping-cart "></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">Blue Round-Neck Tshirt</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="btn btn-success">Add to List</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="product clearfix pf-watch ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/watches/1.jpg " alt="Silver Chrome Watch "></img></a>
-                                    <a href="# "><img src="images/shop/watches/1-1.jpg " alt="Silver Chrome Watch "></img></a>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-shopping-cart "></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">Silver Chrome Watch</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="btn btn-success">Add to List</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="product clearfix pf-Shoes ">
-                                <div className="product-image ">
-                                    <a href="# "><img src="images/shop/shoes/2.jpg " alt="Men Grey Casual Shoes "></img></a>
-                                    <a href="# "><img src="images/shop/shoes/2-1.jpg " alt="Men Grey Casual Shoes "></img></a>
-                                    <div className="sale-flash ">Sale!</div>
-                                    <div className="product-overlay ">
-                                        <a href="# " className="add-to-cart "><i className="icon-shopping-cart "></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html " className="item-quick-view " data-lightbox="ajax "><i className="icon-zoom-in2 "></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div className="product-desc ">
-                                    <div className="product-title ">
-                                        <h3><a href="# ">Men Grey Casual Shoes</a></h3>
-                                    </div>
-                                    <div className="product-price ">
-                                        <div>語言:<span>德語/英語/中文</span></div>
-                                        <div>學科:<span>化學</span></div>
-                                    </div>
-                                    <div className="product-rating ">
-                                        <button className="btn btn-success">Add to List</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="shop " className="shop grid-container clearfix ">                        
+                            {this.renderTalentList()}
                         </div>
                     </div>
                 </div>

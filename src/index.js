@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import {Provider} from 'react-redux';
+import { createStore, applyMiddleware} from 'redux';
+import reducers from './reducers';
 
-// import EmailSubscribe from './components/EmailSubscribeComponent';
-// import Slides from './components/SlidesComponent'
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-
-ReactDOM.render(<App/>, document.getElementById('root'));
-// ReactDOM.render(<EmailSubscribe />, document.getElementById('email-subscribe'));
-// ReactDOM.render(<Slides/>, document.getElementById('slider'));
+ReactDOM.render(
+<Provider store={createStoreWithMiddleware(reducers)}>
+<App/>
+</Provider>
+, document.getElementById('root'));
 registerServiceWorker();

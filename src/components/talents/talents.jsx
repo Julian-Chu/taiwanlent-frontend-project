@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 import '../../styles/talents/talents.css';
 import Filter from '../talents/Filter';
 import Talent from './Talent';
-import mockTalents from '../../mockdata/mockTalents.js';
+import { connect } from 'react-redux';
+
 
 class Talents extends Component {
-    constructor(){
-        super();        
-        this.state = {
-            TalentList : mockTalents
-        }       
-    }
-
   componentDidMount(){
     window.scrollTo(0,0);
   }
+
   renderTalentList(){
-      return this.state.TalentList.map(t => <Talent key={t.id} {...t}/>);
+      return this.props.talents.map(t => <Talent key={t.id} {...t}/>);
   }
 
   render() {  
@@ -47,7 +42,6 @@ class Talents extends Component {
         </div>
 
         <section id="content">
-
                 <div className="content-wrap">
                     <div className="container clearfix">
                         <Filter/>
@@ -71,4 +65,9 @@ class Talents extends Component {
   }
 }
 
-export default Talents;
+function mapStateToProps(state){
+  return {
+    talents: state.talents
+  };
+}
+export default connect(mapStateToProps)(Talents);

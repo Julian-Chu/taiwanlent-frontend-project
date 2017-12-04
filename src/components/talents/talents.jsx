@@ -65,9 +65,13 @@ class Talents extends Component {
   }
 }
 
+function getFilteredTalents(talents, filter){
+  return talents.include(filter[0]).include(filter[1]).include(filter[2]);
+}
+
 function mapStateToProps(state){
   return {
-    talents: state.talents
+    talents: getFilteredTalents(state.talents, state.filter)
   };
 }
 export default connect(mapStateToProps)(Talents);

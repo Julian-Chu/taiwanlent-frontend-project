@@ -6,15 +6,16 @@ import { connect } from 'react-redux';
 
 
 class Talents extends Component {
-  componentDidMount(){
-    window.scrollTo(0,0);
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
-  renderTalentList(){
-      return this.props.talents.map(t => <Talent key={t.id} {...t}/>);
+  renderTalentList() {
+    let talents = this.props.talents;
+    return talents.map(t => <Talent key={t.id} {...t} />);
   }
 
-  render() {  
+  render() {
     return (
       <div>
         <div className="filter-body-overlay">
@@ -33,7 +34,7 @@ class Talents extends Component {
                 <div>專業背景:<span>化學</span></div>
               </div>
               <div className="product-rating ">
-                <button className="button button-3d button-rounded" style={{backgroundColor:'#7CBAB7'}}>
+                <button className="button button-3d button-rounded" style={{ backgroundColor: '#7CBAB7' }}>
                   <i className="icon-bookmark2"></i>
                   加入詢問清單</button>
               </div>
@@ -42,32 +43,45 @@ class Talents extends Component {
         </div>
 
         <section id="content">
-                <div className="content-wrap">
-                    <div className="container clearfix">
-                        <Filter/>
-           
-                        <div className="fixedWin">
-                            <p>0/10</p>
-                            <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>
-                            <button className="button button-mini button-border button-circle button-dark"><i className="icon-repeat"></i>重置清單</button>
-                        </div>
+          <div className="content-wrap">
+            <div className="container clearfix">
+              <Filter />
 
-                        <div className="clear "></div>
+              <div className="fixedWin">
+                <p>0/10</p>
+                <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>
+                <button className="button button-mini button-border button-circle button-dark"><i className="icon-repeat"></i>重置清單</button>
+              </div>
 
-                        <div id="shop " className="shop grid-container clearfix ">                        
-                            {this.renderTalentList()}
-                        </div>
-                    </div>
-                </div>
-            </section>
+              <div className="clear "></div>
+
+              <div id="shop " className="shop grid-container clearfix ">
+                {this.renderTalentList()}
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     )
   }
 }
 
-function mapStateToProps(state){
+function getFilteredTalents(talents, filter) {
+  // Filter region
+  let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => filter[0].some(filterRegion=>filterRegion.label.includes(t.region))) : talents;
+  // Filter language
+  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => t.lang.includes(filter[1][0].label) ): tempArray;
+  // Filter subject
+  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => filter[2].some(filterSubject=>filterSubject.label.includes(t.subject))): tempArray;  
+
+  console.log(tempArray);
+  return tempArray;
+}
+
+function mapStateToProps(state) {
   return {
-    talents: state.talents
+    talents: getFilteredTalents(state.talents, state.filter)
+    // talents: state.talents
   };
 }
 export default connect(mapStateToProps)(Talents);

@@ -22,23 +22,23 @@ export default class SidePanel extends Component {
                             <i className="icon-facebook"></i>
                             <i className="icon-facebook"></i>
                         </a>
-                        <a href="#" className="social-icon si-small si-colored si-twitter" title="Twitter">
+                        <a href="" className="social-icon si-small si-colored si-twitter" title="Twitter">
                             <i className="icon-twitter"></i>
                             <i className="icon-twitter"></i>
                         </a>
-                        <a href="#" className="social-icon si-small si-colored si-github" title="Github">
+                        <a href="" className="social-icon si-small si-colored si-github" title="Github">
                             <i className="icon-github"></i>
                             <i className="icon-github"></i>
                         </a>
-                        <a href="#" className="social-icon si-small si-colored si-pinterest" title="Pinterest">
+                        <a href="" className="social-icon si-small si-colored si-pinterest" title="Pinterest">
                             <i className="icon-pinterest"></i>
                             <i className="icon-pinterest"></i>
                         </a>
-                        <a href="#" className="social-icon si-small si-colored si-forrst" title="Forrst">
+                        <a href="" className="social-icon si-small si-colored si-forrst" title="Forrst">
                             <i className="icon-forrst"></i>
                             <i className="icon-forrst"></i>
                         </a>
-                        <a href="#" className="social-icon si-small si-colored si-linkedin" title="LinkedIn">
+                        <a href="" className="social-icon si-small si-colored si-linkedin" title="LinkedIn">
                             <i className="icon-linkedin"></i>
                             <i className="icon-linkedin"></i>
                         </a>

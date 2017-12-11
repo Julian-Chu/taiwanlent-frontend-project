@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from '../../styles/SlidersComponent.css';
+import '../../styles/SlidersComponent.css';
 import TextRotator from './TextRotator';
 
 export default class Slides extends Component{
@@ -36,7 +36,7 @@ export default class Slides extends Component{
                             <div className="video-overlay" style={{backgroundColor: 'rgba(0,0,0,0)'}}></div>
                         </div>
 
-                        <a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250" data-offset="65" className="one-page-arrow dark"><i className="icon-angle-down infinite animated fadeInDown"></i></a>
+                        <a href="" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250" data-offset="65" className="one-page-arrow dark"><i className="icon-angle-down infinite animated fadeInDown"></i></a>
                     </div>
                 </div>
         </section>

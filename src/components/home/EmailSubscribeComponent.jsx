@@ -32,7 +32,7 @@ export default class EmailSubscribe extends Component {
   }
 
   validateEmail(email){
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
 
@@ -42,7 +42,7 @@ export default class EmailSubscribe extends Component {
           <div className="divcenter center" style={{maxWidth: '900px'}}>
               <h2 className="nobottommargin t300 ls1">訂閱電子報</h2>
               <div className="widget-subscribe-form-result"></div>
-              <form id="widget-subscribe-form" action="include/subscribe.php" role="form" method="post" className="nobottommargin">
+              <form id="widget-subscribe-form" >
                   <input type="email" 
                          id="widget-subscribe-form-email" 
                          name="widget-subscribe-form-email" 

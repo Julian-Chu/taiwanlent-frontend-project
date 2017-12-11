@@ -1,5 +1,6 @@
 import React from 'react';
 import  '../../styles/talents/talent.css';
+import PropTypes from 'prop-types';
 
 const Talent = (props) => {
   return (
@@ -32,13 +33,13 @@ const Talent = (props) => {
 }
 
 Talent.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  lang: React.PropTypes.string.isRequired,
-  subject: React.PropTypes.string.isRequired,
-  qualified: React.PropTypes.bool.isRequired,
-  experienced: React.PropTypes.bool.isRequired,
-  photo: React.PropTypes.string,
-  id: React.PropTypes.number.isRequired
+  name: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
+  subject: PropTypes.string.isRequired,
+  qualified: PropTypes.bool.isRequired,
+  experienced: PropTypes.bool.isRequired,
+  photo: PropTypes.string,
+  id: PropTypes.number.isRequired
 };
 
 export default Talent;

@@ -15,7 +15,6 @@ class Talents extends Component {
 
   removeAllCandidatesFromList() {
     this.props.removeAllCandidates();
-    this.resetSelected();
     console.log('talents');
   }
 

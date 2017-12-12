@@ -10,14 +10,12 @@ import { removeCandidate } from '../../actions/index';
 class Talent extends Component {
 
   constructor(props) {
-    super(props);
-    this.props.resetSelected(this.resetSelected);
+    super(props);    
 
     this.state = {
       selected: false
     }
   };
-
 
   addToList() {
     if (this.props.candidates.length < 5) {
@@ -25,12 +23,6 @@ class Talent extends Component {
       this.setState({ selected: true })
     }
   };
-
-  resetSelected(){
-    this.setState({ selected: false });
-    console.log('reset',this.props);
-    console.log('')
-  }
 
   removeFromList() {
     if (this.props.candidates.length > 0) {

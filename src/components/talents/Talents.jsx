@@ -74,7 +74,6 @@ function getFilteredTalents(talents, filter) {
   // Filter subject
   tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => filter[2].some(filterSubject=>filterSubject.label.includes(t.subject))): tempArray;  
 
-  console.log(tempArray);
   return tempArray;
 }
 

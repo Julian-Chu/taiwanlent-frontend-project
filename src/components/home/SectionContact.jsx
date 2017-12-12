@@ -32,7 +32,6 @@ export default class SectionContact extends Component {
         this.validateTelephone = this.validateTelephone.bind(this);
         this.validateEmail = this.validateEmail.bind(this);
 
-        console.log(_.debounce);
         this.onUsernameChangeEvent = this.onUsernameChangeEvent.bind(this);
         this.onEmailChangeEvent = this.onEmailChangeEvent.bind(this);
         this.onPhoneChangeEvent = this.onPhoneChangeEvent.bind(this);
@@ -53,7 +52,6 @@ export default class SectionContact extends Component {
 
     onUsernameChangeEvent(e){
         let name = e.target.value;
-        console.log(name);
         this.setState({username:name});
     }
 

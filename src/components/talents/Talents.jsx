@@ -3,6 +3,8 @@ import '../../styles/talents/talents.css';
 import Filter from '../talents/Filter';
 import Talent from './Talent';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { removeAllCandidates } from '../../actions/index';
 
 
 class Talents extends Component {
@@ -10,9 +12,18 @@ class Talents extends Component {
     window.scrollTo(0, 0);
   }
 
+
+  removeAllCandidatesFromList() {
+    this.props.removeAllCandidates();
+    this.resetSelected();
+    console.log('talents');
+  }
+
+  
+
   renderTalentList() {
     let talents = this.props.talents;
-    return talents.map(t => <Talent key={t.id}  {...t} />);
+    return talents.map(t => <Talent key={t.id} resetSelected={ t.id===1? childMethod=> this.resetSelected = childMethod:null }  {...t} />);
   }
 
   render() {
@@ -48,9 +59,9 @@ class Talents extends Component {
               <Filter />
 
               <div className="fixedWin">
-                <p>{this.props.candidates.length}/10</p>
+                <p>{this.props.candidates.length}/5</p>
                 <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>
-                <button className="button button-mini button-border button-circle button-dark"><i className="icon-repeat"></i>重置清單</button>
+                <button type="button" className="button button-mini button-border button-circle button-dark" onClick={() => this.removeAllCandidatesFromList()}><i className="icon-repeat"></i>重置清單</button>
               </div>
 
               <div className="clear "></div>
@@ -68,11 +79,11 @@ class Talents extends Component {
 
 function getFilteredTalents(talents, filter) {
   // Filter region
-  let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => filter[0].some(filterRegion=>filterRegion.label.includes(t.region))) : talents;
+  let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => filter[0].some(filterRegion => filterRegion.label.includes(t.region))) : talents;
   // Filter language
-  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => t.lang.includes(filter[1][0].label) ): tempArray;
+  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => t.lang.includes(filter[1][0].label)) : tempArray;
   // Filter subject
-  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => filter[2].some(filterSubject=>filterSubject.label.includes(t.subject))): tempArray;  
+  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => filter[2].some(filterSubject => filterSubject.label.includes(t.subject))) : tempArray;
 
   return tempArray;
 }
@@ -84,4 +95,9 @@ function mapStateToProps(state) {
     candidates: state.candidates
   };
 }
-export default connect(mapStateToProps)(Talents);
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ removeAllCandidates }, dispatch);
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Talents);

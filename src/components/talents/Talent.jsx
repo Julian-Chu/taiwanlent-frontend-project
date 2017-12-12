@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addCandidate } from '../../actions/index';
-import { removeCandidate} from '../../actions/index';
+import { removeCandidate } from '../../actions/index';
 
 
 class Talent extends Component {
 
   constructor(props) {
     super(props);
+    this.props.resetSelected(this.resetSelected);
 
     this.state = {
       selected: false
@@ -19,13 +20,23 @@ class Talent extends Component {
 
 
   addToList() {
-    this.props.addCandidate(this.props.id);
-    this.setState({selected:true })
+    if (this.props.candidates.length < 5) {
+      this.props.addCandidate(this.props.id);
+      this.setState({ selected: true })
+    }
   };
 
-  removeFromList(){
-    this.props.removeCandidate(this.props.id);
-    this.setState({selected:false});
+  resetSelected(){
+    this.setState({ selected: false });
+    console.log('reset',this.props);
+    console.log('')
+  }
+
+  removeFromList() {
+    if (this.props.candidates.length > 0) {
+      this.props.removeCandidate(this.props.id);
+      this.setState({ selected: false });
+    }
   }
 
   render() {
@@ -49,14 +60,14 @@ class Talent extends Component {
             <div>專業背景:<span>{this.props.subject}</span></div>
           </div>
           <div className="product-rating ">
-            {!this.state.selected? 
-              <button type="button" className="button button-3d button-rounded"   onClick={() => this.addToList()} style={{ backgroundColor: '#0ebb99' }}>
-              <i className="icon-bookmark2"></i>
-              加入詢問清單</button>
+            {!this.state.selected ?
+              <button type="button" className="button button-3d button-rounded" onClick={() => this.addToList()} style={{ backgroundColor: '#0ebb99' }}>
+                <i className="icon-bookmark2"></i>
+                加入詢問清單</button>
               :
-              <button type="button" className="button button-3d button-rounded"  onClick={() => this.removeFromList()} style={{ backgroundColor: '#7CBAB7' }}>
-              <i className="icon-bookmark2"></i>
-              移除詢問清單</button>}            
+              <button type="button" className="button button-3d button-rounded" onClick={() => this.removeFromList()} style={{ backgroundColor: '#7CBAB7' }}>
+                <i className="icon-bookmark2"></i>
+                移除詢問清單</button>}
           </div>
         </div>
       </div>
@@ -78,4 +89,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addCandidate, removeCandidate }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Talent);
+function mapStateToProps(state) {
+  return { candidates: state.candidates }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Talent);

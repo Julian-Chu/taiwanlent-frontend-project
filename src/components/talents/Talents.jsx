@@ -48,7 +48,7 @@ class Talents extends Component {
               <Filter />
 
               <div className="fixedWin">
-                <p>0/10</p>
+                <p>{this.props.candidaites.length}/10</p>
                 <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>
                 <button className="button button-mini button-border button-circle button-dark"><i className="icon-repeat"></i>重置清單</button>
               </div>
@@ -79,8 +79,9 @@ function getFilteredTalents(talents, filter) {
 
 function mapStateToProps(state) {
   return {
-    talents: getFilteredTalents(state.talents, state.filter)
+    talents: getFilteredTalents(state.talents, state.filter),
     // talents: state.talents
+    candidaites: state.candidates
   };
 }
 export default connect(mapStateToProps)(Talents);

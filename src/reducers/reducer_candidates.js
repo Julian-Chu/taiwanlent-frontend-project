@@ -11,20 +11,23 @@ import {
 
 
 export default function (state = [], action) {
+    let newState = state.slice();
     switch (action.type) {
         case AddCandidateToList:
-            let newState = state.slice();
             if (state.indexOf(action.payload) === -1) // check existing id in list
                 newState = [action.payload, ...state];
-            console.log('Add Candidate', newState);
-            return newState;
+            console.log('Add Candidate, new list:', newState);
+            break;
         case RemoveCandidateFromList:
-            let temp = state.slice();
-            temp.splice(temp.indexOf(action.payload), 1);
-            return temp;
+            newState = state.slice();
+            newState.splice(newState.indexOf(action.payload), 1);
+            console.log('Remove Candidate, new list:', newState);
+            break;
         case RemoveAllCandidates:
-            return [];
+            newState = [];
+            break;
         default:
-            return state;
-    }
+            break;
+        }
+        return newState;
 }

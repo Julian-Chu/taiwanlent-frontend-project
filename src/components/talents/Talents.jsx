@@ -12,7 +12,7 @@ class Talents extends Component {
 
   renderTalentList() {
     let talents = this.props.talents;
-    return talents.map(t => <Talent key={t.id} {...t} />);
+    return talents.map(t => <Talent key={t.id}  {...t} />);
   }
 
   render() {
@@ -48,7 +48,7 @@ class Talents extends Component {
               <Filter />
 
               <div className="fixedWin">
-                <p>{this.props.candidaites.length}/10</p>
+                <p>{this.props.candidates.length}/10</p>
                 <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>
                 <button className="button button-mini button-border button-circle button-dark"><i className="icon-repeat"></i>重置清單</button>
               </div>
@@ -81,7 +81,7 @@ function mapStateToProps(state) {
   return {
     talents: getFilteredTalents(state.talents, state.filter),
     // talents: state.talents
-    candidaites: state.candidates
+    candidates: state.candidates
   };
 }
 export default connect(mapStateToProps)(Talents);

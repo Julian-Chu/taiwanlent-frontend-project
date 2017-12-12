@@ -4,25 +4,49 @@ import Filter from '../talents/Filter';
 import Talent from './Talent';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { removeAllCandidates } from '../../actions/index';
+import { removeAllCandidates, addCandidate, removeCandidate } from '../../actions/index';
 
 
 class Talents extends Component {
+
+  constructor(props){
+    super(props);
+    var selectedStatus = this.props.talents.slice();
+    selectedStatus.fill(false);
+    this.state = {
+      selectedList: this.props.candidates,
+      selectedStatus,
+    }
+  }
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-
   removeAllCandidatesFromList() {
     this.props.removeAllCandidates();
-    console.log('talents');
+    let newSelectedStatus = this.state.selectedStatus.slice().fill(false);    
+    this.setState({
+      selectedStatus: newSelectedStatus,
+    })
+  }  
+
+  add(id){
+    this.props.addCandidate(id);
+    let newSelectedStatus = this.state.selectedStatus.slice();    
+    newSelectedStatus[id-1] = true;
+    this.setState({selectedStatus:newSelectedStatus});
   }
 
-  
+ remove(id){
+    this.props.removeCandidate(id);
+    let newSelectedStatus = this.state.selectedStatus.slice();    
+    newSelectedStatus[id-1] = false;
+    this.setState({selectedStatus:newSelectedStatus});
+  }
 
   renderTalentList() {
     let talents = this.props.talents;
-    return talents.map(t => <Talent key={t.id} resetSelected={ t.id===1? childMethod=> this.resetSelected = childMethod:null }  {...t} />);
+    return talents.map(t => <Talent key={t.id} selected={ this.state.selectedStatus[t.id - 1]} addCandidate={()=>this.add(t.id)} removeCandidate={()=>this.remove(t.id)}  {...t} />);
   }
 
   render() {
@@ -96,7 +120,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ removeAllCandidates }, dispatch);
+  return bindActionCreators({ removeAllCandidates, addCandidate, removeCandidate }, dispatch);
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Talents);

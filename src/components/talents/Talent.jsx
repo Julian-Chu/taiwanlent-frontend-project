@@ -2,33 +2,17 @@ import React, { Component } from 'react';
 import '../../styles/talents/talent.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { addCandidate } from '../../actions/index';
-import { removeCandidate } from '../../actions/index';
+
 
 
 class Talent extends Component {
 
-  constructor(props) {
-    super(props);    
-
-    this.state = {
-      selected: false
-    }
-  };
-
   addToList() {
-    if (this.props.candidates.length < 5) {
-      this.props.addCandidate(this.props.id);
-      this.setState({ selected: true })
-    }
+    if (this.props.candidates.length < 5)  {this.props.addCandidate();}    
   };
 
   removeFromList() {
-    if (this.props.candidates.length > 0) {
-      this.props.removeCandidate(this.props.id);
-      this.setState({ selected: false });
-    }
+    if (this.props.candidates.length > 0) {this.props.removeCandidate();}
   }
 
   render() {
@@ -39,7 +23,6 @@ class Talent extends Component {
           <div className={this.props.qualified ? "sale-flash" : ""}> {this.props.qualified ? 'Qualified' : ''} </div>
           <div className={this.props.experienced ? "sale-flash" : ""}> {this.props.experienced ? 'Experienced' : ''}</div>
           <div className="product-overlay ">
-            {/* <button className="add-to-cart" onClick={() => props.addCandidate(props.id) }><i className="icon-bookmark2 "></i><span> 加入詢問清單</span></button> */}
             <button className="item-quick-view "><i className="icon-zoom-in2 "></i><span> 查看資料</span></button>
           </div>
         </div>
@@ -52,7 +35,7 @@ class Talent extends Component {
             <div>專業背景:<span>{this.props.subject}</span></div>
           </div>
           <div className="product-rating ">
-            {!this.state.selected ?
+            {!this.props.selected ?
               <button type="button" className="button button-3d button-rounded" onClick={() => this.addToList()} style={{ backgroundColor: '#0ebb99' }}>
                 <i className="icon-bookmark2"></i>
                 加入詢問清單</button>
@@ -77,12 +60,9 @@ Talent.propTypes = {
   id: PropTypes.number.isRequired
 };
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addCandidate, removeCandidate }, dispatch);
-}
 
 function mapStateToProps(state) {
   return { candidates: state.candidates }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Talent);
+export default connect(mapStateToProps)(Talent);

@@ -10,8 +10,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
     constructor(props) {
-        super(props);
-        console.log(this.props);
+        super(props);        
         this.state = {
             sidePanelIsOpened: false,
             headerIsTransparent: true,

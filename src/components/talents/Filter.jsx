@@ -62,7 +62,6 @@ class Filter extends Component {
     this.setState({
       selectedLanguages: val,
     })
-    console.log(this.state.selectedLanguages);
   }
 
   selectAllLangs() {
@@ -122,7 +121,6 @@ class Filter extends Component {
   submitFilters(event) {
     event.preventDefault()
     let filters = [this.state.selectedRegions, this.state.selectedLanguages, this.state.selectedSubjects];
-    console.log("submit", filters);
     this.props.setFilters(filters);
   }
 

@@ -9,8 +9,7 @@ import SectionContact from './SectionContact';
 export default class Home extends Component {
   constructor(props){
     super(props); 
-    this.props.subscribeTransparentEvent();
-    console.log(props);   
+    this.props.subscribeTransparentEvent();      
  }
 
  componentWillUnmount(){

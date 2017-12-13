@@ -25,7 +25,10 @@
   },
   "devDependencies": {
     "eslint": "^4.10.0",
-    "eslint-config-google": "^0.9.1"
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1"
   },
   "jshintConfig": {
     "esversion": 6

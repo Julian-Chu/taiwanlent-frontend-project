@@ -1,23 +1,12 @@
 {
-    "extends": "google",
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
+    "extends": "airbnb",
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
     "rules": {
-        "semi": 2,
-        "require-jsdoc": [1, {
-            "require": {
-                "FunctionDeclaration": true,
-                "MethodDefinition": true,
-                "ClassDeclaration": true
-            }
-        }],
-        "valid-jsdoc": [1, {
-            "requireReturn": false
-        }],
+        "linebreak-style": 0,
+        "arrow-body-style": ["error", "always"]
     }
 }

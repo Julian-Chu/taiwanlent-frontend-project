@@ -4,29 +4,29 @@ export const RemoveCandidateFromList = 'RemoveCandidate';
 export const RemoveAllCandidates = ' RemoveAllCandidates';
 
 
-export const setFilters = (filters) =>{
+export const setFilters = (filters) => {
   return {
     type: FILTERS,
-    payload: filters
-  }
-}
+    payload: filters,
+  };
+};
 
 export const addCandidate = (talentId) =>{
   return {
     type: AddCandidateToList,
-    payload: talentId
-  }
-}
+    payload: talentId,
+  };
+};
 
 export const removeCandidate = (talentId) =>{
   return {
     type: RemoveCandidateFromList,
-    payload: talentId
-  }
-}
+    payload: talentId,
+  };
+};
 
 export const removeAllCandidates = () =>{
   return{
     type: RemoveAllCandidates,
-  }
-}
+  };
+};

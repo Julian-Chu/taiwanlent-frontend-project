@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import '../../styles/talents/talent.css';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-
+import '../../styles/talents/talent.css';
 
 class Talent extends Component {
 
   addToList() {
-    if (this.props.candidates.length < 5)  {this.props.addCandidate();}    
+    if (this.props.candidates.length < 5) {
+      this.props.addCandidate();
+    }
   };
 
   removeFromList() {
-    if (this.props.candidates.length > 0) {this.props.removeCandidate();}
+    if (this.props.candidates.length > 0) {
+      this.props.removeCandidate();
+    }
   }
 
   render() {
@@ -20,8 +22,8 @@ class Talent extends Component {
       <div className="product clearfix pf-dress">
         <div className="product-image ">
           <a href="# "><img src={this.props.photo} alt={this.props.name}></img></a>
-          <div className={this.props.qualified ? "sale-flash" : ""}> {this.props.qualified ? 'Qualified' : ''} </div>
-          <div className={this.props.experienced ? "sale-flash" : ""}> {this.props.experienced ? 'Experienced' : ''}</div>
+          <div className={this.props.qualified ? 'sale-flash' : ''}> {this.props.qualified ? 'Qualified' : ''} </div>
+          <div className={this.props.experienced ? 'sale-flash' : ''}> {this.props.experienced ? 'Experienced' : ''}</div>
           <div className="product-overlay ">
             <button className="item-quick-view "><i className="icon-zoom-in2 "></i><span> 查看資料</span></button>
           </div>
@@ -46,7 +48,7 @@ class Talent extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -57,12 +59,13 @@ Talent.propTypes = {
   qualified: PropTypes.bool.isRequired,
   experienced: PropTypes.bool.isRequired,
   photo: PropTypes.string,
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  addCandidate: PropTypes.func.isRequired,
 };
 
 
 function mapStateToProps(state) {
-  return { candidates: state.candidates }
+  return { candidates: state.candidates };
 }
 
 export default connect(mapStateToProps)(Talent);

@@ -9,15 +9,16 @@ import Detail from './Detail';
 
 
 class Talents extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    var selectedStatus = this.props.talents.slice();
+    const selectedStatus = this.props.talents.slice();
     selectedStatus.fill(false);
     this.state = {
       selectedList: this.props.candidates,
       selectedStatus,
-    }
+      detailIsEnabled: false,
+      detailId: null,
+    };
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -25,36 +26,55 @@ class Talents extends Component {
 
   removeAllCandidatesFromList() {
     this.props.removeAllCandidates();
-    let newSelectedStatus = this.state.selectedStatus.slice().fill(false);    
+    const newSelectedStatus = this.state.selectedStatus.slice().fill(false);
     this.setState({
       selectedStatus: newSelectedStatus,
-    })
-  }  
-
-  add(id){
-    this.props.addCandidate(id);
-    let newSelectedStatus = this.state.selectedStatus.slice();    
-    newSelectedStatus[id-1] = true;
-    this.setState({selectedStatus:newSelectedStatus});
+    });
   }
 
- remove(id){
+  add(id) {
+    this.props.addCandidate(id);
+    const newSelectedStatus = this.state.selectedStatus.slice();
+    newSelectedStatus[id - 1] = true;
+    this.setState({ selectedStatus: newSelectedStatus });
+  }
+
+  remove(id) {
     this.props.removeCandidate(id);
-    let newSelectedStatus = this.state.selectedStatus.slice();    
-    newSelectedStatus[id-1] = false;
-    this.setState({selectedStatus:newSelectedStatus});
+    const newSelectedStatus = this.state.selectedStatus.slice();
+    newSelectedStatus[id - 1] = false;
+    this.setState({ selectedStatus: newSelectedStatus });
   }
 
   renderTalentList() {
-    let talents = this.props.talents;
-    return talents.map(t => <Talent key={t.id} selected={ this.state.selectedStatus[t.id - 1]} addCandidate={()=>this.add(t.id)} removeCandidate={()=>this.remove(t.id)}  {...t} />);
+    const talents = this.props.talents;
+    return talents.map(t => { return <Talent key={t.id} enableDetail={(id)=>this.enableDetail(id)} selected={this.state.selectedStatus[t.id - 1]} addCandidate={() => this.add(t.id)} removeCandidate={() => this.remove(t.id)}  {...t} /> });
+  }
+
+  renderDetail() {
+    return (this.state.detailIsEnabled ? <Detail {...this.props.talents[this.state.detailId - 1]} disableDetail={()=>this.disableDetail()}/> : null);
+  }
+
+  enableDetail(id) {
+    console.log(id);
+    console.log(this);
+    this.setState({
+      detailIsEnabled: true,
+      detailId: id,
+    })
+  }
+
+  disableDetail() {
+    this.setState({
+      detailIsEnabled: false,
+      detailId:null,
+    })
   }
 
   render() {
     return (
       <div>
-        <Detail/>
-
+        {this.renderDetail()}
         <section id="content">
           <div className="content-wrap">
             <div className="container clearfix">
@@ -62,11 +82,11 @@ class Talents extends Component {
 
               <div className="fixedWin">
                 <p>{this.props.candidates.length}/5</p>
-                <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok"></i>批量詢問</button>
-                <button type="button" className="button button-mini button-border button-circle button-dark" onClick={() => this.removeAllCandidatesFromList()}><i className="icon-repeat"></i>重置清單</button>
+                <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok" />批量詢問</button>
+                <button type="button" className="button button-mini button-border button-circle button-dark" onClick={() => { return this.removeAllCandidatesFromList() }}><i className="icon-repeat" />重置清單</button>
               </div>
 
-              <div className="clear "></div>
+              <div className="clear " />
 
               <div id="shop " className="shop grid-container clearfix ">
                 {this.renderTalentList()}
@@ -75,17 +95,17 @@ class Talents extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
 function getFilteredTalents(talents, filter) {
   // Filter region
-  let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => filter[0].some(filterRegion => filterRegion.label.includes(t.region))) : talents;
+  let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => { return filter[0].some(filterRegion => filterRegion.label.includes(t.region)) }) : talents;
   // Filter language
-  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => t.lang.includes(filter[1][0].label)) : tempArray;
+  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => { return t.lang.includes(filter[1][0].label) }) : tempArray;
   // Filter subject
-  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => filter[2].some(filterSubject => filterSubject.label.includes(t.subject))) : tempArray;
+  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => { return filter[2].some(filterSubject => filterSubject.label.includes(t.subject)) }) : tempArray;
 
   return tempArray;
 }
@@ -94,12 +114,11 @@ function mapStateToProps(state) {
   return {
     talents: getFilteredTalents(state.talents, state.filter),
     // talents: state.talents
-    candidates: state.candidates
+    candidates: state.candidates,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ removeAllCandidates, addCandidate, removeCandidate }, dispatch);
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Talents);

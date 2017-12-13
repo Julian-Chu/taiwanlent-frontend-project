@@ -67,6 +67,7 @@ body:not(.device-touch) .button {
 	font-size: 12px;
 	height: 34px;
 	line-height: 34px;
+	min-width: 10px;
 }
 
 .button.button-large {

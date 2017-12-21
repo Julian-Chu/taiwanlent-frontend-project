@@ -20,16 +20,23 @@ const Detail = (props) => {
             <h3><a href="# ">{props.name}</a></h3>
           </div>
           <div className="product-price ">
-            <div>語言:<span>{props.lang}</span></div>
+            <div>姓名:<span>{props.name}</span></div>
+            <div>所在區域:<span>{props.region}</span></div>
+            <div>現居城市:<span>{props.city}</span></div>
             <div>專業背景:<span>{props.subject}</span></div>
-            <div>所在地:<span>{props.region}</span></div>
+            <div>在學/畢業學校<span>{props.school}</span></div>
+            <div>職業:<span>{props.jobPosition}</span></div>
+            <div>語言:<span>{props.lang}</span></div>
+            <div>在德時間:<span>{props.yearsInGermany}年</span></div>
+            <div>自我介紹:<span>{props.selfIntroduce}</span></div>
+            <div>工作經歷:<span>{props.workingExperience.map( (e,index)=> <div key={index}>{index}:{e}</div>)}</span></div>
+            <div>駕照:<span>{props.driverLicence? "O":"" }</span></div>
+            <div>願意到其他城市工作:<span>{props.willingToMove? "O":"" }</span></div>
+            
+            
+            
           </div>
-          <div className="product-rating ">
-            {/* <button className="button button-3d button-rounded" style={{ backgroundColor: '#7CBAB7' }}>
-              <i className="icon-bookmark2" />
-              加入詢問清單
-            </button> */}
-          </div>
+
         </div>
       </div>
     </div>

@@ -11,35 +11,16 @@ const Detail = (props) => {
             <button className="button button-small button-circle button-red" onClick={() => props.disableDetail()}>
               <i className="icon-off"></i>
             </button>
-<<<<<<< HEAD
           </div>
           <div className="detailView-image ">
             <a href="# "><img src={props.photo} alt="Checked Short Dress " /></a>
             <div className={props.qualified ? 'sale-flash' : ''}> {props.qualified ? 'Qualified' : ''} </div>
             <div className={props.experienced ? 'sale-flash' : ''}> {props.experienced ? 'Experienced' : ''}</div>
           </div>
-=======
-          </div>
-          <div className="detailView-image ">
-            <a href="# "><img src={props.photo} alt="Checked Short Dress " /></a>
-            <div className={props.qualified ? 'sale-flash' : ''}> {props.qualified ? 'Qualified' : ''} </div>
-            <div className={props.experienced ? 'sale-flash' : ''}> {props.experienced ? 'Experienced' : ''}</div>
-          </div>
->>>>>>> ccfd66063cddd42e2beb285167b9e4f47ab3a93e
           <div className="detailView-info ">
             <div className="detailView-ownername ">
               <h3><a href="# ">{props.name}</a></h3>
             </div>
-<<<<<<< HEAD
-=======
-            {/* <div>所在區域:<span>{props.region}</span></div>
-            <div>現居城市:<span>{props.city}</span></div>
-            <div>專業背景:<span>{props.subject}</span></div>
-            <div>在學/畢業學校<span>{props.school}</span></div>
-            <div>職業:<span>{props.jobPosition}</span></div>
-            <div>語言:<span>{props.lang}</span></div>
-            <div>在德時間:<span>{props.yearsInGermany}年</span></div> */}
->>>>>>> ccfd66063cddd42e2beb285167b9e4f47ab3a93e
             <table className="detailView-infotable">
               <tr>
                 <td>所在區域</td>
@@ -66,7 +47,6 @@ const Detail = (props) => {
                 <td>{props.yearsInGermany}年</td>
               </tr>
             </table>
-<<<<<<< HEAD
           </div>
           <div className="product-desc  after-image detailView-description">
             <table>
@@ -100,46 +80,6 @@ const Detail = (props) => {
               </tr>
             </table>
           </div>
-=======
-          </div>
-        </div>
-        <br />
-        <div className="product-desc  after-image detailView-description">
-          {/* <div>自我介紹:<br/><span>{props.selfIntroduce}</span></div>
-          <div>工作經歷:<span>{props.workingExperience.map((e, index) => <div key={index}>{index}:{e}</div>)}</span></div>
-          <div>駕照:<span>{props.driverLicence ? "O" : ""}</span></div>
-          <div>願意到其他城市工作:<span>{props.willingToMove ? "O" : ""}</span></div> */}
-          <table>
-            <tr>
-              <th>自我介紹</th>
-            </tr>
-            <tr >
-              <th className="addline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            </tr>
-            <tr>
-              <td>{props.selfIntroduce}</td>
-            </tr>
-            <br />
-            <tr>
-              <th>工作經歷</th>
-            </tr>
-            <tr >
-              <th className="addline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            </tr>
-            <tr>
-              <td>{props.workingExperience.map((e, index) => <div key={index}>{index+1}.{e}</div>)}</td>
-            </tr>
-            <br />
-          </table>
-          <table>
-            <tr>
-              <td>駕照:</td> <td>&nbsp;{props.driverLicence ? "O" : ""}</td>
-            </tr>
-            <tr>
-              <td>願意到其他城市工作:</td><td>&nbsp;{props.willingToMove ? "O" : ""}</td>
-            </tr>
-          </table>
->>>>>>> ccfd66063cddd42e2beb285167b9e4f47ab3a93e
         </div>
         <br />
       </div>

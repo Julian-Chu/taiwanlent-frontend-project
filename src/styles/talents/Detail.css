@@ -22,13 +22,21 @@
 }
 
 .detailView-content {
+<<<<<<< HEAD
   position: relative;
   margin: 30px;
+=======
+  margin: 20px;
+>>>>>>> ccfd66063cddd42e2beb285167b9e4f47ab3a93e
 }
 
 .detailView-whitebackground {
   position: relative;
+<<<<<<< HEAD
   margin: 20px auto;
+=======
+  margin: 30px auto;
+>>>>>>> ccfd66063cddd42e2beb285167b9e4f47ab3a93e
   max-width: 45%;
   background-color: white;
 }

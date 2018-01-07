@@ -1,0 +1,81 @@
+.product {
+	position: relative;
+}
+
+.detailView-info {
+	font-size: 18px;
+	font-weight: 200;
+	color: #444;
+  margin-bottom: 4px;
+  line-height: 32px;
+}
+
+.detailView-info del {
+	font-weight: 400;
+	font-size: 90%;
+	color: #888;
+}
+
+.detailView-info ins {
+	text-decoration: none;
+	color: #1ABC9C;
+}
+
+.detailView-content {
+  margin: 20px;
+}
+
+.detailView-whitebackground {
+  position: relative;
+  margin: 30px auto;
+  max-width: 45%;
+  background-color: white;
+}
+
+
+.detailView-image {
+  margin: auto;
+  max-width: 60%;
+  float: right;
+}
+
+.detailView-image img{
+  height: 330px;
+  width: 270px;
+}
+
+.detailView-closeButton {
+  position: absolute;
+  top: 1%;
+  left: 90%;
+  min-width: 100%;
+}
+
+.after-image{
+  clear:right
+}
+
+.detailView-infotable{
+  width: 40%;
+}
+
+.detailView-ownername  a{
+  color: black
+}
+
+.detailView-description table tr th{
+  font-size: 24px;
+  line-height: 32px; 
+  font-weight: 1000;
+  color: black
+}
+.detailView-description table  .addline
+{
+  text-decoration: line-through;
+  line-height: 10px;
+  text-decoration-color: #DCDCDC;
+}
+
+.detailView-description{
+  margin: 10px;
+}

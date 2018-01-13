@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 export default class Login extends Component {
 
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
   render() {
     return (
       <div className="content-wrap">

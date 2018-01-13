@@ -6,6 +6,7 @@ import Talents from './components/talents/Talents';
 import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import Login from './components/login/Login';
 
 
 class App extends Component {
@@ -85,6 +86,7 @@ class App extends Component {
                                                 />} />                               
                                 {/* <Route path="/home" exact component={Home} />                */}
                                 <Route path="/talents" extact component={Talents} />
+                                <Route path="/login" extact component={Login} />
                                 <Redirect to="/home" />
                             </Switch>
                         </div>

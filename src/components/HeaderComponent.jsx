@@ -24,7 +24,7 @@ export default class Header extends Component {
                   <Link to="/home" onClick={()=>this.scrollToSection("section-about")}>如何成為人才</Link>
                 </li>
                 <li>
-                    <Link to="/home" onClick={()=>this.scrollToSection("section-find")}>找人才</Link>
+                    <Link to="/talents" onClick={()=>this.scrollToSection("section-find")}>找人才</Link>
                 </li>
                 <li>
                     <Link to="/home" onClick={()=>this.scrollToSection("section-subscribe")}>訂閱電子報</Link>
@@ -33,9 +33,7 @@ export default class Header extends Component {
                     <Link to="/home" onClick={()=>this.scrollToSection("section-contact")}>聯絡我們</Link>
                 </li>
                 <li>
-                  <a href="./coming-soon-3.html">
-                    <div>登入</div>
-                  </a>
+                <Link to="/login" onClick={()=>this.scrollToSection("section-contact")}>登入</Link>
                 </li>
               </ul>
               <div id="side-panel-trigger" className="side-panel-trigger" onClick={this.props.toggleSidePanelOpen}><i className="icon-reorder"></i></div>

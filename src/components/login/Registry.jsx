@@ -7,15 +7,12 @@ export default class Register extends Component{
     this.state = {
       username: sessionStorage.getItem("username"),
       password: sessionStorage.getItem("password"),
-      password_confirm: sessionStorage.getItem("password_confirm")
+      repassword: sessionStorage.getItem("repassword")
     }
   }
-
-
   onFormSubmit(event){
     event.preventDefault();
   }
-
   render() {
     return (
       <div className="content-wrap">

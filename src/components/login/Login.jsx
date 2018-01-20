@@ -10,7 +10,7 @@ export default class Login extends Component {
     this.state = {
       username : "",
       password : "",
-      password_confirm :"",
+      repassword :"",
     }
   }
 
@@ -32,7 +32,7 @@ export default class Login extends Component {
       })
     }else{
       this.setState({
-        password_confirm: event.target.value
+        repassword: event.target.value
       })
     }
   }
@@ -41,7 +41,7 @@ export default class Login extends Component {
     console.log("clicked");
     sessionStorage.setItem("username",this.state.username);
     sessionStorage.setItem("password",this.state.password);    
-    sessionStorage.setItem("password_confirm",this.state.password_confirm);
+    sessionStorage.setItem("repassword",this.state.repassword);
 
   }     
 
@@ -87,7 +87,7 @@ export default class Login extends Component {
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-repassword">再次輸入密碼:</label>
-                <input type="password" id="register-form-repassword" name="register-form-repassword" value={this.state.password_confirm} className="form-control" onChange={e=>this.onPasswordChange(e,"pw_confirm")}/>
+                <input type="password" id="register-form-repassword" name="register-form-repassword" value={this.state.repassword} className="form-control" onChange={e=>this.onPasswordChange(e,"pw_confirm")}/>
               </div>
 
               <div className="clear"></div>

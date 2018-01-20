@@ -1,0 +1,45 @@
+[
+  '{{repeat(5)}}',
+  {
+    "id": '{{index()}}',
+      "name": '{{firstName()}} {{surname()}}',
+    "gender": '{{gender()}}',
+    "city": '{{random("Berlin","Lepzig","Munich","Hamburg","Frankfurt am Main")}}',
+    "email": "{{email()}}",
+    "living_years_in_Germany": '{{integer(0,10)}}',
+      "uni": '{{random("TUBerlin","TUMunich","TUChemnitz","NTU")}}',
+      "occupation": '{{random("Student","Freelancer","Employee","Employer")}}',
+      "major": "chemistry",
+      "language": {
+        "program_language": "german",
+        "english": [
+          {
+            "TOEFL": '{{integer(50,120)}}',
+            "TOEIC": '{{integer(500,900)}}'
+          }
+        ],
+        "german": [
+          {
+            "TestDaf": '{{integer(3,5)}}{{integer(3,5)}}{{integer(3,5)}}{{integer(3,5)}}',
+            "Goethe": '{{random("A","B","C")}}{{integer(1,2)}}',
+            "DSH": '{{integer(1,3)}}'
+          }
+        ]
+      },
+    "driving_licence": '{{bool()}}',
+      "self_introduction": '{{lorem(1, "paragraphs")}}',
+      "working_experience": [
+       '{{lorem(1, "paragraphs")}}',
+       '{{lorem(1, "paragraphs")}}',
+        '{{lorem(1, "paragraphs")}}'
+      ],
+      "lang_cer_url": "https:www.language_certificate_url.com",
+      "graduate_cer_url": "https:www.graduation_certificate_url.com",
+      "graduate_cer_translation_url": "https:www.graduation_certificate_traslation_url.com",
+      "other_cer_url": "https:www.other_certificate_url.com",
+      "resume_url": "https:www.resume.url.com",
+      "expected_salary_per_hour": '{{integer(5,25)}}',
+    "willingness_relocation": '{{bool}}',
+    "is_palpal": '{{bool}}'
+  }
+]

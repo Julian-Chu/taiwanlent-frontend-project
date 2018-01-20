@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
+import Register from './components/login/Registry';
 
 
 class App extends Component {
@@ -87,6 +88,7 @@ class App extends Component {
                                 {/* <Route path="/home" exact component={Home} />                */}
                                 <Route path="/talents" extact component={Talents} />
                                 <Route path="/login" extact component={Login} />
+                                <Route path="/register" extact component={Register} />
                                 <Redirect to="/home" />
                             </Switch>
                         </div>

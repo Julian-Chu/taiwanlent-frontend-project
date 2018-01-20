@@ -1,45 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+export default class Register extends Component{
 
-export default class Login extends Component {
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
+  onFormSubmit(event){
+    event.preventDefault();
+    console.log(event);
   }
+
   render() {
     return (
       <div className="content-wrap">
         <div className="container clearfix">
-          <div className="col_one_third nobottommargin">
-            <div className="well well-lg nobottommargin">
-              <form id="login-form" name="login-form" className="nobottommargin" action="#" method="post">
-                <h3>Login to your Account</h3>
-                <div className="col_full">
-                  <label htmlFor="login-form-username">Username:</label>
-                  <input type="text" id="login-form-username" name="login-form-username" value="" className="form-control" />
-                </div>
-                <div className="col_full">
-                  <label htmlFor="login-form-password">Password:</label>
-                  <input type="password" id="login-form-password" name="login-form-password" value="" className="form-control" />
-                </div>
-                <div className="col_full nobottommargin">
-                  <button className="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
-                  <a href="#" className="fright">Forgot Password?</a>
-                </div>
-              </form>
-            </div>
-          </div>
+
 
           <div className="col_two_third col_last nobottommargin">
-            <h3>Don't have an Account? Register Now.</h3>
-            <form id="register-form" name="register-form" className="nobottommargin" action="#" method="post">
+            <h3>Please input</h3>
+            <form id="register-form" name="register-form" className="nobottommargin" onSubmit={this.onFormSubmit} >
               <div className="col_half">
                 <label htmlFor="register-form-name">真實姓名:</label>
-                <input type="text" id="register-form-name" name="register-form-name" value="" className="form-control" />
+                <div>劉岦崱</div>
               </div>
-              <div className="col_half col_last">
+               <div className="col_half col_last">
                 <label htmlFor="register-form-email">Email:</label>
                 <input type="text" id="register-form-email" name="register-form-email" value="" className="form-control" />
               </div>
@@ -88,10 +70,10 @@ export default class Login extends Component {
                 <div>
                   <label htmlFor="" id="gender">性別</label><br />
                   <label htmlFor="">
-                    <input name="gender" type="radio" />男
+                    <input name="gender" type="radio"/>男
                   </label>
                   <label htmlFor="">
-                    <input name="gender1" type="radio" />女
+                    <input name="gender1" type="radio"/>女
                   </label>
                 </div>
               </div>
@@ -122,6 +104,7 @@ export default class Login extends Component {
               <div className="clear"></div>
               <div className="col_full nobottommargin">
                 <Link to="/register" className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</Link>
+                {/* <div className="topmargin center"><Link to="/talents" className="button button-border button-circle t600">進入人才資料庫</Link></div> */}
 
               </div>
             </form>
@@ -130,4 +113,6 @@ export default class Login extends Component {
       </div>
     );
   }
+
+
 }

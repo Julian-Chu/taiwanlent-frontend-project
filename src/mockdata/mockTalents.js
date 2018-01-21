@@ -10,7 +10,7 @@ const mockTalents = [
     region: "Berlin",
     city: "",
     jobPosition:"",
-    subject:"",
+    subject:'電子資訊',
     yearsInGermany:0,
     selfIntroduce: "Hello",
     School:"",
@@ -26,7 +26,7 @@ const mockTalents = [
     region: "Berlin",
     city: "Torgau",
     jobPosition:"PM",
-    subject:"化學系",
+    subject:'化學化工',
     yearsInGermany: 5 ,
     school:"TU Chemnitz",
     selfIntroduce:  `我叫劉岦崱，綽號⼭山，

@@ -103,9 +103,9 @@ function getFilteredTalents(talents, filter) {
   // Filter region
   let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => { return filter[0].some(filterRegion => filterRegion.label.includes(t.region)) }) : talents;
   // Filter language
-  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => { return t.lang.includes(filter[1][0].label) }) : tempArray;
-  // Filter subject
-  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => { return filter[2].some(filterSubject => filterSubject.label.includes(t.subject)) }) : tempArray;
+  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => { return t.langs.includes(filter[1][0].label) }) : tempArray;
+  // Filter subjectCategory
+  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => { return filter[2].some(filterSubject => filterSubject.label.includes(t.subjectCategory)) }) : tempArray;
 
   return tempArray;
 }

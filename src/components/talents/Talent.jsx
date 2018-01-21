@@ -35,8 +35,8 @@ class Talent extends Component {
             <h3><a href="# ">{this.props.name}</a></h3>
           </div>
           <div className="product-price ">
-            <div>語言:<span>{this.props.lang}</span></div>
-            <div>專業背景:<span>{this.props.subject}</span></div>
+            <div>語言:<span>{this.props.langs}</span></div>
+            <div>專業背景:<span>{this.props.subjectCategory}</span></div>
             <div>所在地:<span>{this.props.region}</span></div>
           </div>
           <div className="product-rating ">
@@ -59,8 +59,8 @@ class Talent extends Component {
 
 Talent.propTypes = {
   name: PropTypes.string.isRequired,
-  lang: PropTypes.string.isRequired,
-  subject: PropTypes.string.isRequired,
+  langs: PropTypes.string.isRequired,
+  subjectCategory: PropTypes.string.isRequired,
   qualified: PropTypes.bool.isRequired,
   experienced: PropTypes.bool.isRequired,
   addCandidate: PropTypes.func.isRequired,

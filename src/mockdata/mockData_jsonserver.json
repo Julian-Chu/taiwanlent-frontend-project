@@ -3,43 +3,38 @@
     "id": 1,
     "name": "劉岦崱",
     "gender": "male",
+    "region": "Berlin",
     "city": "Torgau",
     "email": "wulingteen@gmail.com",
-    "living_years_in_Germany": "5",
+    "livingYearsInGermany": "5",
     "uni": "TU Chemnitz",
     "occupation": "student",
+    "subjectCategory":"化學化工",
     "major": "chemistry",
+    "langs":"德文/英文/中文",
     "language": {
-      "program_language": "german",
-      "english": [
-        {
-          "TOEFL": 95,
-          "TOEIC": 920
-        }
-      ],
-      "german": [
-        {
-          "TestDaf": "5445",
-          "Goethe": "C1",
-          "DSH": "2222"
-        }
-      ]
+      "programLanguage": "german",
+      "english":"'TOEFL': 95, 'TOEIC': 920",
+      "german": "'TestDaf': '5445','Goethe': 'C1','DSH': '2222'"      
     },
-    "driving_licence": true,
-    "self_introduction": "Lorem ipsum dolor sit amet, nulla nec pulvinar amet amet maecenas, donec amet lectus donec. Non nam, lacinia volutpat, maecenas cursus aenean eros. Mi scelerisque ipsum at leo, aliquam est. Volutpat a sodales risus dictumst diam dictum, faucibus quis varius, rutrum eget fringilla praesent, nunc ut vitae dapibus, egestas dictumst lobortis dignissim justo. Est et nonummy nam quis aliquam, nullam maecenas nostra sed feugiat. Justo tristique turpis blanditiis lorem ligula. Aut pede lacus ante, elit elit vel quam sit ut elit.",
-    "working_experience": [
-      "Lorem ipsum dolor sit amet, nulla nec pulvinar amet amet maecenas, donec amet lectus donec. Non nam, lacinia volutpat, maecenas cursus aenean eros.",
-      "Volutpat a sodales risus dictumst diam dictum, faucibus quis varius, rutrum eget fringilla praesent, nunc ut vitae dapibus, egestas dictumst lobortis dignissim justo.",
-      "Est et nonummy nam quis aliquam, nullam maecenas nostra sed feugiat."
+    "drivingLicence": true,
+    "selfIntroduction": "我叫劉岦崱，綽號⼭山,目前在德國工作，⾝身兼兩份合約正職及⼀一份Freelancing工作，同時間與另外三位優秀夥伴共同為創業作準備",
+    "workingExperiences": [
+      "太陽能建材專⽤用模組⽣生產技術轉移Specialist",
+      "某航空公司臉書粉絲⾴頁德⽂文主編",
+      "德國中醫式獸醫療法臉書粉絲頁行銷企劃"
     ],
-    "lang_cer_url": "https:www.language_certificate_url.com",
-    "graduate_cer_url": "https:www.graduation_certificate_url.com",
-    "graduate_cer_translation_url": "https:www.graduation_certificate_traslation_url.com",
-    "other_cer_url": "https:www.other_certificate_url.com",
-    "resume_url": "https:www.resume.url.com",
-    "expected_salary_per_hour": "15",
-    "willingness_relocation": false,
-    "is_palpal": true
+    "photo": "images/team/Taiwanlent-Liu.jpg",
+    "langCerUrl": "https:www.language_certificate_url.com",
+    "graduateCerUrl": "https:www.graduation_certificate_url.com",
+    "graduateCerTranslationUrl": "https:www.graduation_certificate_traslation_url.com",
+    "otherCerUrl": "https:www.other_certificate_url.com",
+    "resumeUrl": "https:www.resume.url.com",
+    "expectedSalaryPerHour": "15",
+    "willingToRelocate": false,
+    "hasPaypal": true,
+    "qualified": false,
+    "experienced": false
   },
   {
     "id": 1,
@@ -47,12 +42,12 @@
     "gender": "male",
     "city": "Munich",
     "email": "georgebonner@vendblend.com",
-    "living_years_in_Germany": 9,
+    "livingYearsInGermany": 9,
     "uni": "NTU",
     "occupation": "Employee",
     "major": "chemistry",
     "language": {
-      "program_language": "german",
+      "programLanguage": "german",
       "english": [
         {
           "TOEFL": 51,
@@ -67,21 +62,21 @@
         }
       ]
     },
-    "driving_licence": true,
-    "self_introduction": "Cillum aliqua cupidatat culpa nisi non excepteur adipisicing in ex cupidatat. Nostrud elit mollit aliquip et. Aliquip enim et ipsum velit irure magna enim tempor commodo tempor. Sint Lorem dolor consectetur labore sit. Irure nulla tempor culpa excepteur ea non tempor cupidatat id laboris sit consequat. Aute nisi velit dolore minim duis excepteur dolore nulla officia consectetur eu tempor.\r\n",
-    "working_experience": [
+    "drivingLicence": true,
+    "selfIntroduction": "Cillum aliqua cupidatat culpa nisi non excepteur adipisicing in ex cupidatat. Nostrud elit mollit aliquip et. Aliquip enim et ipsum velit irure magna enim tempor commodo tempor. Sint Lorem dolor consectetur labore sit. Irure nulla tempor culpa excepteur ea non tempor cupidatat id laboris sit consequat. Aute nisi velit dolore minim duis excepteur dolore nulla officia consectetur eu tempor.\r\n",
+    "workingExperiences": [
       "Non eu nisi amet nisi enim mollit ullamco Lorem sint. Minim laboris ut amet commodo nisi laboris nisi excepteur sit esse. Qui amet excepteur culpa deserunt proident non voluptate. Aliquip est ex adipisicing anim fugiat.\r\n",
       "Cillum eiusmod enim ut aliquip magna ex sit fugiat irure exercitation fugiat minim deserunt sunt. Sint velit sint eiusmod et. Magna occaecat deserunt commodo ut nostrud. Sunt eiusmod quis voluptate ex proident veniam labore ex dolor exercitation exercitation laboris minim.\r\n",
       "Ad voluptate qui duis fugiat reprehenderit consequat elit sunt laborum. Aliqua magna do laboris labore eiusmod aliqua officia sit velit. Nisi ad eu ipsum duis Lorem velit minim elit aute.\r\n"
     ],
-    "lang_cer_url": "https:www.language_certificate_url.com",
-    "graduate_cer_url": "https:www.graduation_certificate_url.com",
-    "graduate_cer_translation_url": "https:www.graduation_certificate_traslation_url.com",
-    "other_cer_url": "https:www.other_certificate_url.com",
-    "resume_url": "https:www.resume.url.com",
-    "expected_salary_per_hour": 17,
-    "willingness_relocation": true,
-    "is_palpal": true
+    "langCerUrl": "https:www.language_certificate_url.com",
+    "graduateCerUrl": "https:www.graduation_certificate_url.com",
+    "graduateCerTranslationUrl": "https:www.graduation_certificate_traslation_url.com",
+    "otherCerUrl": "https:www.other_certificate_url.com",
+    "resumeUrl": "https:www.resume.url.com",
+    "expectedSalaryPerHour": 17,
+    "willingToRelocate": true,
+    "hasPaypal": true
   },
   {
     "id": 2,
@@ -89,12 +84,12 @@
     "gender": "female",
     "city": "Berlin",
     "email": "brigittebarry@vendblend.com",
-    "living_years_in_Germany": 9,
+    "livingYearsInGermany": 9,
     "uni": "TUChemnitz",
     "occupation": "Freelancer",
     "major": "chemistry",
     "language": {
-      "program_language": "german",
+      "programLanguage": "german",
       "english": [
         {
           "TOEFL": 116,
@@ -109,21 +104,21 @@
         }
       ]
     },
-    "driving_licence": true,
-    "self_introduction": "Sint dolore sunt dolor tempor aliqua sit est. Deserunt dolor elit ipsum proident eu. Nisi amet aliquip ex nostrud labore proident in adipisicing. Irure mollit amet eu est culpa laborum. Elit ea labore ipsum id eiusmod in nostrud. Lorem commodo laboris excepteur sunt voluptate aute et ut.\r\n",
-    "working_experience": [
+    "drivingLicence": true,
+    "selfIntroduction": "Sint dolore sunt dolor tempor aliqua sit est. Deserunt dolor elit ipsum proident eu. Nisi amet aliquip ex nostrud labore proident in adipisicing. Irure mollit amet eu est culpa laborum. Elit ea labore ipsum id eiusmod in nostrud. Lorem commodo laboris excepteur sunt voluptate aute et ut.\r\n",
+    "workingExperiences": [
       "Sint excepteur fugiat elit ut. Exercitation et sint consectetur tempor nisi duis est. Eiusmod velit quis reprehenderit ut consequat adipisicing ullamco fugiat eiusmod labore. Cillum culpa id ad nostrud pariatur laborum non elit pariatur. Enim laboris velit est consectetur aute. Commodo magna eu velit esse qui ex veniam occaecat do laboris ea nulla occaecat anim. Esse mollit quis adipisicing labore ex Lorem amet nostrud exercitation ipsum cillum irure.\r\n",
       "Ad minim reprehenderit laboris ea pariatur tempor culpa ad et amet enim anim minim. Qui reprehenderit ut enim ipsum sint dolore consequat do est esse id. Magna enim veniam magna excepteur ut nisi commodo exercitation aliqua.\r\n",
       "Quis sint nulla duis occaecat aliqua irure. Nostrud laborum tempor eu irure ea id culpa et velit non fugiat commodo. Aliqua est deserunt nulla culpa irure ea ex reprehenderit. Enim voluptate commodo ipsum adipisicing esse enim ullamco nostrud ut pariatur. Cillum irure qui eiusmod mollit magna in. Excepteur proident deserunt mollit Lorem fugiat incididunt cupidatat. Exercitation reprehenderit amet enim tempor et culpa culpa laborum sint reprehenderit deserunt adipisicing esse.\r\n"
     ],
-    "lang_cer_url": "https:www.language_certificate_url.com",
-    "graduate_cer_url": "https:www.graduation_certificate_url.com",
-    "graduate_cer_translation_url": "https:www.graduation_certificate_traslation_url.com",
-    "other_cer_url": "https:www.other_certificate_url.com",
-    "resume_url": "https:www.resume.url.com",
-    "expected_salary_per_hour": 18,
-    "willingness_relocation": false,
-    "is_palpal": true
+    "langCerUrl": "https:www.language_certificate_url.com",
+    "graduateCerUrl": "https:www.graduation_certificate_url.com",
+    "graduateCerTranslationUrl": "https:www.graduation_certificate_traslation_url.com",
+    "otherCerUrl": "https:www.other_certificate_url.com",
+    "resumeUrl": "https:www.resume.url.com",
+    "expectedSalaryPerHour": 18,
+    "willingToRelocate": false,
+    "hasPaypal": true
   },
   {
     "id": 3,
@@ -131,12 +126,12 @@
     "gender": "female",
     "city": "Hamburg",
     "email": "kittylawrence@vendblend.com",
-    "living_years_in_Germany": 6,
+    "livingYearsInGermany": 6,
     "uni": "TUChemnitz",
     "occupation": "Employer",
     "major": "chemistry",
     "language": {
-      "program_language": "german",
+      "programLanguage": "german",
       "english": [
         {
           "TOEFL": 61,
@@ -151,21 +146,21 @@
         }
       ]
     },
-    "driving_licence": false,
-    "self_introduction": "Ad ullamco consectetur eiusmod irure consequat aute incididunt. Voluptate in culpa est fugiat et nulla sunt pariatur anim magna est id et. Sunt consectetur ipsum qui irure. Cillum quis incididunt mollit incididunt Lorem voluptate nulla.\r\n",
-    "working_experience": [
+    "drivingLicence": false,
+    "selfIntroduction": "Ad ullamco consectetur eiusmod irure consequat aute incididunt. Voluptate in culpa est fugiat et nulla sunt pariatur anim magna est id et. Sunt consectetur ipsum qui irure. Cillum quis incididunt mollit incididunt Lorem voluptate nulla.\r\n",
+    "workingExperiences": [
       "Dolor id nulla adipisicing pariatur labore mollit. Dolor consequat irure deserunt nostrud voluptate occaecat non amet deserunt quis. Aute reprehenderit do adipisicing cillum aliquip. Incididunt ad nostrud nostrud tempor aliquip laboris excepteur laborum elit est pariatur dolor aliquip irure. Ipsum sit eiusmod irure ad non voluptate consequat aliqua culpa ea. Tempor consectetur deserunt qui laborum elit cillum. Anim voluptate veniam anim proident ex magna ullamco proident ullamco elit occaecat eiusmod commodo irure.\r\n",
       "Elit voluptate in adipisicing magna consectetur ea. Dolore pariatur deserunt aute laborum excepteur excepteur officia aute fugiat occaecat non. Et et ipsum commodo exercitation irure ut. Aliquip magna commodo consequat id incididunt sit incididunt minim labore cupidatat reprehenderit id.\r\n",
       "Duis aute ut reprehenderit consequat do incididunt deserunt Lorem mollit. Est dolor esse laboris dolor fugiat ut commodo dolore labore voluptate ipsum aliquip. Aute id culpa tempor ea nulla. Nostrud eu commodo nisi anim ipsum duis Lorem aliquip.\r\n"
     ],
-    "lang_cer_url": "https:www.language_certificate_url.com",
-    "graduate_cer_url": "https:www.graduation_certificate_url.com",
-    "graduate_cer_translation_url": "https:www.graduation_certificate_traslation_url.com",
-    "other_cer_url": "https:www.other_certificate_url.com",
-    "resume_url": "https:www.resume.url.com",
-    "expected_salary_per_hour": 5,
-    "willingness_relocation": false,
-    "is_palpal": false
+    "langCerUrl": "https:www.language_certificate_url.com",
+    "graduateCerUrl": "https:www.graduation_certificate_url.com",
+    "graduateCerTranslationUrl": "https:www.graduation_certificate_traslation_url.com",
+    "otherCerUrl": "https:www.other_certificate_url.com",
+    "resumeUrl": "https:www.resume.url.com",
+    "expectedSalaryPerHour": 5,
+    "willingToRelocate": false,
+    "hasPaypal": false
   },
   {
     "id": 4,
@@ -173,12 +168,12 @@
     "gender": "female",
     "city": "Berlin",
     "email": "janalucas@vendblend.com",
-    "living_years_in_Germany": 0,
+    "livingYearsInGermany": 0,
     "uni": "TUMunich",
     "occupation": "Student",
     "major": "chemistry",
     "language": {
-      "program_language": "german",
+      "programLanguage": "german",
       "english": [
         {
           "TOEFL": 62,
@@ -193,20 +188,20 @@
         }
       ]
     },
-    "driving_licence": true,
-    "self_introduction": "Tempor mollit ex enim incididunt pariatur ea eu ex nulla. Deserunt tempor est consectetur cillum cillum pariatur consectetur deserunt sunt eu irure aute. Aute eu aliquip cupidatat sit. Dolore cupidatat laboris ea commodo ex pariatur mollit esse id ad ea deserunt minim. Anim cupidatat eu laboris anim.\r\n",
-    "working_experience": [
+    "drivingLicence": true,
+    "selfIntroduction": "Tempor mollit ex enim incididunt pariatur ea eu ex nulla. Deserunt tempor est consectetur cillum cillum pariatur consectetur deserunt sunt eu irure aute. Aute eu aliquip cupidatat sit. Dolore cupidatat laboris ea commodo ex pariatur mollit esse id ad ea deserunt minim. Anim cupidatat eu laboris anim.\r\n",
+    "workingExperiences": [
       "Reprehenderit Lorem esse ex eiusmod consectetur. Culpa consequat sit est nulla nisi aliquip incididunt incididunt minim ullamco. Ullamco in ex nulla officia ex veniam eu in magna nostrud minim. Veniam Lorem pariatur labore incididunt eiusmod ad. Excepteur dolor magna est quis fugiat. Reprehenderit ullamco voluptate magna cupidatat minim dolor nostrud dolor in commodo mollit.\r\n",
       "Dolor id est minim dolore cillum dolore anim nostrud est sint esse laborum irure nisi. Mollit aute nulla reprehenderit incididunt excepteur ipsum occaecat mollit quis. Aliqua sit qui veniam commodo labore laborum qui non adipisicing aliqua. Labore ut ea deserunt eu amet nostrud aliquip eu elit deserunt. Exercitation minim exercitation consectetur cillum dolore veniam cupidatat minim commodo ex. Fugiat dolor est incididunt cupidatat ea adipisicing.\r\n",
       "Eu sunt eiusmod tempor ut non occaecat elit. Quis cupidatat dolor ex consectetur et aute duis ad occaecat. Do consequat nulla aliquip aliqua non aute voluptate laboris et occaecat velit mollit.\r\n"
     ],
-    "lang_cer_url": "https:www.language_certificate_url.com",
-    "graduate_cer_url": "https:www.graduation_certificate_url.com",
-    "graduate_cer_translation_url": "https:www.graduation_certificate_traslation_url.com",
-    "other_cer_url": "https:www.other_certificate_url.com",
-    "resume_url": "https:www.resume.url.com",
-    "expected_salary_per_hour": 19,
-    "willingness_relocation": false,
-    "is_palpal": false
+    "langCerUrl": "https:www.language_certificate_url.com",
+    "graduateCerUrl": "https:www.graduation_certificate_url.com",
+    "graduateCerTranslationUrl": "https:www.graduation_certificate_traslation_url.com",
+    "otherCerUrl": "https:www.other_certificate_url.com",
+    "resumeUrl": "https:www.resume.url.com",
+    "expectedSalaryPerHour": 19,
+    "willingToRelocate": false,
+    "hasPaypal": false
   }
 ]

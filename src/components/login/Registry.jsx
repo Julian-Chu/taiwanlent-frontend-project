@@ -23,6 +23,7 @@ export default class Register extends Component {
       occupation: "",
       living_years_in_Germany: "",
       uni: "",
+      subjectCategory:"",
       major: "",
       working_experiences: {
         first: "",
@@ -56,6 +57,12 @@ export default class Register extends Component {
     axios.post('http://localhost:4000/users',
      this.state);
 
+     axios.get('http://localhost:4000/users/1')
+     .then(function(response){
+       console.log(response.data);
+       console.log(response.data.name);
+     })
+
   }
 
   SelectChange(val, nameOfSelect) {
@@ -65,7 +72,7 @@ export default class Register extends Component {
           region: val,
         });
         break;
-      case "subject":
+      case "subjectCategory":
         this.setState({
           subject: val,
         })
@@ -149,10 +156,10 @@ export default class Register extends Component {
                 <Select
                   options={this.subjectOptions}
                   style={{ maxWidth: '250px' }}
-                  onChange={(val) => this.SelectChange(val, "subject")}
+                  onChange={(val) => this.SelectChange(val, "subjectCategory")}
                   placeholder="Select subjects"
                   closeOnSelect={false}
-                  value={this.state.subject}
+                  value={this.state.subjectCategory}
                 />
               </div>
               <div className="clear"></div>

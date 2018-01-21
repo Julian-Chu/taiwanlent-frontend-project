@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Select from 'react-select';
+import regions from '../common/regions';
+import subjects from '../common/subjects';
+import axios from 'axios';
 
 export default class Register extends Component {
   constructor() {
     super();
+    this.regionOptions = regions;
+    this.subjectOptions = subjects;
+
     this.state = {
       username: sessionStorage.getItem("username"),
       password: sessionStorage.getItem("password"),
@@ -11,16 +18,16 @@ export default class Register extends Component {
       name: "",
       email: "",
       phone: "",
-      state: "",
+      region: "",
       city: "",
       occupation: "",
       living_years_in_Germany: "",
       uni: "",
       major: "",
       working_experiences: {
-        first:"",
-        second:"",
-        third:""
+        first: "",
+        second: "",
+        third: ""
       },
       languages: {
         german: "",
@@ -31,17 +38,39 @@ export default class Register extends Component {
       driving_licence: false,
       willingness_relocation: false,
     }
+
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  onGenderChange(e){
+  onGenderChange(e) {
     console.log(e.target.value);
   }
 
-  onCheckboxChange(e, checkboxName){
+  onCheckboxChange(e, checkboxName) {
 
   }
   onFormSubmit(event) {
+    // console.log(JSON.stringify(this.state));
     event.preventDefault();
+
+    axios.post('http://localhost:4000/users',
+     this.state);
+
+  }
+
+  SelectChange(val, nameOfSelect) {
+    switch (nameOfSelect) {
+      case "region":
+        this.setState({
+          region: val,
+        });
+        break;
+      case "subject":
+        this.setState({
+          subject: val,
+        })
+    }
+    console.log(val);
   }
   render() {
     return (
@@ -84,7 +113,15 @@ export default class Register extends Component {
 
               <div className="col_half">
                 <label htmlFor="register-form-state">所在邦聯</label>
-                <input type="text" id="register-form-state" name="register-form-state" value={this.state.state} className="form-control" />
+                {/* <input type="text" id="register-form-state" name="register-form-state" value={this.state.state} className="form-control" /> */}
+                <Select
+                  options={this.regionOptions}
+                  onChange={(val) => this.SelectChange(val, "region")}
+                  placeholder="Select regions"
+                  closeOnSelect={false}
+                  value={this.state.region}
+                  style={{ maxWidth: '300px' }}
+                />
               </div>
               <div className="col_half col_last">
                 <label htmlFor="register-form-city">居住城市</label>
@@ -108,7 +145,15 @@ export default class Register extends Component {
               </div>
               <div className="col_half col_last">
                 <label htmlFor="register-form-major">科系</label>
-                <input type="text" id="register-form-major" name="register-form-major" value={this.state.major} className="form-control" />
+                {/* <input type="text" id="register-form-major" name="register-form-major" value={this.state.major} className="form-control" /> */}
+                <Select
+                  options={this.subjectOptions}
+                  style={{ maxWidth: '250px' }}
+                  onChange={(val) => this.SelectChange(val, "subject")}
+                  placeholder="Select subjects"
+                  closeOnSelect={false}
+                  value={this.state.subject}
+                />
               </div>
               <div className="clear"></div>
               <div className="col_half">
@@ -125,7 +170,7 @@ export default class Register extends Component {
                   <input type="checkbox" id="register-checkbox-german" name="register-checkbox-german" checked={this.state.germanIsChecked} />
                   <label>德語</label>
                   <input type="text" id="register-licence-german" name="register-licence-german" value={this.state.languages.german} className="form-control" />
-                  <input type="checkbox" id="register-checkbox-english" name="register-checkbox-english" checked={this.state.englishIsChecked}/>
+                  <input type="checkbox" id="register-checkbox-english" name="register-checkbox-english" checked={this.state.englishIsChecked} />
                   <label>英語</label>
                   <input type="text" id="register-licence-english" name="register-licence-english" value={this.state.languages.english} className="form-control" />
                   <input type="checkbox" id="register-checkbox-chinese" name="register-checkbox-chinese" value={this.state.chineseIsChecked} />
@@ -141,22 +186,22 @@ export default class Register extends Component {
               </div>
               <div className="col_half col_last">
 
-                <div id="gender" onChange={e=>this.onGenderChange(e)}>
+                <div id="gender" onChange={e => this.onGenderChange(e)}>
                   <label>性別</label><br />
                   <label htmlFor="">
-                    <input name="gender" type="radio" value="male"/>男
+                    <input name="gender" type="radio" value="male" />男
                   </label>
                   <label htmlFor="">
-                    <input name="gender" type="radio" value="female"/>女
+                    <input name="gender" type="radio" value="female" />女
                   </label>
                 </div>
                 <br />
                 <div>
-                  <input type="checkbox" name="licence" onChange={e=>this.onCheckboxChange(e,"licence")}></input>
+                  <input type="checkbox" name="licence" onChange={e => this.onCheckboxChange(e, "licence")}></input>
                   <label htmlFor="" id="licence">駕照</label>
                 </div>
                 <div>
-                  <input type="checkbox" name="relocation" onChange={e=>this.onCheckboxChange(e,"relocation")}></input>
+                  <input type="checkbox" name="relocation" onChange={e => this.onCheckboxChange(e, "relocation")}></input>
                   <label htmlFor="" id="relocation">可搬家</label>
                 </div>
               </div>
@@ -164,7 +209,7 @@ export default class Register extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <Link to="/register" className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</Link>
+                <button className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
 
               </div>
             </form>

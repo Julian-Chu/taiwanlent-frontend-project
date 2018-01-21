@@ -4,50 +4,18 @@ import 'react-select/dist/react-select.css';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {setFilters} from '../../actions/index';
+import regions from '../common/regions';
+import subjects from '../common/subjects';
+import languages from '../common/languages';
 
 
 
 class Filter extends Component {
   constructor(props) {
     super(props);
-
-    this.langOptions = [
-      { value: 'de', label: '德文' },
-      { value: 'en', label: '英文' },
-      { value: 'ch', label: '中文' }
-    ];
-
-    this.regionOptions = [
-      { value: 'BW', label: 'Baden-Württemberg 巴登-符騰堡' },
-      { value: 'BE', label: 'Berlin 柏林' },
-      { value: 'BY', label: 'Bavaria 巴伐利亞' },
-      { value: 'HB', label: 'Bremen 布萊梅' },
-      { value: 'BB', label: 'Brandenburg 布蘭登堡' },
-      { value: 'HH', label: 'Hamburg 漢堡' },
-      { value: 'HE', label: 'Hessen 黑森' },
-      { value: 'NI', label: 'Lower Saxony 下薩克森' },
-      { value: 'SL', label: 'Saarland 薩爾蘭' },
-      { value: 'SN', label: 'Saxony 薩克森' },
-      { value: 'ST', label: 'Saxony-Anhalt 薩克森-安哈特' },
-      { value: 'TH', label: 'Thuringia 圖林根' },
-      { value: 'RP', label: 'Rhineland-Palatinate 萊茵蘭-普法茲' },
-      { value: 'SH', label: 'Schleswig-Holstein 史列斯威-霍爾斯' },
-      { value: 'NW', label: 'North Rhine-Westphalia 北萊茵-西法冷' },
-      { value: 'MV', label: 'Mecklenburg-Western Pomerania 梅克倫堡-西波美恩' },
-    ];
-
-    this.subjectOptions = [
-      { value: 'etit', label: '電子資訊' },
-      { value: 'ch', label: '化學化工' },
-      { value: 'mame', label: '材料機械' },
-      { value: 'soci', label: '社會學科' },
-      { value: 'lang', label: '語言專業' },
-      { value: 'art', label: '藝術' },
-      { value: 'biomed', label: '生物醫學' },
-      { value: 'etc', label: '其他' },
-    ]
-
-
+    this.langOptions = languages;
+    this.regionOptions = regions;
+    this.subjectOptions = subjects;
     this.state = {
       selectedLanguages: [],
       selectAllLangsIsChecked: false,
@@ -61,6 +29,7 @@ class Filter extends Component {
   langsChange(val) {
     this.setState({
       selectedLanguages: val,
+      selectAllLangsIsChecked: false
     })
   }
 
@@ -81,6 +50,7 @@ class Filter extends Component {
   regionsChange(val) {
     this.setState({
       selectedRegions: val,
+      selectAllRegionsIsChecked:false
     })
   }
 
@@ -101,6 +71,7 @@ class Filter extends Component {
   subjectsChange(val) {
     this.setState({
       selectedSubjects: val,
+      selectAllSubjectsIsChecked: false
     })
   }
 

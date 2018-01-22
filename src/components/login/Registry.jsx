@@ -13,31 +13,34 @@ export default class Register extends Component {
     this.subjectOptions = subjects;
 
     this.state = {
-        data:{
-          username: sessionStorage.getItem("username"),
-          password: sessionStorage.getItem("password"),
-          repassword: sessionStorage.getItem("repassword"),
-          name: "test",
-          email: "",
-          phone: "",
-          region: "",
-          city: "",
-          occupation: "",
-          livingYearsInGermany: "",
-          uni: "",
-          subjectCategory:"",
-          major: "",
-          workingExperiences: ["1","2","3"],
-          languages: {
-            german: "",
-            english: "",
-            chinese: ""
-          },
-          selfIntroduction: "",
-          drivingLicence: false,
-          willingToRelocate: false,
+      data: {
+        username: sessionStorage.getItem("username"),
+        password: sessionStorage.getItem("password"),
+        repassword: sessionStorage.getItem("repassword"),
+        name: "test",
+        email: "",
+        phone: "",
+        region: "",
+        city: "",
+        occupation: "",
+        livingYearsInGermany: "",
+        uni: "",
+        subjectCategory: "",
+        major: "",
+        workingExperiences: ["1", "2", "3"],
+        langs:"",
+        languages: {
+          german: "",
+          english: "",
+          chinese: ""
         },
-        test:""
+        selfIntroduction: "",
+        drivingLicence: false,
+        willingToRelocate: false,
+      },
+      germanIsChecked: false,
+      englishIsChecked: false,
+      chineseIsChecked: false
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -55,13 +58,13 @@ export default class Register extends Component {
     event.preventDefault();
 
     axios.post('http://localhost:4000/users',
-     this.state);
+      this.state);
 
-     axios.get('http://localhost:4000/users/1')
-     .then(function(response){
-       console.log(response.data);
-       console.log(response.data.name);
-     })
+    axios.get('http://localhost:4000/users/1')
+      .then(function (response) {
+        console.log(response.data);
+        console.log(response.data.name);
+      })
 
   }
 
@@ -80,11 +83,41 @@ export default class Register extends Component {
     console.log(val);
   }
 
-  onTextInputChange(e, propertyName){
+  onTextInputChange(e, propertyName) {
     var newData = JSON.parse(JSON.stringify(this.state.data));
     newData[propertyName] = e.target.value;
     // this.state.data[propertyName]=e.target.value;    
-    this.setState({data:newData});
+    this.setState({ data: newData });
+  }
+
+  onExperienceInputChange(e, index){
+    var experiences = this.state.data.workingExperiences;
+    experiences[index] = e.target.value;
+    this.setState({
+      workingExperiences: experiences
+    })
+  }
+
+  onLanguageChange(lang){
+    if(lang==="de"){
+      this.state.germanIsChecked=!this.state.germanIsChecked;
+    }
+    else if(lang ==="en")
+    {
+      this.state.englishIsChecked=!this.state.englishIsChecked;
+    }
+    else{
+      this.state.chineseIsChecked=!this.state.chineseIsChecked;
+    }
+    var langsArray =[];    
+    if(this.state.germanIsChecked) langsArray.push("德文");
+    if(this.state.englishIsChecked) langsArray.push("英文");       
+    if(this.state.chineseIsChecked) langsArray.push("中文");
+    
+    this.state.data.langs = langsArray.join("/");
+    console.log(this.state.data.langs);
+    this.setState({});
+    
   }
   render() {
     return (
@@ -98,30 +131,27 @@ export default class Register extends Component {
               <div className="col_half">
                 {/* <label htmlFor="register-form-username">使用者名稱:</label>
                 <input type="text" id="register-form-username" name="register-form-username" value={this.state.data.username} className="form-control" onChange={(e)=>this.onTextInputChange(e,"username")}/> */}
-                <TextInputField name="username" title="使用者名稱" value={this.state.data.username} className="form-control" onChange={(e)=>this.onTextInputChange(e,"username")}/>
+                <TextInputField name="username" title="使用者名稱" value={this.state.data.username} onChange={(e) => this.onTextInputChange(e, "username")} />
               </div>
-              <div className="col_half col_last">                
-                <TextInputField name="email" title="Email" value={this.state.data.email} className="form-control" onChange={(e)=>this.onTextInputChange(e,"email")}/>                
+              <div className="col_half col_last">
+                <TextInputField name="email" title="Email" value={this.state.data.email} onChange={(e) => this.onTextInputChange(e, "email")} />
               </div>
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-password">輸入密碼:</label>
-                <input type="password" id="register-form-password" name="register-form-password" value={this.state.data.password} className="form-control" onChange={(e)=>this.onTextInputChange(e,"password")}/>
+                <input type="password" id="register-form-password" name="register-form-password" value={this.state.data.password} className="form-control" onChange={(e) => this.onTextInputChange(e, "password")} />
               </div>
               <div className="col_half col_last">
                 <label htmlFor="register-form-repassword">再次輸入密碼:</label>
-                <input type="password" id="register-form-repassword" name="register-form-repassword" value={this.state.data.repassword} className="form-control" onChange={(e)=>this.onTextInputChange(e,"repassword")}/>
+                <input type="password" id="register-form-repassword" name="register-form-repassword" value={this.state.data.repassword} className="form-control" onChange={(e) => this.onTextInputChange(e, "repassword")} />
               </div>
               <div className="clear"></div>
 
               <div className="col_half">
-                <label htmlFor="register-form-name">真實姓名:</label>
-                <input type="text" id="register-form-name" name="register-form-email" value={this.state.data.name} className="form-control" onChange={(e)=>this.onTextInputChange(e,"name")} />
-
+                <TextInputField name="name" title="真實姓名" value={this.state.data.name} onChange={e => this.onTextInputChange(e, "name")} />
               </div>
               <div className="col_half col_last">
-                <label htmlFor="register-form-phone">連絡電話:</label>
-                <input type="text" id="register-form-phone" name="register-form-phone" value={this.state.data.phone} className="form-control" />
+                <TextInputField name="phone" title="連絡電話" value={this.state.data.phone} onChange={e => this.onTextInputChange(e, "phone")}></TextInputField>
               </div>
               <div className="clear"></div>
 
@@ -138,24 +168,20 @@ export default class Register extends Component {
                 />
               </div>
               <div className="col_half col_last">
-                <label htmlFor="register-form-city">居住城市</label>
-                <input type="text" id="register-form-city" name="register-form-city" value={this.state.data.city} className="form-control" />
+                <TextInputField name="city" title="居住城市" value={this.state.data.city} onChange={e => this.onTextInputChange(e, "city")}></TextInputField>
               </div>
               <div className="clear"></div>
               <div className="col_half">
-                <label htmlFor="register-form-occupation">職業</label>
-                <input type="text" id="register-form-occupation" name="register-form-occupation" value={this.state.data.occupation} className="form-control" />
+                <TextInputField name="occupation" title="職業" value={this.state.data.occupation} onChange={e => this.onTextInputChange(e, "occupation")}></TextInputField>
               </div>
               <div className="col_half col_last">
-                <label htmlFor="register-form-repassword">在德居住年數</label>
-                <input type="text" id="register-form-repassword" name="register-form-repassword" value={this.state.data.livingYearsInGermany} className="form-control" />
+                <TextInputField name="lvingYearsInGermany" title="在德居住年數" value={this.state.data.livingYearsInGermany} onChange={e => this.onTextInputChange(e, "livingYearsInGermany")}></TextInputField>
               </div>
 
-
               <div className="clear"></div>
-              <div className="col_half">
-                <label htmlFor="register-form-academic">學校</label>
-                <input type="text" id="register-form-academic" name="register-form-academic" value={this.state.data.uni} className="form-control" />
+              <div className="col_half">                
+                <TextInputField name="uni" title="學校" value={this.state.data.uni} onChange={e => this.onTextInputChange(e, "uni")}></TextInputField>
+                
               </div>
               <div className="col_half col_last">
                 <label htmlFor="register-form-major">科系</label>
@@ -170,33 +196,30 @@ export default class Register extends Component {
                 />
               </div>
               <div className="clear"></div>
-              <div className="col_half">
-                <label htmlFor="register-form-experience1">工作經驗1</label>
-                <input type="text" id="register-form-experience1" name="register-form-experience1" value={this.state.data.workingExperiences[0]} className="form-control" />
-                <label htmlFor="register-form-experience1">工作經驗2</label>
-                <input type="text" id="register-form-experience2" name="register-form-experience2" value={this.state.data.workingExperiences[1]} className="form-control" />
-                <label htmlFor="register-form-experience1">工作經驗3</label>
-                <input type="text" id="register-form-experience3" name="register-form-experience3" value={this.state.data.workingExperiences[2]} className="form-control" />
+              <div className="col_half">                
+                {this.state.data.workingExperiences.map((e, index)=>{
+                  return <TextInputField key={index} name={"experience"+(index+1)} title={"工作經驗"+(index+1)} value={e} onChange={ event=>this.onExperienceInputChange(event, index)}/>
+                }) }
               </div>
 
               <div className="col_half col_last">
                 <div>
-                  <input type="checkbox" id="register-checkbox-german" name="register-checkbox-german" checked={this.state.data.germanIsChecked} />
+                  <input type="checkbox" id="register-checkbox-german" name="register-checkbox-german" checked={this.state.germanIsChecked} onChange={()=>this.onLanguageChange("de")}/>
                   <label>德語</label>
-                  <input type="text" id="register-licence-german" name="register-licence-german" value={this.state.data.languages.german} className="form-control" />
-                  <input type="checkbox" id="register-checkbox-english" name="register-checkbox-english" checked={this.state.data.englishIsChecked} />
+                  <input type="text" id="register-licence-german" name="register-licence-german" value={this.state.data.languages.german} className="form-control" disabled={!this.state.germanIsChecked}/>
+                  <input type="checkbox" id="register-checkbox-english" name="register-checkbox-english" checked={this.state.englishIsChecked} onChange={()=>this.onLanguageChange("en")} />
                   <label>英語</label>
-                  <input type="text" id="register-licence-english" name="register-licence-english" value={this.state.data.languages.english} className="form-control" />
-                  <input type="checkbox" id="register-checkbox-chinese" name="register-checkbox-chinese" value={this.state.data.chineseIsChecked} />
+                  <input type="text" id="register-licence-english" name="register-licence-english" value={this.state.data.languages.english} className="form-control" disabled={!this.state.englishIsChecked} />
+                  <input type="checkbox" id="register-checkbox-chinese" name="register-checkbox-chinese" checked={this.state.chineseIsChecked} onChange={()=>this.onLanguageChange("ch")}/>
                   <label>國語</label>
-                  <input type="text" id="register-licence-chinese" name="register-licence-chinese" value={this.state.data.languages.chinese} className="form-control" />
+                  <input type="text" id="register-licence-chinese" name="register-licence-chinese" value={this.state.data.languages.chinese} className="form-control" disabled={!this.state.chineseIsChecked}/>
                 </div>
               </div>
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-languages">簡單自我介紹</label>
                 <br />
-                <textarea name="" id="" cols="45" rows="10" value={this.state.data.selfIntroduction}></textarea>
+                <textarea name="" id="" cols="45" rows="10" value={this.state.data.selfIntroduction} onChange={e=>this.onTextInputChange(e,"selfIntroduction")}></textarea>
               </div>
               <div className="col_half col_last">
 

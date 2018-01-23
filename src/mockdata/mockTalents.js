@@ -14,7 +14,7 @@ const mockTalents = [
     livingYearsInGermany:0,
     selfIntroduce: "Hello",
     uni:"",
-    "workingExperiences": [
+    workingExperiences: [
       "Reprehenderit Lorem esse ex eiusmod consectetur. Culpa consequat sit est nulla nisi aliquip incididunt incididunt minim ullamco. Ullamco in ex nulla officia ex veniam eu in magna nostrud minim. Veniam Lorem pariatur labore incididunt eiusmod ad. Excepteur dolor magna est quis fugiat. Reprehenderit ullamco voluptate magna cupidatat minim dolor nostrud dolor in commodo mollit.\r\n",
       "Dolor id est minim dolore cillum dolore anim nostrud est sint esse laborum irure nisi. Mollit aute nulla reprehenderit incididunt excepteur ipsum occaecat mollit quis. Aliqua sit qui veniam commodo labore laborum qui non adipisicing aliqua. Labore ut ea deserunt eu amet nostrud aliquip eu elit deserunt. Exercitation minim exercitation consectetur cillum dolore veniam cupidatat minim commodo ex. Fugiat dolor est incididunt cupidatat ea adipisicing.\r\n",
       "Eu sunt eiusmod tempor ut non occaecat elit. Quis cupidatat dolor ex consectetur et aute duis ad occaecat. Do consequat nulla aliquip aliqua non aute voluptate laboris et occaecat velit mollit.\r\n"

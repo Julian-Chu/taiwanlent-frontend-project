@@ -12,7 +12,7 @@ import getTalents from '../../actions/get_talents';
 class Talents extends Component {
   constructor(props) {
     super(props);
-    const selectedStatus = this.props.talents.slice();
+    let selectedStatus = this.props.talents.slice();
     selectedStatus.fill(false);
     this.state = {
       selectedList: this.props.candidates,
@@ -24,6 +24,9 @@ class Talents extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.getTalents();
+    let selectedStatus = this.props.talents.slice();
+    selectedStatus.fill(false);
+    this.setState({selectedStatus});
   }
 
   removeAllCandidatesFromList() {
@@ -50,7 +53,7 @@ class Talents extends Component {
 
   renderTalentList() {
     const talents = this.props.talents;
-    return talents.map(t => { return <Talent key={t.id} enableDetail={(id)=>this.enableDetail(id)} selected={this.state.selectedStatus[t.id - 1]} addCandidate={() => this.add(t.id)} removeCandidate={() => this.remove(t.id)}  {...t} /> });
+    return talents.map(t => { return <Talent key={t.id} enableDetail={(id)=>this.enableDetail(id)} selected={this.state.selectedStatus[t.id - 1]?this.state.selectedStatus[t.id - 1]:false} addCandidate={() => this.add(t.id)} removeCandidate={() => this.remove(t.id)}  {...t} /> });
   }
 
   renderDetail() {

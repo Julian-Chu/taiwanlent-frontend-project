@@ -20,6 +20,7 @@ export default class Register extends Component {
         name: "test",
         email: "",
         phone: "",
+        photo:"",
         region: "",
         city: "",
         occupation: "",
@@ -58,29 +59,27 @@ export default class Register extends Component {
     event.preventDefault();
 
     axios.post('http://localhost:4000/users',
-      this.state.data);
-
-    axios.get('http://localhost:4000/users/1')
-      .then(function (response) {
-        console.log(response.data);
-        console.log(response.data.name);
+      this.state.data)
+      .then(function(response){
+        console.log(response);
       })
+      .catch(function(response){
+        console.log(response.state);
+      });
 
   }
 
-  SelectChange(val, nameOfSelect) {
+  onSelectChange(val, nameOfSelect) {
     switch (nameOfSelect) {
       case "region":
-        this.setState({
-          region: val,
-        });
+        this.state.data.region = val;
         break;
       case "subjectCategory":
-        this.setState({
-          subject: val,
-        })
+      this.state.data.subjectCategory = val;
     }
-    console.log(val);
+    this.setState();
+    console.log("region:",this.state.data.region);
+    console.log("subjectCategory", this.state.data.subjectCategory);
   }
 
   onTextInputChange(e, propertyName) {
@@ -160,7 +159,7 @@ export default class Register extends Component {
                 {/* <input type="text" id="register-form-state" name="register-form-state" value={this.state.data.state} className="form-control" /> */}
                 <Select
                   options={this.regionOptions}
-                  onChange={(val) => this.SelectChange(val, "region")}
+                  onChange={(val) => this.onSelectChange(val, "region")}
                   placeholder="Select regions"
                   closeOnSelect={false}
                   value={this.state.data.region}
@@ -189,7 +188,7 @@ export default class Register extends Component {
                 <Select
                   options={this.subjectOptions}
                   style={{ maxWidth: '250px' }}
-                  onChange={(val) => this.SelectChange(val, "subjectCategory")}
+                  onChange={(val) => this.onSelectChange(val, "subjectCategory")}
                   placeholder="Select subjects"
                   closeOnSelect={false}
                   value={this.state.data.subjectCategory}

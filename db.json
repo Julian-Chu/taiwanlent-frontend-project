@@ -86,6 +86,72 @@
       "qualified": false,
       "experienced": false,
       "id": 2
+    },
+    {
+      "username": "testUser2",
+      "password": "12345",
+      "repassword": "12345",
+      "name": "Chen",
+      "email": "",
+      "phone": "",
+      "photo": "",
+      "region": "Bavaria 巴伐利亞",
+      "city": "",
+      "occupation": "",
+      "livingYearsInGermany": "",
+      "uni": "",
+      "subjectCategory": "",
+      "major": "",
+      "workingExperiences": [
+        "1",
+        "2",
+        "3"
+      ],
+      "langs": "德文/英文",
+      "languages": {
+        "german": "",
+        "english": "",
+        "chinese": ""
+      },
+      "selfIntroduction": "",
+      "drivingLicence": false,
+      "willingToRelocate": false,
+      "qualified": false,
+      "experienced": false,
+      "id": 3
+    },
+    {
+      "username": "Liu",
+      "password": "1234",
+      "repassword": "1234",
+      "name": "testUser",
+      "email": "",
+      "phone": "",
+      "photo": "",
+      "region": "Berlin 柏林",
+      "city": "",
+      "occupation": "",
+      "livingYearsInGermany": "5",
+      "uni": "",
+      "subjectCategory": "材料機械",
+      "major": "",
+      "workingExperiences": [
+        "test1",
+        "test2",
+        "tes3"
+      ],
+      "langs": "",
+      "languages": {
+        "german": "",
+        "english": "",
+        "chinese": ""
+      },
+      "selfIntroduction": "",
+      "drivingLicence": false,
+      "willingToRelocate": false,
+      "qualified": false,
+      "experienced": false,
+      "id": 4
     }
   ]
 }

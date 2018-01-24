@@ -38,10 +38,14 @@ export default class Register extends Component {
         selfIntroduction: "",
         drivingLicence: false,
         willingToRelocate: false,
+        qualified: false,
+        experienced: false
       },
       germanIsChecked: false,
       englishIsChecked: false,
-      chineseIsChecked: false
+      chineseIsChecked: false,
+      selectedRegion:"",
+      selectedSubjectCategory:"",
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -72,12 +76,17 @@ export default class Register extends Component {
   onSelectChange(val, nameOfSelect) {
     switch (nameOfSelect) {
       case "region":
-        this.state.data.region = val;
+        this.setState({
+          selectedRegion: val
+        })
+        this.state.data.region = val.label;
         break;
       case "subjectCategory":
-      this.state.data.subjectCategory = val;
+      this.setState({
+        selectedSubjectCategory:val
+      })
+      this.state.data.subjectCategory = val.label;
     }
-    this.setState();
     console.log("region:",this.state.data.region);
     console.log("subjectCategory", this.state.data.subjectCategory);
   }
@@ -162,7 +171,7 @@ export default class Register extends Component {
                   onChange={(val) => this.onSelectChange(val, "region")}
                   placeholder="Select regions"
                   closeOnSelect={false}
-                  value={this.state.data.region}
+                  value={this.state.selectedRegion}
                   style={{ maxWidth: '300px' }}
                 />
               </div>
@@ -191,7 +200,7 @@ export default class Register extends Component {
                   onChange={(val) => this.onSelectChange(val, "subjectCategory")}
                   placeholder="Select subjects"
                   closeOnSelect={false}
-                  value={this.state.data.subjectCategory}
+                  value={this.state.selectedSubjectCategory}
                 />
               </div>
               <div className="clear"></div>

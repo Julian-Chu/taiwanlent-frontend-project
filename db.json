@@ -52,7 +52,41 @@
       "willingToRelocate": false,
       "hasPaypal": true,
       "qualified": false,
-      "experienced": false
+      "experienced": false,
+      "selected": false
+    },
+    {
+      "username": "144",
+      "password": "2424",
+      "repassword": "41414",
+      "name": "test",
+      "email": "",
+      "phone": "",
+      "photo": "",
+      "region": "Berlin 柏林",
+      "city": "",
+      "occupation": "",
+      "livingYearsInGermany": "",
+      "uni": "",
+      "subjectCategory": "材料機械",
+      "major": "",
+      "workingExperiences": [
+        "1",
+        "2",
+        "3"
+      ],
+      "langs": "",
+      "languages": {
+        "german": "",
+        "english": "",
+        "chinese": ""
+      },
+      "selfIntroduction": "",
+      "drivingLicence": false,
+      "willingToRelocate": false,
+      "qualified": false,
+      "experienced": false,
+      "id": 2
     }
   ]
 }

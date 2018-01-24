@@ -61,6 +61,7 @@ Talent.propTypes = {
   name: PropTypes.string.isRequired,
   langs: PropTypes.string.isRequired,
   subjectCategory: PropTypes.string.isRequired,
+  region: PropTypes.string.isRequired,
   qualified: PropTypes.bool.isRequired,
   experienced: PropTypes.bool.isRequired,
   addCandidate: PropTypes.func.isRequired,

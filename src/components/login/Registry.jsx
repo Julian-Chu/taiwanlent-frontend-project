@@ -55,9 +55,25 @@ export default class Register extends Component {
     console.log(e.target.value);
   }
 
-  onCheckboxChange(e, checkboxName) {
-
+  onOtherCheckboxChange(e, checkboxName) {
+    var data = Object.assign({}, this.state.data);
+    switch (checkboxName) {
+      case 'drivingLicence':
+        console.log(e.target.checked);
+        data.drivingLicence = !data.drivingLicence;
+        break;
+      case 'willingToRelocate':
+        console.log(e.target.checked);
+        data.willingToRelocate = !data.willingToRelocate;
+        break;
+      default:
+        break;
+    }
+    this.setState({
+      data
+    })
   }
+
   onFormSubmit(event) {
 
     event.preventDefault();
@@ -77,14 +93,14 @@ export default class Register extends Component {
     var data = this.state.data;
     switch (nameOfSelect) {
       case "region":
-      data.region = val.label;
-          this.setState({
-            selectedRegion: val,
-            data
-          })
+        data.region = val.label;
+        this.setState({
+          selectedRegion: val,
+          data
+        })
         break;
       case "subjectCategory":
-      data.subjectCategory = val.label;
+        data.subjectCategory = val.label;
         this.setState({
           selectedSubjectCategory: val,
           data
@@ -118,7 +134,7 @@ export default class Register extends Component {
     var chineseIsChecked = this.state.chineseIsChecked;
 
     if (lang === "de") {
-        germanIsChecked = !germanIsChecked;
+      germanIsChecked = !germanIsChecked;
       this.setState({
         germanIsChecked
       })
@@ -142,12 +158,12 @@ export default class Register extends Component {
 
     var langs = langsArray.join("/");
     console.log(langs);
-    var data  = Object.assign({},this.state.data);
+    var data = Object.assign({}, this.state.data);
     data.langs = langs;
     console.log(this.state.data.langs);
-    console.log(data.langs);    
+    console.log(data.langs);
     this.setState({
-        data
+      data
     });
 
   }
@@ -155,8 +171,6 @@ export default class Register extends Component {
     return (
       <div className="content-wrap">
         <div className="container clearfix">
-
-
           <div className="col_two_third col_last nobottommargin">
             <h3>Please input</h3>
             <form id="register-form" name="register-form" className="nobottommargin" onSubmit={this.onFormSubmit} >
@@ -264,11 +278,11 @@ export default class Register extends Component {
                 </div>
                 <br />
                 <div>
-                  <input type="checkbox" name="licence" onChange={e => this.onCheckboxChange(e, "licence")}></input>
+                  <input type="checkbox" name="licence" onChange={e => this.onOtherCheckboxChange(e, "drivingLicence")} checked={this.state.data.drivingLicence}></input>
                   <label htmlFor="" id="licence">駕照</label>
                 </div>
                 <div>
-                  <input type="checkbox" name="relocation" onChange={e => this.onCheckboxChange(e, "relocation")}></input>
+                  <input type="checkbox" name="relocation" onChange={e => this.onOtherCheckboxChange(e, "willingToRelocate")} checked={this.state.data.willingToRelocate}></input>
                   <label htmlFor="" id="relocation">可搬家</label>
                 </div>
               </div>

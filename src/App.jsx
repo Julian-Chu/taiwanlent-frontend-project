@@ -12,12 +12,11 @@ import Register from './components/login/Registry';
 
 class App extends Component {
     constructor(props) {
-        super(props);        
+        super(props);
         this.state = {
             sidePanelIsOpened: false,
             headerIsTransparent: true,
         }
-
         this.handleScroll = this.handleScroll.bind(this);
     }
 
@@ -27,25 +26,25 @@ class App extends Component {
         })
     }
 
-    subscribeHeaderTransparentEvent(){
+    subscribeHeaderTransparentEvent() {
         this.handleScrollTemp = this.debounce(this.handleScroll, 100)
         window.addEventListener('scroll', this.handleScrollTemp);
     }
 
-    unsubscribeHeaderTransparentEvent(){
-        if(this.handleScrollTemp !== null)
-            window.removeEventListener('scroll',this.handleScrollTemp);
+    unsubscribeHeaderTransparentEvent() {
+        if (this.handleScrollTemp !== null)
+            window.removeEventListener('scroll', this.handleScrollTemp);
     }
 
     handleScroll() {
         let rectHeader = document.querySelector('#header').getBoundingClientRect();
         let rectContent = document.querySelector('#content').getBoundingClientRect();
 
-        if ((rectHeader.top + rectContent.top ) < 0) {
-            if(this.state.headerIsTransparent === true)
+        if ((rectHeader.top + rectContent.top) < 0) {
+            if (this.state.headerIsTransparent === true)
                 this.setState({ headerIsTransparent: false });
         } else {
-            if(this.state.headerIsTransparent === false)
+            if (this.state.headerIsTransparent === false)
                 this.setState({ headerIsTransparent: true });
         }
 
@@ -66,6 +65,17 @@ class App extends Component {
         };
     }
 
+    setHeaderTransparent(bool) {
+        if (this.state.headerIsTransparent !== bool)
+            this.setState({
+                headerIsTransparent: bool
+            });
+    }
+
+    onSwitchChange(e) {
+        console.log(e);
+    }
+
     render() {
         return (
 
@@ -75,20 +85,26 @@ class App extends Component {
                 <div id="container" className="clear-fix">
                     <BrowserRouter>
                         <div>
-                            <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()} 
-                                    headerIsTransparent={this.state.headerIsTransparent}                                    
-                                    ></Header>
+                            <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()}
+                                headerIsTransparent={this.state.headerIsTransparent}
+                            ></Header>
                             <Switch>
-                                <Route path="/home"                                       
-                                      exact component={
-                                          ()=><Home 
-                                                 subscribeTransparentEvent = {()=>this.subscribeHeaderTransparentEvent()} 
-                                                 unsubscribeTransparentEvent = {()=> this.unsubscribeHeaderTransparentEvent()}
-                                                />} />                               
-                                {/* <Route path="/home" exact component={Home} />                */}
-                                <Route path="/talents" extact component={Talents} />
-                                <Route path="/login" extact component={Login} />
-                                <Route path="/register" extact component={Register} />
+                                <Route path="/home"
+                                    exact component={
+                                        () => <Home
+                                            subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
+                                            unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
+                                        />} />
+
+                                <Route path="/talents" extact component={() => <Talents
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                />} />
+                                <Route path="/login" extact component={() => <Login
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                />} />
+                                <Route path="/register" extact component={() => <Register
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                />} />
                                 <Redirect to="/home" />
                             </Switch>
                         </div>

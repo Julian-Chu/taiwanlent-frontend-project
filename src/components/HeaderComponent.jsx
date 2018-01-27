@@ -21,16 +21,16 @@ const Header= props => {
             <nav id="primary-menu">
               <ul className="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
                 <li>
-                  <Link to="/home" onClick={()=>this.scrollToSection("section-about")}>如何成為人才</Link>
+                  <Link to="/home" onClick={()=>scrollToSection("section-about")}>如何成為人才</Link>
                 </li>
                 <li>
                     <Link to="/talents">找人才</Link>
                 </li>
                 <li>
-                    <Link to="/home" onClick={()=>this.scrollToSection("section-subscribe")}>訂閱電子報</Link>
+                    <Link to="/home" onClick={()=>scrollToSection("section-subscribe")}>訂閱電子報</Link>
                 </li>
                 <li>
-                    <Link to="/home" onClick={()=>this.scrollToSection("section-contact")}>聯絡我們</Link>
+                    <Link to="/home" onClick={()=>scrollToSection("section-contact")}>聯絡我們</Link>
                 </li>
                 <li>
                 <Link to="/login">登入</Link>

@@ -22,6 +22,7 @@ class Talents extends Component {
     };
   }
   componentDidMount() {
+    this.props.setHeaderNontransparent();
     window.scrollTo(0, 0);
     this.props.getTalents();
     let selectedStatus = this.props.talents.slice();

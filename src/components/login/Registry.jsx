@@ -52,6 +52,10 @@ export default class Register extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  componentDidMount(){
+    this.props.setHeaderNontransparent();
+  }
+
   onGenderChange(e) {
     var data = Object.assign({}, this.state.data);
     data.gender = e.target.value;

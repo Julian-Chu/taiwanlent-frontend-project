@@ -39,7 +39,8 @@ export default class Register extends Component {
         drivingLicence: false,
         willingToRelocate: false,
         qualified: false,
-        experienced: false
+        experienced: false,
+        gender:""
       },
       germanIsChecked: false,
       englishIsChecked: false,
@@ -52,18 +53,20 @@ export default class Register extends Component {
   }
 
   onGenderChange(e) {
-    console.log(e.target.value);
+    var data = Object.assign({}, this.state.data);
+    data.gender = e.target.value;
+    this.setState({
+      data
+    })
   }
 
   onOtherCheckboxChange(e, checkboxName) {
     var data = Object.assign({}, this.state.data);
     switch (checkboxName) {
       case 'drivingLicence':
-        console.log(e.target.checked);
         data.drivingLicence = !data.drivingLicence;
         break;
       case 'willingToRelocate':
-        console.log(e.target.checked);
         data.willingToRelocate = !data.willingToRelocate;
         break;
       default:
@@ -91,16 +94,21 @@ export default class Register extends Component {
 
   onSelectChange(val, nameOfSelect) {
     var data = this.state.data;
+    console.log(val);
     switch (nameOfSelect) {
       case "region":
-        data.region = val.label;
+        if(val !== null){
+          data.region = val.label;
+        }
         this.setState({
           selectedRegion: val,
           data
         })
         break;
       case "subjectCategory":
-        data.subjectCategory = val.label;
+        if(val !== null){
+          data.subjectCategory = val.label;
+        }
         this.setState({
           selectedSubjectCategory: val,
           data
@@ -270,10 +278,10 @@ export default class Register extends Component {
                 <div id="gender" onChange={e => this.onGenderChange(e)}>
                   <label>性別</label><br />
                   <label htmlFor="">
-                    <input name="gender" type="radio" value="male" />男
+                    <input name="gender" type="radio" value="male" checked={this.state.data.gender === "male"} />男
                   </label>
                   <label htmlFor="">
-                    <input name="gender" type="radio" value="female" />女
+                    <input name="gender" type="radio" value="female" checked={this.state.data.gender === "female"} />女
                   </label>
                 </div>
                 <br />

@@ -17,7 +17,7 @@ export default class Register extends Component {
         username: sessionStorage.getItem("username"),
         password: sessionStorage.getItem("password"),
         repassword: sessionStorage.getItem("repassword"),
-        name: "test",
+        name: "",
         email: "",
         phone: "",
         photo: "",
@@ -28,7 +28,7 @@ export default class Register extends Component {
         uni: "",
         subjectCategory: "",
         major: "",
-        workingExperiences: ["1", "2", "3"],
+        workingExperiences: ["", "", ""],
         langs: "",
         languages: {
           german: "",

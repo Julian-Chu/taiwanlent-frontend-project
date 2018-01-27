@@ -78,16 +78,16 @@ export default class Register extends Component {
   }
 
   onFormSubmit(event) {
-
     event.preventDefault();
-
+    var history = this.props.history;
     axios.post('http://localhost:4000/users',
-      this.state.data)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (response) {
-        console.log(response.state);
+    this.state.data)
+    .then(function (response) {
+      console.log(response);
+      history.push("/talents");
+    })
+    .catch(function (response) {
+      console.log(response.state);
       });
 
   }

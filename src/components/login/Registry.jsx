@@ -20,7 +20,7 @@ export default class Register extends Component {
         name: "test",
         email: "",
         phone: "",
-        photo:"",
+        photo: "",
         region: "",
         city: "",
         occupation: "",
@@ -29,7 +29,7 @@ export default class Register extends Component {
         subjectCategory: "",
         major: "",
         workingExperiences: ["1", "2", "3"],
-        langs:"",
+        langs: "",
         languages: {
           german: "",
           english: "",
@@ -44,8 +44,8 @@ export default class Register extends Component {
       germanIsChecked: false,
       englishIsChecked: false,
       chineseIsChecked: false,
-      selectedRegion:"",
-      selectedSubjectCategory:"",
+      selectedRegion: "",
+      selectedSubjectCategory: "",
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -64,30 +64,36 @@ export default class Register extends Component {
 
     axios.post('http://localhost:4000/users',
       this.state.data)
-      .then(function(response){
+      .then(function (response) {
         console.log(response);
       })
-      .catch(function(response){
+      .catch(function (response) {
         console.log(response.state);
       });
 
   }
 
   onSelectChange(val, nameOfSelect) {
+    var data = this.state.data;
     switch (nameOfSelect) {
       case "region":
-        this.setState({
-          selectedRegion: val
-        })
-        this.state.data.region = val.label;
+      data.region = val.label;
+          this.setState({
+            selectedRegion: val,
+            data
+          })
         break;
       case "subjectCategory":
-      this.setState({
-        selectedSubjectCategory:val
-      })
-      this.state.data.subjectCategory = val.label;
+      data.subjectCategory = val.label;
+        this.setState({
+          selectedSubjectCategory: val,
+          data
+        })
+        break;
+      default:
+        break;
     }
-    console.log("region:",this.state.data.region);
+    console.log("region:", this.state.data.region);
     console.log("subjectCategory", this.state.data.subjectCategory);
   }
 
@@ -98,7 +104,7 @@ export default class Register extends Component {
     this.setState({ data: newData });
   }
 
-  onExperienceInputChange(e, index){
+  onExperienceInputChange(e, index) {
     var experiences = this.state.data.workingExperiences;
     experiences[index] = e.target.value;
     this.setState({
@@ -106,26 +112,44 @@ export default class Register extends Component {
     })
   }
 
-  onLanguageChange(lang){
-    if(lang==="de"){
-      this.state.germanIsChecked=!this.state.germanIsChecked;
+  onLanguageChange(lang) {
+    var germanIsChecked = this.state.germanIsChecked;
+    var englishIsChecked = this.state.englishIsChecked;
+    var chineseIsChecked = this.state.chineseIsChecked;
+
+    if (lang === "de") {
+        germanIsChecked = !germanIsChecked;
+      this.setState({
+        germanIsChecked
+      })
     }
-    else if(lang ==="en")
-    {
-      this.state.englishIsChecked=!this.state.englishIsChecked;
+    else if (lang === "en") {
+      englishIsChecked = !englishIsChecked;
+      this.setState({
+        englishIsChecked
+      })
     }
-    else{
-      this.state.chineseIsChecked=!this.state.chineseIsChecked;
+    else {
+      chineseIsChecked = !chineseIsChecked;
+      this.setState({
+        chineseIsChecked
+      })
     }
-    var langsArray =[];    
-    if(this.state.germanIsChecked) langsArray.push("德文");
-    if(this.state.englishIsChecked) langsArray.push("英文");       
-    if(this.state.chineseIsChecked) langsArray.push("中文");
-    
-    this.state.data.langs = langsArray.join("/");
+    var langsArray = [];
+    if (germanIsChecked) langsArray.push("德文");
+    if (englishIsChecked) langsArray.push("英文");
+    if (chineseIsChecked) langsArray.push("中文");
+
+    var langs = langsArray.join("/");
+    console.log(langs);
+    var data  = Object.assign({},this.state.data);
+    data.langs = langs;
     console.log(this.state.data.langs);
-    this.setState({});
-    
+    console.log(data.langs);    
+    this.setState({
+        data
+    });
+
   }
   render() {
     return (
@@ -137,8 +161,6 @@ export default class Register extends Component {
             <h3>Please input</h3>
             <form id="register-form" name="register-form" className="nobottommargin" onSubmit={this.onFormSubmit} >
               <div className="col_half">
-                {/* <label htmlFor="register-form-username">使用者名稱:</label>
-                <input type="text" id="register-form-username" name="register-form-username" value={this.state.data.username} className="form-control" onChange={(e)=>this.onTextInputChange(e,"username")}/> */}
                 <TextInputField name="username" title="使用者名稱" value={this.state.data.username} onChange={(e) => this.onTextInputChange(e, "username")} />
               </div>
               <div className="col_half col_last">
@@ -187,9 +209,9 @@ export default class Register extends Component {
               </div>
 
               <div className="clear"></div>
-              <div className="col_half">                
+              <div className="col_half">
                 <TextInputField name="uni" title="學校" value={this.state.data.uni} onChange={e => this.onTextInputChange(e, "uni")}></TextInputField>
-                
+
               </div>
               <div className="col_half col_last">
                 <label htmlFor="register-form-major">科系</label>
@@ -204,30 +226,30 @@ export default class Register extends Component {
                 />
               </div>
               <div className="clear"></div>
-              <div className="col_half">                
-                {this.state.data.workingExperiences.map((e, index)=>{
-                  return <TextInputField key={index} name={"experience"+(index+1)} title={"工作經驗"+(index+1)} value={e} onChange={ event=>this.onExperienceInputChange(event, index)}/>
-                }) }
+              <div className="col_half">
+                {this.state.data.workingExperiences.map((e, index) => {
+                  return <TextInputField key={index} name={"experience" + (index + 1)} title={"工作經驗" + (index + 1)} value={e} onChange={event => this.onExperienceInputChange(event, index)} />
+                })}
               </div>
 
               <div className="col_half col_last">
                 <div>
-                  <input type="checkbox" id="register-checkbox-german" name="register-checkbox-german" checked={this.state.germanIsChecked} onChange={()=>this.onLanguageChange("de")}/>
+                  <input type="checkbox" id="register-checkbox-german" name="register-checkbox-german" checked={this.state.germanIsChecked} onChange={() => this.onLanguageChange("de")} />
                   <label>德語</label>
-                  <input type="text" id="register-licence-german" name="register-licence-german" value={this.state.data.languages.german} className="form-control" disabled={!this.state.germanIsChecked}/>
-                  <input type="checkbox" id="register-checkbox-english" name="register-checkbox-english" checked={this.state.englishIsChecked} onChange={()=>this.onLanguageChange("en")} />
+                  <input type="text" id="register-licence-german" name="register-licence-german" value={this.state.data.languages.german} className="form-control" disabled={!this.state.germanIsChecked} />
+                  <input type="checkbox" id="register-checkbox-english" name="register-checkbox-english" checked={this.state.englishIsChecked} onChange={() => this.onLanguageChange("en")} />
                   <label>英語</label>
                   <input type="text" id="register-licence-english" name="register-licence-english" value={this.state.data.languages.english} className="form-control" disabled={!this.state.englishIsChecked} />
-                  <input type="checkbox" id="register-checkbox-chinese" name="register-checkbox-chinese" checked={this.state.chineseIsChecked} onChange={()=>this.onLanguageChange("ch")}/>
+                  <input type="checkbox" id="register-checkbox-chinese" name="register-checkbox-chinese" checked={this.state.chineseIsChecked} onChange={() => this.onLanguageChange("ch")} />
                   <label>國語</label>
-                  <input type="text" id="register-licence-chinese" name="register-licence-chinese" value={this.state.data.languages.chinese} className="form-control" disabled={!this.state.chineseIsChecked}/>
+                  <input type="text" id="register-licence-chinese" name="register-licence-chinese" value={this.state.data.languages.chinese} className="form-control" disabled={!this.state.chineseIsChecked} />
                 </div>
               </div>
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-languages">簡單自我介紹</label>
                 <br />
-                <textarea name="" id="" cols="45" rows="10" value={this.state.data.selfIntroduction} onChange={e=>this.onTextInputChange(e,"selfIntroduction")}></textarea>
+                <textarea name="" id="" cols="45" rows="10" value={this.state.data.selfIntroduction} onChange={e => this.onTextInputChange(e, "selfIntroduction")}></textarea>
               </div>
               <div className="col_half col_last">
 

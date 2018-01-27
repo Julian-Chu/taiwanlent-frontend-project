@@ -1,5 +1,4 @@
-import mockTalents from '../mockdata/mockTalents';
-import axios from 'axios';
+// import mockTalents from '../mockdata/mockTalents';
 import {GET_Talents} from '../actions/get_talents';
 
 export default function(state=[], action){
@@ -11,12 +10,4 @@ export default function(state=[], action){
     default:
       return state
   }
-  // return mockTalents ;
- 
-  // axios.get('http://localhost:4000/users')
-  // .then(function (response) {
-  //   console.log(response.data);
-  //   state = response.data;
-  // })
-  // return state; 
 }

@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { removeAllCandidates, addCandidate, removeCandidate } from '../../actions/index';
 import Detail from './Detail';
+import getTalents from '../../actions/get_talents';
 
 
 class Talents extends Component {
   constructor(props) {
     super(props);
-    const selectedStatus = this.props.talents.slice();
+    let selectedStatus = this.props.talents.slice();
     selectedStatus.fill(false);
     this.state = {
       selectedList: this.props.candidates,
@@ -21,7 +22,12 @@ class Talents extends Component {
     };
   }
   componentDidMount() {
+    this.props.setHeaderNontransparent();
     window.scrollTo(0, 0);
+    this.props.getTalents();
+    let selectedStatus = this.props.talents.slice();
+    selectedStatus.fill(false);
+    this.setState({selectedStatus});
   }
 
   removeAllCandidatesFromList() {
@@ -48,7 +54,7 @@ class Talents extends Component {
 
   renderTalentList() {
     const talents = this.props.talents;
-    return talents.map(t => { return <Talent key={t.id} enableDetail={(id)=>this.enableDetail(id)} selected={this.state.selectedStatus[t.id - 1]} addCandidate={() => this.add(t.id)} removeCandidate={() => this.remove(t.id)}  {...t} /> });
+    return talents.map(t => { return <Talent key={t.id} enableDetail={(id)=>this.enableDetail(id)} selected={this.state.selectedStatus[t.id - 1]?this.state.selectedStatus[t.id - 1]:false} addCandidate={() => this.add(t.id)} removeCandidate={() => this.remove(t.id)}  {...t} /> });
   }
 
   renderDetail() {
@@ -102,23 +108,23 @@ class Talents extends Component {
 function getFilteredTalents(talents, filter) {
   // Filter region
   let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => { return filter[0].some(filterRegion => filterRegion.label.includes(t.region)) }) : talents;
-  // Filter language
-  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => { return t.lang.includes(filter[1][0].label) }) : tempArray;
-  // Filter subject
-  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => { return filter[2].some(filterSubject => filterSubject.label.includes(t.subject)) }) : tempArray;
-
+  // // Filter language
+  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => { return t.langs.includes(filter[1][0].label) }) : tempArray;
+  // // Filter subjectCategory
+  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => { return filter[2].some(filterSubject => filterSubject.label.includes(t.subjectCategory)) }) : tempArray;
+ 
   return tempArray;
 }
 
 function mapStateToProps(state) {
   return {
     talents: getFilteredTalents(state.talents, state.filter),
-    // talents: state.talents
+    // talents: state.talents,
     candidates: state.candidates,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ removeAllCandidates, addCandidate, removeCandidate }, dispatch);
+  return bindActionCreators({getTalents, removeAllCandidates, addCandidate, removeCandidate }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Talents);

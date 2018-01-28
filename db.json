@@ -1,0 +1,157 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "劉岦崱",
+      "gender": "male",
+      "region": "Berlin",
+      "city": "Torgau",
+      "email": "wulingteen@gmail.com",
+      "livingYearsInGermany": "5",
+      "uni": "TU Chemnitz",
+      "occupation": "student",
+      "subjectCategory": "化學化工",
+      "major": "chemistry",
+      "langs": "德文/英文/中文",
+      "language": {
+        "programLanguage": "german",
+        "english": "'TOEFL': 95, 'TOEIC': 920",
+        "german": "'TestDaf': '5445','Goethe': 'C1','DSH': '2222'"
+      },
+      "drivingLicence": true,
+      "selfIntroduction": "我叫劉岦崱，綽號⼭山,目前在德國工作，⾝身兼兩份合約正職及⼀一份Freelancing工作，同時間與另外三位優秀夥伴共同為創業作準備",
+      "workingExperiences": [
+        "太陽能建材專⽤用模組⽣生產技術轉移Specialist",
+        "某航空公司臉書粉絲⾴頁德⽂文主編",
+        "德國中醫式獸醫療法臉書粉絲頁行銷企劃"
+      ],
+      "photo": "images/team/Taiwanlent-Liu.jpg",
+      "langCerUrl": "https:www.language_certificate_url.com",
+      "graduateCerUrl": "https:www.graduation_certificate_url.com",
+      "graduateCerTranslationUrl": "https:www.graduation_certificate_traslation_url.com",
+      "otherCerUrl": "https:www.other_certificate_url.com",
+      "resumeUrl": "https:www.resume.url.com",
+      "expectedSalaryPerHour": "15",
+      "willingToRelocate": false,
+      "hasPaypal": true,
+      "qualified": false,
+      "experienced": false
+    },
+    {
+      "username": "144",
+      "password": "2424",
+      "repassword": "41414",
+      "name": "test",
+      "email": "",
+      "phone": "",
+      "photo": "",
+      "region": "Berlin 柏林",
+      "city": "",
+      "occupation": "",
+      "livingYearsInGermany": "",
+      "uni": "",
+      "subjectCategory": "材料機械",
+      "major": "",
+      "workingExperiences": [
+        "1",
+        "2",
+        "3"
+      ],
+      "langs": "",
+      "languages": {
+        "german": "",
+        "english": "",
+        "chinese": ""
+      },
+      "selfIntroduction": "",
+      "drivingLicence": false,
+      "willingToRelocate": false,
+      "qualified": false,
+      "experienced": false,
+      "id": 2
+    },
+    {
+      "username": "testUser2",
+      "password": "12345",
+      "repassword": "12345",
+      "name": "Chen",
+      "email": "",
+      "phone": "",
+      "photo": "",
+      "region": "Bavaria 巴伐利亞",
+      "city": "",
+      "occupation": "",
+      "livingYearsInGermany": "",
+      "uni": "",
+      "subjectCategory": "",
+      "major": "",
+      "workingExperiences": [
+        "1",
+        "2",
+        "3"
+      ],
+      "langs": "德文/英文",
+      "languages": {
+        "german": "",
+        "english": "",
+        "chinese": ""
+      },
+      "selfIntroduction": "",
+      "drivingLicence": false,
+      "willingToRelocate": false,
+      "qualified": false,
+      "experienced": false,
+      "id": 3
+    },
+    {
+      "username": "Liu",
+      "password": "1234",
+      "repassword": "1234",
+      "name": "testUser",
+      "email": "",
+      "phone": "",
+      "photo": "",
+      "region": "Berlin 柏林",
+      "city": "",
+      "occupation": "",
+      "livingYearsInGermany": "5",
+      "uni": "",
+      "subjectCategory": "材料機械",
+      "major": "",
+      "workingExperiences": [
+        "test1",
+        "test2",
+        "tes3"
+      ],
+      "langs": "",
+      "languages": {
+        "german": "",
+        "english": "",
+        "chinese": ""
+      },
+      "selfIntroduction": "",
+      "drivingLicence": false,
+      "willingToRelocate": false,
+      "qualified": false,
+      "experienced": false,
+      "id": 4
+    }
+  ]
+}

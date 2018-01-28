@@ -106,12 +106,17 @@ class Talents extends Component {
 }
 
 function getFilteredTalents(talents, filter) {
+  let tempArray = talents;
   // Filter region
-  let tempArray = (filter[0] && filter[0].length > 0) ? talents.filter(t => { return filter[0].some(filterRegion => filterRegion.label.includes(t.region)) }) : talents;
+  tempArray = (filter[0] && filter[0].length > 0) ? tempArray.filter(t => { return t.region!=="" && filter[0].some(filterRegion => filterRegion.label.includes(t.region)) }) : tempArray;
   // // Filter language
-  tempArray = (filter[1] && filter[1].length > 0) ? talents.filter(t => { return t.langs.includes(filter[1][0].label) }) : tempArray;
+  tempArray = (filter[1] && filter[1].length > 0) ? 
+    tempArray.filter(t => { return t.langs!=="" && t.langs.includes(filter[1][0].label) }) 
+    : tempArray;
   // // Filter subjectCategory
-  tempArray = (filter[2] && filter[2].length > 0) ? talents.filter(t => { return filter[2].some(filterSubject => filterSubject.label.includes(t.subjectCategory)) }) : tempArray;
+  tempArray = (filter[2] && filter[2].length > 0) ? 
+    tempArray.filter(t => { return t.subjectCategory!=="" && filter[2].some(filterSubject => filterSubject.label.includes(t.subjectCategory)) }) 
+    : tempArray;
  
   return tempArray;
 }

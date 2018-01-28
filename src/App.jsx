@@ -91,19 +91,26 @@ class App extends Component {
                             <Switch>
                                 <Route path="/home"
                                     exact component={
-                                        () => <Home
+                                        (props) => <Home
+                                        {...props}
                                             subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
                                             unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
                                         />} />
 
-                                <Route path="/talents" extact component={() => <Talents
+                                <Route path="/talents" extact component={(props) => <Talents
+                                    {...props}
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                    
                                 />} />
-                                <Route path="/login" extact component={() => <Login
+                                <Route path="/login" extact component={(props) => <Login
+                                    {...props}
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                    
                                 />} />
-                                <Route path="/register" extact component={() => <Register
+                                <Route path="/register" extact component={(props) => <Register
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                    {...props}
+                                    
                                 />} />
                                 <Redirect to="/home" />
                             </Switch>

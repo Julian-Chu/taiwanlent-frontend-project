@@ -5,10 +5,11 @@ import regions from '../common/regions';
 import subjects from '../common/subjects';
 import axios from 'axios';
 import TextInputField from './TextInputField';
+import APIServerLocation from '../../APIServerLocation';
 
 export default class Register extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.regionOptions = regions;
     this.subjectOptions = subjects;
 
@@ -53,6 +54,7 @@ export default class Register extends Component {
   }
 
   componentDidMount(){
+    console.log(this.props);
     this.props.setHeaderNontransparent();
   }
 
@@ -83,8 +85,10 @@ export default class Register extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
+    console.log(this.props);
     var history = this.props.history;
-    axios.post('http://localhost:4000/users',
+    console.log('history: ',history);
+    axios.post(`${APIServerLocation}/users`,
     this.state.data)
     .then(function (response) {
       console.log(response);
@@ -92,6 +96,8 @@ export default class Register extends Component {
     })
     .catch(function (response) {
       console.log(response.state);
+      console.log("registry failed");
+      
       });
 
   }

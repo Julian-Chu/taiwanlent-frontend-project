@@ -1,9 +1,10 @@
 import axios from 'axios';
+import APIServerLocation from '../APIServerLocation';
 
 export const GET_Talents = "GET_Talents";
 export default function getTalents(){
   return dispatch =>{
-    axios.get('http://localhost:4000/users')
+    axios.get(`${APIServerLocation}/users`)
         .then(res=>{
           console.log("Talents:", res.data);
           const talents = res.data.map(person=>{

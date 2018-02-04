@@ -20,7 +20,7 @@ class Talent extends Component {
     return (
       <div className="product clearfix pf-dress">
         <div className="product-image ">
-          <a href="# "><img src={this.props.photo} alt={this.props.name} /></a>
+          <a href="# "><img src={this.props.photo?this.props.photo:(this.props.gender === "male"?'images/male.png':'images/female.png')} alt={this.props.name} /></a>
           <div className={this.props.qualified ? 'sale-flash' : ''}> {this.props.qualified ? 'Qualified' : ''} </div>
           <div className={this.props.experienced ? 'sale-flash' : ''}> {this.props.experienced ? 'Experienced' : ''}</div>
           <div className="product-overlay ">

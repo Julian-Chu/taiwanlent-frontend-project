@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../styles/talents/Detail.css';
 
 const Detail = (props) => {
+  console.log(props);
   return (
     <div className="filter-body-overlay filter-body-overlay-open">
       <div className="product clearfix pf-dress detailView-whitebackground">
@@ -13,7 +14,7 @@ const Detail = (props) => {
             </button>
           </div>
           <div className="detailView-image ">
-            <a href="# "><img src={props.photo} alt="Checked Short Dress " /></a>
+            <a href="# "><img src={props.photo?props.photo: ( props.gender === "male"? 'images/male.png':'images/female.png')} alt="Checked Short Dress " /></a>
             <div className={props.qualified ? 'sale-flash' : ''}> {props.qualified ? 'Qualified' : ''} </div>
             <div className={props.experienced ? 'sale-flash' : ''}> {props.experienced ? 'Experienced' : ''}</div>
           </div>

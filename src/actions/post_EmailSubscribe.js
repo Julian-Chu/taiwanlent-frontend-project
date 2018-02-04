@@ -4,7 +4,7 @@ import APIServerLocation from '../APIServerLocation';
 export const Post_EmailSubscribe = 'Post_EmailSubscribe';
 
 export default function post_EmailSubscribe(values, callback){
-  const request = axios.post(`${APIServerLocation}/subscriptions`)
+  const request = axios.post(`${APIServerLocation}/subscriptions`, values)
                   .then(()=>callback());
   console.log('request',request);
   return{

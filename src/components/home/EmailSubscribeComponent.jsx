@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import postEmailSubscribe from '../../actions/post_EmailSubscribe';
 import  '../../styles/Home.css';
+import checkRules from '../../regularExpression/checkRules';
 
 class EmailSubscribe extends Component {
   constructor(props) {
@@ -84,17 +85,14 @@ function validate(values) {
   if (!values.email) {
     errors.email = "Enter a Email";
   }
-  else if (!validateEmail(values.email)) {
+  else if (!checkRules.Email(values.email)) {
     errors.email = "Email is not valid!"
   }
   console.log('errors', errors);
   return errors;
 }
 
-function validateEmail(email) {
-  var re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
-}
+
 
 export default reduxForm({
   validate,

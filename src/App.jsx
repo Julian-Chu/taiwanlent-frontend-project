@@ -72,10 +72,6 @@ class App extends Component {
             });
     }
 
-    onSwitchChange(e) {
-        console.log(e);
-    }
-
     render() {
         return (
 

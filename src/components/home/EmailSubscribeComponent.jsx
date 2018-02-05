@@ -24,7 +24,6 @@ class EmailSubscribe extends Component {
 
   renderField(field) {
     const { meta: { touched, error } } = field;
-    console.log(field);
     const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
     const styles = touched && error ? { borderColor: 'red' } : {};
     const inputClassName = `form-control input-lg not-dark required email ${touched && error ? 'alert-danger' : ''} `;
@@ -81,14 +80,12 @@ class EmailSubscribe extends Component {
 
 function validate(values) {
   const errors = {};
-  console.log('values:', values);
   if (!values.email) {
     errors.email = "Enter a Email";
   }
   else if (!checkRules.Email(values.email)) {
     errors.email = "Email is not valid!"
   }
-  console.log('errors', errors);
   return errors;
 }
 

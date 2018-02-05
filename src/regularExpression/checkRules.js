@@ -3,6 +3,12 @@ const Email =  function(email){
     return re.test(email);
 }
 
+const Phone = function(phone){
+  var re = /^\+\d{1,3}-\d{8,13}/;
+  return re.test(phone)
+}
+
 export default {
-  Email
+  Email,
+  Phone
 }

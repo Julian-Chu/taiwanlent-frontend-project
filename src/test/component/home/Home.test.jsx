@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import Home from '../../../components/home/Home';
 import Slides from '../../../components/home/SlidesComponent';
 
 describe('Home Tests', ()=>{
+  const mockFunction1 = jest.fn();
+  const mockFunction2 = jest.fn();
   const home = shallow(
     <Home 
-    subscribeTransparentEvent={()=>true}
-    unsubscribeTransparentEvent={() => true}/>);
+    subscribeTransparentEvent={()=>mockFunction1}
+    unsubscribeTransparentEvent={()=>mockFunction2}
+    />
+  );
   it('Section exists',()=>{
     expect(home.find('section').exists()).toBe(true);
   });

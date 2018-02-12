@@ -99,14 +99,15 @@ class SectionContact extends Component {
 
 function validate(values) {
     const errors = {};
+    if(!checkRules.Email(values.email)) errors.email ="Invalid Email";
+    if(!checkRules.Phone(values.phone)) errors.phone = "Format: +XX-XXXXXXXXXX";
     if(!values.name) errors.name = "Please fill you name";
     if(!values.email) errors.email = "Please fill you email";
     if(!values.phone) errors.phone = "Please fill you phone";
     if(!values.subject) errors.subject = "Subject is empty";
     if(!values.message) errors.message ="Message is empty";
 
-    if(!checkRules.Email(values.email)) errors.email ="Invalid Email";
-    if(!checkRules.Phone(values.phone)) errors.phone = "Format: +XX-XXXXXXXXXX";
+
 
     return errors;
 }

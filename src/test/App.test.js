@@ -28,9 +28,7 @@ it('Header exists',()=>{
 })
 
 it('Footer exists',()=>{
-  // expect(app.find('Footer').exists()).toBe(true);
   expect(app.find('Footer').exists()).toBe(true);
-  
 })
 
 });

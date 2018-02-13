@@ -52,6 +52,12 @@ export class Register extends Component {
       chineseIsChecked: false,
       selectedRegion: "",
       selectedSubjectCategory: "",
+
+      languagesIsChecked: [
+        { language: 'german', isChecked: false },
+        { language: 'english', isChecked: false },
+        { language: 'chinese', isChecked: false }
+      ]
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -363,14 +369,14 @@ export class Register extends Component {
                           key={index}
                           placeholder=""
                           name={exp}
-                          component={(field)=>(
+                          component={(field) => (
                             <div>
                               <label >{"工作經驗" + (index + 1)}:</label>
                               <input
                                 type="text"
                                 className="form-control"
-                                {...field.input}                                
-                                
+                                {...field.input}
+
                               />
                             </div>)}
                         />
@@ -390,9 +396,12 @@ export class Register extends Component {
                           name={`${lang}.canSpeak`}
                           type="checkbox"
                           component="input"
-                          onClick={()=>{
-                            if(!fields.getAll()[index].canSpeak)
+                          value={this.state.languagesIsChecked[index].isChecked}
+                          onClick={() => {
+                            if (!this.state.languagesIsChecked[index].isChecked) {
                               fields.getAll()[index].certificate = "";
+                              this.setState(this.state.languagesIsChecked);
+                            }
                           }}
                         />
                         <label>{fields.getAll()[index].display}</label>
@@ -402,7 +411,7 @@ export class Register extends Component {
                           className="form-control"
                           component="input"
                           disabled={!fields.getAll()[index].canSpeak}
-                          
+
                         />
                       </div>
 
@@ -410,7 +419,17 @@ export class Register extends Component {
                   </div>
                 )} />
 
-
+              <div className="col_half">
+                <label htmlFor="register-form-languages">簡單自我介紹</label>
+                <Field name="selfIntroduction" cols="45" rows="10" component="textarea"></Field>
+              </div>
+              <div id="gender">
+                <label>性別</label>
+                <div>
+                  <label><Field name="gender" component="input" type="radio" value="male"></Field>男</label>
+                  <label><Field name="gender" component="input" type="radio" value="female"></Field>女</label>
+                </div>
+              </div>
               {/* 
               <div className="col_half">
                 <TextInputField name="username" title="使用者名稱" value={this.state.data.username} onChange={(e) => this.onTextInputChange(e, "username")} />
@@ -482,7 +501,7 @@ export class Register extends Component {
                 })}
               </div> */}
 
-              <div className="col_half col_last">
+              {/* <div className="col_half col_last">
                 <div>
                   <input type="checkbox" id="register-checkbox-german" name="register-checkbox-german" checked={this.state.germanIsChecked} onChange={() => this.onLanguageChange("de")} />
                   <label>德語</label>
@@ -494,16 +513,16 @@ export class Register extends Component {
                   <label>國語</label>
                   <input type="text" id="register-licence-chinese" name="register-licence-chinese" value={this.state.data.languages.chinese} className="form-control" disabled={!this.state.chineseIsChecked} onChange={(e) => this.onLanguageCertChange(e, "ch")} />
                 </div>
-              </div>
-              <div className="clear"></div>
-              <div className="col_half">
-                <label htmlFor="register-form-languages">簡單自我介紹</label>
-                <br />
-                <textarea name="" id="" cols="45" rows="10" value={this.state.data.selfIntroduction} onChange={e => this.onTextInputChange(e, "selfIntroduction")}></textarea>
-              </div>
+              </div> */}
+              {/* <div className="clear"></div>
+                <div className="col_half">
+                  <label htmlFor="register-form-languages">簡單自我介紹</label>
+                  <br />
+                  <textarea name="" id="" cols="45" rows="10" value={this.state.data.selfIntroduction} onChange={e => this.onTextInputChange(e, "selfIntroduction")}></textarea>
+                </div> */}
               <div className="col_half col_last">
 
-                <div id="gender" onChange={e => this.onGenderChange(e)}>
+                {/* <div id="gender" onChange={e => this.onGenderChange(e)}>
                   <label>性別</label><br />
                   <label htmlFor="">
                     <input name="gender" type="radio" value="male" checked={this.state.data.gender === "male"} />男
@@ -511,16 +530,25 @@ export class Register extends Component {
                   <label htmlFor="">
                     <input name="gender" type="radio" value="female" checked={this.state.data.gender === "female"} />女
                   </label>
-                </div>
+                </div> */}
                 <br />
                 <div>
-                  <input type="checkbox" name="licence" onChange={e => this.onOtherCheckboxChange(e, "drivingLicence")} checked={this.state.data.drivingLicence}></input>
-                  <label htmlFor="" id="licence">駕照</label>
+                  <Field type="checkbox" id="licence" name="licence" component="input"></Field>
+                  <label htmlFor="licence">駕照</label>                  
                 </div>
                 <div>
+                  <Field type="checkbox" id="relocation" name="relocation" component="input"></Field>
+                  <label htmlFor="relocation" >可搬家</label>                  
+                </div>
+
+                {/* <div>
+                  <input type="checkbox" name="licence" onChange={e => this.onOtherCheckboxChange(e, "drivingLicence")} checked={this.state.data.drivingLicence}></input>
+                  <label htmlFor="" id="licence">駕照</label>
+                </div> */}
+                {/* <div>
                   <input type="checkbox" name="relocation" onChange={e => this.onOtherCheckboxChange(e, "willingToRelocate")} checked={this.state.data.willingToRelocate}></input>
                   <label htmlFor="" id="relocation">可搬家</label>
-                </div>
+                </div> */}
               </div>
 
 
@@ -554,22 +582,22 @@ export default reduxForm({
     workingExperiences: ["", "", ""],
     languages: [
       {
-        display:"德語",
+        display: "德語",
         language: "germany",
-        canSpeak: true,
-        certificate: "c1"
+        canSpeak: false,
+        certificate: ""
       },
       {
-        display:"英語",        
+        display: "英語",
         language: "english",
         canSpeak: false,
-        certificate: "c2"
+        certificate: ""
       },
       {
-        display:"國語",        
+        display: "國語",
         language: "chinese",
         canSpeak: false,
-        certificate:"c3"
+        certificate: ""
       }
     ],
     username: "test"

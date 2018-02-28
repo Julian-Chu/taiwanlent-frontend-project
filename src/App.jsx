@@ -8,6 +8,7 @@ import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
 import Register from './components/login/Registry';
+import BusinessUserRegister from './components/login/BusinessUserRegister';
 
 
 class App extends Component {
@@ -95,18 +96,19 @@ class App extends Component {
 
                                 <Route path="/talents" extact component={(props) => <Talents
                                     {...props}
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
                                 />} />
                                 <Route path="/login" extact component={(props) => <Login
                                     {...props}
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
                                 />} />
                                 <Route path="/register" extact component={(props) => <Register
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    {...props}
-                                    
+                                    {...props}                                    
+                                />} />
+                                <Route path="/businessUserRegister" extact component={(props) => <BusinessUserRegister
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                    {...props}                                    
                                 />} />
                                 <Redirect to="/home" />
                             </Switch>

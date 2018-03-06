@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../../styles/loginButton.css';
 
 
 export default class Login extends Component {
-  
-  constructor(){
+
+  constructor() {
     super();
     this.state = {
-      username : "",
-      password : "",
-      repassword :"",
+      username: "",
+      password: "",
+      repassword: "",
     }
   }
 
@@ -19,32 +20,32 @@ export default class Login extends Component {
     this.props.setHeaderNontransparent();
   }
 
-  onUsernameChange(e){
+  onUsernameChange(e) {
     console.log(e.target.value);
-      this.setState({
-        username: e.target.value
-      })
+    this.setState({
+      username: e.target.value
+    })
   }
 
-  onPasswordChange(event, field){
-    if(field === "pw"){
+  onPasswordChange(event, field) {
+    if (field === "pw") {
       this.setState({
-        password:event.target.value
+        password: event.target.value
       })
-    }else{
+    } else {
       this.setState({
         repassword: event.target.value
       })
     }
   }
 
-  clickRegisterBtn(){
+  clickRegisterBtn() {
     console.log("clicked");
-    sessionStorage.setItem("username",this.state.username);
-    sessionStorage.setItem("password",this.state.password);    
-    sessionStorage.setItem("repassword",this.state.repassword);
+    sessionStorage.setItem("username", this.state.username);
+    sessionStorage.setItem("password", this.state.password);
+    sessionStorage.setItem("repassword", this.state.repassword);
 
-  }     
+  }
 
 
   render() {
@@ -77,24 +78,29 @@ export default class Login extends Component {
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-username">使用者名稱:</label>
-                <input type="text" id="register-form-username" name="register-form-username" value={this.state.username} className="form-control" onChange={e=>this.onUsernameChange(e)} />
+                <input type="text" id="register-form-username" name="register-form-username" value={this.state.username} className="form-control" onChange={e => this.onUsernameChange(e)} />
               </div>
 
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-password">輸入密碼:</label>
-                <input type="password" id="register-form-password" name="register-form-password" value={this.state.password} className="form-control" onChange={e=>this.onPasswordChange(e,"pw")}/>
+                <input type="password" id="register-form-password" name="register-form-password" value={this.state.password} className="form-control" onChange={e => this.onPasswordChange(e, "pw")} />
               </div>
               <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-repassword">再次輸入密碼:</label>
-                <input type="password" id="register-form-repassword" name="register-form-repassword" value={this.state.repassword} className="form-control" onChange={e=>this.onPasswordChange(e,"pw_confirm")}/>
+                <input type="password" id="register-form-repassword" name="register-form-repassword" value={this.state.repassword} className="form-control" onChange={e => this.onPasswordChange(e, "pw_confirm")} />
               </div>
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <Link to="/register" className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={()=>this.clickRegisterBtn()}>Register Now</Link>
-
+                <Link to="/register" className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.clickRegisterBtn()}>Register Now</Link>
+                <button className="loginBtn loginBtn--facebook">
+                  Login with Facebook
+                </button>
+                <button className="loginBtn loginBtn--google">
+                  Login with Google
+                </button>
               </div>
             </form>
           </div>

@@ -4,7 +4,6 @@ import Select from 'react-select';
 import regions from '../common/regions';
 import subjects from '../common/subjects';
 import axios from 'axios';
-import TextInputField from './TextInputField';
 import APIServerLocation from '../../APIServerLocation';
 import { connect } from 'react-redux';
 import { Field, reduxForm, FieldArray } from 'redux-form';
@@ -268,13 +267,11 @@ export class Register extends Component {
                   <Field type="checkbox" id="relocation" name="relocation" component="input"></Field>
                   <label htmlFor="relocation" >可搬家</label>                  
                 </div>
-
               </div>
-
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+                <button className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
 
               </div>
             </form>

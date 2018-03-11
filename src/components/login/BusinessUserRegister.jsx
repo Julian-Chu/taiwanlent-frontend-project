@@ -4,7 +4,6 @@ import Select from 'react-select';
 import regions from '../common/regions';
 import subjects from '../common/subjects';
 import axios from 'axios';
-import TextInputField from './TextInputField';
 import APIServerLocation from '../../APIServerLocation';
 import { connect } from 'react-redux';
 import { Field, reduxForm, FieldArray } from 'redux-form';
@@ -34,7 +33,7 @@ class BusinessUserRegister extends Component {
 
   onFormSubmit(values) {
     console.log(values);
-    console.log('this.props:',this.props);
+    console.log('this.props:', this.props);
     var history = this.props.history;
     console.log('history: ', history);
     this.props.registerForBusinessUser(values, history);
@@ -81,11 +80,11 @@ class BusinessUserRegister extends Component {
 
 
   render() {
-    const { handleSubmit}= this.props;
+    const { handleSubmit } = this.props;
     console.log
     return (
       <div className="content-wrap">
-         <div className="container clearfix">
+        <div className="container clearfix">
           <div className="col_two_third col_last nobottommargin">
             <h1>廠商註冊</h1>
             <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} >
@@ -104,7 +103,7 @@ class BusinessUserRegister extends Component {
                 </div>
               </div>
               <div className="clear"></div>
-              
+
               <Field
                 name="email"
                 placeholder=""
@@ -137,7 +136,7 @@ class BusinessUserRegister extends Component {
                 component={this.renderField}
               />
               <div className="clear"></div>
-              
+
               <Field
                 name="name"
                 placeholder=""
@@ -153,10 +152,24 @@ class BusinessUserRegister extends Component {
                 component={this.renderField}
               />
               <div className="clear"></div>
-              
+              <Field
+                name="companyName"
+                title="公司名稱/個人委託"
+                placeholder=""
+                className="col_half "
+                component={this.renderField} />
+
+              <Field
+                name="department"
+                title="部門"
+                placeholder=""
+                className="col_half col_last"
+                component={this.renderField} />
+              <div className="clear"></div>
+
               <Field
                 name="companyLocation"
-                title="公司所在"
+                title="公司所在城市"
                 placeholder=""
                 className="col_half "
                 component={this.renderField} />
@@ -168,9 +181,6 @@ class BusinessUserRegister extends Component {
                 className="col_half col_last"
                 component={this.renderField} />
               <div className="clear"></div>
-
-
-
 
               <Field
                 name="industry"
@@ -186,16 +196,13 @@ class BusinessUserRegister extends Component {
                 className="col_half col_last"
                 component={this.renderField} />
               <div className="clear"></div>
-
-
-             
-              <div className="col_half col_last">               
+              <div className="col_half col_last">
                 <br />
               </div>
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+                <button className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">確認</button>
 
               </div>
             </form>
@@ -209,11 +216,22 @@ class BusinessUserRegister extends Component {
 function validate(values) {
   const errors = {};
   // console.log('values:', values);
-  if (!values.username) errors.username = "Please fill you username";
+  if (!values.username) errors.username = "Please fill your username";
+  if (!values.name) errors.name = "Please fill your name";
+  if (!values.gender) errors.gender = "Please fill gender";
+  if (!values.companyLocation) errors.companyLocation = "Please fill";
+  if (!values.email) errors.email = "Please fill your email";
+  if (!values.phone) errors.phone = "Please fill your phone";
+  if (!values.industry) errors.industry ="Please fill";
+  if (!values.productIntroduction) errors.productIntroduction = "Please fill";
+  if (!values.password) errors.password = "Please fill your password";
 
   if (!checkRules.Email(values.email)) errors.email = "Invalid Email";
-  if (!values.email) errors.email = "Please fill you email";
-  return errors;
+  if (!values.email !== values.reemail) errors.reemail = "please check email";
+
+  if (!values.password !== values.repassword) errors.repassword = "Please check password again"
+  if (!checkRules.Phone(values.phone)) errors.phone = "Format: +XX-XXXXXXXXXX"
+    return errors;
 }
 
 export default reduxForm({

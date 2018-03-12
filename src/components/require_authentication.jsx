@@ -28,6 +28,7 @@ export default function(ComponentNeedAuth){
   }
 
   function mapStateToProps(state){
+    console.log('Auth',state);
     return {authenticated: state.authenticated}
   }
 

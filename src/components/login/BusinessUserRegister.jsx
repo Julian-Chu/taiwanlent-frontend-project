@@ -81,7 +81,6 @@ class BusinessUserRegister extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    console.log
     return (
       <div className="content-wrap">
         <div className="container clearfix">

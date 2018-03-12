@@ -236,29 +236,5 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'BusinessUserRegisterForm',
-  initialValues: {
-    workingExperiences: ["", "", ""],
-    languages: [
-      {
-        display: "德語",
-        language: "germany",
-        canSpeak: false,
-        certificate: ""
-      },
-      {
-        display: "英語",
-        language: "english",
-        canSpeak: false,
-        certificate: ""
-      },
-      {
-        display: "國語",
-        language: "chinese",
-        canSpeak: false,
-        certificate: ""
-      }
-    ],
-    username: "test"
-  }
+  form: 'BusinessUserRegisterForm'
 })(connect(null, actions)(BusinessUserRegister));

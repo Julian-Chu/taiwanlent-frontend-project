@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-export default class SidePanel extends Component {
-    render() {
+ class SidePanel extends Component {
+    renderWhenAuthenticated(){
+        return(
+            <div>
+                <a href="./logout" className="button button-border button-light button-circle">登出</a>
+            </div>
+        )
+    }
+
+     render() {
+        console.log('props',this.props);
         return (
             <div id="side-panel" className="dark">
                 <div id="side-panel-trigger-close" className="side-panel-trigger"><a href=""><i className="icon-line-cross"></i></a></div>
@@ -12,8 +22,10 @@ export default class SidePanel extends Component {
                             <div className="clear topmargin-sm"></div>
                             <abbr title="Login"></abbr> <br></br>
                         </div>
-
-                        <a href="./coming-soon-3.html" className="button button-border button-light button-circle" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">登入</a>
+                        {this.props.authenticated?
+                            this.renderWhenAuthenticated():
+                            <a href="./login" className="button button-border button-light button-circle" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">登入</a>
+                        }
                     </div>
 
                     <div className="widget quick-contact-widget clearfix">
@@ -67,3 +79,10 @@ export default class SidePanel extends Component {
         );
     }
 }
+
+function mapStateToPros(state){
+    return {
+        authenticated: state.authenticated
+    }
+}
+export default connect(mapStateToPros)(SidePanel);

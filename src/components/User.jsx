@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
-import regions from '../common/regions';
-import subjects from '../common/subjects';
+import regions from './common/regions';
+import subjects from './common/subjects';
 import axios from 'axios';
-import APIServerLocation from '../../APIServerLocation';
+import APIServerLocation from '../APIServerLocation';
 import { connect } from 'react-redux';
 import { Field, reduxForm, FieldArray } from 'redux-form';
-import checkRules from '../../regularExpression/checkRules';
-import * as actions from '../../actions/sign';
+import checkRules from '../regularExpression/checkRules';
+import * as actions from '../actions/sign';
 
 
-export class Register extends Component {
+export class User  extends Component {
   constructor(props) {
     super(props);
     this.regionOptions = regions;
@@ -246,7 +246,7 @@ export class Register extends Component {
 
               <div className="col_half">
                 <label htmlFor="register-form-languages">簡單自我介紹</label>
-                <Field name="selfIntroduction" cols="45" rows="10" component="textarea"></Field>
+                <Field name="selfIntroduction" cols="40" rows="10" component="textarea"></Field>
               </div>
               <div id="gender">
                 <label>性別</label>
@@ -319,4 +319,4 @@ export default reduxForm({
     ],
     username: "test"
   }
-})(connect(null, actions)(Register));
+})(connect(null, actions)(User));

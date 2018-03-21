@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
     renderWhenAuthenticated(){
         return(
             <div>
+                <a href="./user" className="button button-border button-light button-circle">個人資料</a>
                 <a href="./logout" className="button button-border button-light button-circle">登出</a>
             </div>
         )

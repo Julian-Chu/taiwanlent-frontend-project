@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
-import Register from './components/login/Registry';
+import User from './components/User';
 import BusinessUserRegister from './components/login/BusinessUserRegister';
 import Logout from './components/Logout';
 
@@ -103,7 +103,7 @@ class App extends Component {
                                     {...props}
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
                                     />} />
-                                <Route path="/register" extact component={(props) => <Register
+                                <Route path="/user" extact component={(props) => <User
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     {...props}                                    
                                     />} />

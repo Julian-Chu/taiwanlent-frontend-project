@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
 import Register from './components/login/Registry';
 import BusinessUserRegister from './components/login/BusinessUserRegister';
+import Logout from './components/Logout';
 
 
 class App extends Component {
@@ -101,15 +102,19 @@ class App extends Component {
                                 <Route path="/login" extact component={(props) => <Login
                                     {...props}
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
-                                />} />
+                                    />} />
                                 <Route path="/register" extact component={(props) => <Register
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     {...props}                                    
-                                />} />
+                                    />} />
                                 <Route path="/businessUserRegister" extact component={(props) => <BusinessUserRegister
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     {...props}                                    
-                                />} />
+                                    />} />
+                                <Route path="/logout" extact component={props=><Logout
+                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                    {...props}
+                                    /> }/>
                                 <Redirect to="/home" />
                             </Switch>
                         </div>

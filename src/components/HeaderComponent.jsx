@@ -35,7 +35,7 @@ const Header= props => {
                     <Link to="/home" onClick={()=>scrollToSection("section-contact")}>聯絡我們</Link>
                 </li>
                 <li>
-                {props.authenticated? <a><button onClick={()=>props.logout()}>登出</button></a>: <Link to="/login">登入</Link>}
+                {props.authenticated? <Link to="/logout">登出</Link>: <Link to="/login">登入</Link>}
                 {/* <Link to="/login">登入</Link> */}
                 </li>
               </ul>

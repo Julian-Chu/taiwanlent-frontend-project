@@ -17,6 +17,7 @@ class LoginForm extends Component {
   onFormSubmit(values){
     console.log(values);
     var history = this.props.history;
+    console.log(history);
     this.props.businessUserLogin(values, history);
   }
 
@@ -51,7 +52,7 @@ class LoginForm extends Component {
   }
 }
 function mapStateToProps(state){
-  console.log('Auth',state);
+  // console.log('Auth',state);
   return {authenticated: state.authenticated}
 }
 

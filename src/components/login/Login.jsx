@@ -5,7 +5,6 @@ import '../../styles/loginButton.css';
 import LoginForm from './LoginForm';
 import TalentLoginForm from './TalentLoginForm';
 
-
 export default class Login extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -18,13 +17,13 @@ export default class Login extends Component {
         <div className="container clearfix">
           <div className="col_half nobottommargin">
             <div className="well well-lg nobottommargin">
-              <LoginForm />
+              <LoginForm {...this.props}/>
             </div>
           </div>
 
           <div className="col_half col_last nobottommargin">
             <div className="well well-lg nobottommargin">
-              <TalentLoginForm></TalentLoginForm>
+              <TalentLoginForm {...this.props}/>
             </div>
           </div>
         </div>

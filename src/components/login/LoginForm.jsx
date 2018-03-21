@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import {businessUserLogin} from '../../actions/businessUserLogin';
-import { connect} from 'react-redux';
+import { businessUserLogin } from '../../actions/businessUserLogin';
+import { connect } from 'react-redux';
 class LoginForm extends Component {
 
   renderField(field) {
+    const { meta: { touched, error }, className } = field;
+    const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
+    const styles = touched && error ? { borderColor: 'red' } : {};
+    const inputClassName = `form-control ${touched && error ? 'alert-danger' : ''} `;
     return (
       <div className="col_full">
         <label htmlFor={field.name}>{field.title}:</label>
-        <input type={field.type} className="form-control" {...field.input}/>
+        <input type={field.type} className="form-control" {...field.input} />
+        <div className={`text-help ${divClassName}`}>
+          {touched ? error : ''}
+        </div>
       </div>
     );
   }
 
-  onFormSubmit(values){
+  onFormSubmit(values) {
     console.log(values);
     var history = this.props.history;
     console.log(history);
@@ -22,7 +29,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {handleSubmit} = this.props;
+    const { handleSubmit } = this.props;
     return (
       <form id="login-form" name="login-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))}>
         <h3>廠商登入</h3>
@@ -51,11 +58,23 @@ class LoginForm extends Component {
     )
   }
 }
-function mapStateToProps(state){
+
+
+function validate(values) {
+  // console.log(values);
+  const errors = {};
+  // console.log('values:', values);
+  if (!values.username) errors.username = "Please fill your username";
+  if (!values.password) errors.password = "Please fill your password";
+  return errors;
+}
+
+function mapStateToProps(state) {
   // console.log('Auth',state);
-  return {authenticated: state.authenticated}
+  return { authenticated: state.authenticated }
 }
 
 export default reduxForm({
+  validate,
   form: 'loginForm'
-})(connect(mapStateToProps, {businessUserLogin})(LoginForm));
+})(connect(mapStateToProps, { businessUserLogin })(LoginForm));

@@ -3,6 +3,7 @@
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
+  width: 210px;
   margin: 0.2em;
   padding: 0 15px 0 46px;
   border: none;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import APIServerLocation from '../APIServerLocation';
+import {GET_Talents} from './types';
 
-export const GET_Talents = "GET_Talents";
 export default function getTalents(){
   return dispatch =>{
     axios.get(`${APIServerLocation}/users`)

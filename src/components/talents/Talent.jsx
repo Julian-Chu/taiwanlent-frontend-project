@@ -24,7 +24,7 @@ class Talent extends Component {
           <div className={this.props.qualified ? 'sale-flash' : ''}> {this.props.qualified ? 'Qualified' : ''} </div>
           <div className={this.props.experienced ? 'sale-flash' : ''}> {this.props.experienced ? 'Experienced' : ''}</div>
           <div className="product-overlay ">
-            <button className="item-quick-view" onClick={()=>this.props.enableDetail(this.props.id)}>
+            <button className="item-quick-view" onClick={this.props.authenticated?()=>this.props.enableDetail(this.props.id): alert('Please log in')}>
               <i className="icon-zoom-in2 " />
               <span> 查看資料</span>
             </button>
@@ -76,7 +76,10 @@ Talent.defaultProps = {
 };
 
 function mapStateToProps(state) {
-  return { candidates: state.candidates };
+  return { 
+    candidates: state.candidates,
+    authenticated:state.authenticated
+  };
 }
 
 export default connect(mapStateToProps)(Talent);

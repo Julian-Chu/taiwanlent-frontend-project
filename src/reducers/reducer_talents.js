@@ -1,5 +1,5 @@
 // import mockTalents from '../mockdata/mockTalents';
-import {GET_Talents} from '../actions/get_talents';
+import {GET_Talents} from '../actions/types';
 
 export default function(state=[], action){
   switch(action.type){

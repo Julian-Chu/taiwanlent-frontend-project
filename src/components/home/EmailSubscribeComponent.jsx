@@ -25,7 +25,6 @@ class EmailSubscribe extends Component {
   renderField(field) {
     const { meta: { touched, error } } = field;
     const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
-    const styles = touched && error ? { borderColor: 'red' } : {};
     const inputClassName = `form-control input-lg not-dark required email ${touched && error ? 'alert-danger' : ''} `;
     return (
       <div>

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import APIServerLocation from '../APIServerLocation';
 
 export const Post_EmailSubscribe = 'Post_EmailSubscribe';
 

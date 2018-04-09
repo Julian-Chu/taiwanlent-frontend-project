@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import '../../styles/loginButton.css';
 import LoginForm from './LoginForm';
 import TalentLoginForm from './TalentLoginForm';

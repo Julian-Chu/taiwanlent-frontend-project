@@ -12,7 +12,6 @@ import {connect} from 'react-redux';
     }
 
      render() {
-        console.log('props',this.props);
         return (
             <div id="side-panel" className="dark">
                 <div id="side-panel-trigger-close" className="side-panel-trigger"><a href=""><i className="icon-line-cross"></i></a></div>

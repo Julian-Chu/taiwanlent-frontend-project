@@ -22,13 +22,11 @@ export default function(ComponentNeedAuth){
     }
 
     render(){
-      console.log(this.context);
       return <ComponentNeedAuth {...this.props}/>
     }
   }
 
   function mapStateToProps(state){
-    console.log('Auth',state);
     return {authenticated: state.authenticated}
   }
 

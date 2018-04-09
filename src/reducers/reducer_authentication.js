@@ -5,6 +5,7 @@ export default function(state = false, action) {
     case CHANGE_AUTH:
       console.log(state, action);
       return action.payload;
+    default:
+      return state;
   }
-  return state;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
@@ -14,7 +13,6 @@ class SectionContact extends Component {
     renderField(field) {
         const { meta: { touched, error }, className } = field;
         const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
-        const styles = touched && error ? { borderColor: 'red' } : {};
         const inputClassName = `sm-form-control border-form-control required ${touched && error ? 'alert-danger' : ''} `;
         return (
             <div className={className}>

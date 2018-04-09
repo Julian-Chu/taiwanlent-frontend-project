@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 class LoginForm extends Component {
 
   renderField(field) {
-    const { meta: { touched, error }, className } = field;
+    const { meta: { touched, error }} = field;
     const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
-    const styles = touched && error ? { borderColor: 'red' } : {};
-    const inputClassName = `form-control ${touched && error ? 'alert-danger' : ''} `;
+    // const styles = touched && error ? { borderColor: 'red' } : {};
+    // const inputClassName = `form-control ${touched && error ? 'alert-danger' : ''} `;
     return (
       <div className="col_full">
         <label htmlFor={field.name}>{field.title}:</label>
@@ -48,7 +48,7 @@ class LoginForm extends Component {
 
         <div className="col_full ">
           <button className="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
-          <a href="#" className="fright">Forgot Password?</a>
+          <a href="/api/forgetpassword" className="fright">Forgot Password?</a>
         </div>
         <div className="col_full nobottommargin">
           <div>Don't have an Account?</div>

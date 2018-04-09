@@ -1,5 +1,4 @@
 import axios from 'axios';
-import APIServerLocation from '../APIServerLocation';
 import {GET_Talents} from './types';
 
 export default function getTalents(){

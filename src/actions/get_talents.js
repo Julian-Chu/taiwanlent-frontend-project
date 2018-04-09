@@ -4,7 +4,7 @@ import {GET_Talents} from './types';
 
 export default function getTalents(){
   return dispatch =>{
-    axios.get(`${APIServerLocation}/users`)
+    axios.get(`api/users`)
         .then(res=>{
           console.log("Talents:", res.data);
           const talents = res.data.map(person=>{
@@ -12,7 +12,7 @@ export default function getTalents(){
             return person;
           });
           dispatch(getTalentsAsync(talents));
-        });
+        }).catch(message=>console.log(message));
   }
 }
 

@@ -1,8 +1,7 @@
 // import mockTalents from '../mockdata/mockTalents';
-import {GET_Talents} from '../actions/get_talents';
+import {GET_Talents} from '../actions/types';
 
 export default function(state=[], action){
-  console.log('GET_Talents', action);
   switch(action.type){
     case GET_Talents:
       return action.payload;

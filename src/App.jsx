@@ -7,7 +7,9 @@ import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
-import Register from './components/login/Registry';
+import User from './components/User';
+import BusinessUserRegister from './components/login/BusinessUserRegister';
+import Logout from './components/Logout';
 
 
 class App extends Component {
@@ -72,10 +74,6 @@ class App extends Component {
             });
     }
 
-    onSwitchChange(e) {
-        console.log(e);
-    }
-
     render() {
         return (
 
@@ -99,19 +97,24 @@ class App extends Component {
 
                                 <Route path="/talents" extact component={(props) => <Talents
                                     {...props}
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
                                 />} />
                                 <Route path="/login" extact component={(props) => <Login
                                     {...props}
+                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
+                                    />} />
+                                <Route path="/user" extact component={(props) => <User
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    
-                                />} />
-                                <Route path="/register" extact component={(props) => <Register
+                                    {...props}                                    
+                                    />} />
+                                <Route path="/businessUserRegister" extact component={(props) => <BusinessUserRegister
                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                    {...props}                                    
+                                    />} />
+                                <Route path="/logout" extact component={props=><Logout
+                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     {...props}
-                                    
-                                />} />
+                                    /> }/>
                                 <Redirect to="/home" />
                             </Switch>
                         </div>

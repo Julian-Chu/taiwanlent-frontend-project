@@ -1,0 +1,17 @@
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+div.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+input.alert-danger {
+    background-color: white;
+    border-color: red;
+    color: #a94442;
+}

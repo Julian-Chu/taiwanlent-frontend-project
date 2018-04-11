@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {logout} from '../actions/logout';
 
 const Header= props => {
 
@@ -33,7 +35,8 @@ const Header= props => {
                     <Link to="/home" onClick={()=>scrollToSection("section-contact")}>聯絡我們</Link>
                 </li>
                 <li>
-                <Link to="/login">登入</Link>
+                {props.authenticated? <Link to="/logout">登出</Link>: <Link to="/login">登入</Link>}
+                {/* <Link to="/login">登入</Link> */}
                 </li>
               </ul>
               <div id="side-panel-trigger" className="side-panel-trigger" onClick={props.toggleSidePanelOpen}><i className="icon-reorder"></i></div>
@@ -44,4 +47,12 @@ const Header= props => {
     );
   };
 
-  export default Header;
+  function mapStateToProps(state){
+    return {
+      authenticated:state.authenticated
+    }
+  }
+
+
+
+  export default connect(mapStateToProps,{logout})(Header);

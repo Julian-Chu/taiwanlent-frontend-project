@@ -164,7 +164,7 @@ export class User  extends Component {
               <div className="clear"></div>
 
               <Field
-                name="uni"
+                name="school"
                 title="學校"
                 placeholder=""
                 className="col_half"

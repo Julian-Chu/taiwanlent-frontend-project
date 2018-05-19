@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
-import postContactUs from '../../actions/post_EmailSubscribe';
+import postContactUs from '../../actions/contactus';
 
 class SectionContact extends Component {
     onSubmit(values){

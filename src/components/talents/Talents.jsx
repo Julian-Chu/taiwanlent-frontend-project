@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { removeAllCandidates, addCandidate, removeCandidate } from '../../actions/index';
 import Detail from './Detail';
-import getTalents from '../../actions/get_talents';
+import getTalents from '../../actions/talents';
 import requireAuth from '../require_authentication';
 
 

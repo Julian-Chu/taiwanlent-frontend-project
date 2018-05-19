@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { businessUserLogin } from '../../actions/businessUserLogin';
+import { businessUserLogin } from '../../actions/businessuser';
 import { connect } from 'react-redux';
 class LoginForm extends Component {
 

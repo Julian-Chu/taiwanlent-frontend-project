@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { businessUserLogin } from '../../actions/businessuser';
+import { signin } from '../../actions/businessuser';
 import { connect } from 'react-redux';
 class LoginForm extends Component {
 
   renderField(field) {
     const { meta: { touched, error }} = field;
     const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
-    // const styles = touched && error ? { borderColor: 'red' } : {};
-    // const inputClassName = `form-control ${touched && error ? 'alert-danger' : ''} `;
     return (
       <div className="col_full">
         <label htmlFor={field.name}>{field.title}:</label>
@@ -63,18 +61,16 @@ class LoginForm extends Component {
 function validate(values) {
   // console.log(values);
   const errors = {};
-  // console.log('values:', values);
   if (!values.username) errors.username = "Please fill your username";
   if (!values.password) errors.password = "Please fill your password";
   return errors;
 }
 
 function mapStateToProps(state) {
-  // console.log('Auth',state);
   return { authenticated: state.authenticated }
 }
 
 export default reduxForm({
   validate,
   form: 'loginForm'
-})(connect(mapStateToProps, { businessUserLogin })(LoginForm));
+})(connect(mapStateToProps, signin)(LoginForm));

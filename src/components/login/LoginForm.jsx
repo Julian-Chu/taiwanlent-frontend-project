@@ -73,4 +73,4 @@ function mapStateToProps(state) {
 export default reduxForm({
   validate,
   form: 'loginForm'
-})(connect(mapStateToProps, signin)(LoginForm));
+})(connect(mapStateToProps, {signin})(LoginForm));

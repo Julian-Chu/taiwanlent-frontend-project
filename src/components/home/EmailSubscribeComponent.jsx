@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import postEmailSubscribe from '../../actions/emailSubscribe';
+import postEmailSubscribe from '../../actions/emailsubscribe';
 import  '../../styles/Home.css';
 import checkRules from '../../regularExpression/checkRules';
 

@@ -23,7 +23,7 @@ class LoginForm extends Component {
     console.log(values);
     var history = this.props.history;
     console.log(history);
-    this.props.businessUserLogin(values, history);
+    this.props.signin(values, history);
   }
 
   render() {

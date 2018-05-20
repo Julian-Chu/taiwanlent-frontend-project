@@ -10,8 +10,6 @@ import Login from './components/login/Login';
 import User from './components/User';
 import BusinessUserInitRegister from './components/login/BusinessUserInitRegister';
 import Logout from './components/Logout';
-import WindowScrollTop from './components/WindowScrollTop';
-
 
 class App extends Component {
     constructor(props) {
@@ -87,8 +85,7 @@ class App extends Component {
                             <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()}
                                 headerIsTransparent={this.state.headerIsTransparent}
                             ></Header>
-                            <WindowScrollTop>
-                                <Switch>
+                            <Switch>
                                     <Route path="/home"
                                         exact component={
                                             (props) => <Home
@@ -96,7 +93,7 @@ class App extends Component {
                                                 subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
                                                 unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
                                             />} />
-
+                                            
                                     <Route path="/talents" extact component={(props) => <Talents
                                         {...props}
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
@@ -118,8 +115,7 @@ class App extends Component {
                                         {...props}
                                     />} />
                                     <Redirect to="/home" />
-                                </Switch>
-                            </WindowScrollTop>
+                            </Switch>
                         </div>
                     </BrowserRouter>
                 </div>

@@ -8,8 +8,9 @@ import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
 import User from './components/User';
-import BusinessUserRegister from './components/login/BusinessUserRegister';
+import BusinessUserInitRegister from './components/login/BusinessUserInitRegister';
 import Logout from './components/Logout';
+import WindowScrollTop from './components/WindowScrollTop';
 
 
 class App extends Component {
@@ -86,37 +87,39 @@ class App extends Component {
                             <Header toggleSidePanelOpen={() => this.toggleSidePanelOpen()}
                                 headerIsTransparent={this.state.headerIsTransparent}
                             ></Header>
-                            <Switch>
-                                <Route path="/home"
-                                    exact component={
-                                        (props) => <Home
-                                        {...props}
-                                            subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
-                                            unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
-                                        />} />
+                            <WindowScrollTop>
+                                <Switch>
+                                    <Route path="/home"
+                                        exact component={
+                                            (props) => <Home
+                                                {...props}
+                                                subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
+                                                unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
+                                            />} />
 
-                                <Route path="/talents" extact component={(props) => <Talents
-                                    {...props}
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
-                                />} />
-                                <Route path="/login" extact component={(props) => <Login
-                                    {...props}
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}                                    
+                                    <Route path="/talents" extact component={(props) => <Talents
+                                        {...props}
+                                        setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     />} />
-                                <Route path="/user" extact component={(props) => <User
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    {...props}                                    
+                                    <Route path="/login" extact component={(props) => <Login
+                                        {...props}
+                                        setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     />} />
-                                <Route path="/businessUserRegister" extact component={(props) => <BusinessUserRegister
-                                    setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    {...props}                                    
+                                    <Route path="/user" extact component={(props) => <User
+                                        setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                        {...props}
                                     />} />
-                                <Route path="/logout" extact component={props=><Logout
-                                     setHeaderNontransparent={() => this.setHeaderTransparent(false)}
-                                    {...props}
-                                    /> }/>
-                                <Redirect to="/home" />
-                            </Switch>
+                                    <Route path="/businessUserInitRegister" extact component={(props) => <BusinessUserInitRegister
+                                        setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                        {...props}
+                                    />} />
+                                    <Route path="/logout" extact component={props => <Logout
+                                        setHeaderNontransparent={() => this.setHeaderTransparent(false)}
+                                        {...props}
+                                    />} />
+                                    <Redirect to="/home" />
+                                </Switch>
+                            </WindowScrollTop>
                         </div>
                     </BrowserRouter>
                 </div>

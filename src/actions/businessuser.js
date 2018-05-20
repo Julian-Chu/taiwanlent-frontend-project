@@ -8,3 +8,12 @@ export function signin({username, password}, history){
     payload: true
   }
 }
+
+export function signup({username, password}, history){
+  // todo: redirect after signup
+
+  return{
+    type: CHANGE_AUTH,
+    payload:true
+  }
+}

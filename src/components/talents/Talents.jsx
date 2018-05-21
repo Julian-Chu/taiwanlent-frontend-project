@@ -7,8 +7,6 @@ import { bindActionCreators } from 'redux';
 import { removeAllCandidates, addCandidate, removeCandidate } from '../../actions/index';
 import Detail from './Detail';
 import getTalents from '../../actions/talents';
-import requireAuth from '../require_authentication';
-
 
 class Talents extends Component {
   constructor(props) {
@@ -133,4 +131,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({getTalents, removeAllCandidates, addCandidate, removeCandidate }, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(requireAuth(Talents));
+export default connect(mapStateToProps, mapDispatchToProps)(Talents);

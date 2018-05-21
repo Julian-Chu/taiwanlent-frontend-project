@@ -19,7 +19,6 @@ const Header= props => {
             <div id="primary-menu-trigger"><i className="icon-reorder"></i></div>
             <div id="logo">
               <Link to="/home" className="standard-logo" data-dark-logo="%PUBLIC_URL%/images/taiwanlent-logo.png"><img src="images/taiwanlent-logo.png" alt="Taiwanlent Logo" /></Link>
-              {/* <a href="index.html" className="retina-logo" data-dark-logo="%PUBLIC_URL%/images/taiwanlent-logo.png"><img src="images/taiwanlent-logo.png" alt="taiwanlent logo" /></a> */}
             </div>
             <nav id="primary-menu">
               <ul className="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
@@ -37,7 +36,6 @@ const Header= props => {
                 </li>
                 <li>
                 {props.authenticated? <Link to="/logout">登出</Link>: <Link to="/login">登入</Link>}
-                {/* <Link to="/login">登入</Link> */}
                 </li>
               </ul>
               <div id="side-panel-trigger" className="side-panel-trigger" onClick={props.toggleSidePanelOpen}><i className="icon-reorder"></i></div>

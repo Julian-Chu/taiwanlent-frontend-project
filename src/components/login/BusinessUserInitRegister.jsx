@@ -30,42 +30,44 @@ class BusinessUserInitRegister extends Component {
     )
   }
   render() {
-    const { handleSubmit} = this.props;
+    const { handleSubmit } = this.props;
     return (
-
-      <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} >
-        <Field
-          name="username"
-          placeholder=""
-          className="col_half"
-          title="使用者名稱"
-          component={this.renderField}
-        />
-        <div className="clear"></div>
-        <Field
-          name="password"
-          placeholder=""
-          className="col_half"
-          title="輸入密碼"
-          type="password"
-          component={this.renderField}
-        />
-        <Field
-          name="repassword"
-          placeholder=""
-          className="col_half col_last"
-          title="再次輸入密碼"
-          type="password"
-          component={this.renderField}
-        />
-        <div className="clear"></div>
-      </form>
+      <div style={{margin:'5% 10% 5%'}}>
+        <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} >
+          <Field
+            name="username"
+            placeholder=""
+            className="col_half"
+            title="使用者名稱"
+            component={this.renderField}
+          />
+          <div className="clear"></div>
+          <Field
+            name="password"
+            placeholder=""
+            className="col_half"
+            title="輸入密碼"
+            type="password"
+            component={this.renderField}
+          />
+          <Field
+            name="repassword"
+            placeholder=""
+            className="col_half col_last"
+            title="再次輸入密碼"
+            type="password"
+            component={this.renderField}
+          />
+          <div className="clear"></div>
+          <button type="submit" className="button button-border button-dark button-circle">確認</button>
+        </form>
+      </div>
     )
   }
 }
 
-function validate(values){
-  const errors = {}; 
+function validate(values) {
+  const errors = {};
   if (!values.username) errors.username = "Please fill your username";
   if (!values.password) errors.password = "Please fill your password";
   if (!values.password !== values.repassword) errors.repassword = "Please check password again"
@@ -77,4 +79,4 @@ function validate(values){
 export default reduxForm({
   validate,
   form: "BusinessUserInitRegusterForm"
-})(connect(null, {signup})(BusinessUserInitRegister));
+})(connect(null, { signup })(BusinessUserInitRegister));

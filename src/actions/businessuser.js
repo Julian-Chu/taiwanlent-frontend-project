@@ -17,3 +17,13 @@ export function signup({username, password}, history){
     payload:true
   }
 }
+
+export function fillUpUserData(values, history){
+  console.log(values);
+  return{
+    type:CHANGE_AUTH,
+    payload:true
+  }
+}
+
+

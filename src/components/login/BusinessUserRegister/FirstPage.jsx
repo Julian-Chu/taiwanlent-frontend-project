@@ -17,7 +17,7 @@ const FirstPage = props => {
       <div id="gender">
         <label>性別</label>
         <div>
-          <label><Field name="gender" component="input" type="radio" value="male"></Field>男</label>
+          <label><Field name="gender" component="input" type="radio" value="male" ></Field>男</label>
           <label><Field name="gender" component="input" type="radio" value="female"></Field>女</label>
         </div>
       </div>
@@ -56,7 +56,7 @@ const FirstPage = props => {
       />
       <div className="clear"></div>
       <button type="submit">Next</button>
-      </form>
+    </form>
   )
 }
 export default reduxForm({
@@ -64,6 +64,9 @@ export default reduxForm({
   form: 'BusinessUserRegisterForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
+  initialValues: {
+    gender:"male"
+  }
 
 })(FirstPage);
 // export default FirstPage;

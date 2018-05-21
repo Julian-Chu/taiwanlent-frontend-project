@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FirsPage from './BusinessUserRegister/FirstPage';
+import FirstPage from './BusinessUserRegister/FirstPage';
+import SecondPage from './BusinessUserRegister/SecondPage';
 
 class BusinessUserRegister extends Component {
   constructor(props) {
@@ -24,11 +25,14 @@ class BusinessUserRegister extends Component {
     switch (page) {
       case 1:
         return (
-          // <div>Page1</div>
-        <FirsPage onSubmit={this.nextPage}></FirsPage>          
+        <FirstPage onSubmit={this.nextPage}></FirstPage>          
       )
       case 2:
-        return <div>Page2</div>
+        return (
+        <SecondPage onSubmit={this.nextPage} previousPage={this.previousPage}></SecondPage>
+      )
+      case 3:
+        return <div>Page 3 </div>
     }
   }
 
@@ -37,9 +41,7 @@ class BusinessUserRegister extends Component {
     const { page } = this.state;
     return (
       <div>
-        <h1>Test
-
-        </h1>
+        <h1>廠商註冊</h1>
         {this.renderPageByNumber(page)}
       </div>
     )

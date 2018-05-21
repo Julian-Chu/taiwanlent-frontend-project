@@ -64,8 +64,8 @@ const ThirdPage = props => {
         className="col_half col_last"
         component={renderField} />
       <div>
-        <button type="button" onClick={previousPage}>Previous</button>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
+        <button type="button" onClick={previousPage} className="button button-border button-dark button-circle">Previous</button>
+        <button type="submit" disabled={pristine || submitting} className="button button-border button-dark button-circle">Submit</button>
       </div>
     </form>
 

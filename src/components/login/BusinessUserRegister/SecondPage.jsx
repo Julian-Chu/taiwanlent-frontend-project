@@ -24,8 +24,8 @@ const SecondPage = props => {
         component={renderField}
       />
       <div className="clear"></div>
-      <button type="button" onClick={previousPage}>Previous</button>
-      <button type="submit">Next</button>
+      <button type="button" onClick={previousPage} className="button button-border button-dark button-circle">Previous</button>
+      <button type="submit" className="button button-border button-dark button-circle">Next</button>
     </form>
   )
 }

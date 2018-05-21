@@ -22,16 +22,16 @@ class BusinessUserRegister extends Component {
     this.setState({ page: this.state.page - 1 });
   }
 
-  renderPageByNumber(page,onSubmit) {
+  renderPageByNumber(page, onSubmit) {
     switch (page) {
       case 1:
         return (
-        <FirstPage onSubmit={this.nextPage}></FirstPage>          
-      )
+          <FirstPage onSubmit={this.nextPage}></FirstPage>
+        )
       case 2:
         return (
-        <SecondPage onSubmit={this.nextPage} previousPage={this.previousPage}></SecondPage>
-      )
+          <SecondPage onSubmit={this.nextPage} previousPage={this.previousPage}></SecondPage>
+        )
       case 3:
         return (
           <ThirdPage onSubmit={onSubmit} previousPage={this.previousPage}></ThirdPage>
@@ -43,9 +43,20 @@ class BusinessUserRegister extends Component {
     const { onSubmit } = this.props;
     const { page } = this.state;
     return (
-      <div>
+      <div style={{margin: '5% 10% 5%'}}>
         <h1>廠商註冊</h1>
         {this.renderPageByNumber(page, onSubmit)}
+        <ol className="nav">
+          <li>
+            <button  className='active' >1</button>
+          </li>
+          <li>
+            <button  className={this.state.index >= 1 ? 'active' : ''} >2</button>
+          </li>
+          <li>
+            <button  className={this.state.index >= 2 ? 'active' : ''} >3</button>
+          </li>
+        </ol><h6>{this.state.page}/3</h6>
       </div>
     )
   }

@@ -55,7 +55,7 @@ const FirstPage = props => {
         component={renderField}
       />
       <div className="clear"></div>
-      <button type="submit">Next</button>
+      <button type="submit" className="button button-border button-dark button-circle">Next</button>
     </form>
   )
 }

@@ -10,6 +10,8 @@ import Login from './components/login/Login';
 import User from './components/User';
 import BusinessUserInitRegister from './components/login/BusinessUserInitRegister';
 import Logout from './components/Logout';
+import BusinessUserRegister_old from './components/login/BusinessUserRegister_old';
+import BusinessUserRegister from './components/login/BusinessUserRegister';
 
 class App extends Component {
     constructor(props) {
@@ -111,6 +113,8 @@ class App extends Component {
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}
                                     />} />
+                                    {/* For test */}
+                                    <Route path="/businessUserRegister" extact component={(props)=> <BusinessUserRegister {...props}/>  }/>
                                     <Route path="/logout" extact component={props => <Logout
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}

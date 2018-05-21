@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../actions/logout';
+import { HashLink} from 'react-router-hash-link';
 
 const Header= props => {
 
@@ -23,16 +24,16 @@ const Header= props => {
             <nav id="primary-menu">
               <ul className="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
                 <li>
-                  <Link to="/home" onClick={()=>scrollToSection("section-about")}>如何成為人才</Link>
+                  <HashLink to="/home#section-about" >如何成為人才</HashLink>
                 </li>
                 <li>
                     <Link to="/talents">找人才</Link>
                 </li>
                 <li>
-                    <Link to="/home" onClick={()=>scrollToSection("section-subscribe")}>訂閱電子報</Link>
+                    <HashLink to="/home#section-subscribe">訂閱電子報</HashLink>
                 </li>
                 <li>
-                    <Link to="/home" onClick={()=>scrollToSection("section-contact")}>聯絡我們</Link>
+                    <HashLink to="/home#section-contact">聯絡我們</HashLink>
                 </li>
                 <li>
                 {props.authenticated? <Link to="/logout">登出</Link>: <Link to="/login">登入</Link>}

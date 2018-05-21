@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function(ComponentNeedAuth){
   class Authentication extends Component{
     static contextTypes = {
-      router: React.PropTypes.object
+      router: PropTypes.object
     }
 
     componentWillMount(){

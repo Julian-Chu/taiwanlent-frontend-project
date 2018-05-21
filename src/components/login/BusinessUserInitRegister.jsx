@@ -33,6 +33,7 @@ class BusinessUserInitRegister extends Component {
     const { handleSubmit } = this.props;
     return (
       <div style={{margin:'5% 10% 5%'}}>
+        <h3>帳號註冊</h3>
         <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} >
           <Field
             name="username"

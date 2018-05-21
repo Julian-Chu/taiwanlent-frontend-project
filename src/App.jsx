@@ -39,7 +39,8 @@ class App extends Component {
 
     handleScroll() {
         let rectHeader = document.querySelector('#header').getBoundingClientRect();
-        let rectContent = document.querySelector('#content').getBoundingClientRect();
+        const contentNode = document.querySelector('#content');
+        let rectContent = contentNode? contentNode.getBoundingClientRect(): {top:0};
 
         if ((rectHeader.top + rectContent.top) < 0) {
             if (this.state.headerIsTransparent === true)

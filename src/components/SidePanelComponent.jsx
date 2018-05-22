@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { BUSINESS_USER, PERSONAL_USER } from '../actions/types';
 
- class SidePanel extends Component {
-    renderWhenAuthenticated(){
-        return(
-            <div>
-                <a href="./user" className="button button-border button-light button-circle">個人資料</a>
-                <a href="./logout" className="button button-border button-light button-circle">登出</a>
-            </div>
-        )
+class SidePanel extends Component {
+    renderByAuth() {
+        switch (this.props.authenticated) {
+            case BUSINESS_USER:
+                return (
+                    <div>
+                        <a href="/businessuserdata" className="button button-border button-light button-circle">商務用戶資料</a>
+                        <a href="/logout" className="button button-border button-light button-circle">登出</a>
+                    </div>
+                );
+            case PERSONAL_USER:
+                return (
+                    <div>
+                        <a href="/user" className="button button-border button-light button-circle">個人資料</a>
+                        <a href="/logout" className="button button-border button-light button-circle">登出</a>
+                    </div>
+                );
+            default:
+                return (
+                    <a href="./login" className="button button-border button-light button-circle" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">登入</a>
+                )
+
+        }
     }
 
-     render() {
+    render() {
         return (
             <div id="side-panel" className="dark">
                 <div id="side-panel-trigger-close" className="side-panel-trigger"><a href=""><i className="icon-line-cross"></i></a></div>
@@ -22,10 +38,7 @@ import {connect} from 'react-redux';
                             <div className="clear topmargin-sm"></div>
                             <abbr title="Login"></abbr> <br></br>
                         </div>
-                        {this.props.authenticated?
-                            this.renderWhenAuthenticated():
-                            <a href="./login" className="button button-border button-light button-circle" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">登入</a>
-                        }
+                        {this.renderByAuth()}
                     </div>
 
                     <div className="widget quick-contact-widget clearfix">
@@ -80,7 +93,7 @@ import {connect} from 'react-redux';
     }
 }
 
-function mapStateToPros(state){
+function mapStateToPros(state) {
     return {
         authenticated: state.authenticated
     }

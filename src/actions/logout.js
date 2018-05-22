@@ -5,6 +5,6 @@ export function logout(){
   localStorage.removeItem("auth")
   return{
     type: CHANGE_AUTH,
-    payload: false
+    payload: null
   }
 }

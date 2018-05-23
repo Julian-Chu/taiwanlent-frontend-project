@@ -81,7 +81,7 @@ class App extends Component {
 
             <div className={this.state.sidePanelIsOpened ? 'side-panel-open' : ''}>
                 <div className="body-overlay" onClick={() => this.toggleSidePanelOpen()}></div>
-                <SidePanel ></SidePanel>
+                <SidePanel></SidePanel>
                 <div id="container" className="clear-fix">
                     <BrowserRouter>
                         <div>

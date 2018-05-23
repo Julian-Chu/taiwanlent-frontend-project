@@ -7,18 +7,22 @@ import { createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
 
-
-
 describe('App', ()=>{
-
   const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Provider store={createStoreWithMiddleware(reducers)}><App/></Provider>, div);
 });
 
-const app = shallow(<App/>);
+it('renders correctly',()=>{
+  expect(app).toMatchSnapshot();
+})
+
+console.log('app:',app);
+it('Class body-overlay exists',()=>{
+  expect(app.find('.body-overlay').exists()).toBe(true);
+})
+
 it('SidePanel exists',()=>{
   expect(app.find('SidePanel').exists()).toBe(true);
 })

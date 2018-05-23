@@ -1,0 +1,916 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="body-overlay"
+          onClick={[Function]}
+/>,
+        <Connect(SidePanel) />,
+        <div
+          className="clear-fix"
+          id="container"
+>
+          <BrowserRouter>
+                    <div>
+                              <Connect(Header)
+                                        headerIsTransparent={true}
+                                        toggleSidePanelOpen={[Function]}
+                              />
+                              <Switch>
+                                        <Route
+                                                  component={[Function]}
+                                                  exact={true}
+                                                  path="/home"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/talents"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/login"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/user"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/businessUserInitRegister"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/businessUserRegister"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/logout"
+                                        />
+                                        <Redirect
+                                                  push={false}
+                                                  to="/home"
+                                        />
+                              </Switch>
+                    </div>
+          </BrowserRouter>
+</div>,
+        <Footer />,
+      ],
+      "className": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "body-overlay",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <BrowserRouter>
+            <div>
+                        <Connect(Header)
+                                    headerIsTransparent={true}
+                                    toggleSidePanelOpen={[Function]}
+                        />
+                        <Switch>
+                                    <Route
+                                                component={[Function]}
+                                                exact={true}
+                                                path="/home"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/talents"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/login"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/user"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/businessUserInitRegister"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/businessUserRegister"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/logout"
+                                    />
+                                    <Redirect
+                                                push={false}
+                                                to="/home"
+                                    />
+                        </Switch>
+            </div>
+</BrowserRouter>,
+          "className": "clear-fix",
+          "id": "container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <div>
+              <Connect(Header)
+                            headerIsTransparent={true}
+                            toggleSidePanelOpen={[Function]}
+              />
+              <Switch>
+                            <Route
+                                          component={[Function]}
+                                          exact={true}
+                                          path="/home"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/talents"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/login"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/user"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/businessUserInitRegister"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/businessUserRegister"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/logout"
+                            />
+                            <Redirect
+                                          push={false}
+                                          to="/home"
+                            />
+              </Switch>
+</div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Connect(Header)
+                  headerIsTransparent={true}
+                  toggleSidePanelOpen={[Function]}
+/>,
+                <Switch>
+                  <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/home"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/talents"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/login"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/user"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/businessUserInitRegister"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/businessUserRegister"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/logout"
+                  />
+                  <Redirect
+                                    push={false}
+                                    to="/home"
+                  />
+</Switch>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "headerIsTransparent": true,
+                  "toggleSidePanelOpen": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <Route
+                      component={[Function]}
+                      exact={true}
+                      path="/home"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/talents"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/login"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/user"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/businessUserInitRegister"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/businessUserRegister"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/logout"
+/>,
+                    <Redirect
+                      push={false}
+                      to="/home"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "exact": true,
+                      "path": "/home",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/talents",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/login",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/user",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/businessUserInitRegister",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/businessUserRegister",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/logout",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "push": false,
+                      "to": "/home",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="body-overlay"
+            onClick={[Function]}
+/>,
+          <Connect(SidePanel) />,
+          <div
+            className="clear-fix"
+            id="container"
+>
+            <BrowserRouter>
+                        <div>
+                                    <Connect(Header)
+                                                headerIsTransparent={true}
+                                                toggleSidePanelOpen={[Function]}
+                                    />
+                                    <Switch>
+                                                <Route
+                                                            component={[Function]}
+                                                            exact={true}
+                                                            path="/home"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/talents"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/login"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/user"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/businessUserInitRegister"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/businessUserRegister"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/logout"
+                                                />
+                                                <Redirect
+                                                            push={false}
+                                                            to="/home"
+                                                />
+                                    </Switch>
+                        </div>
+            </BrowserRouter>
+</div>,
+          <Footer />,
+        ],
+        "className": "",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "body-overlay",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <BrowserRouter>
+              <div>
+                            <Connect(Header)
+                                          headerIsTransparent={true}
+                                          toggleSidePanelOpen={[Function]}
+                            />
+                            <Switch>
+                                          <Route
+                                                        component={[Function]}
+                                                        exact={true}
+                                                        path="/home"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/talents"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/login"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/user"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/businessUserInitRegister"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/businessUserRegister"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/logout"
+                                          />
+                                          <Redirect
+                                                        push={false}
+                                                        to="/home"
+                                          />
+                            </Switch>
+              </div>
+</BrowserRouter>,
+            "className": "clear-fix",
+            "id": "container",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <div>
+                <Connect(Header)
+                                headerIsTransparent={true}
+                                toggleSidePanelOpen={[Function]}
+                />
+                <Switch>
+                                <Route
+                                                component={[Function]}
+                                                exact={true}
+                                                path="/home"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/talents"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/login"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/user"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/businessUserInitRegister"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/businessUserRegister"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/logout"
+                                />
+                                <Redirect
+                                                push={false}
+                                                to="/home"
+                                />
+                </Switch>
+</div>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Connect(Header)
+                    headerIsTransparent={true}
+                    toggleSidePanelOpen={[Function]}
+/>,
+                  <Switch>
+                    <Route
+                                        component={[Function]}
+                                        exact={true}
+                                        path="/home"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/talents"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/login"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/user"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/businessUserInitRegister"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/businessUserRegister"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/logout"
+                    />
+                    <Redirect
+                                        push={false}
+                                        to="/home"
+                    />
+</Switch>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "headerIsTransparent": true,
+                    "toggleSidePanelOpen": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <Route
+                        component={[Function]}
+                        exact={true}
+                        path="/home"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/talents"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/login"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/user"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/businessUserInitRegister"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/businessUserRegister"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/logout"
+/>,
+                      <Redirect
+                        push={false}
+                        to="/home"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "exact": true,
+                        "path": "/home",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/talents",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/login",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/user",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/businessUserInitRegister",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/businessUserRegister",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/logout",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "push": false,
+                        "to": "/home",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;

@@ -1,4 +1,4 @@
-import {BUSINESSUSER_LOGIN, CHANGE_AUTH, BUSINESS_USER} from './types';
+import {BUSINESSUSER_LOGIN, CHANGE_AUTH, BUSINESS_USER, BUSINESS_USER_DATA} from './types';
 
 export function signin({username, password}, history){
   localStorage.setItem("auth","true");
@@ -24,6 +24,24 @@ export function fillUpUserData(values, history){
     type:CHANGE_AUTH,
     payload: BUSINESS_USER
   }
+}
+export function GetBusinessUserData(){
+  //todo: get business user data
+  var userdata = "get user"
+  return{
+    type: BUSINESS_USER_DATA,
+    payload: userdata
+  }
+}
+
+export function UpdateBusinessUserDate(values){
+  // todo: put/patch 
+  var userdata = values;
+  return{
+    type: BUSINESS_USER_DATA,
+    payload: userdata
+  }
+
 }
 
 

@@ -9,6 +9,8 @@ import reducers from '../reducers';
 
 describe('App', ()=>{
   const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+  var app = shallow(<App/>);
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Provider store={createStoreWithMiddleware(reducers)}><App/></Provider>, div);
@@ -18,17 +20,16 @@ it('renders correctly',()=>{
   expect(app).toMatchSnapshot();
 })
 
-console.log('app:',app);
 it('Class body-overlay exists',()=>{
   expect(app.find('.body-overlay').exists()).toBe(true);
 })
 
 it('SidePanel exists',()=>{
-  expect(app.find('SidePanel').exists()).toBe(true);
+  expect(app.find('Connect(SidePanel)').exists()).toBe(true);
 })
 
 it('Header exists',()=>{
-  expect(app.find('Header').exists()).toBe(true);
+  expect(app.find('Connect(Header)').exists()).toBe(true);
 })
 
 it('Footer exists',()=>{

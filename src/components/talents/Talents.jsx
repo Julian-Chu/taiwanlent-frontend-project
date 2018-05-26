@@ -9,7 +9,7 @@ import Detail from './Detail';
 import getTalents from '../../actions/talents';
 import require_auth from '../require_authentication';
 
-class Talents extends Component {
+export class Talents extends Component {
   constructor(props) {
     super(props);
     let selectedStatus = this.props.talents.slice();

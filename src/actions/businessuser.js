@@ -27,7 +27,11 @@ export function fillUpUserData(values, history){
 }
 export function GetBusinessUserData(){
   //todo: get business user data
-  var userdata = "get user"
+  var userdata = {
+    username: 'testUser',
+    gender:'male'
+  };
+  console.log('GetUserData');
   return{
     type: BUSINESS_USER_DATA,
     payload: userdata

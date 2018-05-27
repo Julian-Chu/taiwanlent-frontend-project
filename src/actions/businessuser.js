@@ -29,7 +29,17 @@ export function GetBusinessUserData(){
   //todo: get business user data
   var userdata = {
     username: 'testUser',
-    gender:'male'
+    gender:'male',
+    email:'test@test.com',
+    name:'Tom Lee',
+    phone:'1211313131',
+    companyName:'Unknown',
+    department:'PD',
+    companyLocation: 'Berlin',
+    address: '....',
+    industry:'Computer',
+    productIntroduction:'no'
+
   };
   console.log('GetUserData');
   return{

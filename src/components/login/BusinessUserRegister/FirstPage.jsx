@@ -2,11 +2,12 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
-
+import { connect } from 'react-redux';
 const FirstPage = props => {
+  console.log(props.initialValues);
   const { handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
       <Field
         name="username"
         placeholder=""
@@ -64,9 +65,11 @@ export default reduxForm({
   form: 'BusinessUserRegisterForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  initialValues: {
-    gender:"male"
-  }
+  // initialValues: {
+  //   gender:"male"
+  // }
+  
 
-})(FirstPage);
+})(connect(state=>({initialValues:state.businessUserData}),null)(FirstPage));
+
 // export default FirstPage;

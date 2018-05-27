@@ -60,7 +60,7 @@ class LoginForm extends Component {
           </div>
           <div className="col_full nobottommargin">
             <div>Don't have an Account?</div>
-            <Link to="/businessUserInitRegister" className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" >Register Now</Link>
+            <Link to="/businessUserSignUp" className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" >Register Now</Link>
           </div>
         </form>
       </div>

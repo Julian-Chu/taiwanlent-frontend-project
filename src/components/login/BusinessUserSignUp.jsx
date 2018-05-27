@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { signup } from '../../actions/businessuser';
 
-class BusinessUserInitRegister extends Component {
+class BusinessUserSignUp extends Component {
 
   onFormSubmit(values) {
     console.log(values);
@@ -71,7 +71,7 @@ function validate(values) {
   const errors = {};
   if (!values.username) errors.username = "Please fill your username";
   if (!values.password) errors.password = "Please fill your password";
-  if (!values.password !== values.repassword) errors.repassword = "Please check password again"
+  if (values.password !== values.repassword) errors.repassword = "Please check password again"
 
   return errors;
 }
@@ -79,5 +79,5 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: "BusinessUserInitRegusterForm"
-})(connect(null, { signup })(BusinessUserInitRegister));
+  form: "BusinessUserSignUpForm"
+})(connect(null, { signup })(BusinessUserSignUp));

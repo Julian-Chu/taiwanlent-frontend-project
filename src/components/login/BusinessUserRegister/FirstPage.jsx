@@ -3,27 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
 import { connect } from 'react-redux';
+import renderRadio from './renderRadio';
 const FirstPage = props => {
   console.log(props.initialValues);
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} >
-      <Field
-        name="username"
-        placeholder=""
-        className="col_half"
-        title="使用者名稱"
-        component={renderField}
-      />
-      <div id="gender">
-        <label>性別</label>
-        <div>
-          <label><Field name="gender" component="input" type="radio" value="male" ></Field>男</label>
-          <label><Field name="gender" component="input" type="radio" value="female"></Field>女</label>
-        </div>
-      </div>
-      <div className="clear"></div>
-
       <Field
         name="email"
         placeholder=""
@@ -38,23 +23,40 @@ const FirstPage = props => {
         title="再次確認Email"
         component={renderField}
       />
-      <div className="clear"></div>
       <Field
-        name="password"
+        name="name"
         placeholder=""
         className="col_half"
-        title="輸入密碼"
-        type="password"
+        title="真實姓名"
         component={renderField}
       />
       <Field
-        name="repassword"
+        name="phone"
         placeholder=""
         className="col_half col_last"
-        title="再次輸入密碼"
-        type="password"
+        title="連絡電話"
         component={renderField}
       />
+      <div id="gender">
+        <label>性別</label>
+        <div>
+          {/* <label><Field name="gender" component="input" type="radio" value="male" ></Field>男</label>
+          <label><Field name="gender" component="input" type="radio" value="female"></Field>女</label> */}
+          <Field 
+            name="gender" 
+            required={true}
+            options = {[
+              {title:'男', value:'male'},
+              {title:'女', value: 'female'}
+            ]}
+            component={renderRadio}
+          ></Field>
+        </div>
+      </div>
+      <div className="clear"></div>
+
+      <div className="clear"></div>
+     
       <div className="clear"></div>
       <button type="submit" className="button button-border button-dark button-circle">Next</button>
     </form>

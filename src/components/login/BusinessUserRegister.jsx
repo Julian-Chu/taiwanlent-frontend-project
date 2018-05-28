@@ -56,7 +56,7 @@ class BusinessUserRegister extends Component {
           <li>
             <button  className={this.state.index >= 2 ? 'active' : ''} >3</button>
           </li>
-        </ol><h6>{this.state.page}/3</h6>
+        </ol><h6>{this.state.page}/2</h6>
       </div>
     )
   }

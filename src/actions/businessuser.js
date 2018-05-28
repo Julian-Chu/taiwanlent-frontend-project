@@ -11,6 +11,7 @@ export function signin({username, password}, history){
 
 export function signup({username, password}, history){
   // todo: redirect after signup
+  history.push("/BusinessUserRegister")
 
   return{
     type: CHANGE_AUTH,

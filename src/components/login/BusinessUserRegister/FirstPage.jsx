@@ -40,8 +40,6 @@ const FirstPage = props => {
       <div id="gender">
         <label>性別</label>
         <div>
-          {/* <label><Field name="gender" component="input" type="radio" value="male" ></Field>男</label>
-          <label><Field name="gender" component="input" type="radio" value="female"></Field>女</label> */}
           <Field 
             name="gender" 
             required={true}
@@ -67,11 +65,9 @@ export default reduxForm({
   form: 'BusinessUserRegisterForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  // initialValues: {
-  //   gender:"male"
-  // }
+  initialValues: {
+    gender:"male"
+  }
   
 
 })(connect(state=>({initialValues:state.businessUserData}),null)(FirstPage));
-
-// export default FirstPage;

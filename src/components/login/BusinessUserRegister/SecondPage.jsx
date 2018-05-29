@@ -3,11 +3,16 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
+import { connect } from 'react-redux';
+import { fillUpUserData} from '../../../actions/businessuser';
 
 const SecondPage = props => {
+  const onFormSubmit = (values)=>{
+    props.fillUpUserData(values, props.history);
+  }
   const { handleSubmit, previousPage, pristine, submitting } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onFormSubmit)}>
       <Field
         name="companyName"
         title="公司名稱/個人委託"
@@ -54,7 +59,6 @@ const SecondPage = props => {
 
       <div className="clear"></div>
       <button type="button" onClick={previousPage} className="button button-border button-dark button-circle">Previous</button>
-      {/* <button type="submit" className="button button-border button-dark button-circle">Next</button> */}
         <button type="submit" disabled={pristine || submitting} className="button button-border button-dark button-circle">Submit</button>
     </form>
   )
@@ -65,4 +69,4 @@ export default reduxForm({
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
 
-})(SecondPage);
+})(connect(null, {fillUpUserData})(SecondPage));

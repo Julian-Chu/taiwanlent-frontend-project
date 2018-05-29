@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FirstPage from './BusinessUserRegister/FirstPage';
 import SecondPage from './BusinessUserRegister/SecondPage';
-import ThirdPage from './BusinessUserRegister/ThirdPage';
 
 class BusinessUserRegister extends Component {
   constructor(props) {
@@ -30,11 +29,7 @@ class BusinessUserRegister extends Component {
         )
       case 2:
         return (
-          <SecondPage onSubmit={this.nextPage} previousPage={this.previousPage}></SecondPage>
-        )
-      case 3:
-        return (
-          <ThirdPage onSubmit={onSubmit} previousPage={this.previousPage}></ThirdPage>
+          <SecondPage onSubmit={onSubmit} previousPage={this.previousPage}></SecondPage>
         )
     }
   }
@@ -52,9 +47,6 @@ class BusinessUserRegister extends Component {
           </li>
           <li>
             <button  className={this.state.index >= 1 ? 'active' : ''} >2</button>
-          </li>
-          <li>
-            <button  className={this.state.index >= 2 ? 'active' : ''} >3</button>
           </li>
         </ol><h6>{this.state.page}/2</h6>
       </div>

@@ -15,12 +15,13 @@ export function signup({username, password}, history){
 
   return{
     type: CHANGE_AUTH,
-    payload: BUSINESS_USER
+    payload: null
   }
 }
 
 export function fillUpUserData(values, history){
   console.log(values);
+  // redirect to?
   return{
     type:CHANGE_AUTH,
     payload: BUSINESS_USER

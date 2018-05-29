@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FirstPage from './BusinessUserRegister/FirstPage';
 import SecondPage from './BusinessUserRegister/SecondPage';
+import {reduxForm} from 'redux-form';
 
 class BusinessUserRegister extends Component {
   constructor(props) {
@@ -54,4 +55,6 @@ class BusinessUserRegister extends Component {
   }
 }
 
-export default BusinessUserRegister;
+export default reduxForm({
+  form: 'BusinessUserRegisterForm'
+})(BusinessUserRegister);

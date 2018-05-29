@@ -8,11 +8,11 @@ import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
 import User from './components/User';
-import BusinessUserSignUp from './components/login/BusinessUserSignUp';
+import BusinessUserSignUp from './components/businessUser/BusinessUserSignUp';
 import Logout from './components/Logout';
-import BusinessUserRegister_old from './components/login/BusinessUserRegister_old';
-import BusinessUserRegister from './components/login/BusinessUserRegister';
-import BusinessUserProfile from './components/login/BusinessUserProfile';
+import BusinessUserRegister_old from './components/businessUser/BusinessUserRegister_old';
+import BusinessUserRegister from './components/businessUser/BusinessUserRegister';
+import BusinessUserProfile from './components/businessUser/BusinessUserProfile';
 
 class App extends Component {
     constructor(props) {

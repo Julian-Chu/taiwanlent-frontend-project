@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../styles/loginButton.css';
-import LoginForm from './LoginForm';
+import BusinessUserLoginForm from './BusinessUserLoginForm';
 import TalentLoginForm from './TalentLoginForm';
 
 export default class Login extends Component {
@@ -15,7 +15,7 @@ export default class Login extends Component {
         <div className="container clearfix">
           <div className="col_half nobottommargin">
             <div className="well well-lg nobottommargin">
-              <LoginForm {...this.props}/>
+              <BusinessUserLoginForm {...this.props}/>
             </div>
           </div>
 

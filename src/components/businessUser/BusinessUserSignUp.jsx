@@ -6,10 +6,7 @@ import { signup } from '../../actions/businessuser';
 class BusinessUserSignUp extends Component {
 
   onFormSubmit(values) {
-    console.log(values);
-    console.log('this.props:', this.props);
     var history = this.props.history;
-    console.log('history: ', history);
     this.props.signup(values, history);
   }
   renderField(field) {

@@ -21,7 +21,7 @@ export function signup({username, password}, history){
 
 export function fillUpUserData(values, history){
   console.log(values);
-  // redirect to?
+  history.push("/WelcomeNewUser");
   return{
     type:CHANGE_AUTH,
     payload: BUSINESS_USER

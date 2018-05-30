@@ -30,7 +30,7 @@ class BusinessUserRegister extends Component {
         )
       case 2:
         return (
-          <SecondPage onSubmit={onSubmit} previousPage={this.previousPage}></SecondPage>
+          <SecondPage onSubmit={onSubmit} previousPage={this.previousPage} {...this.props}></SecondPage>
         )
     }
   }

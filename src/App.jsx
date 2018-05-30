@@ -117,7 +117,7 @@ class App extends Component {
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}
                                     />} />
-                                    <Route path="/WelcomeNewUser" exact component={()=><WelcomeNewUser/>}></Route>
+                                    <Route path="/WelcomeNewUser" exact component={(props)=><WelcomeNewUser {...props} />}></Route>
                                     {/* For test */}
                                     <Route path="/businessUserRegister" extact component={(props)=> <BusinessUserRegister {...props}/>  }/>
                                     <Route path="/logout" extact component={props => <Logout

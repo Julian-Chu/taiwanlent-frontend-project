@@ -1,0 +1,8 @@
+.WelcomeNewUser {
+  margin:5% 10% 5%;
+  text-align: center;
+}
+
+.WelcomeNewUser > a {
+  font-size: 30px
+}

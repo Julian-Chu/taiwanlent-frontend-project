@@ -13,6 +13,7 @@ import Logout from './components/Logout';
 import BusinessUserRegister_old from './components/businessUser/BusinessUserRegister_old';
 import BusinessUserRegister from './components/businessUser/BusinessUserRegister';
 import BusinessUserProfile from './components/businessUser/BusinessUserProfile';
+import WelcomeNewUser from './components/WelcomeNewUser';
 
 class App extends Component {
     constructor(props) {
@@ -116,6 +117,7 @@ class App extends Component {
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}
                                     />} />
+                                    <Route path="/WelcomeNewUser" exact component={()=><WelcomeNewUser/>}></Route>
                                     {/* For test */}
                                     <Route path="/businessUserRegister" extact component={(props)=> <BusinessUserRegister {...props}/>  }/>
                                     <Route path="/logout" extact component={props => <Logout

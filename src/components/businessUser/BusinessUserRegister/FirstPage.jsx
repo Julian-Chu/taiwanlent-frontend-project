@@ -53,9 +53,6 @@ const FirstPage = props => {
       </div>
       <div className="clear"></div>
 
-      <div className="clear"></div>
-     
-      <div className="clear"></div>
       <button type="submit" className="button button-border button-dark button-circle">Next</button>
     </form>
   )

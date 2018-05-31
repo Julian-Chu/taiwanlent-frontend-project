@@ -7,13 +7,14 @@ import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
-import User from './components/User';
+// import User from './components/User';
 import BusinessUserSignUp from './components/businessUser/BusinessUserSignUp';
 import Logout from './components/Logout';
 import BusinessUserRegister_old from './components/businessUser/BusinessUserRegister_old';
 import BusinessUserRegister from './components/businessUser/BusinessUserRegister';
 import BusinessUserProfile from './components/businessUser/BusinessUserProfile';
 import WelcomeNewUser from './components/WelcomeNewUser';
+import PersonalUserRegister from './components/personalUser/PersonalUserRegister';
 
 class App extends Component {
     constructor(props) {
@@ -107,16 +108,17 @@ class App extends Component {
                                         {...props}
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                     />} />
-                                    <Route path="/user" extact component={(props) => <User
+                                    {/* <Route path="/user" extact component={(props) => <User
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}
-                                    />} />
+                                    />} /> */}
 
                                     <Route path="/businessUserData" extact component={(props)=><BusinessUserProfile {...props}/>}></Route>
                                     <Route path="/businessUserSignUp" extact component={(props) => <BusinessUserSignUp
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}
                                     />} />
+                                    <Route path="/personalUserRegister" extact component={(props) => <PersonalUserRegister {...props}/>}></Route>
                                     <Route path="/WelcomeNewUser" exact component={(props)=><WelcomeNewUser {...props} />}></Route>
                                     {/* For test */}
                                     <Route path="/businessUserRegister" extact component={(props)=> <BusinessUserRegister {...props}/>  }/>

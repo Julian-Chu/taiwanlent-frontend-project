@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import FirstPage from './PersonalUserRegister/FirstPage';
 import SecondPage from './PersonalUserRegister/SecondPage';
 import { reduxForm } from 'redux-form';
-import PropTypes from 'prop-types';
 
 class PersonalUserRegister extends Component {
   constructor(props) {
@@ -36,6 +35,16 @@ class PersonalUserRegister extends Component {
           <SecondPage onSubmit={onSubmit}></SecondPage>
         )
     }
+  }
+
+  render(){
+    const {onSubmit} = this.props;
+    const {page} = this.state;
+    return(
+      <div>
+        {this.renderPageBuNumber(page,onSubmit)}
+      </div>
+    )
   }
 }
 

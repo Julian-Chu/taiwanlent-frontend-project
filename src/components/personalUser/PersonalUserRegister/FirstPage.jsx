@@ -2,9 +2,9 @@ import React from 'react';
 import { Field, reduxForm} from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
-import { connect } from 'react-redux';
 import regionOptions from '../../common/regions';
 import renderSelect from './renderSelect';
+
 
 const FirstPage = props => {
   const {handleSubmit} = props;

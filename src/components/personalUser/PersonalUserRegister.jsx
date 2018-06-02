@@ -41,7 +41,7 @@ class PersonalUserRegister extends Component {
     const {onSubmit} = this.props;
     const {page} = this.state;
     return(
-      <div>
+      <div style={{margin: '5% 10% 5%'}}>
         {this.renderPageBuNumber(page,onSubmit)}
       </div>
     )

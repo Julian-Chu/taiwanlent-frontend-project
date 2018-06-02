@@ -12,7 +12,7 @@ class PersonalUserRegister extends Component {
     this.previousPage = this.previousPage.bind(this);
     this.renderPageBuNumber = this.renderPageBuNumber.bind(this);
     this.state = {
-      page:1
+      page:2
     };
 
   }
@@ -32,7 +32,7 @@ class PersonalUserRegister extends Component {
         )
       case 2:
         return(
-          <SecondPage onSubmit={onSubmit}></SecondPage>
+          <SecondPage onSubmit={onSubmit} previousPage={this.previousPage} {...this.props}></SecondPage>
         )
     }
   }

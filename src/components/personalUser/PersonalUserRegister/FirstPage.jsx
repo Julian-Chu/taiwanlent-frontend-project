@@ -4,6 +4,7 @@ import validate from './validate';
 import renderField from './renderField';
 import regionOptions from '../../common/regions';
 import renderSelect from './renderSelect';
+import subjectOptions from '../../common/subjects';
 
 
 const FirstPage = props => {
@@ -42,6 +43,22 @@ const FirstPage = props => {
         component={renderField}
       />
       <div className="clear"></div>
+      <Field
+        name="school"
+        title="學校"
+        placeholder=""
+        className="col_half"
+        component={renderField} />
+
+      <Field
+        name="subject"
+        title="科系"
+        placeholder="Select Subject"
+        className="col_half col_last"
+        options={subjectOptions}
+        component={renderSelect}
+        style={{ maxWidth: '250px' }} />
+
       <Field
         name="region"
         options={regionOptions}

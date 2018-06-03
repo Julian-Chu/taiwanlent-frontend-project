@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Field, reduxForm, FieldArray } from 'redux-form';
+import { Field, reduxForm, FieldArray, formValueSelector, change } from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
 import regionOptions from '../../common/regions';
@@ -23,12 +23,12 @@ class SecondPage extends Component {
     }
   }
 
-  onFormSubmit(values){
+  onFormSubmit(values) {
     this.props.fillUpUserData(values, this.props.history);
   }
 
   render() {
-  const { handleSubmit, previousPage, pristine, submitting } = this.props;
+    const { handleSubmit, previousPage, pristine, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onFormSubmit)}>
         <Field
@@ -46,25 +46,103 @@ class SecondPage extends Component {
           component={renderField} />
         <div className="clear"></div>
 
-        {/* <Field
-          name="school"
-          title="學校"
-          placeholder=""
-          className="col_half"
-          component={renderField} />
+        <div className="col_half">
+          <Field
+            placeholder="工作經驗1"
+            name="workexperience_1"
+            component={(field) => (<div>
+              <label >工作經驗1:</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="工作經驗1"
+                {...field.input}
 
+              />  </div>)}
+          />
+          <Field
+            placeholder="工作經驗2"
+            name="workexperience_2"
+            component={(field) => (<div>
+              <label >工作經驗:</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="工作經驗2"
+                {...field.input}
 
-        <Field
-          name="subject"
-          title="科系"
-          placeholder="Select Subject"
-          className="col_half col_last"
-          options={subjectOptions}
-          component={renderSelect}
-          style={{ maxWidth: '250px' }} /> */}
+              />  </div>)}
+          />
+          <Field
+            placeholder="工作經驗3"
+            name="workexperience_3"
+            component={(field) => (<div>
+              <label >工作經驗3:</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="工作經驗3"
+                {...field.input}
 
-        <div className="clear"></div>
-        <FieldArray
+              />  </div>)}
+          />
+        </div>
+
+        <div className="col_half col_last">
+          <Field
+            name="german"
+            type="checkbox"
+            component="input"
+            onClick={(event)=>{
+              if(this.props.german){
+                this.props.change('PersonalUserRegisterForm',"german_certificate",null);
+              }
+            }}
+          />
+          <label>German</label>
+          <Field
+            name="german_certificate"
+            type="text"
+            className="form-control"
+            component="input"
+            disabled={!this.props.german}
+          />
+          <Field
+            name="english"
+            type="checkbox"
+            component="input"
+            onClick={(event)=>{
+              if(this.props.english){
+                this.props.change('PersonalUserRegisterForm',"english_certificate",null);
+              }}}
+          />
+          <label>English</label>
+          <Field
+            name="english_certificate"
+            type="text"
+            className="form-control"
+            component="input"
+            disabled={!this.props.english}
+          />
+          <Field
+            name="chinese"
+            type="checkbox"
+            component="input"
+            onClick={(event)=>{
+              if(this.props.chinese){
+                this.props.change('PersonalUserRegisterForm',"chinese_certificate",null);
+              }}}
+          />
+          <label>Chinese</label>
+          <Field
+            name="chinese_certificate"
+            type="text"
+            className="form-control"
+            component="input"
+            disabled={!this.props.chinese}
+          />
+        </div>
+        {/* <FieldArray
           name="workingExperiences"
           component={({ fields, meta: { error, submitFailed } }) => (
             <div className="col_half">         {
@@ -119,25 +197,11 @@ class SecondPage extends Component {
 
               ))}
             </div>
-          )} />
+          )} /> */}
 
         <div className="col_half">
           <div><label>簡單自我介紹</label></div>
           <Field name="selfIntroduction" cols="40" rows="10" component="textarea"></Field>
-        </div>
-        <div id="gender">
-          <label>性別</label>
-          <div>
-            <Field
-              name="gender"
-              required={true}
-              options={[
-                { title: '男', value: 'male' },
-                { title: '女', value: 'female' }
-              ]}
-              component={renderRadio}
-            ></Field>
-          </div>
         </div>
 
         <div className="col_half col_last">
@@ -162,9 +226,20 @@ class SecondPage extends Component {
   }
 }
 
+const selector = formValueSelector('PersonalUserRegisterForm');
 export default reduxForm({
   validate,
   form: 'PersonalUserRegisterForm',
+  asyncBlurFields: [],
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
-})(connect(null, { fillUpUserData })(SecondPage));
+})(connect(state => {
+  const german = selector(state, 'german');
+  const english = selector(state, 'english');
+  const chinese = selector(state, 'chinese');
+  return {
+    german,
+    english,
+    chinese
+  }
+}, { fillUpUserData, change })(SecondPage));

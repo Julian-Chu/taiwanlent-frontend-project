@@ -5,6 +5,7 @@ import renderField from './renderField';
 import regionOptions from '../../common/regions';
 import renderSelect from './renderSelect';
 import subjectOptions from '../../common/subjects';
+import renderRadio from './renderRadio';
 
 
 const FirstPage = props => {
@@ -76,6 +77,20 @@ const FirstPage = props => {
         className="col_half col_last"
         component={renderField} />
       <div className="clear"></div>
+        <div id="gender">
+          <label>性別</label>
+          <div>
+            <Field
+              name="gender"
+              required={true}
+              options={[
+                { title: '男', value: 'male' },
+                { title: '女', value: 'female' }
+              ]}
+              component={renderRadio}
+            ></Field>
+          </div>
+        </div>
       <button type="submit" className="button button-border button-dark button-circle">Next</button>
     </form>
   )

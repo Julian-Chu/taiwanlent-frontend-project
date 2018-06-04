@@ -15,6 +15,7 @@ import BusinessUserRegister from './components/businessUser/BusinessUserRegister
 import BusinessUserProfile from './components/businessUser/BusinessUserProfile';
 import WelcomeNewUser from './components/WelcomeNewUser';
 import PersonalUserRegister from './components/personalUser/PersonalUserRegister';
+import PersonalUserProfile from './components/personalUser/PersonalUserProfile';
 
 class App extends Component {
     constructor(props) {
@@ -119,6 +120,7 @@ class App extends Component {
                                         {...props}
                                     />} />
                                     <Route path="/personalUserRegister" extact component={(props) => <PersonalUserRegister {...props}/>}></Route>
+                                    <Route path="/personalUserProfile" extact  component={(props)=> <PersonalUserProfile {...props}/>}></Route>                                      
                                     <Route path="/WelcomeNewUser" exact component={(props)=><WelcomeNewUser {...props} />}></Route>
                                     {/* For test */}
                                     <Route path="/businessUserRegister" extact component={(props)=> <BusinessUserRegister {...props}/>  }/>

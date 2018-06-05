@@ -10,6 +10,7 @@ import React from 'react';
         <label htmlFor={field.name}>{field.title}:</label>
         <input type={field.type || "text"}
           className={inputClassName}
+          disabled={field.disabled}
           {...field.input}
         />
         <div className={`text-help ${divClassName}`}>

@@ -11,15 +11,21 @@ import renderField from './PersonalUserRegister/renderField';
 import validate from './PersonalUserRegister/validate';
 import renderSelect from './PersonalUserRegister/renderSelect';
 import renderRadio from './PersonalUserRegister/renderRadio';
+import { GetPersonalUserData } from '../../actions/personaluser';
 
 
-export class PersonalUserRegister extends Component {
+export class PersonalUserProfile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      disabled:false
+      disabled: false
     }
+  }
+
+  componentWillMount(){
+    this.props.GetPersonalUserData();
+    
   }
 
   componentDidMount() {
@@ -32,13 +38,12 @@ export class PersonalUserRegister extends Component {
     console.log('this.props:', this.props);
     var history = this.props.history;
     console.log('history: ', history);
-    this.props.registerForBusinessUser(values, history);
+    // this.props.registerForBusinessUser(values, history);
   }
 
-  toggleChangeInput(disabled){
-    console.log(disabled);
+  toggleChangeInput(disabled) {
     this.setState({
-      disabled:disabled
+      disabled: disabled
     })
   }
 
@@ -121,7 +126,7 @@ export class PersonalUserRegister extends Component {
                 disabled={this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
-             
+
               <Field
                 name="occupation"
                 title="職業"
@@ -159,51 +164,51 @@ export class PersonalUserRegister extends Component {
 
               <div className="clear"></div>
               <div className="col_half">
-              <Field
-                placeholder="工作經驗1"
-                name="workexperience_1"
-                component={(field) => (<div>
-                  <label >工作經驗1:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="工作經驗1"
-                    {...field.input}
-                disabled={this.state.disabled}
+                <Field
+                  placeholder="工作經驗1"
+                  name="workexperience_1"
+                  component={(field) => (<div>
+                    <label >工作經驗1:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="工作經驗1"
+                      {...field.input}
+                      disabled={this.state.disabled}
 
-                  />  </div>)}
-              />
-              <Field
-                placeholder="工作經驗2"
-                name="workexperience_2"
-                component={(field) => (<div>
-                  <label >工作經驗:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="工作經驗2"
-                    {...field.input}
-                disabled={this.state.disabled}
+                    />  </div>)}
+                />
+                <Field
+                  placeholder="工作經驗2"
+                  name="workexperience_2"
+                  component={(field) => (<div>
+                    <label >工作經驗:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="工作經驗2"
+                      {...field.input}
+                      disabled={this.state.disabled}
 
-                  />  </div>)}
-              />
-              <Field
-                name="workexperience_3"
-                component={(field) => (<div>
-                  <label >工作經驗3:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="工作經驗3"
-                    {...field.input}
-                disabled={this.state.disabled}
+                    />  </div>)}
+                />
+                <Field
+                  name="workexperience_3"
+                  component={(field) => (<div>
+                    <label >工作經驗3:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="工作經驗3"
+                      {...field.input}
+                      disabled={this.state.disabled}
 
-                  />  </div>)}
-              /></div>
+                    />  </div>)}
+                /></div>
 
               <div className="col_half col_last">
                 <Field
-                disabled={this.state.disabled}
+                  disabled={this.state.disabled}
                   name="german"
                   type="checkbox"
                   component="input"
@@ -222,7 +227,7 @@ export class PersonalUserRegister extends Component {
                   disabled={!this.props.german}
                 />
                 <Field
-                disabled={this.state.disabled}
+                  disabled={this.state.disabled}
                   name="english"
                   type="checkbox"
                   component="input"
@@ -241,7 +246,7 @@ export class PersonalUserRegister extends Component {
                   disabled={!this.props.english}
                 />
                 <Field
-                disabled={this.state.disabled}
+                  disabled={this.state.disabled}
                   name="chinese"
                   type="checkbox"
                   component="input"
@@ -265,7 +270,7 @@ export class PersonalUserRegister extends Component {
               <div className="col_half">
                 <label htmlFor="register-form-languages">簡單自我介紹</label>
                 <Field name="selfIntroduction" cols="40" rows="10" component="textarea"
-                disabled={this.state.disabled}
+                  disabled={this.state.disabled}
                 ></Field>
               </div>
               <div id="gender">
@@ -279,7 +284,7 @@ export class PersonalUserRegister extends Component {
                       { title: '女', value: 'female' }
                     ]}
                     component={renderRadio}
-                disabled={this.state.disabled}
+                    disabled={this.state.disabled}
                   ></Field>
                 </div>
               </div>
@@ -289,14 +294,14 @@ export class PersonalUserRegister extends Component {
                 <br />
                 <div>
                   <Field type="checkbox" id="licence" name="licence" component="input"
-                  
-                disabled={this.state.disabled}
+
+                    disabled={this.state.disabled}
                   ></Field>
                   <label htmlFor="licence">駕照</label>
                 </div>
                 <div>
                   <Field type="checkbox" id="relocation" name="relocation" component="input"
-                disabled={this.state.disabled}
+                    disabled={this.state.disabled}
                   ></Field>
                   <label htmlFor="relocation" >可搬家</label>
                 </div>
@@ -304,7 +309,7 @@ export class PersonalUserRegister extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={()=>this.toggleChangeInput(true)}>Register Now</button>
+                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(true)}>Register Now</button>
 
               </div>
             </form>
@@ -315,10 +320,18 @@ export class PersonalUserRegister extends Component {
   }
 }
 
+PersonalUserProfile = reduxForm({
+  form: 'PersonalUserRegisterForm',
+  enableReinitialize: true,
+})(PersonalUserProfile);
 
-export default reduxForm({
-  validate,
-  form: 'PersoalUserRegisterForm',
-  initialValues: {
-  }
-})(connect(null, actions)(PersonalUserRegister));
+PersonalUserProfile = connect(
+  state => {
+    var initialValues = state.personalUserData;
+    return {
+      initialValues
+    }
+  }, { GetPersonalUserData }
+)(PersonalUserProfile);
+
+export default PersonalUserProfile;

@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   authenticated: AuthenticationReducer,
   form:formReducer,
   businessUserData: BusinessUserDataReducer,
-  peronsalUserData: PersonalUserDataReducer
+  personalUserData: PersonalUserDataReducer
 });
 
 export default rootReducer;

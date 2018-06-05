@@ -4,7 +4,7 @@ import Select from 'react-select';
 import regionOptions from '../common/regions';
 import subjectOptions from '../common/subjects';
 import { connect } from 'react-redux';
-import { Field, reduxForm, FieldArray, reset } from 'redux-form';
+import { Field, reduxForm, FieldArray, reset, formValueSelector } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import * as actions from '../../actions/personaluser';
 import renderField from './PersonalUserRegister/renderField';
@@ -320,7 +320,7 @@ export class PersonalUserProfile extends Component {
     );
   }
 }
-
+const selector = formValueSelector('PersonalUserRegisterForm');
 PersonalUserProfile = reduxForm({
   form: 'PersonalUserRegisterForm',
   enableReinitialize: true,
@@ -329,8 +329,14 @@ PersonalUserProfile = reduxForm({
 PersonalUserProfile = connect(
   state => {
     var initialValues = state.personalUserData;
+    const german = selector(state, 'german');
+    const english = selector(state, 'english');
+    const chinese = selector(state, 'chinese');
     return {
-      initialValues
+      initialValues,
+      german,
+      english,
+      chinese
     }
   }, { GetPersonalUserData, reset }
 )(PersonalUserProfile);

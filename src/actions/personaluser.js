@@ -16,6 +16,13 @@ export function GetPersonalUserData(){
     email:'test@test.com',
     name:'Tom Lee',
     phone:'1211313131',
+    region: {
+      label:"Berlin 柏林",
+      value:"BE"
+    },
+    subject:{value: "ch", label: "化學化工"},
+    german:true,
+    german_certificate:"123"
   }
   console.log('GetPersonalBusinessUserData');
   return{

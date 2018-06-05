@@ -4,7 +4,7 @@ import Select from 'react-select';
 import regionOptions from '../common/regions';
 import subjectOptions from '../common/subjects';
 import { connect } from 'react-redux';
-import { Field, reduxForm, FieldArray } from 'redux-form';
+import { Field, reduxForm, FieldArray, reset } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import * as actions from '../../actions/personaluser';
 import renderField from './PersonalUserRegister/renderField';
@@ -309,7 +309,8 @@ export class PersonalUserProfile extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(true)}>Register Now</button>
+                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(true)}>修改資料</button>
+                <button type="button" className="button button-3d nomargin" onClick={() => this.props.reset('PersonalUserRegisterForm')}>Cancel</button>
 
               </div>
             </form>
@@ -331,7 +332,7 @@ PersonalUserProfile = connect(
     return {
       initialValues
     }
-  }, { GetPersonalUserData }
+  }, { GetPersonalUserData, reset }
 )(PersonalUserProfile);
 
 export default PersonalUserProfile;

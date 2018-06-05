@@ -9,7 +9,7 @@ import React from 'react';
       <div className={className}>
         {options.map( o=> 
           <label key={o.value}>
-            <input type="radio" {...input} value={o.value} checked={o.value === input.value}/>
+            <input type="radio" {...input} value={o.value} checked={o.value === input.value} disabled={field.disabled}/>
              {o.title}
           </label>)}
             <div className={`text-help ${divClassName}`}>

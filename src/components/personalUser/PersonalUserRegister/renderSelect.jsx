@@ -16,6 +16,7 @@ const renderSelect = (field) => {
         value={field.input.value}
         onChange={value => field.input.onChange(value)}
         onBlur={() => field.input.onBlur(field.input.value)}
+        disabled={field.disabled}
         {...field.meta}
       />
         <div className={`text-help ${divClassName}`}>

@@ -14,7 +14,7 @@ class BusinessUserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: false
+      disabled: true
     }
   }
 
@@ -52,13 +52,21 @@ class BusinessUserProfile extends Component {
                 className="col_half"
                 title="使用者名稱"
                 component={renderField}
-                disabled = "true"
+                disabled = {this.state.disabled}
               />
               <div id="gender">
                 <label>性別</label>
                 <div>
-                  <label><Field name="gender" component="input" type="radio" value="male"></Field>男</label>
-                  <label><Field name="gender" component="input" type="radio" value="female"></Field>女</label>
+                  <Field
+                    name="gender"
+                    required={true}
+                    options={[
+                      { title: '男', value: 'male' },
+                      { title: '女', value: 'female' }
+                    ]}
+                    component={renderRadio}
+                    disabled={this.state.disabled}
+                  ></Field>
                 </div>
               </div>
               <div className="clear"></div>
@@ -69,6 +77,7 @@ class BusinessUserProfile extends Component {
                 className="col_half"
                 title="Email"
                 component={renderField}
+                disabled = {this.state.disabled}
               />
               <Field
                 name="reemail"
@@ -76,6 +85,7 @@ class BusinessUserProfile extends Component {
                 className="col_half col_last"
                 title="再次確認Email"
                 component={renderField}
+                disabled = {this.state.disabled}
               />
               <div className="clear"></div>
               <Field
@@ -85,6 +95,7 @@ class BusinessUserProfile extends Component {
                 title="輸入密碼"
                 type="password"
                 component={renderField}
+                disabled = {this.state.disabled}
               />
               <Field
                 name="repassword"
@@ -93,6 +104,7 @@ class BusinessUserProfile extends Component {
                 title="再次輸入密碼"
                 type="password"
                 component={renderField}
+                disabled = {this.state.disabled}
               />
               <div className="clear"></div>
 
@@ -102,6 +114,7 @@ class BusinessUserProfile extends Component {
                 className="col_half"
                 title="真實姓名"
                 component={renderField}
+                disabled = {this.state.disabled}
               />
               <Field
                 name="phone"
@@ -109,6 +122,7 @@ class BusinessUserProfile extends Component {
                 className="col_half col_last"
                 title="連絡電話"
                 component={renderField}
+                disabled = {this.state.disabled}
               />
               <div className="clear"></div>
               <Field
@@ -116,6 +130,7 @@ class BusinessUserProfile extends Component {
                 title="公司名稱/個人委託"
                 placeholder=""
                 className="col_half "
+                disabled = {this.state.disabled}
                 component={renderField} />
 
               <Field
@@ -123,6 +138,7 @@ class BusinessUserProfile extends Component {
                 title="部門"
                 placeholder=""
                 className="col_half col_last"
+                disabled = {this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
 
@@ -131,6 +147,7 @@ class BusinessUserProfile extends Component {
                 title="公司所在城市"
                 placeholder=""
                 className="col_half "
+                disabled = {this.state.disabled}
                 component={renderField} />
 
               <Field
@@ -138,6 +155,7 @@ class BusinessUserProfile extends Component {
                 title="地址"
                 placeholder=""
                 className="col_half col_last"
+                disabled = {this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
 
@@ -146,6 +164,7 @@ class BusinessUserProfile extends Component {
                 title="產業類別"
                 placeholder=""
                 className="col_half"
+                disabled = {this.state.disabled}
                 component={renderField} />
 
               <Field
@@ -153,6 +172,7 @@ class BusinessUserProfile extends Component {
                 title="產品簡介"
                 placeholder=""
                 className="col_half col_last"
+                disabled = {this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
               <div className="col_half col_last">
@@ -161,7 +181,7 @@ class BusinessUserProfile extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(true)}>修改資料</button>
+                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
                 <button type="button" className="button button-3d nomargin" onClick={() => this.props.reset('PersonalUserRegisterForm')}>Cancel</button>
 
               </div>

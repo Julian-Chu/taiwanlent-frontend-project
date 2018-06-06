@@ -12,6 +12,7 @@ import validate from './PersonalUserRegister/validate';
 import renderSelect from './PersonalUserRegister/renderSelect';
 import renderRadio from './PersonalUserRegister/renderRadio';
 import { GetPersonalUserData } from '../../actions/personaluser';
+import UploadPhoto from './UploadPhoto';
 
 
 export class PersonalUserProfile extends Component {
@@ -305,6 +306,7 @@ export class PersonalUserProfile extends Component {
                   ></Field>
                   <label htmlFor="relocation" >可搬家</label>
                 </div>
+                <UploadPhoto/>
               </div>
 
               <div className="clear"></div>

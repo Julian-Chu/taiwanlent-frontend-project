@@ -114,7 +114,7 @@ class App extends Component {
                                         {...props}
                                     />} /> */}
 
-                                    <Route path="/businessUserData" extact component={(props)=><BusinessUserProfile {...props}/>}></Route>
+                                    <Route path="/businessUserProfile" extact component={(props)=><BusinessUserProfile {...props}/>}></Route>
                                     <Route path="/businessUserSignUp" extact component={(props) => <BusinessUserSignUp
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}

@@ -1,15 +1,13 @@
 
 import React, { Component } from 'react';
-import Select from 'react-select';
 import regions from '../common/regions';
-import subjects from '../common/subjects';
 import { connect } from 'react-redux';
 import { Field, reduxForm, reset} from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import {GetBusinessUserData} from '../../actions/businessuser';
 import validate from './BusinessUserRegister/validate';
-import renderField from './BusinessUserRegister/renderField';
-import renderRadio from './BusinessUserRegister/renderRadio';
+import renderField from '../renderComponents/renderField';
+import renderRadio from '../renderComponents/renderRadio';
 
 
 class BusinessUserProfile extends Component {

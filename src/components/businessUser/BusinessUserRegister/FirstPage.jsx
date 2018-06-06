@@ -1,9 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import renderField from './renderField';
+import renderField from '../../renderComponents/renderField';
 import { connect } from 'react-redux';
-import renderRadio from './renderRadio';
+import renderRadio from '../../renderComponents/renderRadio';
 const FirstPage = props => {
   console.log(props.initialValues);
   const { handleSubmit } = props;

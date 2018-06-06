@@ -2,7 +2,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import renderField from './renderField';
+import renderField from '../../renderComponents/renderField';
 import { connect } from 'react-redux';
 import { fillUpUserData} from '../../../actions/businessuser';
 

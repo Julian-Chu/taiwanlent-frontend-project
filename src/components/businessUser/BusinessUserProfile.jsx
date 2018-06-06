@@ -4,7 +4,7 @@ import Select from 'react-select';
 import regions from '../common/regions';
 import subjects from '../common/subjects';
 import { connect } from 'react-redux';
-import { Field, reduxForm} from 'redux-form';
+import { Field, reduxForm, reset} from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import {GetBusinessUserData} from '../../actions/businessuser';
 import validate from './BusinessUserRegister/validate';
@@ -15,6 +15,9 @@ import renderRadio from './BusinessUserRegister/renderRadio';
 class BusinessUserProfile extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      disabled: false
+    }
   }
 
   componentDidMount() {
@@ -29,6 +32,12 @@ class BusinessUserProfile extends Component {
     console.log('history: ', history);
     this.props.registerForBusinessUser(values, history);
   }
+  
+  toggleChangeInput(disabled){
+    this.setState({
+      disabled: disabled
+    })
+  }
 
 
   render() {
@@ -38,13 +47,14 @@ class BusinessUserProfile extends Component {
         <div className="container clearfix">
           <div className="col_two_third col_last nobottommargin">
             <h1>廠商註冊</h1>
-            <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} >
+            <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} disabled="true">
               <Field
                 name="username"
                 placeholder=""
                 className="col_half"
                 title="使用者名稱"
                 component={renderField}
+                disabled = "true"
               />
               <div id="gender">
                 <label>性別</label>
@@ -153,7 +163,8 @@ class BusinessUserProfile extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button className="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">確認</button>
+                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(true)}>修改資料</button>
+                <button type="button" className="button button-3d nomargin" onClick={() => this.props.reset('PersonalUserRegisterForm')}>Cancel</button>
 
               </div>
             </form>

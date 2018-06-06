@@ -1,11 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import renderField from './renderField';
+import renderField from '../../renderComponents/renderField';
 import regionOptions from '../../common/regions';
-import renderSelect from './renderSelect';
+import renderSelect from '../../renderComponents/renderSelect';
 import subjectOptions from '../../common/subjects';
-import renderRadio from './renderRadio';
+import renderRadio from '../../renderComponents/renderRadio';
 
 
 const FirstPage = props => {

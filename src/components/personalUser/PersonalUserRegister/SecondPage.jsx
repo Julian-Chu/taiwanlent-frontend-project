@@ -2,13 +2,13 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, FieldArray, formValueSelector, change } from 'redux-form';
 import validate from './validate';
-import renderField from './renderField';
+import renderField from '../../renderComponents/renderField';
 import regionOptions from '../../common/regions';
 import subjectOptions from '../../common/subjects';
-import renderSelect from './renderSelect';
+import renderSelect from '../../renderComponents/renderSelect';
 import { connect } from 'react-redux';
 import { fillUpUserData } from '../../../actions/personaluser';
-import renderRadio from './renderRadio';
+import renderRadio from '../../renderComponents/renderRadio';
 
 class SecondPage extends Component {
   constructor(props) {

@@ -7,10 +7,10 @@ import { connect } from 'react-redux';
 import { Field, reduxForm, FieldArray, reset, formValueSelector } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import * as actions from '../../actions/personaluser';
-import renderField from './PersonalUserRegister/renderField';
+import renderField from '../renderComponents/renderField';
 import validate from './PersonalUserRegister/validate';
-import renderSelect from './PersonalUserRegister/renderSelect';
-import renderRadio from './PersonalUserRegister/renderRadio';
+import renderSelect from '../renderComponents/renderSelect';
+import renderRadio from '../renderComponents/renderRadio';
 import { GetPersonalUserData } from '../../actions/personaluser';
 import UploadPhoto from './UploadPhoto';
 

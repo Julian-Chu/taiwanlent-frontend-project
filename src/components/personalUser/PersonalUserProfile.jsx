@@ -4,42 +4,42 @@ import Select from 'react-select';
 import regionOptions from '../common/regions';
 import subjectOptions from '../common/subjects';
 import { connect } from 'react-redux';
-import { Field, reduxForm, FieldArray, reset, formValueSelector } from 'redux-form';
+import { Field, reduxForm, FieldArray, reset, formValueSelector, change } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import * as actions from '../../actions/personaluser';
 import renderField from '../renderComponents/renderField';
 import validate from './PersonalUserRegister/validate';
 import renderSelect from '../renderComponents/renderSelect';
 import renderRadio from '../renderComponents/renderRadio';
-import { GetPersonalUserData } from '../../actions/personaluser';
+import { GetPersonalUserData, UpdateUserData } from '../../actions/personaluser';
 import UploadPhoto from './UploadPhoto';
 
 
 export class PersonalUserProfile extends Component {
   constructor(props) {
     super(props);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
 
     this.state = {
-      disabled: false
+      disabled: true
     }
   }
 
-  componentWillMount(){
-    this.props.GetPersonalUserData();
-    
-  }
-
-  componentDidMount() {
-    // this.props.setHeaderNontransparent();
+  componentWillMount() {
+    if (Object.keys(this.props.initialValues).length === 0 && this.props.initialValues.constructor === Object) {
+      this.props.GetPersonalUserData();
+      console.log(this.props.initialValues);
+    }
   }
 
 
   onFormSubmit(values) {
+
     console.log(values);
     console.log('this.props:', this.props);
     var history = this.props.history;
     console.log('history: ', history);
-    // this.props.registerForBusinessUser(values, history);
+    this.props.UpdateUserData(values, () => this.toggleChangeInput(true));
   }
 
   toggleChangeInput(disabled) {
@@ -49,13 +49,14 @@ export class PersonalUserProfile extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    console.log('render');
+    const { handleSubmit, pristine, submitting } = this.props;
     return (
       <div className="content-wrap">
         <div className="container clearfix">
           <div className="col_two_third col_last nobottommargin">
             <h3>Please input</h3>
-            <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} >
+            <form id="register-form"  >
               <Field
                 name="username"
                 placeholder=""
@@ -215,7 +216,8 @@ export class PersonalUserProfile extends Component {
                   component="input"
                   onClick={(event) => {
                     if (this.props.german) {
-                      this.props.change('PersonalUserRegisterForm', "german_certificate", null);
+                      this.props.setValueToNull('PersonalUserProfileForm', 'german_certificate', null);
+                      console.log(this.props.german);
                     }
                   }}
                 />
@@ -225,7 +227,7 @@ export class PersonalUserProfile extends Component {
                   type="text"
                   className="form-control"
                   component="input"
-                  disabled={!this.props.german}
+                  disabled={this.state.disabled || !this.props.german}
                 />
                 <Field
                   disabled={this.state.disabled}
@@ -234,7 +236,7 @@ export class PersonalUserProfile extends Component {
                   component="input"
                   onClick={(event) => {
                     if (this.props.english) {
-                      this.props.change('PersonalUserRegisterForm', "english_certificate", null);
+                      this.props.setValueToNull('PersonalUserProfileForm', 'english_certificate', null);
                     }
                   }}
                 />
@@ -244,7 +246,7 @@ export class PersonalUserProfile extends Component {
                   type="text"
                   className="form-control"
                   component="input"
-                  disabled={!this.props.english}
+                  disabled={this.state.disabled || !this.props.english}
                 />
                 <Field
                   disabled={this.state.disabled}
@@ -253,7 +255,7 @@ export class PersonalUserProfile extends Component {
                   component="input"
                   onClick={(event) => {
                     if (this.props.chinese) {
-                      this.props.change('PersonalUserRegisterForm', "chinese_certificate", null);
+                      this.props.setValueToNull('PersonalUserProfileForm', 'chinese_certificate', null);
                     }
                   }}
                 />
@@ -263,7 +265,7 @@ export class PersonalUserProfile extends Component {
                   type="text"
                   className="form-control"
                   component="input"
-                  disabled={!this.props.chinese}
+                  disabled={this.state.disabled ||!this.props.chinese}
                 />
               </div>
 
@@ -274,6 +276,8 @@ export class PersonalUserProfile extends Component {
                   disabled={this.state.disabled}
                 ></Field>
               </div>
+
+              <div className="col_half col_last">
               <div id="gender">
                 <label>性別</label>
                 <div>
@@ -290,8 +294,6 @@ export class PersonalUserProfile extends Component {
                 </div>
               </div>
 
-              <div className="col_half col_last">
-
                 <br />
                 <div>
                   <Field type="checkbox" id="licence" name="licence" component="input"
@@ -306,13 +308,35 @@ export class PersonalUserProfile extends Component {
                   ></Field>
                   <label htmlFor="relocation" >可搬家</label>
                 </div>
-                <UploadPhoto/>
+                <UploadPhoto />
               </div>
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(true)}>修改資料</button>
-                <button type="button" className="button button-3d nomargin" onClick={() => this.props.reset('PersonalUserRegisterForm')}>Cancel</button>
+                {
+                  this.state.disabled ?
+                    (
+                      <div>
+                        <button type="button" className="button button-border button-dark button-circle" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
+                      </div>
+                    ) :
+                    (
+                      <div>
+                        {
+                        !(pristine || submitting) &&
+                        <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
+                        }
+                        <button type="button" className="button button-border button-dark button-circle" onClick={() => {
+                          this.props.reset('PersonalUserProfileForm');
+                          this.toggleChangeInput(true);
+                        }
+
+                        }>Cancel</button>
+
+                      </div>
+                    )
+                }
+
 
               </div>
             </form>
@@ -322,9 +346,9 @@ export class PersonalUserProfile extends Component {
     );
   }
 }
-const selector = formValueSelector('PersonalUserRegisterForm');
+const selector = formValueSelector('PersonalUserProfileForm');
 PersonalUserProfile = reduxForm({
-  form: 'PersonalUserRegisterForm',
+  form: 'PersonalUserProfileForm',
   enableReinitialize: true,
 })(PersonalUserProfile);
 
@@ -340,7 +364,7 @@ PersonalUserProfile = connect(
       english,
       chinese
     }
-  }, { GetPersonalUserData, reset }
+  }, { GetPersonalUserData, reset, UpdateUserData, setValueToNull: (formName, fieldName) => change(formName, fieldName, null) }
 )(PersonalUserProfile);
 
 export default PersonalUserProfile;

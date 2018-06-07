@@ -31,8 +31,9 @@ export function GetPersonalUserData(){
   }
 }
 
-export function UpdateUserData(values, history){
+export function UpdateUserData(values, setFieldsDisabled){
   console.log(values);
+  setFieldsDisabled();
   return{
     type: PERSONAL_USER_DATA,
     payload: values

@@ -30,3 +30,11 @@ export function GetPersonalUserData(){
     payload: userdata
   }
 }
+
+export function UpdateUserData(values, history){
+  console.log(values);
+  return{
+    type: PERSONAL_USER_DATA,
+    payload: values
+  }
+}

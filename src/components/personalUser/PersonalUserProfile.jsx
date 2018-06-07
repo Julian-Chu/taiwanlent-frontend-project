@@ -265,11 +265,11 @@ export class PersonalUserProfile extends Component {
                   type="text"
                   className="form-control"
                   component="input"
-                  disabled={this.state.disabled ||!this.props.chinese}
+                  disabled={this.state.disabled || !this.props.chinese}
                 />
               </div>
 
-
+              <div className="clear"></div>
               <div className="col_half">
                 <label htmlFor="register-form-languages">簡單自我介紹</label>
                 <Field name="selfIntroduction" cols="40" rows="10" component="textarea"
@@ -278,21 +278,21 @@ export class PersonalUserProfile extends Component {
               </div>
 
               <div className="col_half col_last">
-              <div id="gender">
-                <label>性別</label>
-                <div>
-                  <Field
-                    name="gender"
-                    required={true}
-                    options={[
-                      { title: '男', value: 'male' },
-                      { title: '女', value: 'female' }
-                    ]}
-                    component={renderRadio}
-                    disabled={this.state.disabled}
-                  ></Field>
+                <div id="gender">
+                  <label>性別</label>
+                  <div>
+                    <Field
+                      name="gender"
+                      required={true}
+                      options={[
+                        { title: '男', value: 'male' },
+                        { title: '女', value: 'female' }
+                      ]}
+                      component={renderRadio}
+                      disabled={this.state.disabled}
+                    ></Field>
+                  </div>
                 </div>
-              </div>
 
                 <br />
                 <div>
@@ -323,8 +323,8 @@ export class PersonalUserProfile extends Component {
                     (
                       <div>
                         {
-                        !(pristine || submitting) &&
-                        <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
+                          !(pristine || submitting) &&
+                          <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
                         }
                         <button type="button" className="button button-border button-dark button-circle" onClick={() => {
                           this.props.reset('PersonalUserProfileForm');

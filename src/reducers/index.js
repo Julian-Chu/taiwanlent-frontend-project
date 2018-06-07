@@ -5,7 +5,7 @@ import CandidatesReducer from './reducer_candidates';
 import { reducer as formReducer} from 'redux-form';
 import AuthenticationReducer from './reducer_authentication';
 import BusinessUserDataReducer from './reducer_businessUserData';
-import PersonalUserDataReducer from './reducer_personalUserDate';
+import PersonalUserDataReducer from './reducer_personalUserData';
 
 const rootReducer = combineReducers({
   talents: TalentsReducer,

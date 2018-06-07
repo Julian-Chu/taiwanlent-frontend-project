@@ -13,6 +13,7 @@ import renderSelect from '../renderComponents/renderSelect';
 import renderRadio from '../renderComponents/renderRadio';
 import { GetPersonalUserData, UpdateUserData } from '../../actions/personaluser';
 import UploadPhoto from './UploadPhoto';
+import '../../styles/ReduxForm.css';
 
 
 export class PersonalUserProfile extends Component {
@@ -280,7 +281,6 @@ export class PersonalUserProfile extends Component {
               <div className="col_half col_last">
                 <div id="gender">
                   <label>性別</label>
-                  <div>
                     <Field
                       name="gender"
                       required={true}
@@ -291,7 +291,6 @@ export class PersonalUserProfile extends Component {
                       component={renderRadio}
                       disabled={this.state.disabled}
                     ></Field>
-                  </div>
                 </div>
 
                 <br />

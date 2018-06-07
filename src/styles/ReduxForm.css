@@ -1,0 +1,11 @@
+.col_half input + label, .col_half div label {
+  display: inline-block
+}
+
+.col_half label {
+  display: block
+}
+
+.col_half textarea {
+  width: 100%
+}

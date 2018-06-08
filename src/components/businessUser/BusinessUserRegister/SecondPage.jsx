@@ -5,6 +5,7 @@ import validate from './validate';
 import renderField from '../../renderComponents/renderField';
 import { connect } from 'react-redux';
 import { fillUpUserData} from '../../../actions/businessuser';
+import '../../../styles/ReduxForm.css';
 
 const SecondPage = props => {
   const onFormSubmit = (values)=>{

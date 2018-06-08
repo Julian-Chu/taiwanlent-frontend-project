@@ -8,6 +8,7 @@ import {GetBusinessUserData} from '../../actions/businessuser';
 import validate from './BusinessUserRegister/validate';
 import renderField from '../renderComponents/renderField';
 import renderRadio from '../renderComponents/renderRadio';
+import '../../styles/ReduxForm.css';
 
 
 class BusinessUserProfile extends Component {

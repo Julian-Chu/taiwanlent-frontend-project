@@ -9,6 +9,7 @@ import renderSelect from '../../renderComponents/renderSelect';
 import { connect } from 'react-redux';
 import { fillUpUserData } from '../../../actions/personaluser';
 import renderRadio from '../../renderComponents/renderRadio';
+import '../../../styles/ReduxForm.css';
 
 class SecondPage extends Component {
   constructor(props) {

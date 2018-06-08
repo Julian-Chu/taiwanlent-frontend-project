@@ -6,6 +6,7 @@ import regionOptions from '../../common/regions';
 import renderSelect from '../../renderComponents/renderSelect';
 import subjectOptions from '../../common/subjects';
 import renderRadio from '../../renderComponents/renderRadio';
+import '../../../styles/ReduxForm.css';
 
 
 const FirstPage = props => {

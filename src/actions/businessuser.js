@@ -50,9 +50,10 @@ export function GetBusinessUserData(){
   }
 }
 
-export function UpdateBusinessUserDate(values){
+export function UpdateBusinessUserData(values, setFieldsDisabled){
   // todo: put/patch 
   var userdata = values;
+  setFieldsDisabled();
   return{
     type: BUSINESS_USER_DATA,
     payload: userdata

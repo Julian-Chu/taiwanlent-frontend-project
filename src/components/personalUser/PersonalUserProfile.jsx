@@ -49,6 +49,32 @@ export class PersonalUserProfile extends Component {
     })
   }
 
+  renderButtons(handleSubmit, pristine, submitting) {
+    if (this.state.disabled) {
+      return (
+        <div>
+          <button type="button" className="button button-border button-dark button-circle" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          {
+            !(pristine || submitting) &&
+            <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
+          }
+          <button type="button" className="button button-border button-dark button-circle" onClick={() => {
+            this.props.reset('PersonalUserProfileForm');
+            this.toggleChangeInput(true);
+          }
+
+          }>Cancel</button>
+
+        </div>
+      )
+    }
+  }
+
   render() {
     console.log('render');
     const { handleSubmit, pristine, submitting } = this.props;
@@ -281,16 +307,16 @@ export class PersonalUserProfile extends Component {
               <div className="col_half col_last">
                 <div id="gender">
                   <label>性別</label>
-                    <Field
-                      name="gender"
-                      required={true}
-                      options={[
-                        { title: '男', value: 'male' },
-                        { title: '女', value: 'female' }
-                      ]}
-                      component={renderRadio}
-                      disabled={this.state.disabled}
-                    ></Field>
+                  <Field
+                    name="gender"
+                    required={true}
+                    options={[
+                      { title: '男', value: 'male' },
+                      { title: '女', value: 'female' }
+                    ]}
+                    component={renderRadio}
+                    disabled={this.state.disabled}
+                  ></Field>
                 </div>
 
                 <br />
@@ -312,30 +338,7 @@ export class PersonalUserProfile extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                {
-                  this.state.disabled ?
-                    (
-                      <div>
-                        <button type="button" className="button button-border button-dark button-circle" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
-                      </div>
-                    ) :
-                    (
-                      <div>
-                        {
-                          !(pristine || submitting) &&
-                          <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
-                        }
-                        <button type="button" className="button button-border button-dark button-circle" onClick={() => {
-                          this.props.reset('PersonalUserProfileForm');
-                          this.toggleChangeInput(true);
-                        }
-
-                        }>Cancel</button>
-
-                      </div>
-                    )
-                }
-
+                {this.renderButtons(handleSubmit, pristine, submitting)}
 
               </div>
             </form>

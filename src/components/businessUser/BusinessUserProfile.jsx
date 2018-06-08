@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import regions from '../common/regions';
 import { connect } from 'react-redux';
-import { Field, reduxForm, reset} from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
-import {GetBusinessUserData} from '../../actions/businessuser';
+import { GetBusinessUserData, UpdateBusinessUserData } from '../../actions/businessuser';
 import validate from './BusinessUserRegister/validate';
 import renderField from '../renderComponents/renderField';
 import renderRadio from '../renderComponents/renderRadio';
@@ -16,7 +16,9 @@ class BusinessUserProfile extends Component {
     super(props);
     this.state = {
       disabled: true
-    }
+    };
+
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -25,36 +27,67 @@ class BusinessUserProfile extends Component {
   }
 
   onFormSubmit(values) {
-    console.log(values);
-    console.log('this.props:', this.props);
-    var history = this.props.history;
-    console.log('history: ', history);
-    this.props.registerForBusinessUser(values, history);
+    // console.log(values);
+    // console.log('this.props:', this.props);
+    // var history = this.props.history;
+    // console.log('history: ', history);
+    this.props.UpdateBusinessUserData(values, ()=>this.toggleChangeInput(true));
   }
-  
-  toggleChangeInput(disabled){
+
+  toggleChangeInput(disabled) {
     this.setState({
       disabled: disabled
     })
   }
 
+  renderButtons(handleSubmit, pristine, submitting) {
+    if (this.state.disabled) {
+      return (
+        <div>
+          <button type="button" className="button button-border button-dark button-circle" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          {
+            !(pristine || submitting) &&
+            <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
+          }
+          <button type="button" className="button button-border button-dark button-circle" onClick={() => {
+            this.props.reset('BusinessUserProfileForm');
+            this.toggleChangeInput(true);
+          }
+
+          }>Cancel</button>
+
+        </div>
+      )
+    }
+  }
+
+
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, pristine, submitting } = this.props;
     return (
       <div className="content-wrap">
         <div className="container clearfix">
           <div className="col_two_third col_last nobottommargin">
             <h1>廠商註冊</h1>
             <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} disabled="true">
-              <Field
+              {/* <Field
                 name="username"
                 placeholder=""
                 className="col_half"
                 title="使用者名稱"
                 component={renderField}
-                disabled = {this.state.disabled}
-              />
+                disabled="true"
+              /> */}
+              <div className="col_half">
+                <label htmlFor="">使用者名稱</label>
+                <div>{this.props.initialValues.username}</div>
+              </div>
               <div id="gender">
                 <label>性別</label>
                 <div>
@@ -78,25 +111,25 @@ class BusinessUserProfile extends Component {
                 className="col_half"
                 title="Email"
                 component={renderField}
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
               />
-              <Field
+              {/* <Field
                 name="reemail"
                 placeholder=""
                 className="col_half col_last"
                 title="再次確認Email"
                 component={renderField}
-                disabled = {this.state.disabled}
-              />
+                disabled={this.state.disabled}
+              /> */}
               <div className="clear"></div>
-              <Field
+              {/* <Field
                 name="password"
                 placeholder=""
                 className="col_half"
                 title="輸入密碼"
                 type="password"
                 component={renderField}
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
               />
               <Field
                 name="repassword"
@@ -105,9 +138,9 @@ class BusinessUserProfile extends Component {
                 title="再次輸入密碼"
                 type="password"
                 component={renderField}
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
               />
-              <div className="clear"></div>
+              <div className="clear"></div> */}
 
               <Field
                 name="name"
@@ -115,7 +148,7 @@ class BusinessUserProfile extends Component {
                 className="col_half"
                 title="真實姓名"
                 component={renderField}
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
               />
               <Field
                 name="phone"
@@ -123,7 +156,7 @@ class BusinessUserProfile extends Component {
                 className="col_half col_last"
                 title="連絡電話"
                 component={renderField}
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
               />
               <div className="clear"></div>
               <Field
@@ -131,7 +164,7 @@ class BusinessUserProfile extends Component {
                 title="公司名稱/個人委託"
                 placeholder=""
                 className="col_half "
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
                 component={renderField} />
 
               <Field
@@ -139,7 +172,7 @@ class BusinessUserProfile extends Component {
                 title="部門"
                 placeholder=""
                 className="col_half col_last"
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
 
@@ -148,7 +181,7 @@ class BusinessUserProfile extends Component {
                 title="公司所在城市"
                 placeholder=""
                 className="col_half "
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
                 component={renderField} />
 
               <Field
@@ -156,7 +189,7 @@ class BusinessUserProfile extends Component {
                 title="地址"
                 placeholder=""
                 className="col_half col_last"
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
 
@@ -165,7 +198,7 @@ class BusinessUserProfile extends Component {
                 title="產業類別"
                 placeholder=""
                 className="col_half"
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
                 component={renderField} />
 
               <Field
@@ -173,7 +206,7 @@ class BusinessUserProfile extends Component {
                 title="產品簡介"
                 placeholder=""
                 className="col_half col_last"
-                disabled = {this.state.disabled}
+                disabled={this.state.disabled}
                 component={renderField} />
               <div className="clear"></div>
               <div className="col_half col_last">
@@ -182,9 +215,7 @@ class BusinessUserProfile extends Component {
 
               <div className="clear"></div>
               <div className="col_full nobottommargin">
-                <button type="button" className="button button-3d nomargin" id="register-form-submit" name="register-form-submit" value="register" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
-                <button type="button" className="button button-3d nomargin" onClick={() => this.props.reset('PersonalUserRegisterForm')}>Cancel</button>
-
+                {this.renderButtons(handleSubmit, pristine, submitting)}
               </div>
             </form>
           </div>
@@ -196,17 +227,17 @@ class BusinessUserProfile extends Component {
 
 BusinessUserProfile = reduxForm({
   validate,
-  form:'BusinessUserRegisterForm',
+  form: 'BusinessUserProfileForm',
   enableReinitialize: true
 })(BusinessUserProfile);
 
 BusinessUserProfile = connect(
-  state=>{
+  state => {
     var initialValues = state.businessUserData;
     return {
       initialValues
     }
-  }, {GetBusinessUserData})(BusinessUserProfile)
+  }, { GetBusinessUserData, UpdateBusinessUserData })(BusinessUserProfile)
 
 export default BusinessUserProfile;
 

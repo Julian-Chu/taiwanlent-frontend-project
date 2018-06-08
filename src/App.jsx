@@ -93,13 +93,13 @@ class App extends Component {
                                 headerIsTransparent={this.state.headerIsTransparent}
                             ></Header>
                             <Switch>
-                                    <Route path="/home"
-                                        exact component={
+                                    {/* <Route path="/home"
+                                        exact strict component={
                                             (props) => <Home
                                                 {...props}
                                                 subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
                                                 unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
-                                            />} />
+                                            />} /> */}
                                             
                                     <Route path="/talents" extact component={(props) => <Talents
                                         {...props}
@@ -128,7 +128,14 @@ class App extends Component {
                                         setHeaderNontransparent={() => this.setHeaderTransparent(false)}
                                         {...props}
                                     />} />
-                                    <Redirect to="/home" />
+                                    <Route path="/home"
+                                        exact strict component={
+                                            (props) => <Home
+                                                {...props}
+                                                subscribeTransparentEvent={() => this.subscribeHeaderTransparentEvent()}
+                                                unsubscribeTransparentEvent={() => this.unsubscribeHeaderTransparentEvent()}
+                                            />} />
+                                    <Redirect from='/' to="/home" />
                             </Switch>
                         </div>
                     </BrowserRouter>

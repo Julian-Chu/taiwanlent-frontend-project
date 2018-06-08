@@ -18,7 +18,7 @@ const Header= props => {
           <div className="container clearfix">
             <div id="primary-menu-trigger"><i className="icon-reorder"></i></div>
             <div id="logo">
-              <Link to="/home" className="standard-logo" data-dark-logo="%PUBLIC_URL%/images/taiwanlent-logo.png"><img src="images/taiwanlent-logo.png" alt="Taiwanlent Logo" /></Link>
+              <Link to="/home" className="standard-logo" data-dark-logo="%PUBLIC_URL%/images/taiwanlent-logo.png"><img src="/images/taiwanlent-logo.png" alt="Taiwanlent Logo" /></Link>
             </div>
             <nav id="primary-menu">
               <ul className="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">

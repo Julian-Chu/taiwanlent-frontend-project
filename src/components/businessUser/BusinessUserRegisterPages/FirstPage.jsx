@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import renderRadio from '../../renderComponents/renderRadio';
 import '../../../styles/ReduxForm.css';
 const FirstPage = props => {
-  console.log(props.initialValues);
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} >

@@ -36,11 +36,6 @@ ShallowWrapper {
                               <Switch>
                                         <Route
                                                   component={[Function]}
-                                                  exact={true}
-                                                  path="/home"
-                                        />
-                                        <Route
-                                                  component={[Function]}
                                                   extact={true}
                                                   path="/talents"
                                         />
@@ -52,12 +47,27 @@ ShallowWrapper {
                                         <Route
                                                   component={[Function]}
                                                   extact={true}
-                                                  path="/user"
+                                                  path="/businessUserProfile"
                                         />
                                         <Route
                                                   component={[Function]}
                                                   extact={true}
-                                                  path="/businessUserInitRegister"
+                                                  path="/businessUserSignUp"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/personalUserRegister"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  extact={true}
+                                                  path="/personalUserProfile"
+                                        />
+                                        <Route
+                                                  component={[Function]}
+                                                  exact={true}
+                                                  path="/WelcomeNewUser"
                                         />
                                         <Route
                                                   component={[Function]}
@@ -69,7 +79,14 @@ ShallowWrapper {
                                                   extact={true}
                                                   path="/logout"
                                         />
+                                        <Route
+                                                  component={[Function]}
+                                                  exact={true}
+                                                  path="/home"
+                                                  strict={true}
+                                        />
                                         <Redirect
+                                                  from="/"
                                                   push={false}
                                                   to="/home"
                                         />
@@ -118,11 +135,6 @@ ShallowWrapper {
                         <Switch>
                                     <Route
                                                 component={[Function]}
-                                                exact={true}
-                                                path="/home"
-                                    />
-                                    <Route
-                                                component={[Function]}
                                                 extact={true}
                                                 path="/talents"
                                     />
@@ -134,12 +146,27 @@ ShallowWrapper {
                                     <Route
                                                 component={[Function]}
                                                 extact={true}
-                                                path="/user"
+                                                path="/businessUserProfile"
                                     />
                                     <Route
                                                 component={[Function]}
                                                 extact={true}
-                                                path="/businessUserInitRegister"
+                                                path="/businessUserSignUp"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/personalUserRegister"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/personalUserProfile"
+                                    />
+                                    <Route
+                                                component={[Function]}
+                                                exact={true}
+                                                path="/WelcomeNewUser"
                                     />
                                     <Route
                                                 component={[Function]}
@@ -151,7 +178,14 @@ ShallowWrapper {
                                                 extact={true}
                                                 path="/logout"
                                     />
+                                    <Route
+                                                component={[Function]}
+                                                exact={true}
+                                                path="/home"
+                                                strict={true}
+                                    />
                                     <Redirect
+                                                from="/"
                                                 push={false}
                                                 to="/home"
                                     />
@@ -175,11 +209,6 @@ ShallowWrapper {
               <Switch>
                             <Route
                                           component={[Function]}
-                                          exact={true}
-                                          path="/home"
-                            />
-                            <Route
-                                          component={[Function]}
                                           extact={true}
                                           path="/talents"
                             />
@@ -191,12 +220,27 @@ ShallowWrapper {
                             <Route
                                           component={[Function]}
                                           extact={true}
-                                          path="/user"
+                                          path="/businessUserProfile"
                             />
                             <Route
                                           component={[Function]}
                                           extact={true}
-                                          path="/businessUserInitRegister"
+                                          path="/businessUserSignUp"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/personalUserRegister"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          extact={true}
+                                          path="/personalUserProfile"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          exact={true}
+                                          path="/WelcomeNewUser"
                             />
                             <Route
                                           component={[Function]}
@@ -208,7 +252,14 @@ ShallowWrapper {
                                           extact={true}
                                           path="/logout"
                             />
+                            <Route
+                                          component={[Function]}
+                                          exact={true}
+                                          path="/home"
+                                          strict={true}
+                            />
                             <Redirect
+                                          from="/"
                                           push={false}
                                           to="/home"
                             />
@@ -229,11 +280,6 @@ ShallowWrapper {
                 <Switch>
                   <Route
                                     component={[Function]}
-                                    exact={true}
-                                    path="/home"
-                  />
-                  <Route
-                                    component={[Function]}
                                     extact={true}
                                     path="/talents"
                   />
@@ -245,12 +291,27 @@ ShallowWrapper {
                   <Route
                                     component={[Function]}
                                     extact={true}
-                                    path="/user"
+                                    path="/businessUserProfile"
                   />
                   <Route
                                     component={[Function]}
                                     extact={true}
-                                    path="/businessUserInitRegister"
+                                    path="/businessUserSignUp"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/personalUserRegister"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/personalUserProfile"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/WelcomeNewUser"
                   />
                   <Route
                                     component={[Function]}
@@ -262,7 +323,14 @@ ShallowWrapper {
                                     extact={true}
                                     path="/logout"
                   />
+                  <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/home"
+                                    strict={true}
+                  />
                   <Redirect
+                                    from="/"
                                     push={false}
                                     to="/home"
                   />
@@ -291,11 +359,6 @@ ShallowWrapper {
                   "children": Array [
                     <Route
                       component={[Function]}
-                      exact={true}
-                      path="/home"
-/>,
-                    <Route
-                      component={[Function]}
                       extact={true}
                       path="/talents"
 />,
@@ -307,12 +370,27 @@ ShallowWrapper {
                     <Route
                       component={[Function]}
                       extact={true}
-                      path="/user"
+                      path="/businessUserProfile"
 />,
                     <Route
                       component={[Function]}
                       extact={true}
-                      path="/businessUserInitRegister"
+                      path="/businessUserSignUp"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/personalUserRegister"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/personalUserProfile"
+/>,
+                    <Route
+                      component={[Function]}
+                      exact={true}
+                      path="/WelcomeNewUser"
 />,
                     <Route
                       component={[Function]}
@@ -324,7 +402,14 @@ ShallowWrapper {
                       extact={true}
                       path="/logout"
 />,
+                    <Route
+                      component={[Function]}
+                      exact={true}
+                      path="/home"
+                      strict={true}
+/>,
                     <Redirect
+                      from="/"
                       push={false}
                       to="/home"
 />,
@@ -332,19 +417,6 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "component": [Function],
-                      "exact": true,
-                      "path": "/home",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
                   Object {
                     "instance": null,
                     "key": undefined,
@@ -378,7 +450,7 @@ ShallowWrapper {
                     "props": Object {
                       "component": [Function],
                       "extact": true,
-                      "path": "/user",
+                      "path": "/businessUserProfile",
                     },
                     "ref": null,
                     "rendered": null,
@@ -391,7 +463,46 @@ ShallowWrapper {
                     "props": Object {
                       "component": [Function],
                       "extact": true,
-                      "path": "/businessUserInitRegister",
+                      "path": "/businessUserSignUp",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/personalUserRegister",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/personalUserProfile",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "exact": true,
+                      "path": "/WelcomeNewUser",
                     },
                     "ref": null,
                     "rendered": null,
@@ -428,6 +539,21 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
+                      "component": [Function],
+                      "exact": true,
+                      "path": "/home",
+                      "strict": true,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "from": "/",
                       "push": false,
                       "to": "/home",
                     },
@@ -482,11 +608,6 @@ ShallowWrapper {
                                     <Switch>
                                                 <Route
                                                             component={[Function]}
-                                                            exact={true}
-                                                            path="/home"
-                                                />
-                                                <Route
-                                                            component={[Function]}
                                                             extact={true}
                                                             path="/talents"
                                                 />
@@ -498,12 +619,27 @@ ShallowWrapper {
                                                 <Route
                                                             component={[Function]}
                                                             extact={true}
-                                                            path="/user"
+                                                            path="/businessUserProfile"
                                                 />
                                                 <Route
                                                             component={[Function]}
                                                             extact={true}
-                                                            path="/businessUserInitRegister"
+                                                            path="/businessUserSignUp"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/personalUserRegister"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            extact={true}
+                                                            path="/personalUserProfile"
+                                                />
+                                                <Route
+                                                            component={[Function]}
+                                                            exact={true}
+                                                            path="/WelcomeNewUser"
                                                 />
                                                 <Route
                                                             component={[Function]}
@@ -515,7 +651,14 @@ ShallowWrapper {
                                                             extact={true}
                                                             path="/logout"
                                                 />
+                                                <Route
+                                                            component={[Function]}
+                                                            exact={true}
+                                                            path="/home"
+                                                            strict={true}
+                                                />
                                                 <Redirect
+                                                            from="/"
                                                             push={false}
                                                             to="/home"
                                                 />
@@ -564,11 +707,6 @@ ShallowWrapper {
                             <Switch>
                                           <Route
                                                         component={[Function]}
-                                                        exact={true}
-                                                        path="/home"
-                                          />
-                                          <Route
-                                                        component={[Function]}
                                                         extact={true}
                                                         path="/talents"
                                           />
@@ -580,12 +718,27 @@ ShallowWrapper {
                                           <Route
                                                         component={[Function]}
                                                         extact={true}
-                                                        path="/user"
+                                                        path="/businessUserProfile"
                                           />
                                           <Route
                                                         component={[Function]}
                                                         extact={true}
-                                                        path="/businessUserInitRegister"
+                                                        path="/businessUserSignUp"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/personalUserRegister"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        extact={true}
+                                                        path="/personalUserProfile"
+                                          />
+                                          <Route
+                                                        component={[Function]}
+                                                        exact={true}
+                                                        path="/WelcomeNewUser"
                                           />
                                           <Route
                                                         component={[Function]}
@@ -597,7 +750,14 @@ ShallowWrapper {
                                                         extact={true}
                                                         path="/logout"
                                           />
+                                          <Route
+                                                        component={[Function]}
+                                                        exact={true}
+                                                        path="/home"
+                                                        strict={true}
+                                          />
                                           <Redirect
+                                                        from="/"
                                                         push={false}
                                                         to="/home"
                                           />
@@ -621,11 +781,6 @@ ShallowWrapper {
                 <Switch>
                                 <Route
                                                 component={[Function]}
-                                                exact={true}
-                                                path="/home"
-                                />
-                                <Route
-                                                component={[Function]}
                                                 extact={true}
                                                 path="/talents"
                                 />
@@ -637,12 +792,27 @@ ShallowWrapper {
                                 <Route
                                                 component={[Function]}
                                                 extact={true}
-                                                path="/user"
+                                                path="/businessUserProfile"
                                 />
                                 <Route
                                                 component={[Function]}
                                                 extact={true}
-                                                path="/businessUserInitRegister"
+                                                path="/businessUserSignUp"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/personalUserRegister"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                extact={true}
+                                                path="/personalUserProfile"
+                                />
+                                <Route
+                                                component={[Function]}
+                                                exact={true}
+                                                path="/WelcomeNewUser"
                                 />
                                 <Route
                                                 component={[Function]}
@@ -654,7 +824,14 @@ ShallowWrapper {
                                                 extact={true}
                                                 path="/logout"
                                 />
+                                <Route
+                                                component={[Function]}
+                                                exact={true}
+                                                path="/home"
+                                                strict={true}
+                                />
                                 <Redirect
+                                                from="/"
                                                 push={false}
                                                 to="/home"
                                 />
@@ -675,11 +852,6 @@ ShallowWrapper {
                   <Switch>
                     <Route
                                         component={[Function]}
-                                        exact={true}
-                                        path="/home"
-                    />
-                    <Route
-                                        component={[Function]}
                                         extact={true}
                                         path="/talents"
                     />
@@ -691,12 +863,27 @@ ShallowWrapper {
                     <Route
                                         component={[Function]}
                                         extact={true}
-                                        path="/user"
+                                        path="/businessUserProfile"
                     />
                     <Route
                                         component={[Function]}
                                         extact={true}
-                                        path="/businessUserInitRegister"
+                                        path="/businessUserSignUp"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/personalUserRegister"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/personalUserProfile"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        exact={true}
+                                        path="/WelcomeNewUser"
                     />
                     <Route
                                         component={[Function]}
@@ -708,7 +895,14 @@ ShallowWrapper {
                                         extact={true}
                                         path="/logout"
                     />
+                    <Route
+                                        component={[Function]}
+                                        exact={true}
+                                        path="/home"
+                                        strict={true}
+                    />
                     <Redirect
+                                        from="/"
                                         push={false}
                                         to="/home"
                     />
@@ -737,11 +931,6 @@ ShallowWrapper {
                     "children": Array [
                       <Route
                         component={[Function]}
-                        exact={true}
-                        path="/home"
-/>,
-                      <Route
-                        component={[Function]}
                         extact={true}
                         path="/talents"
 />,
@@ -753,12 +942,27 @@ ShallowWrapper {
                       <Route
                         component={[Function]}
                         extact={true}
-                        path="/user"
+                        path="/businessUserProfile"
 />,
                       <Route
                         component={[Function]}
                         extact={true}
-                        path="/businessUserInitRegister"
+                        path="/businessUserSignUp"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/personalUserRegister"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/personalUserProfile"
+/>,
+                      <Route
+                        component={[Function]}
+                        exact={true}
+                        path="/WelcomeNewUser"
 />,
                       <Route
                         component={[Function]}
@@ -770,7 +974,14 @@ ShallowWrapper {
                         extact={true}
                         path="/logout"
 />,
+                      <Route
+                        component={[Function]}
+                        exact={true}
+                        path="/home"
+                        strict={true}
+/>,
                       <Redirect
+                        from="/"
                         push={false}
                         to="/home"
 />,
@@ -778,19 +989,6 @@ ShallowWrapper {
                   },
                   "ref": null,
                   "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {
-                        "component": [Function],
-                        "exact": true,
-                        "path": "/home",
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": [Function],
-                    },
                     Object {
                       "instance": null,
                       "key": undefined,
@@ -824,7 +1022,7 @@ ShallowWrapper {
                       "props": Object {
                         "component": [Function],
                         "extact": true,
-                        "path": "/user",
+                        "path": "/businessUserProfile",
                       },
                       "ref": null,
                       "rendered": null,
@@ -837,7 +1035,46 @@ ShallowWrapper {
                       "props": Object {
                         "component": [Function],
                         "extact": true,
-                        "path": "/businessUserInitRegister",
+                        "path": "/businessUserSignUp",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/personalUserRegister",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/personalUserProfile",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "exact": true,
+                        "path": "/WelcomeNewUser",
                       },
                       "ref": null,
                       "rendered": null,
@@ -874,6 +1111,21 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "class",
                       "props": Object {
+                        "component": [Function],
+                        "exact": true,
+                        "path": "/home",
+                        "strict": true,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "from": "/",
                         "push": false,
                         "to": "/home",
                       },

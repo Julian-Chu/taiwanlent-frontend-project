@@ -5,7 +5,8 @@ import renderField from '../../renderComponents/renderField';
 import { connect } from 'react-redux';
 import renderRadio from '../../renderComponents/renderRadio';
 import '../../../styles/ReduxForm.css';
-const FirstPage = props => {
+
+export const FirstPage = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} >
@@ -65,6 +66,5 @@ export default reduxForm({
   initialValues: {
     gender:"male"
   }
-  
-
 })(connect(state=>({initialValues:state.businessUserData}),null)(FirstPage));
+

@@ -1,0 +1,540 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FirstPage in BusinessUserRegister check snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Field
+          className="col_half"
+          component={[Function]}
+          name="email"
+          placeholder=""
+          title="Email"
+/>,
+        <Field
+          className="col_half col_last"
+          component={[Function]}
+          name="reemail"
+          placeholder=""
+          title="再次確認Email"
+/>,
+        <Field
+          className="col_half"
+          component={[Function]}
+          name="name"
+          placeholder=""
+          title="真實姓名"
+/>,
+        <Field
+          className="col_half col_last"
+          component={[Function]}
+          name="phone"
+          placeholder=""
+          title="連絡電話"
+/>,
+        <div
+          id="gender"
+>
+          <label>
+                    性別
+          </label>
+          <div>
+                    <Field
+                              component={[Function]}
+                              name="gender"
+                              options={
+                                        Array [
+                                                  Object {
+                                                    "title": "男",
+                                                    "value": "male",
+                                                  },
+                                                  Object {
+                                                    "title": "女",
+                                                    "value": "female",
+                                                  },
+                                                ]
+                              }
+                              required={true}
+                    />
+          </div>
+</div>,
+        <div
+          className="clear"
+/>,
+        <button
+          className="button button-border button-dark button-circle"
+          type="submit"
+>
+          Next
+</button>,
+      ],
+      "onSubmit": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "col_half",
+          "component": [Function],
+          "name": "email",
+          "placeholder": "",
+          "title": "Email",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "col_half col_last",
+          "component": [Function],
+          "name": "reemail",
+          "placeholder": "",
+          "title": "再次確認Email",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "col_half",
+          "component": [Function],
+          "name": "name",
+          "placeholder": "",
+          "title": "真實姓名",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "col_half col_last",
+          "component": [Function],
+          "name": "phone",
+          "placeholder": "",
+          "title": "連絡電話",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <label>
+              性別
+</label>,
+            <div>
+              <Field
+                            component={[Function]}
+                            name="gender"
+                            options={
+                                          Array [
+                                                        Object {
+                                                          "title": "男",
+                                                          "value": "male",
+                                                        },
+                                                        Object {
+                                                          "title": "女",
+                                                          "value": "female",
+                                                        },
+                                                      ]
+                            }
+                            required={true}
+              />
+</div>,
+          ],
+          "id": "gender",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "性別",
+            },
+            "ref": null,
+            "rendered": "性別",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Field
+                component={[Function]}
+                name="gender"
+                options={
+                                Array [
+                                                Object {
+                                                  "title": "男",
+                                                  "value": "male",
+                                                },
+                                                Object {
+                                                  "title": "女",
+                                                  "value": "female",
+                                                },
+                                              ]
+                }
+                required={true}
+/>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "name": "gender",
+                "options": Array [
+                  Object {
+                    "title": "男",
+                    "value": "male",
+                  },
+                  Object {
+                    "title": "女",
+                    "value": "female",
+                  },
+                ],
+                "required": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "clear",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Next",
+          "className": "button button-border button-dark button-circle",
+          "type": "submit",
+        },
+        "ref": null,
+        "rendered": "Next",
+        "type": "button",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Field
+            className="col_half"
+            component={[Function]}
+            name="email"
+            placeholder=""
+            title="Email"
+/>,
+          <Field
+            className="col_half col_last"
+            component={[Function]}
+            name="reemail"
+            placeholder=""
+            title="再次確認Email"
+/>,
+          <Field
+            className="col_half"
+            component={[Function]}
+            name="name"
+            placeholder=""
+            title="真實姓名"
+/>,
+          <Field
+            className="col_half col_last"
+            component={[Function]}
+            name="phone"
+            placeholder=""
+            title="連絡電話"
+/>,
+          <div
+            id="gender"
+>
+            <label>
+                        性別
+            </label>
+            <div>
+                        <Field
+                                    component={[Function]}
+                                    name="gender"
+                                    options={
+                                                Array [
+                                                            Object {
+                                                              "title": "男",
+                                                              "value": "male",
+                                                            },
+                                                            Object {
+                                                              "title": "女",
+                                                              "value": "female",
+                                                            },
+                                                          ]
+                                    }
+                                    required={true}
+                        />
+            </div>
+</div>,
+          <div
+            className="clear"
+/>,
+          <button
+            className="button button-border button-dark button-circle"
+            type="submit"
+>
+            Next
+</button>,
+        ],
+        "onSubmit": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "col_half",
+            "component": [Function],
+            "name": "email",
+            "placeholder": "",
+            "title": "Email",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "col_half col_last",
+            "component": [Function],
+            "name": "reemail",
+            "placeholder": "",
+            "title": "再次確認Email",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "col_half",
+            "component": [Function],
+            "name": "name",
+            "placeholder": "",
+            "title": "真實姓名",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "col_half col_last",
+            "component": [Function],
+            "name": "phone",
+            "placeholder": "",
+            "title": "連絡電話",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <label>
+                性別
+</label>,
+              <div>
+                <Field
+                                component={[Function]}
+                                name="gender"
+                                options={
+                                                Array [
+                                                                Object {
+                                                                  "title": "男",
+                                                                  "value": "male",
+                                                                },
+                                                                Object {
+                                                                  "title": "女",
+                                                                  "value": "female",
+                                                                },
+                                                              ]
+                                }
+                                required={true}
+                />
+</div>,
+            ],
+            "id": "gender",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "性別",
+              },
+              "ref": null,
+              "rendered": "性別",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Field
+                  component={[Function]}
+                  name="gender"
+                  options={
+                                    Array [
+                                                      Object {
+                                                        "title": "男",
+                                                        "value": "male",
+                                                      },
+                                                      Object {
+                                                        "title": "女",
+                                                        "value": "female",
+                                                      },
+                                                    ]
+                  }
+                  required={true}
+/>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "name": "gender",
+                  "options": Array [
+                    Object {
+                      "title": "男",
+                      "value": "male",
+                    },
+                    Object {
+                      "title": "女",
+                      "value": "female",
+                    },
+                  ],
+                  "required": true,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "clear",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Next",
+            "className": "button button-border button-dark button-circle",
+            "type": "submit",
+          },
+          "ref": null,
+          "rendered": "Next",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;

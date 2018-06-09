@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import SidePanel from './components/SidePanelComponent';
-import Header from './components/HeaderComponent';
+import Header from './components/Header';
 import Home from './components/home/Home';
 import Talents from './components/talents/Talents';
 import Footer from './components/Footer';
 import './styles/App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
-// import User from './components/User';
 import BusinessUserSignUp from './components/businessUser/BusinessUserSignUp';
 import Logout from './components/Logout';
 import BusinessUserRegister_old from './components/businessUser/BusinessUserRegister_old';

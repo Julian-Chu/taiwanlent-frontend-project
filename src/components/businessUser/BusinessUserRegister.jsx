@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FirstPage from './BusinessUserRegister/FirstPage';
-import SecondPage from './BusinessUserRegister/SecondPage';
+import FirstPage from './BusinessUserRegisterPages/FirstPage';
+import SecondPage from './BusinessUserRegisterPages/SecondPage';
 import {reduxForm} from 'redux-form';
 
-class BusinessUserRegister extends Component {
+export class BusinessUserRegister extends Component {
   constructor(props) {
     super(props);
     this.nextPage = this.nextPage.bind(this);
@@ -43,12 +43,12 @@ class BusinessUserRegister extends Component {
         <h1>廠商註冊</h1>
         {this.renderPageByNumber(page, onSubmit)}
         <ol className="nav">
-          <li>
+          {/* <li>
             <button  className='active' >1</button>
           </li>
           <li>
             <button  className={this.state.index >= 1 ? 'active' : ''} >2</button>
-          </li>
+          </li> */}
         </ol><h6>{this.state.page}/2</h6>
       </div>
     )

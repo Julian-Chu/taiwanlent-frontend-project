@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm, reset } from 'redux-form';
 import checkRules from '../../regularExpression/checkRules';
 import { GetBusinessUserData, UpdateBusinessUserData } from '../../actions/businessuser';
-import validate from './BusinessUserRegister/validate';
+import validate from './BusinessUserRegisterPages/validate';
 import renderField from '../renderComponents/renderField';
 import renderRadio from '../renderComponents/renderRadio';
 import '../../styles/ReduxForm.css';

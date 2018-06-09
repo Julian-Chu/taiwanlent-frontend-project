@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { fillUpUserData} from '../../../actions/businessuser';
 import '../../../styles/ReduxForm.css';
 
-const SecondPage = props => {
+export const SecondPage = props => {
   const onFormSubmit = (values)=>{
     props.fillUpUserData(values, props.history);
   }

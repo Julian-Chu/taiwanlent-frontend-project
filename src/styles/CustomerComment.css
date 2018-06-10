@@ -150,3 +150,10 @@ ol {
 .nav > li > button.active{
   background-color: #FFF;
 }
+
+.CustomerCommentBackground{
+  background-image: url('../images/page/testimonials.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}

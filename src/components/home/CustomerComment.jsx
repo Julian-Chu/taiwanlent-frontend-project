@@ -62,7 +62,7 @@ export default class CustomerComment extends Component {
 
   render() {
     return (
-      <div className="section parallax nomargin dark" style={{ backgroundImage: "url('images/page/testimonials.jpg')", padding: '150px 0' }} data-stellar-background-ratio="0.3">
+      <div className="section parallax nomargin dark CustomerCommentBackground" style={{ padding: '150px 0' }} data-stellar-background-ratio="0.3">
         <div className="container clearfix">
           <div className="col_two_fifth nobottommargin">&nbsp;</div>
           <div className="col_three_fifth nobottommargin col_last">

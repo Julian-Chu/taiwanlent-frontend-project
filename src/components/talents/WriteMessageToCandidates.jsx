@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class WriteMessageToTalents extends Component {
+class WriteMessageToCandidates extends Component {
   render() {
+    const candidates = this.props.candidates || [];
     return (
       <div>
         <h5>寄件者:{localStorage.getItem("username")}</h5>
         <h5>Mail To</h5>
         <ol>
-          {this.props.candidates.map(
+          {candidates.map(
             (candidate, index) => <li key={index}>{candidate.name}</li>
           )}
         </ol>
@@ -22,10 +23,11 @@ class WriteMessageToTalents extends Component {
         <br></br>
         <button>Submit</button>
 
-        <a href="/">back to home</a>
+        <button onClick={()=>this.props.toggleMessageWin(false)}>back to Talents</button>
       </div>
     )
   }
 }
 
-export default connect()(WriteMessageToTalents);
+export default connect(state =>({candidates: state.candidates})
+, null)(WriteMessageToCandidates);

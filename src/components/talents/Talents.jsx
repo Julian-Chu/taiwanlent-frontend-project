@@ -8,9 +8,10 @@ import { removeAllCandidates, addCandidate, removeCandidate } from '../../action
 import Detail from './Detail';
 import getTalents from '../../actions/talents';
 import require_auth from '../require_authentication';
+import MessageWin from './WriteMessageToCandidates';
 
 export class Talents extends Component {
-  constructor(props) {
+  constructor(props){ 
     super(props);
     let selectedStatus = this.props.talents.slice();
     selectedStatus.fill(false);
@@ -19,8 +20,11 @@ export class Talents extends Component {
       selectedStatus,
       detailIsEnabled: false,
       detailId: null,
+      toggleMessageWindow: false
     };
+    this.toggleMessageWin = this.toggleMessageWin.bind(this);
   }
+
   componentDidMount() {
     this.props.setHeaderNontransparent();
     window.scrollTo(0, 0);
@@ -77,7 +81,13 @@ export class Talents extends Component {
     })
   }
 
-  render() {
+  toggleMessageWin(value){
+    this.setState({
+      toggleMessageWindow: value
+    })
+  }
+
+  renderTalents() {
     return (
       <div>
         {this.renderDetail()}
@@ -88,7 +98,7 @@ export class Talents extends Component {
 
               <div className="fixedWin">
                 <p>{this.props.candidates.length}/5</p>
-                <button className="button button-mini button-border button-circle button-dark"><i className="icon-ok" />批量詢問</button>
+                <button className="button button-mini button-border button-circle button-dark" onClick={()=>this.toggleMessageWin(true)}><i className="icon-ok" />批量詢問</button>
                 <button type="button" className="button button-mini button-border button-circle button-dark" onClick={() => { return this.removeAllCandidatesFromList() }}><i className="icon-repeat" />重置清單</button>
               </div>
 
@@ -102,6 +112,21 @@ export class Talents extends Component {
         </section>
       </div>
     );
+  }
+
+  renderMessageWin(){
+    return(
+       <MessageWin toggleMessageWin={this.toggleMessageWin}></MessageWin>
+    )
+  }
+
+  render(){
+    return(
+      <div>
+        {this.state.toggleMessageWindow?this.renderMessageWin():this.renderTalents()}
+
+      </div>
+    )
   }
 }
 

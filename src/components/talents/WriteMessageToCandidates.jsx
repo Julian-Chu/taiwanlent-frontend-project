@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { writeMessageToCandidates} from '../../actions/index';
 
 class WriteMessageToCandidates extends Component {
   render() {
@@ -21,13 +22,13 @@ class WriteMessageToCandidates extends Component {
         <br></br>
         <textarea></textarea>
         <br></br>
-        <button>Submit</button>
+        <button className="button  button-border button-circle button-dark" onClick={()=>this.props.writeMessageToCandidates()}>Submit</button>
 
-        <button onClick={()=>this.props.toggleMessageWin(false)}>back to Talents</button>
+        <button className="button  button-border button-circle button-dark" onClick={()=>this.props.toggleMessageWin(false)}>Back</button>
       </div>
     )
   }
 }
 
 export default connect(state =>({candidates: state.candidates})
-, null)(WriteMessageToCandidates);
+, {writeMessageToCandidates})(WriteMessageToCandidates);

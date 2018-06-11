@@ -30,3 +30,11 @@ export const removeAllCandidates = () =>{
     type: RemoveAllCandidates,
   };
 };
+
+export const writeMessageToCandidates = ()=>{
+  // todo: call api
+
+  return{
+    type: RemoveAllCandidates
+  }
+}

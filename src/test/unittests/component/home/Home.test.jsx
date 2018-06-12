@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {shallow, mount} from 'enzyme';
-import Home from '../../../components/home/Home';
-import Slides from '../../../components/home/SlidesComponent';
+import {shallow} from 'enzyme';
+import Home from '../../../../components/home/Home';
 
 describe('Home Tests', ()=>{
   const mockFunction1 = jest.fn();

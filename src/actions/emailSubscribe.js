@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-export const Post_EmailSubscribe = 'Post_EmailSubscribe';
-
-export default function post_EmailSubscribe(values, callback){
+import {Post_EmailSubscribe} from './types';
+export function post_EmailSubscribe(values, callback){
   // todo: wait for backend
   const request = axios.post(`/api/subscriptions`, values)
                   .then(()=>callback());

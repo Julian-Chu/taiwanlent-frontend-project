@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import {post_EmailSubscribe} from '../../actions/emailsubscribe';
+// import {post_EmailSubscribe} from '../../actions/emailsubscribe';
 import  '../../styles/Home.css';
 import checkRules from '../../regularExpression/checkRules';
 
@@ -94,5 +94,7 @@ export default reduxForm({
   validate,
   form: 'EmailSubscribeForm'
 })(
-  connect(null, { post_EmailSubscribe })(EmailSubscribe)
+  connect(null, null)(EmailSubscribe)
   )
+
+  // commenet post_emailsubscribe to CI test

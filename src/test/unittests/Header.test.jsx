@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import {plainHeader as Header} from '../components/Header';
+import {plainHeader as Header} from '../../components/Header';
 
 describe('Header', ()=>{
 

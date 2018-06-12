@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../App';
+import App from '../../App';
 import {shallow, mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import { createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import reducers from '../reducers';
+import reducers from '../../reducers';
 
 describe('App', ()=>{
   const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);

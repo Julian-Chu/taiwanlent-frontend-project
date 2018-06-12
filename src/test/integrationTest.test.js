@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 
-xit('launch a browser', async()=>{
+test.skip('launch a browser', async()=>{
   const browser = await puppeteer.launch({
     headless: false
   });

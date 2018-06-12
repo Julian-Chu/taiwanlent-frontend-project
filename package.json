@@ -34,7 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "unittest": "react-scripts test --env=jsdom test/unittests/**.test.js*",
-    "unittest:nowatch": "CI=true npm test",
+    "unittest:nowatch": "npm test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

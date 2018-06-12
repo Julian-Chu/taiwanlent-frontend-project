@@ -1,5 +1,5 @@
 
-import { SecondPage } from '../../../components/businessUser/BusinessUserRegisterPages/SecondPage';
+import { SecondPage } from '../../../../../components/businessUser/BusinessUserRegisterPages/SecondPage';
 import React from 'react';
 import { shallow } from 'enzyme';
 

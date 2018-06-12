@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow} from 'enzyme';
-import { BusinessUserRegister } from '../../components/businessUser/BusinessUserRegister';
+import { BusinessUserRegister } from '../../../../components/businessUser/BusinessUserRegister';
 
 describe('BusinessUserRegister', () => {
   const businessUserRegister = shallow(

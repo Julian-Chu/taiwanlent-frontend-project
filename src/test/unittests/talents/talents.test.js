@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import {Talents} from '../../components/talents/Talents';
+import {Talents} from '../../../components/talents/Talents.jsx';
 
 
 describe("talents component",()=>{

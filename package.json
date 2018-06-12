@@ -34,6 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "unittest": "react-scripts test --env=jsdom --testPathPattern=**/test/unittests/**/*.test.js",
+    "unittest:nowatch": "CI=true react-scripts test --env=jsdom --testPathPattern=**/test/unittests/**/*.test.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

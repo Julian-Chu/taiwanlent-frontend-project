@@ -1,5 +1,5 @@
 import React from 'react';
-import require_auth from './require_authentication';
+// import require_auth from './require_authentication';
 import { Link } from 'react-router-dom';
 import '../styles/WelcomeNewUser.css';
 

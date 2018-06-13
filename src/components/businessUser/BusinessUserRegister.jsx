@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import FirstPage from './BusinessUserRegisterPages/FirstPage';
 import SecondPage from './BusinessUserRegisterPages/SecondPage';
 import {reduxForm} from 'redux-form';
@@ -32,6 +32,10 @@ export class BusinessUserRegister extends Component {
         return (
           <SecondPage onSubmit={onSubmit} previousPage={this.previousPage} {...this.props}></SecondPage>
         )
+      default:
+      return(
+        <div></div>
+      )
     }
   }
 

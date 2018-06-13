@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import regions from '../common/regions';
+// import regions from '../common/regions';
 import { connect } from 'react-redux';
 import { Field, reduxForm, reset } from 'redux-form';
-import checkRules from '../../regularExpression/checkRules';
+// import checkRules from '../../regularExpression/checkRules';
 import { GetBusinessUserData, UpdateBusinessUserData } from '../../actions/businessuser';
 import validate from './BusinessUserRegisterPages/validate';
 import renderField from '../renderComponents/renderField';
@@ -237,7 +237,8 @@ BusinessUserProfile = connect(
     return {
       initialValues
     }
-  }, { GetBusinessUserData, UpdateBusinessUserData })(BusinessUserProfile)
+  }, { GetBusinessUserData, UpdateBusinessUserData, reset })(BusinessUserProfile)
+
 
 export default BusinessUserProfile;
 

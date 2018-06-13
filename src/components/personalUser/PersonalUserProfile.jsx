@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
 import regionOptions from '../common/regions';
 import subjectOptions from '../common/subjects';
 import { connect } from 'react-redux';
-import { Field, reduxForm, FieldArray, reset, formValueSelector, change } from 'redux-form';
-import checkRules from '../../regularExpression/checkRules';
-import * as actions from '../../actions/personaluser';
+import { Field, reduxForm, reset, formValueSelector, change } from 'redux-form';
+// import checkRules from '../../regularExpression/checkRules';
+// import * as actions from '../../actions/personaluser';
 import renderField from '../renderComponents/renderField';
-import validate from './PersonalUserRegister/validate';
+// import validate from './PersonalUserRegister/validate';
 import renderSelect from '../renderComponents/renderSelect';
 import renderRadio from '../renderComponents/renderRadio';
 import { GetPersonalUserData, UpdateUserData } from '../../actions/personaluser';

@@ -1,4 +1,4 @@
-import {BUSINESSUSER_LOGIN, CHANGE_AUTH, BUSINESS_USER, BUSINESS_USER_DATA} from './types';
+import { CHANGE_AUTH, BUSINESS_USER, BUSINESS_USER_DATA} from './types';
 
 export function signin({username, password}, history){
   // get token from backend API

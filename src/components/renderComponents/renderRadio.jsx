@@ -4,7 +4,7 @@ import React from 'react';
   const renderRadio = (field) => {
     const { meta: { touched, error }, className, input, options } = field;
     const divClassName = `form-group ${touched && error ? 'alert-danger' : ''}`;
-    const inputClassName = `form-control ${touched && error ? 'alert-danger' : ''} `;
+    // const inputClassName = `form-control ${touched && error ? 'alert-danger' : ''} `;
     return (
       <div className={className}>
         {options.map( o=> 

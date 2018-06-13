@@ -9,7 +9,6 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/login/Login';
 import BusinessUserSignUp from './components/businessUser/BusinessUserSignUp';
 import Logout from './components/Logout';
-import BusinessUserRegister_old from './components/businessUser/BusinessUserRegister_old';
 import BusinessUserRegister from './components/businessUser/BusinessUserRegister';
 import BusinessUserProfile from './components/businessUser/BusinessUserProfile';
 import WelcomeNewUser from './components/WelcomeNewUser';

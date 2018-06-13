@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react';
-import { Field, reduxForm, FieldArray, formValueSelector, change } from 'redux-form';
+import { Field, reduxForm, formValueSelector, change } from 'redux-form';
 import validate from './validate';
 import renderField from '../../renderComponents/renderField';
-import regionOptions from '../../common/regions';
-import subjectOptions from '../../common/subjects';
-import renderSelect from '../../renderComponents/renderSelect';
+// import regionOptions from '../../common/regions';
+// import subjectOptions from '../../common/subjects';
+// import renderSelect from '../../renderComponents/renderSelect';
 import { connect } from 'react-redux';
 import { fillUpUserData } from '../../../actions/personaluser';
-import renderRadio from '../../renderComponents/renderRadio';
+// import renderRadio from '../../renderComponents/renderRadio';
 import '../../../styles/ReduxForm.css';
 
 class SecondPage extends Component {

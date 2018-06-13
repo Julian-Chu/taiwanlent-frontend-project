@@ -5,10 +5,10 @@ import {logout} from '../actions/logout';
 import { HashLink} from 'react-router-hash-link';
 
 const Header= props => {
-  const scrollToSection = (sectionId) =>{
-    let section = document.getElementById(sectionId);
-    if(section !== null) section.scrollIntoView();
-  };
+  // const scrollToSection = (sectionId) =>{
+  //   let section = document.getElementById(sectionId);
+  //   if(section !== null) section.scrollIntoView();
+  // };
 
 
     return (

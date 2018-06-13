@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import FirstPage from './PersonalUserRegister/FirstPage';
 import SecondPage from './PersonalUserRegister/SecondPage';
 import { reduxForm } from 'redux-form';
@@ -34,6 +34,10 @@ class PersonalUserRegister extends Component {
         return(
           <SecondPage onSubmit={onSubmit} previousPage={this.previousPage} {...this.props}></SecondPage>
         )
+      default:
+      return(
+        <div></div>
+      )
     }
   }
 

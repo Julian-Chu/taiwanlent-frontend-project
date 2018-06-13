@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-// import {post_EmailSubscribe} from '../../actions/emailsubscribe';
-import  '../../styles/Home.css';
+import { addEmailToNewletterList } from '../../actions/emailsubscribe';
+import '../../styles/Home.css';
 import checkRules from '../../regularExpression/checkRules';
 
 class EmailSubscribe extends Component {
@@ -54,7 +54,7 @@ class EmailSubscribe extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div  className="container clearfix">
+      <div className="container clearfix">
         <div className="divcenter center" style={{ maxWidth: '900px' }}>
           <h2 className="nobottommargin t300 ls1">訂閱電子報</h2>
           <div className="widget-subscribe-form-result"></div>
@@ -88,13 +88,9 @@ function validate(values) {
   return errors;
 }
 
-
-
 export default reduxForm({
   validate,
   form: 'EmailSubscribeForm'
 })(
-  connect(null, null)(EmailSubscribe)
-  )
-
-  // commenet post_emailsubscribe to CI test
+  connect(null, { addEmailToNewletterList })(EmailSubscribe)
+)

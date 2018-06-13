@@ -1,3 +1,4 @@
+import axios from 'axios';
 export const FILTERS = 'FILTERS';
 export const AddCandidateToList = 'AddCandidate';
 export const RemoveCandidateFromList = 'RemoveCandidate';
@@ -37,4 +38,12 @@ export const writeMessageToCandidates = ()=>{
   return{
     type: RemoveAllCandidates
   }
+}
+
+export function addEmailToNewsletterList(values, callback){
+  // todo: wait for backend
+  const request = axios.post(`/api/subscriptions`, values)
+                  .then(()=>callback());
+
+  console.log('request',request);
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { addEmailToNewletterList } from '../../actions/emailsubscribe';
+import { addEmailToNewsletterList } from '../../actions/index';
 import '../../styles/Home.css';
 import checkRules from '../../regularExpression/checkRules';
 
@@ -92,5 +92,5 @@ export default reduxForm({
   validate,
   form: 'EmailSubscribeForm'
 })(
-  connect(null, { addEmailToNewletterList })(EmailSubscribe)
+  connect(null, { addEmailToNewsletterList })(EmailSubscribe)
 )

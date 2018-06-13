@@ -8,3 +8,5 @@ install:
 script:
   - npm run unittest:nowatch
   - npm run build
+  
+warnings_are_errors: false

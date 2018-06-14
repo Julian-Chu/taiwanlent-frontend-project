@@ -16,7 +16,12 @@ describe("BusinessUserProfile",()=>{
     expect(app).toMatchSnapshot();
   })
 
-  it("form is disable initially",()=>{
+  it("form is disabled initially",()=>{
     expect(app.state().disabled).toBeTruthy();
+  })
+
+  it("execute toggleChangeInput, form will be enabled",()=>{
+    app.instance().toggleChangeInput(false);
+    expect(app.state().disabled).toBeFalsy();
   })
 })

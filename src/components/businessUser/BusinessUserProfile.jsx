@@ -11,7 +11,7 @@ import renderRadio from '../renderComponents/renderRadio';
 import '../../styles/ReduxForm.css';
 
 
-class BusinessUserProfile extends Component {
+export class BusinessUserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -231,7 +231,7 @@ BusinessUserProfile = reduxForm({
   enableReinitialize: true
 })(BusinessUserProfile);
 
-BusinessUserProfile = connect(
+const ConnectedBusinessUserProfile = connect(
   state => {
     var initialValues = state.businessUserData;
     return {
@@ -240,7 +240,7 @@ BusinessUserProfile = connect(
   }, { GetBusinessUserData, UpdateBusinessUserData, reset })(BusinessUserProfile)
 
 
-export default BusinessUserProfile;
+export default ConnectedBusinessUserProfile;
 
 // export default reduxForm({
 //   validate,

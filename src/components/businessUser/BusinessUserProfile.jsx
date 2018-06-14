@@ -225,13 +225,13 @@ export class BusinessUserProfile extends Component {
   }
 }
 
-BusinessUserProfile = reduxForm({
+let ConnectedBusinessUserProfile = reduxForm({
   validate,
   form: 'BusinessUserProfileForm',
   enableReinitialize: true
 })(BusinessUserProfile);
 
-const ConnectedBusinessUserProfile = connect(
+ConnectedBusinessUserProfile = connect(
   state => {
     var initialValues = state.businessUserData;
     return {

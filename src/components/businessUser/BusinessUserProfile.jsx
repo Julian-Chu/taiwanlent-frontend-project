@@ -1,15 +1,16 @@
-
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import regions from '../common/regions';
-import { connect } from 'react-redux';
-import { Field, reduxForm, reset } from 'redux-form';
+import { connect } from "react-redux";
+import { Field, reduxForm, reset } from "redux-form";
 // import checkRules from '../../regularExpression/checkRules';
-import { GetBusinessUserData, UpdateBusinessUserData } from '../../actions/businessuser';
-import validate from './BusinessUserRegisterPages/validate';
-import renderField from '../renderComponents/renderField';
-import renderRadio from '../renderComponents/renderRadio';
-import '../../styles/ReduxForm.css';
-
+import {
+  GetBusinessUserData,
+  UpdateBusinessUserData
+} from "../../actions/businessuser";
+import validate from "./BusinessUserRegisterPages/validate";
+import renderField from "../renderComponents/renderField";
+import renderRadio from "../renderComponents/renderRadio";
+import "../../styles/ReduxForm.css";
 
 export class BusinessUserProfile extends Component {
   constructor(props) {
@@ -31,51 +32,73 @@ export class BusinessUserProfile extends Component {
     // console.log('this.props:', this.props);
     // var history = this.props.history;
     // console.log('history: ', history);
-    this.props.UpdateBusinessUserData(values, ()=>this.toggleChangeInput(true));
+    this.props.UpdateBusinessUserData(values, () =>
+      this.toggleChangeInput(true)
+    );
   }
 
   toggleChangeInput(disabled) {
     this.setState({
       disabled: disabled
-    })
+    });
   }
 
   renderButtons(handleSubmit, pristine, submitting) {
     if (this.state.disabled) {
       return (
         <div>
-          <button type="button" className="button button-border button-dark button-circle" onClick={() => this.toggleChangeInput(false)}>修改資料</button>
+          <button
+            type="button"
+            className="button button-border button-dark button-circle"
+            onClick={() => this.toggleChangeInput(false)}
+          >
+            修改資料
+          </button>
         </div>
-      )
+      );
     } else {
       return (
         <div>
-          {
-            !(pristine || submitting) &&
-            <button type="button" className="button button-border button-dark button-circle" onClick={handleSubmit(this.onFormSubmit)}>confirm</button>
-          }
-          <button type="button" className="button button-border button-dark button-circle" onClick={() => {
-            this.props.reset('BusinessUserProfileForm');
-            this.toggleChangeInput(true);
-          }
-
-          }>Cancel</button>
-
+          {!(pristine || submitting) && (
+            <button
+              type="button"
+              className="button button-border button-dark button-circle"
+              onClick={handleSubmit(this.onFormSubmit)}
+            >
+              confirm
+            </button>
+          )}
+          <button
+            type="button"
+            className="button button-border button-dark button-circle"
+            onClick={() => {
+              this.props.reset("BusinessUserProfileForm");
+              this.toggleChangeInput(true);
+            }}
+          >
+            Cancel
+          </button>
         </div>
-      )
+      );
     }
   }
 
-
-
   render() {
     const { handleSubmit, pristine, submitting } = this.props;
+    console.log(this.props);
+    console.log(handleSubmit);
     return (
       <div className="content-wrap">
         <div className="container clearfix">
           <div className="col_two_third col_last nobottommargin">
             <h1>廠商註冊</h1>
-            <form id="register-form" name="register-form" className="nobottommargin" onSubmit={handleSubmit(this.onFormSubmit.bind(this))} disabled="true">
+            <form
+              id="register-form"
+              name="register-form"
+              className="nobottommargin"
+              onSubmit={handleSubmit(this.onFormSubmit)}
+              disabled="true"
+            >
               {/* <Field
                 name="username"
                 placeholder=""
@@ -95,15 +118,15 @@ export class BusinessUserProfile extends Component {
                     name="gender"
                     required={true}
                     options={[
-                      { title: '男', value: 'male' },
-                      { title: '女', value: 'female' }
+                      { title: "男", value: "male" },
+                      { title: "女", value: "female" }
                     ]}
                     component={renderRadio}
                     disabled={this.state.disabled}
-                  ></Field>
+                  />
                 </div>
               </div>
-              <div className="clear"></div>
+              <div className="clear" />
 
               <Field
                 name="email"
@@ -121,7 +144,7 @@ export class BusinessUserProfile extends Component {
                 component={renderField}
                 disabled={this.state.disabled}
               /> */}
-              <div className="clear"></div>
+              <div className="clear" />
               {/* <Field
                 name="password"
                 placeholder=""
@@ -158,14 +181,15 @@ export class BusinessUserProfile extends Component {
                 component={renderField}
                 disabled={this.state.disabled}
               />
-              <div className="clear"></div>
+              <div className="clear" />
               <Field
                 name="companyName"
                 title="公司名稱/個人委託"
                 placeholder=""
                 className="col_half "
                 disabled={this.state.disabled}
-                component={renderField} />
+                component={renderField}
+              />
 
               <Field
                 name="department"
@@ -173,8 +197,9 @@ export class BusinessUserProfile extends Component {
                 placeholder=""
                 className="col_half col_last"
                 disabled={this.state.disabled}
-                component={renderField} />
-              <div className="clear"></div>
+                component={renderField}
+              />
+              <div className="clear" />
 
               <Field
                 name="companyLocation"
@@ -182,7 +207,8 @@ export class BusinessUserProfile extends Component {
                 placeholder=""
                 className="col_half "
                 disabled={this.state.disabled}
-                component={renderField} />
+                component={renderField}
+              />
 
               <Field
                 name="address"
@@ -190,8 +216,9 @@ export class BusinessUserProfile extends Component {
                 placeholder=""
                 className="col_half col_last"
                 disabled={this.state.disabled}
-                component={renderField} />
-              <div className="clear"></div>
+                component={renderField}
+              />
+              <div className="clear" />
 
               <Field
                 name="industry"
@@ -199,7 +226,8 @@ export class BusinessUserProfile extends Component {
                 placeholder=""
                 className="col_half"
                 disabled={this.state.disabled}
-                component={renderField} />
+                component={renderField}
+              />
 
               <Field
                 name="productIntroduction"
@@ -207,13 +235,14 @@ export class BusinessUserProfile extends Component {
                 placeholder=""
                 className="col_half col_last"
                 disabled={this.state.disabled}
-                component={renderField} />
-              <div className="clear"></div>
+                component={renderField}
+              />
+              <div className="clear" />
               <div className="col_half col_last">
                 <br />
               </div>
 
-              <div className="clear"></div>
+              <div className="clear" />
               <div className="col_full nobottommargin">
                 {this.renderButtons(handleSubmit, pristine, submitting)}
               </div>
@@ -225,20 +254,21 @@ export class BusinessUserProfile extends Component {
   }
 }
 
-let ConnectedBusinessUserProfile = reduxForm({
+let reduxFormBusinessUserProfile = reduxForm({
   validate,
-  form: 'BusinessUserProfileForm',
+  form: "BusinessUserProfileForm",
   enableReinitialize: true
 })(BusinessUserProfile);
 
-ConnectedBusinessUserProfile = connect(
+let ConnectedBusinessUserProfile = connect(
   state => {
     var initialValues = state.businessUserData;
     return {
       initialValues
-    }
-  }, { GetBusinessUserData, UpdateBusinessUserData, reset })(BusinessUserProfile)
-
+    };
+  },
+  { GetBusinessUserData, UpdateBusinessUserData, reset }
+)(reduxFormBusinessUserProfile);
 
 export default ConnectedBusinessUserProfile;
 

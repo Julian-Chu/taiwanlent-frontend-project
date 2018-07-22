@@ -1,10 +1,14 @@
-import { CHANGE_AUTH } from '../actions/types';
+import {
+  CHANGE_AUTH,
+  LOGOUT
+} from '../actions/types';
 
-export default function(state = false, action) {
+export default function (state = false, action) {
   switch (action.type) {
     case CHANGE_AUTH:
-      console.log(state, action);
       return action.payload;
+    case LOGOUT:
+      return false;
     default:
       return state;
   }

@@ -9,12 +9,10 @@ import {
   addCandidate,
   removeCandidate
 } from "../../actions/index";
-import { google_signin } from "../../actions/businessuser.js";
 import Detail from "./Detail";
 import getTalents from "../../actions/talents";
 import require_auth from "../require_authentication";
 import MessageWin from "./WriteMessageToCandidates";
-import * as queryString from "query-string";
 
 export class Talents extends Component {
   constructor(props) {
@@ -38,9 +36,6 @@ export class Talents extends Component {
     let selectedStatus = this.props.talents.slice();
     selectedStatus.fill(false);
     this.setState({ selectedStatus });
-    let params = queryString.parse(this.props.location.search);
-
-    this.props.google_signin(params.token);
   }
 
   removeAllCandidatesFromList() {
@@ -222,8 +217,7 @@ function mapDispatchToProps(dispatch) {
       getTalents,
       removeAllCandidates,
       addCandidate,
-      removeCandidate,
-      google_signin
+      removeCandidate
     },
     dispatch
   );

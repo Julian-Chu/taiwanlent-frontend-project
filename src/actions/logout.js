@@ -1,10 +1,12 @@
-import {CHANGE_AUTH} from './types';
+import {
+  LOGOUT
+} from './types';
 
-export function logout(){
+export function logout() {
   console.log('logout');
-  localStorage.removeItem("auth")
-  return{
-    type: CHANGE_AUTH,
+  localStorage.removeItem("Authorization")
+  return {
+    type: LOGOUT,
     payload: null
   }
 }

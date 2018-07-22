@@ -8,8 +8,8 @@ export function signin({
   username,
   password
 }, history) {
-  // get token from backend API
-  localStorage.setItem("Authorization", "true");
+  // :get token from backend API
+  localStorage.setItem("Authorization", "tokenFromBackend");
   history.push("/talents");
   return {
     type: CHANGE_AUTH,
@@ -17,10 +17,10 @@ export function signin({
   }
 }
 
-export function google_signin(token) {
+export function google_signin(token, history) {
   // get token from backend API
   localStorage.setItem("Authorization", token);
-  // history.push("/talents");
+  history.push("/login");
   return {
     type: CHANGE_AUTH,
     payload: BUSINESS_USER

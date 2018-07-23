@@ -4,6 +4,8 @@ import {
   BUSINESS_USER_DATA
 } from './types';
 
+import axios from 'axios';
+
 export function signin({
   username,
   password
@@ -19,7 +21,7 @@ export function signin({
 
 export function google_signin(token, history) {
   // get token from backend API
-  localStorage.setItem("Authorization", token);
+  localStorage.setItem("Authorization", `Bearer ${token}`);
   history.push("/login");
   return {
     type: CHANGE_AUTH,
@@ -66,7 +68,16 @@ export function GetBusinessUserData() {
     productIntroduction: 'no'
 
   };
-  console.log('GetUserData');
+  let token = localStorage.getItem('Authorization');
+
+  axios.get('/api/businessuser', {
+    headers: {
+      Authorization: token
+    }
+  }).then((response) => {
+    console.log('GetUserData');
+    console.log(response);
+  })
   return {
     type: BUSINESS_USER_DATA,
     payload: userdata

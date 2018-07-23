@@ -4,13 +4,15 @@ import BusinessUserLoginForm from "./BusinessUserLoginForm";
 import TalentLoginForm from "./TalentLoginForm";
 import { connect } from "react-redux";
 import { google_signin } from "../../actions/businessuser";
-import * as queryString from "query-string";
+import * as qs from "query-string";
 class Login extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.setHeaderNontransparent();
 
-    let params = queryString.parse(this.props.location.search);
+    let params = qs.parse(this.props.location.search);
+    console.log(this.props.location.search);
+    console.log(params);
     let token = params.token;
     if (token) {
       var history = this.props.history;

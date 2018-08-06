@@ -11,6 +11,7 @@ import validate from "./BusinessUserRegisterPages/validate";
 import renderField from "../renderComponents/renderField";
 import renderRadio from "../renderComponents/renderRadio";
 import "../../styles/ReduxForm.css";
+import { bindActionCreators } from "../../../node_modules/redux";
 
 export class BusinessUserProfile extends Component {
   constructor(props) {
@@ -23,15 +24,10 @@ export class BusinessUserProfile extends Component {
   }
 
   componentDidMount() {
-    // this.props.setHeaderNontransparent();
     this.props.GetBusinessUserData();
   }
 
   onFormSubmit(values) {
-    // console.log(values);
-    // console.log('this.props:', this.props);
-    // var history = this.props.history;
-    // console.log('history: ', history);
     this.props.UpdateBusinessUserData(values, () =>
       this.toggleChangeInput(true)
     );
@@ -44,6 +40,9 @@ export class BusinessUserProfile extends Component {
   }
 
   renderButtons(handleSubmit, pristine, submitting) {
+    console.log(this.state);
+    this.props.GetBusinessUserData();
+    console.log(this.props.initialValues);
     if (this.state.disabled) {
       return (
         <div>
@@ -85,8 +84,6 @@ export class BusinessUserProfile extends Component {
 
   render() {
     const { handleSubmit, pristine, submitting } = this.props;
-    console.log(this.props);
-    console.log(handleSubmit);
     return (
       <div className="content-wrap">
         <div className="container clearfix">
@@ -260,14 +257,25 @@ let reduxFormBusinessUserProfile = reduxForm({
   enableReinitialize: true
 })(BusinessUserProfile);
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      GetBusinessUserData,
+      UpdateBusinessUserData,
+      reset
+    },
+    dispatch
+  );
+}
+
 let ConnectedBusinessUserProfile = connect(
   state => {
-    var initialValues = state.businessUserData;
     return {
-      initialValues
+      initialValues: state.businessUserData
     };
   },
-  { GetBusinessUserData, UpdateBusinessUserData, reset }
+  // { GetBusinessUserData, UpdateBusinessUserData, reset }
+  mapDispatchToProps
 )(reduxFormBusinessUserProfile);
 
 export default ConnectedBusinessUserProfile;

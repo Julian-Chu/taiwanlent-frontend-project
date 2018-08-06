@@ -53,34 +53,63 @@ export function fillUpUserData(values, history) {
   }
 }
 export function GetBusinessUserData() {
-  //todo: get business user data
-  var userdata = {
-    username: 'testUser',
-    gender: 'male',
-    email: 'test@test.com',
-    name: 'Tom Lee',
-    phone: '1211313131',
-    companyName: 'Unknown',
-    department: 'PD',
-    companyLocation: 'Berlin',
-    address: '....',
-    industry: 'Computer',
-    productIntroduction: 'no'
-
-  };
   let token = localStorage.getItem('Authorization');
 
-  axios.get('/api/businessuser', {
-    headers: {
-      Authorization: token
-    }
-  }).then((response) => {
-    console.log('GetUserData');
-    console.log(response);
-  })
+  return dispatch => {
+    axios.get('/api/businessuser', {
+      headers: {
+        Authorization: token
+      }
+    }).then((response) => {
+      let user = response.data.user;
+      let userdata = {
+        username: user.username,
+        gender: user.gender_id === 1 ? "male" : "female",
+        email: user.email || "please find email",
+        name: user.name,
+        phone: user.phone,
+        companyName: user.company_name,
+        department: user.department,
+        companyLocation: user.company_location,
+        address: user.address,
+        industry: user.industry,
+        productIntroduction: user.production_introduction || 'What kind of Product?'
+
+      };
+      dispatch(GetBusinessUserDataAsync(userdata));
+    }).catch(err => console.log(err));
+  }
+
+  /*
+ data :
+user :
+address : null 
+company_location : ""
+company_name : null
+createdAt : "2018-08-06"
+department : null
+email : ""
+emailVerified : false
+gender_id : 1
+industry : ""
+name : ""
+password : ""
+phone : ""
+product_introduction : ""
+updatedAt : "2018-08-06"
+username : null 
+*/
+
+  // return {
+  //   type: BUSINESS_USER_DATA,
+  //   payload: userdata
+  // }
+}
+
+function GetBusinessUserDataAsync(user) {
   return {
     type: BUSINESS_USER_DATA,
-    payload: userdata
+    payload: user
   }
 }
 

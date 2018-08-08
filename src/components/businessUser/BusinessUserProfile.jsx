@@ -12,6 +12,7 @@ import renderField from "../renderComponents/renderField";
 import renderRadio from "../renderComponents/renderRadio";
 import "../../styles/ReduxForm.css";
 import { bindActionCreators } from "../../../node_modules/redux";
+import require_Auth from "../require_authentication";
 
 export class BusinessUserProfile extends Component {
   constructor(props) {
@@ -278,7 +279,7 @@ let ConnectedBusinessUserProfile = connect(
   mapDispatchToProps
 )(reduxFormBusinessUserProfile);
 
-export default ConnectedBusinessUserProfile;
+export default require_Auth(ConnectedBusinessUserProfile);
 
 // export default reduxForm({
 //   validate,

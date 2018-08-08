@@ -14,6 +14,7 @@ import BusinessUserProfile from "./components/businessUser/BusinessUserProfile";
 import WelcomeNewUser from "./components/WelcomeNewUser";
 import PersonalUserRegister from "./components/personalUser/PersonalUserRegister";
 import PersonalUserProfile from "./components/personalUser/PersonalUserProfile";
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
@@ -210,4 +211,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

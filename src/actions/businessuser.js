@@ -62,19 +62,19 @@ export function GetBusinessUserData() {
       }
     }).then((response) => {
       console.log('response:', response);
-      let user = response.data.user;
+      let user = response.data;
       let userdata = {
         username: user.username,
-        gender: user.gender_id === 1 ? "male" : "female",
-        email: user.email || "please find email",
+        gender: user.gender,
+        email: user.email,
         name: user.name,
         phone: user.phone,
         companyName: user.company_name,
         department: user.department,
-        companyLocation: user.company_location,
+        companyLocation: user.companyLocation,
         address: user.address,
         industry: user.industry,
-        productIntroduction: user.production_introduction || 'What kind of Product?'
+        productIntroduction: user.productionIntroduction
 
       };
       dispatch(GetBusinessUserDataAsync(userdata));
@@ -135,9 +135,9 @@ export function UpdateBusinessUserData(values, disableForm) {
     email: user.email || "please find email",
     name: user.name,
     phone: user.phone,
-    companyName: user.company_name,
+    companyName: user.companyName,
     department: user.department,
-    companyLocation: user.company_location,
+    companyLocation: user.companyLocation,
     address: user.address,
     industry: user.industry,
     productIntroduction: user.production_introduction || 'What kind of Product?'

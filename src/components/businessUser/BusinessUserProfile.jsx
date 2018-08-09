@@ -25,7 +25,9 @@ export class BusinessUserProfile extends Component {
   }
 
   componentDidMount() {
-    this.props.GetBusinessUserData();
+    console.log("mount");
+    if (!this.props.initialValues.gender || !this.state.disabled)
+      this.props.GetBusinessUserData();
   }
 
   onFormSubmit(values) {
@@ -41,9 +43,6 @@ export class BusinessUserProfile extends Component {
   }
 
   renderButtons(handleSubmit, pristine, submitting) {
-    console.log(this.state);
-    this.props.GetBusinessUserData();
-    console.log(this.props.initialValues);
     if (this.state.disabled) {
       return (
         <div>

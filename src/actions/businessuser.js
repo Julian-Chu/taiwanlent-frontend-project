@@ -61,6 +61,7 @@ export function GetBusinessUserData() {
         Authorization: token
       }
     }).then((response) => {
+      console.log('response:', response);
       let user = response.data.user;
       let userdata = {
         username: user.username,
@@ -77,7 +78,7 @@ export function GetBusinessUserData() {
 
       };
       dispatch(GetBusinessUserDataAsync(userdata));
-    }).catch(err => console.log(err));
+    }).catch(err => console.log('err:', err));
   }
 
   /*
@@ -113,13 +114,42 @@ function GetBusinessUserDataAsync(user) {
   }
 }
 
-export function UpdateBusinessUserData(values, setFieldsDisabled) {
-  // todo: put/patch 
-  var userdata = values;
-  setFieldsDisabled();
+export function UpdateBusinessUserDataAsync(userdata, disableForm) {
+
+  disableForm();
   return {
     type: BUSINESS_USER_DATA,
     payload: userdata
   }
+}
 
+export function UpdateBusinessUserData(values, disableForm) {
+  // todo: put/patch 
+
+  let token = localStorage.getItem('Authorization');
+  console.log('UpdateBusinessUserData:', values);
+  let user = values;
+  let userdata = {
+    username: user.username,
+    gender: user.gender_id === 1 ? "male" : "female",
+    email: user.email || "please find email",
+    name: user.name,
+    phone: user.phone,
+    companyName: user.company_name,
+    department: user.department,
+    companyLocation: user.company_location,
+    address: user.address,
+    industry: user.industry,
+    productIntroduction: user.production_introduction || 'What kind of Product?'
+
+  };
+  return dispatch => {
+    axios.post('/api/businessuser', userdata, {
+      headers: {
+        Authorization: token
+      }
+    }).then(() => {
+      dispatch(UpdateBusinessUserDataAsync(userdata, disableForm));
+    }).catch(err => console.log(err));
+  }
 }

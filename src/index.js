@@ -13,12 +13,12 @@ const store = createStoreWithMiddleware(
   reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-const token = localStorage.getItem("auth");
-if (token === "true") {
+const token = localStorage.getItem("Authorization");
+if (token) {
   console.log("token1", token);
   store.dispatch({
     type: CHANGE_AUTH,
-    payload: true
+    payload: "business_user" //add role later
   });
 }
 ReactDOM.render(

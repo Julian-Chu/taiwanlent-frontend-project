@@ -69,12 +69,12 @@ export function GetBusinessUserData() {
         email: user.email,
         name: user.name,
         phone: user.phone,
-        companyName: user.company_name,
+        companyName: user.companyName,
         department: user.department,
         companyLocation: user.companyLocation,
         address: user.address,
         industry: user.industry,
-        productIntroduction: user.productionIntroduction
+        productIntroduction: user.productIntroduction
 
       };
       dispatch(GetBusinessUserDataAsync(userdata));
@@ -131,8 +131,8 @@ export function UpdateBusinessUserData(values, disableForm) {
   let user = values;
   let userdata = {
     username: user.username,
-    gender: user.gender_id === 1 ? "male" : "female",
-    email: user.email || "please find email",
+    gender: user.gender,
+    email: user.email,
     name: user.name,
     phone: user.phone,
     companyName: user.companyName,
@@ -140,9 +140,10 @@ export function UpdateBusinessUserData(values, disableForm) {
     companyLocation: user.companyLocation,
     address: user.address,
     industry: user.industry,
-    productIntroduction: user.production_introduction || 'What kind of Product?'
+    productIntroduction: user.productIntroduction
 
   };
+  console.log('userdata:', userdata)
   return dispatch => {
     axios.post('/api/businessuser', userdata, {
       headers: {

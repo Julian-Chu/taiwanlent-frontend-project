@@ -35,7 +35,7 @@ class LoginForm extends Component {
             Login with Facebook
           </button>
           <div className="loginBtn loginBtn--google">
-            <a href="/auth/google">Login with Google</a>
+            <a href="/auth/google/business">Login with Google</a>
           </div>
         </div>
         <form

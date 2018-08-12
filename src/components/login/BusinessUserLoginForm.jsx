@@ -34,9 +34,14 @@ class LoginForm extends Component {
           <button className="loginBtn loginBtn--facebook">
             Login with Facebook
           </button>
-          <div className="loginBtn loginBtn--google">
-            <a href="/auth/google/business">Login with Google</a>
-          </div>
+          <a href="/auth/google/business">
+            <button
+              className="loginBtn loginBtn--google"
+              href="/auth/google/business"
+            >
+              Login with Google
+            </button>
+          </a>
         </div>
         <form
           id="login-form"

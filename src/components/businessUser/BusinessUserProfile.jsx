@@ -27,7 +27,7 @@ export class BusinessUserProfile extends Component {
   componentDidMount() {
     console.log("mount");
     if (!this.props.initialValues.gender || !this.state.disabled)
-      this.props.GetBusinessUserData();
+      this.props.GetBusinessUserData(this.props.history);
   }
 
   onFormSubmit(values) {

@@ -4,6 +4,10 @@ import {
   BUSINESS_USER_DATA
 } from './types';
 
+import {
+  logout
+} from "./logout";
+
 import axios from 'axios';
 
 export function signin({
@@ -52,7 +56,7 @@ export function fillUpUserData(values, history) {
     payload: BUSINESS_USER
   }
 }
-export function GetBusinessUserData() {
+export function GetBusinessUserData(history) {
   let token = localStorage.getItem('Authorization');
 
   return dispatch => {
@@ -78,7 +82,19 @@ export function GetBusinessUserData() {
 
       };
       dispatch(GetBusinessUserDataAsync(userdata));
-    }).catch(err => console.log('err:', err));
+    }).catch(err => {
+      console.log('err:', err);
+      console.log('response:', err.response);
+      if (err.response.status === 401) {
+
+        // setTimeout(
+        //   () => history.push("/login"), 1000
+        // )
+        dispatch(logout())
+        history.push("/login");
+      }
+
+    });
   }
 
   /*

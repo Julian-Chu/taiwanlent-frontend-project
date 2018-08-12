@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 
 const TalentLoginForm = props => {
   return (
@@ -8,11 +7,11 @@ const TalentLoginForm = props => {
       <button className="loginBtn loginBtn--facebook">
         Login with Facebook
       </button>
-      <button className="loginBtn loginBtn--google">
-        Login with Google
-      </button>
+      <a href="/auth/google/personal">
+        <button className="loginBtn loginBtn--google">Login with Google</button>
+      </a>
     </div>
-  )
-}
+  );
+};
 
 export default TalentLoginForm;

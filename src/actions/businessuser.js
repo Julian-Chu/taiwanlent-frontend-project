@@ -26,6 +26,7 @@ export function signin({
 export function google_signin(token, history) {
   // get token from backend API
   localStorage.setItem("Authorization", `Bearer ${token}`);
+  // localStorage.setItem("Authorization", token);
   history.push("/login");
   return {
     type: CHANGE_AUTH,

@@ -23,15 +23,6 @@ export function signin({
   }
 }
 
-export function google_signin(token, history) {
-  localStorage.setItem("Authorization", `Bearer ${token}`);
-  localStorage.setItem("Role", "business");
-  history.push("/login");
-  return {
-    type: CHANGE_AUTH,
-    payload: BUSINESS_USER
-  }
-}
 
 export function signup({
   username,

@@ -3,7 +3,7 @@ import "../../styles/loginButton.css";
 import BusinessUserLoginForm from "./BusinessUserLoginForm";
 import TalentLoginForm from "./TalentLoginForm";
 import { connect } from "react-redux";
-import { google_signin } from "../../actions/businessuser";
+import { google_signin } from "../../actions/sign";
 import * as qs from "query-string";
 class Login extends Component {
   componentDidMount() {
@@ -14,9 +14,10 @@ class Login extends Component {
     console.log(this.props.location.search);
     console.log(params);
     let token = params.token;
+    let role = params.role;
     if (token) {
       var history = this.props.history;
-      this.props.google_signin(token, history);
+      this.props.google_signin(token, role, history);
     }
   }
 

@@ -76,11 +76,15 @@ export function GetBusinessUserData(history) {
     }).catch(err => {
       console.log('err:', err);
       console.log('response:', err.response);
-      if (err.response.status === 401) {
+      if (err.response && err.response.status === 401) {
 
         // setTimeout(
         //   () => history.push("/login"), 1000
         // )
+        dispatch(logout())
+        history.push("/login");
+      } else {
+        console.log('response:', err.response)
         dispatch(logout())
         history.push("/login");
       }

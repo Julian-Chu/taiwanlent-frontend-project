@@ -26,7 +26,7 @@ class SidePanel extends Component {
         return (
           <div>
             <a
-              href="/user"
+              href="/personaluserprofile"
               className="button button-border button-light button-circle"
             >
               個人資料

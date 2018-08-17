@@ -33,7 +33,7 @@ export class PersonalUserProfile extends Component {
       Object.keys(this.props.initialValues).length === 0 &&
       this.props.initialValues.constructor === Object
     ) {
-      this.props.GetPersonalUserData();
+      this.props.GetPersonalUserData(this.props.history);
       console.log(this.props.initialValues);
     }
   }

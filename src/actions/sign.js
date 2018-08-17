@@ -6,7 +6,7 @@ import {
 
 
 export function google_signin(token, role, history) {
-  console('google_signin');
+  console.log('google_signin');
   localStorage.setItem("Authorization", `Bearer ${token}`);
   localStorage.setItem("Role", role);
 

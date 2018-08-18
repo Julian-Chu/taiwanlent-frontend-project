@@ -11,7 +11,7 @@ import validate from "./BusinessUserRegisterPages/validate";
 import renderField from "../renderComponents/renderField";
 import renderRadio from "../renderComponents/renderRadio";
 import "../../styles/ReduxForm.css";
-import { bindActionCreators } from "../../../node_modules/redux";
+import { bindActionCreators } from "redux";
 import require_Auth from "../require_authentication";
 
 export class BusinessUserProfile extends Component {

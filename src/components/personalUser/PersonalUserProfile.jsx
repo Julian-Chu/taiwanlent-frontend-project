@@ -17,6 +17,7 @@ import {
 import UploadPhoto from "./UploadPhoto";
 import "../../styles/ReduxForm.css";
 import require_Auth from "../require_authentication";
+import { bindActionCreators } from "redux";
 
 export class PersonalUserProfile extends Component {
   constructor(props) {
@@ -93,7 +94,7 @@ export class PersonalUserProfile extends Component {
   }
 
   render() {
-    console.log("render");
+    console.log("personal user data:", this.props.initialValues);
     const { handleSubmit, pristine, submitting } = this.props;
     return (
       <div className="content-wrap">
@@ -400,30 +401,37 @@ export class PersonalUserProfile extends Component {
   }
 }
 const selector = formValueSelector("PersonalUserProfileForm");
-PersonalUserProfile = reduxForm({
+let reduxFormPersonalUserProfile = reduxForm({
   form: "PersonalUserProfileForm",
   enableReinitialize: true
 })(PersonalUserProfile);
 
-PersonalUserProfile = connect(
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      GetPersonalUserData,
+      reset,
+      UpdateUserData,
+      setValueToNull: (formName, fieldName) => change(formName, fieldName, null)
+    },
+    dispatch
+  );
+}
+
+let ConnectedPersonalUserProfile = connect(
   state => {
-    var initialValues = state.personalUserData;
+    // var initialValues = state.personalUserData;
     const german = selector(state, "german");
     const english = selector(state, "english");
     const chinese = selector(state, "chinese");
     return {
-      initialValues,
+      initialValues: state.personalUserData,
       german,
       english,
       chinese
     };
   },
-  {
-    GetPersonalUserData,
-    reset,
-    UpdateUserData,
-    setValueToNull: (formName, fieldName) => change(formName, fieldName, null)
-  }
-)(PersonalUserProfile);
+  mapDispatchToProps
+)(reduxFormPersonalUserProfile);
 
-export default require_Auth(PersonalUserProfile);
+export default require_Auth(ConnectedPersonalUserProfile);

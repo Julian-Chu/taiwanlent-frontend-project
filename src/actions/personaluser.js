@@ -9,6 +9,9 @@ import {
   logout
 } from './logout';
 
+import region from '../components/common/regions';
+import subject from '../components/common/subjects';
+
 export function fillUpUserData(values, history) {
   console.log(values);
   history.push("/WelcomeNewUser");
@@ -79,30 +82,30 @@ export function GetPersonalUserData(history) {
       let user = response.data;
       let userdata = {
         username: user.username,
-        gender: user.gender_id,
+        gender: user.gender,
         email: user.email,
         chinese: user.chinese,
         chinese_certificate: user.chinese_certificate,
         city: user.city,
-        licence: user.driving_licence,
+        licence: user.licence,
         english: user.english,
         english_certificate: user.english_certificate,
         german: user.german,
         german_certificate: user.german_certificate,
-        livingYearsInGermany: user.living_year_in_germany,
+        livingYearsInGermany: user.livingYearsInGermany,
         name: user.name,
         occupation: user.occupation,
         phone: user.phone,
         photolink: user.photolink,
-        region: user.region_id,
+        region: region.find(target => target.value === user.region),
         relocation: user.relocation,
         resume_open: user.resume_open,
         school: user.school,
         selfIntroduction: user.self_introduction,
-        subject: user.subject_id,
-        workexperience_1: user.work_experience_1,
-        workexperience_2: user.work_experience_2,
-        workexperience_3: user.work_experience_3
+        subject: subject.find(target => target.value === user.subject),
+        workexperience_1: user.workexperience_1,
+        workexperience_2: user.workexperience_2,
+        workexperience_3: user.workexperience_3
       };
       dispatch(GetPeronsalUserDataAsync(userdata));
     }).catch(err => {

@@ -12,7 +12,7 @@ import renderSelect from "../renderComponents/renderSelect";
 import renderRadio from "../renderComponents/renderRadio";
 import {
   GetPersonalUserData,
-  UpdateUserData
+  UpdatePersonalUserData
 } from "../../actions/personaluser";
 import UploadPhoto from "./UploadPhoto";
 import "../../styles/ReduxForm.css";
@@ -44,7 +44,9 @@ export class PersonalUserProfile extends Component {
     console.log("this.props:", this.props);
     var history = this.props.history;
     console.log("history: ", history);
-    this.props.UpdateUserData(values, () => this.toggleChangeInput(true));
+    this.props.UpdatePersonalUserData(values, () =>
+      this.toggleChangeInput(true)
+    );
   }
 
   toggleChangeInput(disabled) {
@@ -218,7 +220,7 @@ export class PersonalUserProfile extends Component {
               <div className="col_half">
                 <Field
                   placeholder="工作經驗1"
-                  name="workexperience_1"
+                  name="workExperience_1"
                   component={field => (
                     <div>
                       <label>工作經驗1:</label>
@@ -234,7 +236,7 @@ export class PersonalUserProfile extends Component {
                 />
                 <Field
                   placeholder="工作經驗2"
-                  name="workexperience_2"
+                  name="workExperience_2"
                   component={field => (
                     <div>
                       <label>工作經驗:</label>
@@ -249,7 +251,7 @@ export class PersonalUserProfile extends Component {
                   )}
                 />
                 <Field
-                  name="workexperience_3"
+                  name="workExperience_3"
                   component={field => (
                     <div>
                       <label>工作經驗3:</label>
@@ -411,7 +413,7 @@ function mapDispatchToProps(dispatch) {
     {
       GetPersonalUserData,
       reset,
-      UpdateUserData,
+      UpdatePersonalUserData,
       setValueToNull: (formName, fieldName) => change(formName, fieldName, null)
     },
     dispatch

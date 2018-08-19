@@ -91,31 +91,6 @@ export function GetBusinessUserData(history) {
 
     });
   }
-
-  /*
- data :
-user :
-address : null 
-company_location : ""
-company_name : null
-createdAt : "2018-08-06"
-department : null
-email : ""
-emailVerified : false
-gender_id : 1
-industry : ""
-name : ""
-password : ""
-phone : ""
-product_introduction : ""
-updatedAt : "2018-08-06"
-username : null 
-*/
-
-  // return {
-  //   type: BUSINESS_USER_DATA,
-  //   payload: userdata
-  // }
 }
 
 function GetBusinessUserDataAsync(user) {

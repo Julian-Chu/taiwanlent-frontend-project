@@ -22,56 +22,7 @@ export function fillUpUserData(values, history) {
 }
 
 export function GetPersonalUserData(history) {
-  // var userdata = {
-  //   username: 'testUser',
-  //   gender:'male',
-  //   email:'test@test.com',
-  //   name:'Tom Lee',
-  //   phone:'1211313131',
-  //   region: {
-  //     label:"Berlin 柏林",
-  //     value:"BE"
-  //   },
-  //   subject:{value: "ch", label: "化學化工"},
-  //   german:true,
-  //   german_certificate:"123"
-  // }
-  // console.log('GetPersonalBusinessUserData');
-  // return{
-  //   type: PERSONAL_USER_DATA,
-  //   payload: userdata
-  // }
   let token = localStorage.getItem('Authorization');
-  /*
-  chinese : false
-  chinese_certificate : null
-  city : ""
-  createdAt : "2018-08-15"
-  driving_licence : false
-  email : ""
-  english : false
-  english_certificate : null
-  gender_id : 1
-  german : false
-  german_certificate : null
-  living_year_in_germany : 0
-  name : ""
-  occupation : ""
-  password : ""
-  phone : ""
-  photolink : null
-  region_id : 1
-  relocation : false
-  resume_open : false
-  school : ""
-  self_introduction : null 
-  subject_id : 1
-  updatedAt : "2018-08-15"
-  username : ""
-   work_experience_1 : null
-  work_experience_2 : null
-  work_experience_3 : nul
-  */
   return dispatch => {
     axios.get('/api/personaluser', {
       headers: {
@@ -101,11 +52,11 @@ export function GetPersonalUserData(history) {
         relocation: user.relocation,
         resume_open: user.resume_open,
         school: user.school,
-        selfIntroduction: user.self_introduction,
+        selfIntroduction: user.selfIntroduction,
         subject: subject.find(target => target.value === user.subject),
-        workexperience_1: user.workexperience_1,
-        workexperience_2: user.workexperience_2,
-        workexperience_3: user.workexperience_3
+        workExperience_1: user.workExperience_1,
+        workExperience_2: user.workExperience_2,
+        workExperience_3: user.workExperience_3
       };
       dispatch(GetPeronsalUserDataAsync(userdata));
     }).catch(err => {
@@ -123,7 +74,6 @@ export function GetPersonalUserData(history) {
         dispatch(logout())
         history.push("/login");
       }
-
     });
   }
 }
@@ -135,11 +85,55 @@ function GetPeronsalUserDataAsync(userdata) {
   }
 }
 
-export function UpdateUserData(values, setFieldsDisabled) {
-  console.log(values);
-  setFieldsDisabled();
+export function UpdatePersonalUserDataAsync(values, disableForm) {
+  console.log('async:', values);
+  disableForm();
   return {
     type: PERSONAL_USER_DATA,
     payload: values
+  }
+}
+
+export function UpdatePersonalUserData(values, disableForm) {
+  let token = localStorage.getItem('Authorization');
+  console.log('UpdatePersonalUserData:', values);
+  let user = values;
+  let userdata = {
+    username: user.username,
+    email: user.email,
+    name: user.name,
+    phone: user.phone,
+    city: user.city,
+    occupation: user.occupation,
+    livingYearInGermany: user.livingYearInGermany,
+    school: user.school,
+    workExperience_1: user.workExperience_1,
+    workExperience_2: user.workExperience_2,
+    workExperience_3: user.workExperience_3,
+    german: user.german,
+    english: user.english,
+    chinese: user.chinese,
+    licence: user.licence,
+    relocation: user.relocation,
+    selfIntroduction: user.selfIntroduction,
+    german_certificate: user.german_certificate,
+    english_certificate: user.english_certificate,
+    chinese_certificate: user.chinese_certificate,
+    gender: user.gender,
+    region: user.region.value,
+    subject: user.subject.value,
+    photolink: user.photolink,
+    resumeIsOpened: user.resumeIsOpened
+
+  };
+  console.log('userdata:', userdata)
+  return dispatch => {
+    axios.post('/api/personaluser', userdata, {
+      headers: {
+        Authorization: token
+      }
+    }).then(() => {
+      dispatch(UpdatePersonalUserDataAsync(userdata, disableForm));
+    }).catch(err => console.log(err));
   }
 }

@@ -388,6 +388,16 @@ export class PersonalUserProfile extends Component {
                   />
                   <label htmlFor="relocation">可搬家</label>
                 </div>
+                <div>
+                  <Field
+                    type="checkbox"
+                    id="resume_open"
+                    name="relocation"
+                    component="input"
+                    disabled={this.state.disabled}
+                  />
+                  <label htmlFor="relocation">開啟履歷</label>
+                </div>
                 <UploadPhoto />
               </div>
 

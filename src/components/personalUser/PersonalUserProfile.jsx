@@ -392,7 +392,7 @@ export class PersonalUserProfile extends Component {
                   <Field
                     type="checkbox"
                     id="resume_open"
-                    name="relocation"
+                    name="resume_open"
                     component="input"
                     disabled={this.state.disabled}
                   />

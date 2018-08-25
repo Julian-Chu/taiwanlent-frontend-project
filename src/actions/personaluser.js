@@ -1,7 +1,13 @@
-import { CHANGE_AUTH, PERSONAL_USER, PERSONAL_USER_DATA } from "./types";
+import {
+  CHANGE_AUTH,
+  PERSONAL_USER,
+  PERSONAL_USER_DATA
+} from "./types";
 
 import axios from "axios";
-import { logout } from "./logout";
+import {
+  logout
+} from "./logout";
 
 import region from "../components/common/regions";
 import subject from "../components/common/subjects";
@@ -119,7 +125,7 @@ export function UpdatePersonalUserData(values, disableForm) {
     region: user.region && user.region.value,
     subject: user.subject && user.subject.value,
     photolink: user.photolink,
-    resumeIsOpened: user.resumeIsOpened
+    resume_open: user.resume_open,
   };
   console.log("userdata:", userdata);
   return dispatch => {

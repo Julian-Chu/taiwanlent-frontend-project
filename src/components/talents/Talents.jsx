@@ -62,10 +62,10 @@ export class Talents extends Component {
 
   renderTalentList() {
     const talents = this.props.talents;
-    return talents.map(t => {
+    return talents.map((t, index) => {
       return (
         <Talent
-          key={t.id}
+          key={index}
           enableDetail={id => this.enableDetail(id)}
           selected={
             this.state.selectedStatus[t.id - 1]
@@ -121,12 +121,16 @@ export class Talents extends Component {
               <Filter />
 
               <div className="fixedWin">
-                <p>{this.props.candidates.length}/5</p>
+                <p>
+                  {this.props.candidates.length}
+                  /5
+                </p>
                 <button
                   className="button button-mini button-border button-circle button-dark"
                   onClick={() => this.toggleMessageWin(true)}
                 >
-                  <i className="icon-ok" />批量詢問
+                  <i className="icon-ok" />
+                  批量詢問
                 </button>
                 <button
                   type="button"
@@ -135,7 +139,8 @@ export class Talents extends Component {
                     return this.removeAllCandidatesFromList();
                   }}
                 >
-                  <i className="icon-repeat" />重置清單
+                  <i className="icon-repeat" />
+                  重置清單
                 </button>
               </div>
 

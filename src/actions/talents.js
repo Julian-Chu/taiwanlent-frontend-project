@@ -1,23 +1,30 @@
 import axios from 'axios';
-import {GET_Talents} from './types';
+import {
+  GET_Talents
+} from './types';
 
-export default function get(){
-  return dispatch =>{
-    axios.get(`api/users`)
-        .then(res=>{
-          console.log("Talents:", res.data);
-          const talents = res.data.map(person=>{
-            
-            return person;
-          });
-          dispatch(getTalentsAsync(talents));
-        }).catch(message=>console.log(message));
+export default function get() {
+  let token = localStorage.getItem("Authorization");
+  return dispatch => {
+    axios.get("/api/talents", {
+        headers: {
+          Authorization: token
+        }
+      })
+      .then(res => {
+        console.log("Talents:", res.data);
+        const talents = res.data.map(person => {
+
+          return person;
+        });
+        dispatch(getTalentsAsync(talents));
+      }).catch(message => console.log(message));
   }
 }
 
-function getTalentsAsync(talents){
-  return{
+function getTalentsAsync(talents) {
+  return {
     type: GET_Talents,
-    payload:talents
+    payload: talents
   };
 }

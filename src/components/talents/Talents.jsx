@@ -24,6 +24,7 @@ export class Talents extends Component {
       selectedStatus,
       detailIsEnabled: false,
       detailId: null,
+      detailedTalent: null,
       toggleMessageWindow: false
     };
     this.toggleMessageWin = this.toggleMessageWin.bind(this);
@@ -66,7 +67,7 @@ export class Talents extends Component {
       return (
         <Talent
           key={index}
-          enableDetail={id => this.enableDetail(id)}
+          enableDetail={id => this.enableDetail(t)}
           selected={
             this.state.selectedStatus[t.id - 1]
               ? this.state.selectedStatus[t.id - 1]
@@ -84,17 +85,19 @@ export class Talents extends Component {
     return this.state.detailIsEnabled ? (
       <Detail
         {...this.props.talents[this.state.detailId - 1]}
+        talent={this.state.detailedTalent}
         disableDetail={() => this.disableDetail()}
       />
     ) : null;
   }
 
-  enableDetail(id) {
-    console.log(id);
+  enableDetail(talent) {
+    console.log("talent in detail:", talent);
     console.log(this);
     this.setState({
       detailIsEnabled: true,
-      detailId: id
+      // detailId: id,
+      detailedTalent: talent
     });
   }
 

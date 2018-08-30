@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../../styles/talents/Detail.css";
+import regions from "../common/regions";
+import subject from "../common/subjects";
 
 const Detail = props => {
   console.log(props);
+  let talent = props.talent;
   return (
     <div className="filter-body-overlay filter-body-overlay-open">
       <div className="product clearfix pf-dress detailView-whitebackground">
@@ -41,34 +44,47 @@ const Detail = props => {
           <div className="detailView-info ">
             <div className="detailView-ownername ">
               <h3>
-                <a href="# ">{props.name}</a>
+                <a href="# ">{talent.name}</a>
               </h3>
             </div>
             <table className="detailView-infotable">
               <tbody>
                 <tr>
                   <td>所在區域</td>
-                  <td>{props.region}</td>
+                  <td>
+                    {
+                      regions.find(region => region.value === talent.region)
+                        .label
+                    }
+                  </td>
                 </tr>
                 <tr>
                   <td>現居城市</td>
-                  <td>{props.city}</td>
+                  <td>{talent.city}</td>
                 </tr>
                 <tr>
                   <td>在學/畢業學校</td>
-                  <td>{props.uni}</td>
+                  <td>{talent.school}</td>
                 </tr>
                 <tr>
                   <td>職業:</td>
-                  <td>{props.occupation}</td>
+                  <td>{talent.occupation}</td>
                 </tr>
                 <tr>
                   <td>語言:</td>
-                  <td>{props.langs}</td>
+                  <td>
+                    {talent.english ? "英文" : ""}
+                    {talent.english && (talent.german || talent.chinese)
+                      ? "/"
+                      : ""}
+                    {talent.german ? "德文" : ""}
+                    {talent.german && talent.chinese ? "/" : ""}
+                    {talent.chinese ? "中文" : ""}
+                  </td>
                 </tr>
                 <tr>
                   <td>在德時間:</td>
-                  <td>{props.livingYearsInGermany}年</td>
+                  <td>{talent.livingYearsInGermany}年</td>
                 </tr>
               </tbody>
             </table>
@@ -85,7 +101,7 @@ const Detail = props => {
                   </th>
                 </tr>
                 <tr>
-                  <td>{props.selfIntroduction}</td>
+                  <td>{talent.selfIntroduction}</td>
                 </tr>
                 <tr>
                   <th>&nbsp;</th>
@@ -99,7 +115,14 @@ const Detail = props => {
                   </th>
                 </tr>
                 <tr>
-                  {/* <td>{props.workingExperiences.map((e, index) => <div key={index}>{index + 1}.{e}</div>)}</td> */}
+                  {/* <td>{talent.workExperience_1}</td>
+                  <td>{talent.workExperience_2}</td>
+                  <td>{talent.workExperience_3}</td> */}
+                  <ul>
+                    <li>{talent.workExperience_1}</li>
+                    <li>{talent.workExperience_2}</li>
+                    <li>{talent.workExperience_3}</li>
+                  </ul>
                 </tr>
               </tbody>
             </table>
@@ -110,14 +133,14 @@ const Detail = props => {
                   <td>駕照:</td>{" "}
                   <td>
                     &nbsp;
-                    {props.drivingLicence ? "Yes" : "No"}
+                    {talent.licence ? "Yes" : "No"}
                   </td>
                 </tr>
                 <tr>
                   <td>願意到其他城市工作:</td>
                   <td>
                     &nbsp;
-                    {props.willingToRelocate ? "Yes" : "No"}
+                    {talent.relocation ? "Yes" : "No"}
                   </td>
                 </tr>
               </tbody>

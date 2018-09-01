@@ -23,13 +23,13 @@ const Detail = props => {
             <a href="# ">
               <img
                 src={
-                  props.photo
-                    ? props.photo
-                    : props.gender === "male"
+                  talent.photo
+                    ? talent.photo
+                    : talent.gender === "male"
                       ? "images/male.png"
                       : "images/female.png"
                 }
-                alt="Checked Short Dress "
+                alt=""
               />
             </a>
             <div className={props.qualified ? "sale-flash" : ""}>

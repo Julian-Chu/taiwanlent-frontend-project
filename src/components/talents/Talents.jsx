@@ -13,6 +13,8 @@ import Detail from "./Detail";
 import getTalents from "../../actions/talents";
 import require_auth from "../require_authentication";
 import MessageWin from "./WriteMessageToCandidates";
+import { BUSINESS_USER } from "../../actions/types";
+import languages from "../common/languages";
 
 export class Talents extends Component {
   constructor(props) {
@@ -122,30 +124,9 @@ export class Talents extends Component {
           <div className="content-wrap">
             <div className="container clearfix">
               <Filter />
-
-              <div className="fixedWin">
-                <p>
-                  {this.props.candidates.length}
-                  /5
-                </p>
-                <button
-                  className="button button-mini button-border button-circle button-dark"
-                  onClick={() => this.toggleMessageWin(true)}
-                >
-                  <i className="icon-ok" />
-                  批量詢問
-                </button>
-                <button
-                  type="button"
-                  className="button button-mini button-border button-circle button-dark"
-                  onClick={() => {
-                    return this.removeAllCandidatesFromList();
-                  }}
-                >
-                  <i className="icon-repeat" />
-                  重置清單
-                </button>
-              </div>
+              {this.props.authenticated === BUSINESS_USER
+                ? this.renderAskWindow()
+                : ""}
 
               <div className="clear " />
 
@@ -159,6 +140,33 @@ export class Talents extends Component {
     );
   }
 
+  renderAskWindow() {
+    return (
+      <div className="fixedWin">
+        <p>
+          {this.props.candidates.length}
+          /5
+        </p>
+        <button
+          className="button button-mini button-border button-circle button-dark"
+          onClick={() => this.toggleMessageWin(true)}
+        >
+          <i className="icon-ok" />
+          批量詢問
+        </button>
+        <button
+          type="button"
+          className="button button-mini button-border button-circle button-dark"
+          onClick={() => {
+            return this.removeAllCandidatesFromList();
+          }}
+        >
+          <i className="icon-repeat" />
+          重置清單
+        </button>
+      </div>
+    );
+  }
   renderMessageWin() {
     return <MessageWin toggleMessageWin={this.toggleMessageWin} />;
   }
@@ -189,13 +197,39 @@ function getFilteredTalents(talents, filter) {
         })
       : tempArray;
   // // Filter language
-  tempArray =
-    filter[1] && filter[1].length > 0
-      ? tempArray.filter(t => {
-          return t.langs !== "" && t.langs.includes(filter[1][0].label);
-        })
-      : tempArray;
-  // // Filter subjectCategory
+
+  if (filter[1] && filter[1].length > 0) {
+    let targetLanguages = {
+      chinese: false,
+      english: false,
+      german: false
+    };
+    filter[1].forEach(lang => {
+      switch (lang.value) {
+        case "ch":
+          targetLanguages.chinese = true;
+          break;
+        case "en":
+          targetLanguages.english = true;
+          break;
+        case "de":
+          targetLanguages.german = true;
+          break;
+        default:
+      }
+    });
+    tempArray =
+      filter[1] && filter[1].length > 0
+        ? tempArray.filter(t => {
+            return (
+              t.chinese === targetLanguages.chinese ||
+              t.english === targetLanguages.english ||
+              t.german === targetLanguages.german
+            );
+          })
+        : tempArray;
+  }
+
   tempArray =
     filter[2] && filter[2].length > 0
       ? tempArray.filter(t => {
@@ -214,8 +248,8 @@ function getFilteredTalents(talents, filter) {
 function mapStateToProps(state) {
   return {
     talents: getFilteredTalents(state.talents, state.filter),
-    // talents: state.talents,
-    candidates: state.candidates
+    candidates: state.candidates,
+    authenticated: state.authenticated
   };
 }
 

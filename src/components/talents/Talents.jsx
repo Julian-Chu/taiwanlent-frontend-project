@@ -14,7 +14,6 @@ import getTalents from "../../actions/talents";
 import require_auth from "../require_authentication";
 import MessageWin from "./WriteMessageToCandidates";
 import { BUSINESS_USER } from "../../actions/types";
-import languages from "../common/languages";
 
 export class Talents extends Component {
   constructor(props) {

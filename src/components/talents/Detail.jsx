@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../../styles/talents/Detail.css";
 import regions from "../common/regions";
-import subject from "../common/subjects";
 
 const Detail = props => {
   console.log(props);

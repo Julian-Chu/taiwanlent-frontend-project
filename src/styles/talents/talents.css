@@ -38,12 +38,10 @@
     background-color: #333;
 }
 
-
 /* .product button {
   display: block;
   margin: auto;
 } */
-
 .product img {
     height: 330px;
     width: 270px;
@@ -87,4 +85,10 @@
     top: 2%;
     left: 77%;
     min-width: 100%;
+}
+
+.filter-button {
+    position: absolute;
+    top: 0%;
+    margin-left: 10px;
 }

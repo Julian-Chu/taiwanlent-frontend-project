@@ -1,24 +1,24 @@
 .product {
-	position: relative;
+  position: relative;
 }
 
 .detailView-info {
-	font-size: 18px;
-	font-weight: 200;
-	color: #444;
+  font-size: 18px;
+  font-weight: 200;
+  color: #444;
   margin-bottom: 4px;
   line-height: 32px;
 }
 
 .detailView-info del {
-	font-weight: 400;
-	font-size: 90%;
-	color: #888;
+  font-weight: 400;
+  font-size: 90%;
+  color: #888;
 }
 
 .detailView-info ins {
-	text-decoration: none;
-	color: #1ABC9C;
+  text-decoration: none;
+  color: #1ABC9C;
 }
 
 .detailView-content {
@@ -33,50 +33,49 @@
   background-color: white;
 }
 
-
 .detailView-image {
   margin: auto;
   max-width: 60%;
   float: right;
 }
 
-.detailView-image img{
+.detailView-image img {
   height: 330px;
   width: 270px;
 }
 
 .detailView-closeButton {
   position: absolute;
-  top: 1%;
-  left: 90%;
+  top: -3%;
+  left: 94%;
   min-width: 100%;
 }
 
-.after-image{
-  clear:right
+.after-image {
+  clear: right
 }
 
-.detailView-infotable{
-  width: 40%;
+.detailView-infotable {
+  width: 60%;
 }
 
-.detailView-ownername  a{
+.detailView-ownername a {
   color: black
 }
 
-.detailView-description table tr th{
+.detailView-description table tr th {
   font-size: 24px;
-  line-height: 32px; 
+  line-height: 32px;
   font-weight: 1000;
   color: black
 }
-.detailView-description table  .addline
-{
+
+.detailView-description table .addline {
   text-decoration: line-through;
   line-height: 10px;
   text-decoration-color: #DCDCDC;
 }
 
-.detailView-description{
+.detailView-description {
   margin: 10px;
 }

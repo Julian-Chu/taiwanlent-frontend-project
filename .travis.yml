@@ -8,5 +8,14 @@ install:
 script:
   - npm run unittest:nowatch
   - npm run build
-  
+
 warnings_are_errors: false
+
+deploy:
+  provider: s3
+  access_key_id: "$access_key_id"
+  secret_access_key: "$secret_access_key"
+  bucket: "$bucket_name"
+  skip_cleanup: true
+  region: "eu-central-1"
+  local-dir: build/

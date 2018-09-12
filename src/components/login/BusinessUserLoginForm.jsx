@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { signin } from "../../actions/businessuser";
 import { connect } from "react-redux";
+import { APIServer } from "../../globalsetting";
 class LoginForm extends Component {
   renderField(field) {
     const {
@@ -34,10 +35,10 @@ class LoginForm extends Component {
           <button className="loginBtn loginBtn--facebook">
             Login with Facebook
           </button>
-          <a href="/auth/google/business">
+          <a href={`${APIServer}/auth/google/business`}>
             <button
               className="loginBtn loginBtn--google"
-              href="/auth/google/business"
+              href={`${APIServer}/auth/google/business`}
             >
               Login with Google
             </button>
@@ -72,7 +73,7 @@ class LoginForm extends Component {
             >
               Login
             </button>
-            <a href="/api/forgetpassword" className="fright">
+            <a href={`${APIServer}/api/forgetpassword`} className="fright">
               Forgot Password?
             </a>
           </div>

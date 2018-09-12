@@ -11,6 +11,9 @@ import {
 
 import region from "../components/common/regions";
 import subject from "../components/common/subjects";
+import {
+  APIServer
+} from "../globalsetting";
 
 export function fillUpUserData(values, history) {
   console.log(values);
@@ -25,7 +28,7 @@ export function GetPersonalUserData(history) {
   let token = localStorage.getItem("Authorization");
   return dispatch => {
     axios
-      .get("/api/personaluser", {
+      .get(`${APIServer}/api/personaluser`, {
         headers: {
           Authorization: token
         }
@@ -130,7 +133,7 @@ export function UpdatePersonalUserData(values, disableForm) {
   console.log("userdata:", userdata);
   return dispatch => {
     axios
-      .post("/api/personaluser", userdata, {
+      .post(`${APIServer}/api/personaluser`, userdata, {
         headers: {
           Authorization: token
         }

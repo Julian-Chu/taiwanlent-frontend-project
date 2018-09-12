@@ -8,6 +8,11 @@ import {
   logout
 } from "./logout";
 
+
+import {
+  APIServer
+} from "../globalsetting";
+
 import axios from 'axios';
 
 export function signin({
@@ -51,7 +56,7 @@ export function GetBusinessUserData(history) {
   let token = localStorage.getItem('Authorization');
 
   return dispatch => {
-    axios.get('/api/businessuser', {
+    axios.get(`${APIServer}/api/businessuser`, {
       headers: {
         Authorization: token
       }
@@ -131,7 +136,7 @@ export function UpdateBusinessUserData(values, disableForm) {
   };
   console.log('userdata:', userdata)
   return dispatch => {
-    axios.post('/api/businessuser', userdata, {
+    axios.post(`${APIServer}/api/businessuser`, userdata, {
       headers: {
         Authorization: token
       }

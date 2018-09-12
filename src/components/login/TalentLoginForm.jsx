@@ -1,5 +1,7 @@
 import React from "react";
 
+import { APIServer } from "../../globalsetting";
+
 const TalentLoginForm = props => {
   return (
     <div>
@@ -7,7 +9,7 @@ const TalentLoginForm = props => {
       <button className="loginBtn loginBtn--facebook">
         Login with Facebook
       </button>
-      <a href="/auth/google/personal">
+      <a href={`${APIServer}/auth/google/personal`}>
         <button className="loginBtn loginBtn--google">Login with Google</button>
       </a>
     </div>

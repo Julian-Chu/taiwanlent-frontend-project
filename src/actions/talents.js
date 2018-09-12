@@ -2,11 +2,14 @@ import axios from 'axios';
 import {
   GET_Talents
 } from './types';
+import {
+  APIServer
+} from '../globalsetting';
 
 export default function get() {
   let token = localStorage.getItem("Authorization");
   return dispatch => {
-    axios.get("/api/talents", {
+    axios.get(`${APIServer}/api/talents`, {
         headers: {
           Authorization: token
         }

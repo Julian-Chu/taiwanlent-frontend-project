@@ -134,20 +134,22 @@ export function UpdatePersonalUserData(values, file, disableForm) {
 
   console.log("userdata:", userdata);
 
-  let uploadConfig;
-  axios.get(`${APIServer}/api/personaluser`).then(
-    res => console.log('config:', res)
-  );
 
-  console.log(uploadConfig);
-  axios.put(uploadConfig.data.url, file, {
-    headers: {
-      'Content-Type': file.type
-    }
-  }).then(res => console.log(res))
+  return async dispatch => {
 
+    const uploadConfig = await axios.get(`${APIServer}/api/personaluser/upload`, {
+      headers: {
+        Authorization: token
+      }
+    });
 
-  return dispatch => {
+    console.log(uploadConfig);
+    await axios.put(uploadConfig.data.url, file, {
+      headers: {
+        'Content-Type': file.type
+      }
+    });
+
     axios
       .post(`${APIServer}/api/personaluser`, userdata, {
         headers: {

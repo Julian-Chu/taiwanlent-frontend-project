@@ -99,7 +99,7 @@ export function UpdatePersonalUserDataAsync(values, disableForm) {
   };
 }
 
-export function UpdatePersonalUserData(values, disableForm) {
+export function UpdatePersonalUserData(values, file, disableForm) {
   let token = localStorage.getItem("Authorization");
   console.log("UpdatePersonalUserData:", values);
   let user = values;
@@ -130,7 +130,23 @@ export function UpdatePersonalUserData(values, disableForm) {
     photolink: user.photolink,
     resume_open: user.resume_open,
   };
+
+
   console.log("userdata:", userdata);
+
+  let uploadConfig;
+  axios.get(`${APIServer}/api/personaluser`).then(
+    res => console.log('config:', res)
+  );
+
+  console.log(uploadConfig);
+  axios.put(uploadConfig.data.url, file, {
+    headers: {
+      'Content-Type': file.type
+    }
+  }).then(res => console.log(res))
+
+
   return dispatch => {
     axios
       .post(`${APIServer}/api/personaluser`, userdata, {

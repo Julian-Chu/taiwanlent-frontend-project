@@ -14,7 +14,6 @@ import {
   GetPersonalUserData,
   UpdatePersonalUserData
 } from "../../actions/personaluser";
-import UploadPhoto from "./UploadPhoto";
 import "../../styles/ReduxForm.css";
 import require_Auth from "../require_authentication";
 import { bindActionCreators } from "redux";
@@ -25,7 +24,8 @@ export class PersonalUserProfile extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
 
     this.state = {
-      disabled: true
+      disabled: true,
+      file: null
     };
   }
 
@@ -39,12 +39,17 @@ export class PersonalUserProfile extends Component {
     }
   }
 
+  onFileChange(event) {
+    this.setState({ file: event.target.files[0] });
+    console.log(event.target.files);
+  }
+
   onFormSubmit(values) {
     console.log(values);
     console.log("this.props:", this.props);
     var history = this.props.history;
     console.log("history: ", history);
-    this.props.UpdatePersonalUserData(values, () =>
+    this.props.UpdatePersonalUserData(values, this.state.file, () =>
       this.toggleChangeInput(true)
     );
   }
@@ -398,7 +403,15 @@ export class PersonalUserProfile extends Component {
                   />
                   <label htmlFor="relocation">開啟履歷</label>
                 </div>
-                <UploadPhoto />
+
+                <div>
+                  <h5>Add An Image</h5>
+                  <input
+                    onChange={this.onFileChange.bind(this)}
+                    type="file"
+                    accept="image/*"
+                  />
+                </div>
               </div>
 
               <div className="clear" />

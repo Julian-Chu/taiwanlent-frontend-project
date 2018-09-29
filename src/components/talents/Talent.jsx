@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import "../../styles/talents/talent.css";
 import regions from "../common/regions";
 import subjects from "../common/subjects";
+import { S3PhotoBucket } from "../../globalsetting";
 
 class Talent extends Component {
   addToList() {
@@ -26,8 +27,8 @@ class Talent extends Component {
           <a href="# ">
             <img
               src={
-                this.props.photo
-                  ? this.props.photo
+                this.props.photolink
+                  ? `${S3PhotoBucket}${this.props.photolink}`
                   : this.props.gender === "male"
                     ? "images/male.png"
                     : "images/female.png"

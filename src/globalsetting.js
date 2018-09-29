@@ -1,1 +1,2 @@
 export const APIServer = process.env.REACT_APP_APIServer || "http://localhost:5000";
+export const S3PhotoBucket = process.env.REACT_S3PhotoBucket || "https://s3.eu-central-1.amazonaws.com/taiwanlent-bucket/";

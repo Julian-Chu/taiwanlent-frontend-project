@@ -9,6 +9,7 @@ import {
   GetPersonalUserData,
   UpdatePersonalUserData
 } from "../../actions/personaluser";
+import "../../styles/UploadPhoto.css";
 
 class UploadPhoto extends Component {
   constructor(props) {
@@ -34,22 +35,17 @@ class UploadPhoto extends Component {
   }
 
   onFormSubmit(event) {
-    console.log(this.props);
-    console.log(this.props.initialValues);
-    console.log(this.state.file);
     this.props.UploadProfilePhoto(this.props.initialValues, this.state.file);
     event.preventDefault();
   }
 
   render() {
-    console.log(this.props);
-
     const { handleSubmit, pristine, submitting } = this.props;
     return (
       <form onSubmit={this.onFormSubmit}>
         <div className="product clearfix pf-dress">
           <div className="product-image ">
-            <a href="# ">
+            <div>
               <img
                 src={
                   this.props.initialValues.photolink
@@ -60,41 +56,29 @@ class UploadPhoto extends Component {
                 }
                 alt={this.props.name}
               />
-            </a>
+
+              <label>Upload New Photo</label>
+              <input
+                onChange={this.onFileChange.bind(this)}
+                type="file"
+                accept="image/*"
+              />
+
+              {this.state.file && (
+                <button
+                  type="submit"
+                  className="button button-border button-dark button-circle"
+                >
+                  submit
+                </button>
+              )}
+            </div>
           </div>
         </div>
-        <h5>Add New Image</h5>
-        <input
-          onChange={this.onFileChange.bind(this)}
-          type="file"
-          accept="image/*"
-        />
-        {/* <button
-          type="button"
-          className="button button-border button-dark button-circle"
-          onClick={handleSubmit(this.onFormSubmit)}
-        >
-          Submit
-        </button> */}
-
-        {this.state.file && (
-          <button
-            type="submit"
-            className="button button-border button-dark button-circle"
-            // onClick={handleSubmit(this.onFormSubmit)}
-          >
-            submit
-          </button>
-        )}
       </form>
     );
   }
 }
-
-// let reduxFormUploadPhoto = reduxForm({
-//   form: "PersonalUserProfileForm",
-//   enableReinitialize: true
-// })(UploadPhoto);
 
 let reduxFormUploadPhoto = UploadPhoto;
 

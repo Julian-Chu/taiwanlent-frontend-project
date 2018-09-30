@@ -235,9 +235,9 @@ function getFilteredTalents(talents, filter) {
     filter[2] && filter[2].length > 0
       ? tempArray.filter(t => {
           return (
-            t.subjectCategory !== "" &&
+            t.subject !== "" &&
             filter[2].some(filterSubject =>
-              filterSubject.label.includes(t.subjectCategory)
+              filterSubject.value.includes(t.subject)
             )
           );
         })

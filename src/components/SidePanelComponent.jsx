@@ -32,6 +32,12 @@ class SidePanel extends Component {
               個人資料
             </a>
             <a
+              href="/profilephoto"
+              className="button button-border button-light button-circle"
+            >
+              履歷照片
+            </a>
+            <a
               href="/logout"
               className="button button-border button-light button-circle"
             >

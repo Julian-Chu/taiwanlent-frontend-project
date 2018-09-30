@@ -92,16 +92,65 @@ function GetPeronsalUserDataAsync(userdata) {
 
 export function UpdatePersonalUserDataAsync(values, disableForm) {
   console.log("async:", values);
-  disableForm();
+  if (disableForm != null)
+    disableForm();
   return {
     type: PERSONAL_USER_DATA,
     payload: values
   };
 }
 
-export function UpdatePersonalUserData(values, file, disableForm) {
+export function UpdatePersonalUserData(values, disableForm) {
   let token = localStorage.getItem("Authorization");
   console.log("UpdatePersonalUserData:", values);
+  let user = values;
+  let userdata = {
+    username: user.username,
+    email: user.email,
+    name: user.name,
+    phone: user.phone,
+    city: user.city,
+    occupation: user.occupation,
+    livingYearInGermany: user.livingYearInGermany,
+    school: user.school,
+    workExperience_1: user.workExperience_1,
+    workExperience_2: user.workExperience_2,
+    workExperience_3: user.workExperience_3,
+    german: user.german,
+    english: user.english,
+    chinese: user.chinese,
+    licence: user.licence,
+    relocation: user.relocation,
+    selfIntroduction: user.selfIntroduction,
+    german_certificate: user.german_certificate,
+    english_certificate: user.english_certificate,
+    chinese_certificate: user.chinese_certificate,
+    gender: user.gender,
+    region: user.region && user.region.value,
+    subject: user.subject && user.subject.value,
+    photolink: user.photolink,
+    resume_open: user.resume_open,
+  };
+
+  console.log("userdata:", userdata);
+  return async dispatch => {
+    axios
+      .post(`${APIServer}/api/personaluser`, userdata, {
+        headers: {
+          Authorization: token
+        }
+      })
+      .then(() => {
+        dispatch(UpdatePersonalUserDataAsync(userdata, disableForm));
+      })
+      .catch(err => console.log(err));
+  };
+}
+
+export function UploadProfilePhoto(values, file) {
+
+  let token = localStorage.getItem("Authorization");
+  console.log("UploadProfilePhoto", values);
   let user = values;
   let userdata = {
     username: user.username,
@@ -137,8 +186,7 @@ export function UpdatePersonalUserData(values, file, disableForm) {
 
   return async dispatch => {
 
-    if (file) {
-
+    try {
       const uploadConfig = await axios.get(`${APIServer}/api/personaluser/upload`, {
         headers: {
           Authorization: token
@@ -146,29 +194,25 @@ export function UpdatePersonalUserData(values, file, disableForm) {
       });
 
       console.log(uploadConfig);
-      axios.put(uploadConfig.data.url, file, {
+      await axios.put(uploadConfig.data.url, file, {
         headers: {
           'Content-Type': file.type
         }
-      }).then(res => {
-        console.log(res)
-      }).catch(err => {
-        console.log('err:', err)
-      });
-
+      })
       userdata.photolink = uploadConfig.data.key
-
-    }
-
-    axios
-      .post(`${APIServer}/api/personaluser`, userdata, {
+      const res = await axios.post(`${APIServer}/api/personaluser`, userdata, {
         headers: {
           Authorization: token
         }
       })
-      .then(() => {
-        dispatch(UpdatePersonalUserDataAsync(userdata, disableForm));
-      })
-      .catch(err => console.log(err));
+
+      console.log(res)
+      if (res) {
+        dispatch(UpdatePersonalUserDataAsync(userdata));
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

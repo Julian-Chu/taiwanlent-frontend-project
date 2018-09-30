@@ -14,6 +14,7 @@ import BusinessUserProfile from "./components/businessUser/BusinessUserProfile";
 import WelcomeNewUser from "./components/WelcomeNewUser";
 import PersonalUserRegister from "./components/personalUser/PersonalUserRegister";
 import PersonalUserProfile from "./components/personalUser/PersonalUserProfile";
+import UploadPhoto from "./components/personalUser/UploadPhoto";
 
 class App extends Component {
   constructor(props) {
@@ -159,6 +160,12 @@ class App extends Component {
                   path="/personalUserProfile"
                   extact
                   component={props => <PersonalUserProfile {...props} />}
+                />
+
+                <Route
+                  path="/profilephoto"
+                  extact
+                  component={props => <UploadPhoto {...props} />}
                 />
                 <Route
                   path="/WelcomeNewUser"

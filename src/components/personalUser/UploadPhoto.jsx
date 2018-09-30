@@ -1,25 +1,121 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import require_Auth from "../require_authentication";
+import { UploadProfilePhoto } from "../../actions/personaluser";
+import { Field, reduxForm, reset, formValueSelector, change } from "redux-form";
+import { S3PhotoBucket } from "../../globalsetting";
+import {
+  GetPersonalUserData,
+  UpdatePersonalUserData
+} from "../../actions/personaluser";
 
 class UploadPhoto extends Component {
-  state = { file: null };
+  constructor(props) {
+    super(props);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.state = { file: null };
+  }
 
+  componentWillMount() {
+    console.log(this.props);
+    if (
+      Object.keys(this.props.initialValues).length === 0 &&
+      this.props.initialValues.constructor === Object
+    ) {
+      this.props.GetPersonalUserData(this.props.history);
+      console.log(this.props.initialValues);
+    }
+  }
   onFileChange(event) {
     this.setState({ file: event.target.files[0] });
+    console.log(this.props);
     console.log(event.target.files);
   }
 
+  onFormSubmit(event) {
+    console.log(this.props);
+    console.log(this.props.initialValues);
+    console.log(this.state.file);
+    this.props.UploadProfilePhoto(this.props.initialValues, this.state.file);
+    event.preventDefault();
+  }
+
   render() {
+    console.log(this.props);
+
+    const { handleSubmit, pristine, submitting } = this.props;
     return (
-      <div>
-        <h5>Add An Image</h5>
+      <form onSubmit={this.onFormSubmit}>
+        <div className="product clearfix pf-dress">
+          <div className="product-image ">
+            <a href="# ">
+              <img
+                src={
+                  this.props.initialValues.photolink
+                    ? `${S3PhotoBucket}${this.props.initialValues.photolink}`
+                    : this.props.gender === "male"
+                      ? "images/male.png"
+                      : "images/female.png"
+                }
+                alt={this.props.name}
+              />
+            </a>
+          </div>
+        </div>
+        <h5>Add New Image</h5>
         <input
           onChange={this.onFileChange.bind(this)}
           type="file"
           accept="image/*"
         />
-      </div>
+        {/* <button
+          type="button"
+          className="button button-border button-dark button-circle"
+          onClick={handleSubmit(this.onFormSubmit)}
+        >
+          Submit
+        </button> */}
+
+        {this.state.file && (
+          <button
+            type="submit"
+            className="button button-border button-dark button-circle"
+            // onClick={handleSubmit(this.onFormSubmit)}
+          >
+            submit
+          </button>
+        )}
+      </form>
     );
   }
 }
 
-export default UploadPhoto;
+// let reduxFormUploadPhoto = reduxForm({
+//   form: "PersonalUserProfileForm",
+//   enableReinitialize: true
+// })(UploadPhoto);
+
+let reduxFormUploadPhoto = UploadPhoto;
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      GetPersonalUserData,
+      UploadProfilePhoto
+    },
+    dispatch
+  );
+}
+
+let ConnectedUploadPhoto = connect(
+  state => {
+    console.log("state:", state.personalUserData);
+    return {
+      initialValues: state.personalUserData
+    };
+  },
+  mapDispatchToProps
+)(reduxFormUploadPhoto);
+
+export default require_Auth(ConnectedUploadPhoto);

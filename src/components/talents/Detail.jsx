@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "../../styles/talents/Detail.css";
 import regions from "../common/regions";
 
+import { S3PhotoBucket } from "../../globalsetting";
+
 const Detail = props => {
   console.log(props);
   let talent = props.talent;
@@ -22,8 +24,8 @@ const Detail = props => {
             <a href="# ">
               <img
                 src={
-                  talent.photo
-                    ? talent.photo
+                  talent.photolink
+                    ? `${S3PhotoBucket}${talent.photolink}`
                     : talent.gender === "male"
                       ? "images/male.png"
                       : "images/female.png"
@@ -49,7 +51,7 @@ const Detail = props => {
             <table className="detailView-infotable">
               <tbody>
                 <tr>
-                  <td>所在區域</td>
+                  <td>所在區域:</td>
                   <td>
                     {
                       regions.find(region => region.value === talent.region)
@@ -58,11 +60,11 @@ const Detail = props => {
                   </td>
                 </tr>
                 <tr>
-                  <td>現居城市</td>
+                  <td>現居城市:</td>
                   <td>{talent.city}</td>
                 </tr>
                 <tr>
-                  <td>在學/畢業學校</td>
+                  <td>在學/畢業學校:</td>
                   <td>{talent.school}</td>
                 </tr>
                 <tr>
@@ -92,7 +94,7 @@ const Detail = props => {
             <table>
               <tbody>
                 <tr>
-                  <th>自我介紹</th>
+                  <th>自我介紹:</th>
                 </tr>
                 <tr>
                   <th className="addline">
@@ -106,7 +108,7 @@ const Detail = props => {
                   <th>&nbsp;</th>
                 </tr>
                 <tr>
-                  <th>工作經歷</th>
+                  <th>工作經歷:</th>
                 </tr>
                 <tr>
                   <th className="addline">
@@ -114,9 +116,6 @@ const Detail = props => {
                   </th>
                 </tr>
                 <tr>
-                  {/* <td>{talent.workExperience_1}</td>
-                  <td>{talent.workExperience_2}</td>
-                  <td>{talent.workExperience_3}</td> */}
                   <ul>
                     <li>{talent.workExperience_1}</li>
                     <li>{talent.workExperience_2}</li>

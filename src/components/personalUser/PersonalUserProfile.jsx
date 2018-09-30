@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-// import Select from 'react-select';
 import regionOptions from "../common/regions";
 import subjectOptions from "../common/subjects";
 import { connect } from "react-redux";
 import { Field, reduxForm, reset, formValueSelector, change } from "redux-form";
-// import checkRules from '../../regularExpression/checkRules';
-// import * as actions from '../../actions/personaluser';
 import renderField from "../renderComponents/renderField";
-// import validate from './PersonalUserRegister/validate';
 import renderSelect from "../renderComponents/renderSelect";
 import renderRadio from "../renderComponents/renderRadio";
 import {
@@ -109,24 +105,24 @@ export class PersonalUserProfile extends Component {
           <div className="col_two_third col_last nobottommargin">
             <h3>Please input</h3>
             <form id="register-form">
-              <Field
+              {/* <Field
                 name="username"
                 placeholder=""
                 className="col_half"
                 title="使用者名稱"
                 component={renderField}
                 disabled={this.state.disabled}
-              />
+              /> */}
               <Field
                 name="email"
                 placeholder=""
-                className="col_half col_last"
+                className="col_half"
                 title="Email"
                 component={renderField}
                 disabled={this.state.disabled}
               />
               <div className="clear" />
-              <Field
+              {/* <Field
                 name="password"
                 placeholder=""
                 className="col_half"
@@ -143,7 +139,7 @@ export class PersonalUserProfile extends Component {
                 type="password"
                 component={renderField}
                 disabled={this.state.disabled}
-              />
+              /> */}
               <Field
                 name="name"
                 placeholder=""
@@ -402,15 +398,6 @@ export class PersonalUserProfile extends Component {
                     disabled={this.state.disabled}
                   />
                   <label htmlFor="relocation">開啟履歷</label>
-                </div>
-
-                <div>
-                  <h5>Add An Image</h5>
-                  <input
-                    onChange={this.onFileChange.bind(this)}
-                    type="file"
-                    accept="image/*"
-                  />
                 </div>
               </div>
 

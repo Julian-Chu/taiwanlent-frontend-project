@@ -183,6 +183,8 @@ export class Talents extends Component {
 
 function getFilteredTalents(talents, filter) {
   let tempArray = talents;
+  console.log(talents);
+  console.log(filter);
   // Filter region
   tempArray =
     filter[0] && filter[0].length > 0
@@ -190,7 +192,7 @@ function getFilteredTalents(talents, filter) {
           return (
             t.region !== "" &&
             filter[0].some(filterRegion =>
-              filterRegion.label.includes(t.region)
+              filterRegion.value.includes(t.region)
             )
           );
         })

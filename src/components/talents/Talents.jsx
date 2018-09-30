@@ -223,9 +223,9 @@ function getFilteredTalents(talents, filter) {
       filter[1] && filter[1].length > 0
         ? tempArray.filter(t => {
             return (
-              t.chinese === targetLanguages.chinese ||
-              t.english === targetLanguages.english ||
-              t.german === targetLanguages.german
+              (targetLanguages.chinese && t.chinese) ||
+              (targetLanguages.english && t.english) ||
+              (targetLanguages.german && t.german)
             );
           })
         : tempArray;

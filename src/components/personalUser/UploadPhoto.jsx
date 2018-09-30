@@ -3,12 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import require_Auth from "../require_authentication";
 import { UploadProfilePhoto } from "../../actions/personaluser";
-import { Field, reduxForm, reset, formValueSelector, change } from "redux-form";
 import { S3PhotoBucket } from "../../globalsetting";
-import {
-  GetPersonalUserData,
-  UpdatePersonalUserData
-} from "../../actions/personaluser";
+import { GetPersonalUserData } from "../../actions/personaluser";
 import "../../styles/UploadPhoto.css";
 
 class UploadPhoto extends Component {
@@ -40,7 +36,6 @@ class UploadPhoto extends Component {
   }
 
   render() {
-    const { handleSubmit, pristine, submitting } = this.props;
     return (
       <form onSubmit={this.onFormSubmit}>
         <div className="product clearfix pf-dress">

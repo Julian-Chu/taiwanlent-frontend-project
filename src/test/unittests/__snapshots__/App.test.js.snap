@@ -66,6 +66,11 @@ ShallowWrapper {
                                         />
                                         <Route
                                                   component={[Function]}
+                                                  extact={true}
+                                                  path="/profilephoto"
+                                        />
+                                        <Route
+                                                  component={[Function]}
                                                   exact={true}
                                                   path="/WelcomeNewUser"
                                         />
@@ -165,6 +170,11 @@ ShallowWrapper {
                                     />
                                     <Route
                                                 component={[Function]}
+                                                extact={true}
+                                                path="/profilephoto"
+                                    />
+                                    <Route
+                                                component={[Function]}
                                                 exact={true}
                                                 path="/WelcomeNewUser"
                                     />
@@ -239,6 +249,11 @@ ShallowWrapper {
                             />
                             <Route
                                           component={[Function]}
+                                          extact={true}
+                                          path="/profilephoto"
+                            />
+                            <Route
+                                          component={[Function]}
                                           exact={true}
                                           path="/WelcomeNewUser"
                             />
@@ -307,6 +322,11 @@ ShallowWrapper {
                                     component={[Function]}
                                     extact={true}
                                     path="/personalUserProfile"
+                  />
+                  <Route
+                                    component={[Function]}
+                                    extact={true}
+                                    path="/profilephoto"
                   />
                   <Route
                                     component={[Function]}
@@ -386,6 +406,11 @@ ShallowWrapper {
                       component={[Function]}
                       extact={true}
                       path="/personalUserProfile"
+/>,
+                    <Route
+                      component={[Function]}
+                      extact={true}
+                      path="/profilephoto"
 />,
                     <Route
                       component={[Function]}
@@ -490,6 +515,19 @@ ShallowWrapper {
                       "component": [Function],
                       "extact": true,
                       "path": "/personalUserProfile",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "component": [Function],
+                      "extact": true,
+                      "path": "/profilephoto",
                     },
                     "ref": null,
                     "rendered": null,
@@ -638,6 +676,11 @@ ShallowWrapper {
                                                 />
                                                 <Route
                                                             component={[Function]}
+                                                            extact={true}
+                                                            path="/profilephoto"
+                                                />
+                                                <Route
+                                                            component={[Function]}
                                                             exact={true}
                                                             path="/WelcomeNewUser"
                                                 />
@@ -737,6 +780,11 @@ ShallowWrapper {
                                           />
                                           <Route
                                                         component={[Function]}
+                                                        extact={true}
+                                                        path="/profilephoto"
+                                          />
+                                          <Route
+                                                        component={[Function]}
                                                         exact={true}
                                                         path="/WelcomeNewUser"
                                           />
@@ -811,6 +859,11 @@ ShallowWrapper {
                                 />
                                 <Route
                                                 component={[Function]}
+                                                extact={true}
+                                                path="/profilephoto"
+                                />
+                                <Route
+                                                component={[Function]}
                                                 exact={true}
                                                 path="/WelcomeNewUser"
                                 />
@@ -879,6 +932,11 @@ ShallowWrapper {
                                         component={[Function]}
                                         extact={true}
                                         path="/personalUserProfile"
+                    />
+                    <Route
+                                        component={[Function]}
+                                        extact={true}
+                                        path="/profilephoto"
                     />
                     <Route
                                         component={[Function]}
@@ -958,6 +1016,11 @@ ShallowWrapper {
                         component={[Function]}
                         extact={true}
                         path="/personalUserProfile"
+/>,
+                      <Route
+                        component={[Function]}
+                        extact={true}
+                        path="/profilephoto"
 />,
                       <Route
                         component={[Function]}
@@ -1062,6 +1125,19 @@ ShallowWrapper {
                         "component": [Function],
                         "extact": true,
                         "path": "/personalUserProfile",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "component": [Function],
+                        "extact": true,
+                        "path": "/profilephoto",
                       },
                       "ref": null,
                       "rendered": null,

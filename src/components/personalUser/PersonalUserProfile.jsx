@@ -20,8 +20,7 @@ export class PersonalUserProfile extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
 
     this.state = {
-      disabled: true,
-      file: null
+      disabled: true
     };
   }
 
@@ -45,7 +44,7 @@ export class PersonalUserProfile extends Component {
     console.log("this.props:", this.props);
     var history = this.props.history;
     console.log("history: ", history);
-    this.props.UpdatePersonalUserData(values, this.state.file, () =>
+    this.props.UpdatePersonalUserData(values, () =>
       this.toggleChangeInput(true)
     );
   }

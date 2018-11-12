@@ -20,7 +20,6 @@ class Talent extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="product clearfix pf-dress">
         <div className="product-image ">
@@ -61,7 +60,7 @@ class Talent extends Component {
         <div className="product-desc ">
           <div className="product-title ">
             <h3>
-              <a href="# ">{this.props.username}</a>
+              <a href="# ">{this.props.username} &nbsp;</a>
             </h3>
           </div>
           <div className="product-price ">

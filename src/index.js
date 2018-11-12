@@ -17,7 +17,6 @@ const store = createStoreWithMiddleware(
 const token = localStorage.getItem("Authorization");
 const role = localStorage.getItem("Role");
 if (token && role) {
-  console.log("token1", token);
   store.dispatch({
     type: CHANGE_AUTH,
     payload: role === "business" ? BUSINESS_USER : PERSONAL_USER

@@ -15,7 +15,6 @@ export default function get() {
         }
       })
       .then(res => {
-        console.log("Talents:", res.data);
         const talents = res.data.map(person => {
 
           return person;

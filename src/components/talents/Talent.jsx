@@ -30,8 +30,8 @@ class Talent extends Component {
                 this.props.photolink
                   ? `${S3PhotoBucket}${this.props.photolink}`
                   : this.props.gender === "male"
-                    ? "images/male.png"
-                    : "images/female.png"
+                  ? "images/male.png"
+                  : "images/female.png"
               }
               alt={this.props.name}
             />
@@ -61,7 +61,7 @@ class Talent extends Component {
         <div className="product-desc ">
           <div className="product-title ">
             <h3>
-              <a href="# ">{this.props.name}</a>
+              <a href="# ">{this.props.username}</a>
             </h3>
           </div>
           <div className="product-price ">
@@ -130,17 +130,15 @@ class Talent extends Component {
 }
 
 Talent.propTypes = {
-  name: PropTypes.string.isRequired,
-  langs: PropTypes.string.isRequired,
-  subjectCategory: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  subject: PropTypes.string.isRequired,
   region: PropTypes.string.isRequired,
-  qualified: PropTypes.bool.isRequired,
-  experienced: PropTypes.bool.isRequired,
+  // qualified: PropTypes.bool.isRequired,
+  // experienced: PropTypes.bool.isRequired,
   addCandidate: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
-  photo: PropTypes.string.isRequired,
   removeCandidate: PropTypes.func.isRequired,
-  candidates: PropTypes.arrayOf(PropTypes.number)
+  candidates: PropTypes.arrayOf(Object)
 };
 
 Talent.defaultProps = {

@@ -48,34 +48,16 @@ export class Talents extends Component {
     });
   }
 
-  add(id) {
-    this.props.addCandidate(id);
-    const newSelectedStatus = this.state.selectedStatus.slice();
-    newSelectedStatus[id - 1] = true;
-    this.setState({ selectedStatus: newSelectedStatus });
-  }
-
-  remove(id) {
-    this.props.removeCandidate(id);
-    const newSelectedStatus = this.state.selectedStatus.slice();
-    newSelectedStatus[id - 1] = false;
-    this.setState({ selectedStatus: newSelectedStatus });
-  }
-
   renderTalentList() {
     const talents = this.props.talents;
     return talents.map((t, index) => {
       return (
         <Talent
           key={index}
-          enableDetail={id => this.enableDetail(t)}
-          selected={
-            this.state.selectedStatus[t.id - 1]
-              ? this.state.selectedStatus[t.id - 1]
-              : false
-          }
-          addCandidate={() => this.add(t.id)}
-          removeCandidate={() => this.remove(t.id)}
+          enableDetail={() => this.enableDetail(t)}
+          selected={this.props.candidates.includes(t)}
+          addCandidate={() => this.props.addCandidate(t)}
+          removeCandidate={() => this.props.removeCandidate(t)}
           {...t}
         />
       );
@@ -93,8 +75,6 @@ export class Talents extends Component {
   }
 
   enableDetail(talent) {
-    console.log("talent in detail:", talent);
-    console.log(this);
     this.setState({
       detailIsEnabled: true,
       // detailId: id,
@@ -183,8 +163,6 @@ export class Talents extends Component {
 
 function getFilteredTalents(talents, filter) {
   let tempArray = talents;
-  console.log(talents);
-  console.log(filter);
   // Filter region
   tempArray =
     filter[0] && filter[0].length > 0

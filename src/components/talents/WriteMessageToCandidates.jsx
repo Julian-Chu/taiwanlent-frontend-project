@@ -28,6 +28,7 @@ export class WriteMessageToCandidates extends Component {
         <textarea />
         <br />
         <button
+          id="submit"
           className="button  button-border button-circle button-dark"
           onClick={() => this.props.writeMessageToCandidates()}
         >
@@ -35,6 +36,7 @@ export class WriteMessageToCandidates extends Component {
         </button>
 
         <button
+          id="back"
           className="button  button-border button-circle button-dark"
           onClick={() => this.props.toggleMessageWin(false)}
         >

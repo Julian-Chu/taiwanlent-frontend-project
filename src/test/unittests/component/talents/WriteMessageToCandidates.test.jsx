@@ -4,9 +4,9 @@ import { WriteMessageToCandidates } from "../../../../components/talents/WriteMe
 
 describe("WriteMessageToCandidates", () => {
   const props = {
-    GetBusinessUserData: fn => fn,
-    writeMessageToCandidates: fn => fn,
-    toggleMessageWin: fn => fn,
+    GetBusinessUserData: jest.fn(),
+    writeMessageToCandidates: jest.fn(),
+    toggleMessageWin: jest.fn(),
     candidates: [{ name: "candidate1" }, { name: "candidate2" }],
     businessUserData: {
       email: "businessUser@test.com"
@@ -20,5 +20,15 @@ describe("WriteMessageToCandidates", () => {
 
   it("sender is correct", () => {
     expect(app.find("#sender").text()).toMatch(props.businessUserData.email);
+  });
+
+  it("test click Submit button", () => {
+    app.find("#submit").simulate("click");
+    expect(props.writeMessageToCandidates.mock.calls.length).toBe(1);
+  });
+
+  it("test click Back button", () => {
+    app.find("#back").simulate("click");
+    expect(props.toggleMessageWin.mock.calls.length).toBe(1);
   });
 });

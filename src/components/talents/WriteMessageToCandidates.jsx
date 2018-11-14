@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { writeMessageToCandidates } from "../../actions/index";
+import { GetBusinessUserData } from "../../actions/businessuser";
+import { bindActionCreators } from "redux";
 
-class WriteMessageToCandidates extends Component {
+export class WriteMessageToCandidates extends Component {
+  componentDidMount() {
+    this.props.GetBusinessUserData(this.props.history);
+  }
   render() {
     const candidates = this.props.candidates || [];
-    console.log(candidates);
     return (
       <div>
-        <h5>寄件者:{localStorage.getItem("username")}</h5>
+        <h5 id="sender">寄件者:{this.props.businessUserData.email}</h5>
         <h5>Mail To:</h5>
         <ol>
           {candidates.map((candidate, index) => (
@@ -41,7 +45,19 @@ class WriteMessageToCandidates extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      GetBusinessUserData,
+      writeMessageToCandidates
+    },
+    dispatch
+  );
+}
 export default connect(
-  state => ({ candidates: state.candidates }),
-  { writeMessageToCandidates }
+  state => ({
+    candidates: state.candidates,
+    businessUserData: state.businessUserData
+  }),
+  mapDispatchToProps
 )(WriteMessageToCandidates);

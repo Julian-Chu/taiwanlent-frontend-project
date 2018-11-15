@@ -7,7 +7,6 @@ export const AddCandidateToList = 'AddCandidate';
 export const RemoveCandidateFromList = 'RemoveCandidate';
 export const RemoveAllCandidates = ' RemoveAllCandidates';
 
-
 export const setFilters = (filters) => {
   return {
     type: FILTERS,
@@ -35,16 +34,31 @@ export const removeAllCandidates = () => {
   };
 };
 
-export const writeMessageToCandidates = (data) => {
+export const writeMessageToCandidates = (data, toggleMessageWin) => {
+  let token = localStorage.getItem('Authorization');
   // todo: call api
   console.log(data);
-  var {
-    businessUser,
-    subject,
-    message,
-    candidates
-  } = data;
+  // var {
+  //   businessUser,
+  //   subject,
+  //   message,
+  //   candidates
+  // } = data;
 
+  return dispatch => {
+    axios.post(`${APIServer}/api/talents/message`, data, {
+      headers: {
+        Authorization: token
+      }
+    }).then(() => {
+      dispatch(writeMessageToCandidatesAsync(toggleMessageWin));
+    }).catch(err => console.log(err));
+  }
+
+}
+
+function writeMessageToCandidatesAsync(toggleMessageWin) {
+  toggleMessageWin(false);
   return {
     type: RemoveAllCandidates
   }
@@ -52,8 +66,6 @@ export const writeMessageToCandidates = (data) => {
 
 export function addEmailToNewsletterList(values, callback) {
   // todo: wait for backend
-  const request = axios.post(`${APIServer}/api/subscriptions`, values)
+  axios.post(`${APIServer}/api/subscriptions`, values)
     .then(() => callback());
-
-  console.log('request', request);
 }

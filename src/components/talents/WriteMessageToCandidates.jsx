@@ -25,12 +25,15 @@ export class WriteMessageToCandidates extends Component {
   }
 
   handleSubmit() {
-    this.props.writeMessageToCandidates({
-      businessUser: this.props.businessUserData,
-      subject: this.state.subject,
-      message: this.state.message,
-      candidates: this.props.candidates
-    });
+    this.props.writeMessageToCandidates(
+      {
+        businessUser: this.props.businessUserData,
+        subject: this.state.subject,
+        message: this.state.message,
+        candidates: this.props.candidates
+      },
+      e => this.props.toggleMessageWin(e)
+    );
   }
   render() {
     const candidates = this.props.candidates || [];

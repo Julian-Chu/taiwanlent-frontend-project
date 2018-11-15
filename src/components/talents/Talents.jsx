@@ -147,7 +147,12 @@ export class Talents extends Component {
     );
   }
   renderMessageWin() {
-    return <MessageWin toggleMessageWin={this.toggleMessageWin} />;
+    return (
+      <MessageWin
+        toggleMessageWin={this.toggleMessageWin}
+        history={this.props.history}
+      />
+    );
   }
 
   render() {

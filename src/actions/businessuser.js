@@ -115,8 +115,6 @@ export function UpdateBusinessUserDataAsync(userdata, disableForm) {
 }
 
 export function UpdateBusinessUserData(values, disableForm) {
-  // todo: put/patch 
-
   let token = localStorage.getItem('Authorization');
   console.log('UpdateBusinessUserData:', values);
   let user = values;

@@ -5,8 +5,23 @@ import { GetBusinessUserData } from "../../actions/businessuser";
 import { bindActionCreators } from "redux";
 
 export class WriteMessageToCandidates extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      subject: "",
+      message: ""
+    };
+  }
   componentDidMount() {
     this.props.GetBusinessUserData(this.props.history);
+  }
+
+  handleMessageChange(event) {
+    this.setState({ message: event.target.value });
+  }
+
+  handleSubjectChange(event) {
+    this.setState({ subject: event.target.value });
   }
   render() {
     const candidates = this.props.candidates || [];
@@ -19,13 +34,21 @@ export class WriteMessageToCandidates extends Component {
             <li key={index}>{candidate ? candidate.name : ""}</li>
           ))}
         </ol>
-        <label>Topic:</label>
+        <label>Subject:</label>
         <br />
-        <input type="text" />
+        <input
+          type="text"
+          value={this.state.subject}
+          onChange={e => this.handleSubjectChange(e)}
+        />
         <br />
         <label>Message:</label>
         <br />
-        <textarea />
+        <textarea
+          value={this.state.message}
+          onChange={e => this.handleMessageChange(e)}
+        />
+
         <br />
         <button
           id="submit"

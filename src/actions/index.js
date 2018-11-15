@@ -35,8 +35,15 @@ export const removeAllCandidates = () => {
   };
 };
 
-export const writeMessageToCandidates = () => {
+export const writeMessageToCandidates = (data) => {
   // todo: call api
+  console.log(data);
+  var {
+    businessUser,
+    subject,
+    message,
+    candidates
+  } = data;
 
   return {
     type: RemoveAllCandidates

@@ -23,6 +23,15 @@ export class WriteMessageToCandidates extends Component {
   handleSubjectChange(event) {
     this.setState({ subject: event.target.value });
   }
+
+  handleSubmit() {
+    this.props.writeMessageToCandidates({
+      businessUser: this.props.businessUserData,
+      subject: this.state.subject,
+      message: this.state.message,
+      candidates: this.props.candidates
+    });
+  }
   render() {
     const candidates = this.props.candidates || [];
     return (
@@ -53,7 +62,7 @@ export class WriteMessageToCandidates extends Component {
         <button
           id="submit"
           className="button  button-border button-circle button-dark"
-          onClick={() => this.props.writeMessageToCandidates()}
+          onClick={() => this.handleSubmit()}
         >
           Submit
         </button>
